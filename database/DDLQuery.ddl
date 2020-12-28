@@ -1,5 +1,5 @@
 create database spaceair;
-
+use spaceair;
 
 
 create table UTENTE (
@@ -14,10 +14,11 @@ create table UTENTE (
      Salt char(128) not null,
      Tipo tinyint not null,
      Partita_iva char(11),
-     Newsletter tinyint,
-     constraint Tipo_utenteCHK check(Tipo in (1,2)), /*Controllo su tipo utente 1-Admin 2-Utente Normale*/
-     constraint NewsletterCHK check(Newsletter in (0,1)) /*Trasformo in boolean*/
+     Newsletter tinyint
 );
+
+alter table UTENTE add constraint Tipo_utenteCHK check(Tipo in (1,2)); /*Controllo su tipo utente 1-Admin 2-Utente Normale*/
+alter table UTENTE add constraint NewsletterCHK check(Newsletter in (0,1)); /*Trasformo in boolean*/
 
 create table INDIRIZZO (
      Cod_indirizzo int not null auto_increment primary key,
@@ -43,10 +44,11 @@ create table PIANETA (
      Durata_giorno int not null, /*Minuti*/
      Img varchar(100) not null,
      Descrizione varchar(1000) not null,
-     Visibile tinyint not null,
-     constraint VisibileCHK check(Visibile in (0,1)), /*Trasformo in boolean*/
-     constraint Composizione check(Newsletter in ("Solido", "Liquido", "Gassoso", "Lava")) /*Check su composizione*/
+     Visibile tinyint not null
 );
+
+alter table PIANETA add constraint VisibileCHK check(Visibile in (0,1)); /*Trasformo in boolean*/
+alter table PIANETA add constraint Composizione check(Composizione in ("Solido", "Liquido", "Gassoso", "Lava")); /*Check su composizione*/
 
 create table PACCHETTO (
      Cod_pacchetto int not null auto_increment primary key,
@@ -59,11 +61,12 @@ create table PACCHETTO (
      Cod_pianeta int not null,
      foreign key(Cod_pianeta) references PIANETA(Cod_pianeta)
         on delete restrict
-        on update cascade,
-     constraint DataCHK check(Data_ora_partenza<Data_ora_arrivo),
-     constraint PrezzoCHK check(Prezzo>0),
-     constraint PostiCHK check(Posti>0)
+        on update cascade
 );
+
+alter table PACCHETTO add constraint DataCHK check(Data_ora_partenza<Data_ora_arrivo);
+alter table PACCHETTO add constraint PrezzoCHK check(Prezzo>0);
+alter table PACCHETTO add constraint PostiCHK check(Posti_max>0);
 
 /*
 0-Carrello
@@ -91,23 +94,10 @@ create table ORDINE (
         on update cascade,
      foreign key(IdUtente) references UTENTE(IdUtente)
         on delete restrict
-        on update cascade,
-    constraint TotaleCHK check(Totale>0)
+        on update cascade
 );
 
-/*
-Quando metto dataacquisto, mi va lo stato automaticamente
-ad accettato
-*/
-delimiter $$
-create trigger data_acquisto_UPDATE after update on ORDINE
-for each row
-begin
-	if new.Data_acquisto not null
-	then
-		new.Stato = 1;
-	end if;
-end;$$
+alter table ORDINE add constraint TotaleCHK check(Totale>0);
 
 create table TRACK (
      Cod_ordine int not null,
@@ -131,9 +121,10 @@ create table PACCHETTO_IN_ORDINE (
         on update cascade,
     foreign key(Cod_pacchetto) references PACCHETTO(Cod_pacchetto)
         on delete restrict
-        on update cascade,
-    constraint QuantitaCHK check(Quantita>0)
+        on update cascade
 );
+
+alter table PACCHETTO_IN_ORDINE add constraint QuantitaCHK check(Quantita>0);
 
 create table RECENSIONE (
      Data datetime not null,
@@ -148,9 +139,10 @@ create table RECENSIONE (
         on update cascade,
      foreign key(Cod_pianeta) references PIANETA(Cod_pianeta)
         on delete restrict
-        on update cascade,
-    constraint ValutazioneCHK check(Valutazione between 1 and 5)
+        on update cascade
 );
+
+alter table RECENSIONE add constraint ValutazioneCHK check(Valutazione between 1 and 5);
 
 create table INTERESSE (
      Data_interesse datetime not null,
@@ -190,9 +182,10 @@ create table NOTIFICA (
         on update cascade,
      foreign key(Cod_ordine, Cod_pacchetto_ordine) references PACCHETTO_IN_ORDINE(Cod_ordine, Cod_pacchetto)
 		on delete restrict
-        on update cascade,
-     constraint TipoCHK check(Tipo_notifica between 0 and 3)
+        on update cascade
 );
+
+alter table NOTIFICA add constraint TipoCHK check(Tipo_notifica between 0 and 3);
 
 create table NOTIFICA_UTENTE (
      IdUtente int not null,
@@ -205,5 +198,28 @@ create table NOTIFICA_UTENTE (
      foreign key(Cod_notifica) references NOTIFICA(Cod_notifica)
         on delete restrict
         on update cascade
-     constraint VistaCHK check(Vista in (0,1)), /*Trasformo in boolean*/
 );
+
+alter table NOTIFICA_UTENTE add constraint VistaCHK check(Vista in (0,1)); /*Trasformo in boolean*/
+
+
+
+
+
+/*
+Trigger
+*/
+
+/*
+Quando metto dataacquisto, mi va lo stato automaticamente
+ad accettato
+*/
+delimiter $$
+create trigger data_acquisto_UPDATE after update on ORDINE
+for each row
+begin
+	if new.Data_acquisto is not null
+	then
+		UPDATE ORDINE set Stato = 1 where Cod_ordine = new.Cod_ordine;
+	end if;
+end;$$
