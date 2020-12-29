@@ -11,14 +11,14 @@ class User {
     private $telNumber;
     private string $imgProfile;
     private string $mail;
-    private boolean $newsletter;
+    private bool $newsletter;
     private $addresses = array(); //Array to store addresses
     private $orders = array(); //Array to store orders
 
     /*
         Base construct
     */
-    public __construct(int $id, string $name = "",string $surname = "", $bornDate = "", $telNumber = "", $imgProfile = "", $mail = "", $newsletter = "") {
+    public function __construct(int $id, string $name = "",string $surname = "", $bornDate = "", $telNumber = "", $imgProfile = "", $mail = "", $newsletter = false) {
         $this->id = $id;
         $this->name = $name;
         $this->surname = $surname;
@@ -26,25 +26,65 @@ class User {
         $this->telNumber = $telNumber;
         $this->imgProfile = $imgProfile;
         $this->mail = $mail;
-        $this->newsletter = $newsletter;
+        $this->newsletter = (bool) $newsletter;
     }
 
     /*
         Create user from database associative array
     */
-    public __construct($associativeArray) {
-        $this->id = $associativeArray["IdUtente"];
-        $this->name = $associativeArray["Nome"];
-        $this->surname = $associativeArray["Cognome"];
-        $this->bornDate = $associativeArray["Data_nascita"];
-        $this->telNumber = $associativeArray["Telefono"];
-        $this->imgProfile = $associativeArray["Img_profilo"];
-        $this->mail = $associativeArray["Mail"];
-        $this->newsletter = $associativeArray["Newsletter"];
-        //If passed also the array of addresses
-        $this->addresses = $associativeArray["Addresses"];
-        //If passed also the array of orders
-        $this->addresses = $associativeArray["Orders"];
+    public static function createFromAssoc($associativeArray) {
+        $id = ""; 
+        $name = "";
+        $surname = ""; 
+        $bornDate = "";
+        $telNumber = "";
+        $imgProfile = "";
+        $mail = "";
+        $newsletter = "";
+
+        if(array_key_exists("IdUtente", $associativeArray)) {
+            $id = $associativeArray["IdUtente"]; 
+        }
+
+        if(array_key_exists("Nome", $associativeArray)) {
+            $name = $associativeArray["Nome"];
+        }
+
+        if(array_key_exists("Cognome", $associativeArray)) {
+            $surname = $associativeArray["Cognome"];
+        }
+
+        if(array_key_exists("Data_nascita", $associativeArray)) {
+            $bornDate = $associativeArray["Data_nascita"];
+        }
+
+        if(array_key_exists("Telefono", $associativeArray)) {
+            $telNumber = $associativeArray["Telefono"];
+        }
+
+        if(array_key_exists("Img_profilo", $associativeArray)) {
+            $imgProfile = $associativeArray["Img_profilo"];
+        }
+
+        if(array_key_exists("Mail", $associativeArray)) {
+            $mail = $associativeArray["Mail"];
+        }
+
+        if(array_key_exists("Newsletter", $associativeArray)) {
+            $newsletter = $associativeArray["Newsletter"];
+        }
+
+        if(array_key_exists("Addresses", $associativeArray)) {
+            //If passed also the array of addresses
+            $addresses = $associativeArray["Addresses"];
+        }
+
+        if(array_key_exists("Orders", $associativeArray)) {
+            //If passed also the array of orders
+            $addresses = $associativeArray["Orders"];
+        }
+
+        return new User($id, $name, $surname, $bornDate, $telNumber, $imgProfile, $mail, $newsletter);
     }
 
     /*

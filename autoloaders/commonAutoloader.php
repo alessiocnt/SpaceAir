@@ -8,7 +8,7 @@
         needed.
     */
     spl_autoload_register(function($className) {
-        $fullPath = "model/common/" . $className;
+        $fullPath = $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/common/" . $className . ".php";
         if(!file_exists($fullPath)) {
             return false;
         }
