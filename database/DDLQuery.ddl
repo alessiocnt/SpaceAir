@@ -186,10 +186,10 @@ create table NOTIFICATION (
 );
 
 alter table NOTIFICATION add constraint TypeCHK check(Type between 0 and 3);
-alter table NOTIFICATION add constraint TypeRegularCHK((Type == 0 and IdUser == null and CodPlanet == null and CodPacket == null and CodOrder == null and CodPacketInOrder == null) or
-   (Type == 1 and IdUser != null and CodPlanet != null and CodPacket == null and CodOrder == null and CodPacketInOrder == null) or
-   (Type == 2 and IdUser == null and CodPlanet == null and CodPacket != null and CodOrder == null and CodPacketInOrder == null) or
-   (Type == 0 and IdUser == null and CodPlanet == null and CodPacket == null and CodOrder != null and CodPacketInOrder != null));
+alter table NOTIFICATION add constraint TypeRegularCHK check((Type = 0 and IdUser = null and CodPlanet = null and CodPacket = null and CodOrder = null and CodPacketInOrder = null) or
+   (Type = 1 and IdUser != null and CodPlanet != null and CodPacket = null and CodOrder = null and CodPacketInOrder = null) or
+   (Type = 2 and IdUser = null and CodPlanet = null and CodPacket != null and CodOrder = null and CodPacketInOrder = null) or
+   (Type = 0 and IdUser = null and CodPlanet = null and CodPacket = null and CodOrder != null and CodPacketInOrder != null));
 
 create table USER_NOTIFICATION (
      IdUser int not null,
