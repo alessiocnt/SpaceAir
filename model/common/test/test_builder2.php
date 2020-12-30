@@ -1,7 +1,7 @@
 <?php 
 //include_once autoloaders/commonAutoloader.php;
-include 'Planet.php';
-include 'PlanetBuilder.php';
+include '../Planet.php';
+include '../PlanetBuilder.php';
 
 $builder = new PlanetBuilder();
 $builder->setId(1)->setName('Luna');

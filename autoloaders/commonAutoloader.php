@@ -8,10 +8,14 @@
         needed.
     */
     spl_autoload_register(function($className) {
-        $fullPath = $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/common/" . $className . ".php";
-        if(!file_exists($fullPath)) {
-            return false;
+        $searchPath = array("/model/common/", "/model/common/builder/");
+        foreach($searchPath as $path) {
+            $fullPath = $_SERVER["DOCUMENT_ROOT"] . "/spaceair" . $path . $className .".php"; 
+            if(file_exists($fullPath)) {
+                include_once $fullPath;
+                return true;
+            }
         }
-        include_once $fullPath;
+        return false;
     });
 ?>

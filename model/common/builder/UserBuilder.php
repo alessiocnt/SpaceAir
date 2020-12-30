@@ -1,7 +1,7 @@
 <?php 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class UserBuilder {
+class UserBuilder implements Builder{
     private int $id;
     private string $name = "";
     private string $surname = "";
@@ -22,27 +22,27 @@ class UserBuilder {
         return new User($this->id, $this->name, $this->surname, $this->bornDate, $this->telNumber, $this->imgProfile, $this->mail, $this->newsletter);
     }
 
-    public function setIdUtente($id) {
+    public function setIdUser($id) {
         $this->id = $id;
     }
 
-    public function setNome($nome) {
-        $this->name = $nome;
+    public function setName($name) {
+        $this->name = $name;
     }
 
-    public function setCognome($cognome) {
-        $this->surname = $cognome;
+    public function setSurname($surname) {
+        $this->surname = $surname;
     }
 
-    public function setData_nascita($data) {
-        $this->bornDate = $data;
+    public function setBorndate($date) {
+        $this->bornDate = $date;
     }
 
-    public function setTelefono($telefono) {
-        $this->telNumber = $telefono;
+    public function setPhone($phoneNumber) {
+        $this->telNumber = $phoneNumber;
     }
 
-    public function setImg_profilo($img) {
+    public function setProfileImg($img) {
         $this->imgProfile = $img;
     }
 

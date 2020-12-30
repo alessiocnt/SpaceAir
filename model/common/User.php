@@ -17,6 +17,8 @@ class User {
 
     /*
         Base construct
+        all optional unless the id, so we can create an object only with the id
+        without using the Builder
     */
     public function __construct(int $id, string $name = "",string $surname = "", $bornDate = "", $telNumber = "", $imgProfile = "", $mail = "", $newsletter = false) {
         $this->id = $id;
@@ -28,65 +30,7 @@ class User {
         $this->mail = $mail;
         $this->newsletter = (bool) $newsletter;
     }
-
-    /*
-        Create user from database associative array
-    */
-    public static function createFromAssoc($associativeArray) {
-        $id = ""; 
-        $name = "";
-        $surname = ""; 
-        $bornDate = "";
-        $telNumber = "";
-        $imgProfile = "";
-        $mail = "";
-        $newsletter = "";
-
-        if(array_key_exists("IdUtente", $associativeArray)) {
-            $id = $associativeArray["IdUtente"]; 
-        }
-
-        if(array_key_exists("Nome", $associativeArray)) {
-            $name = $associativeArray["Nome"];
-        }
-
-        if(array_key_exists("Cognome", $associativeArray)) {
-            $surname = $associativeArray["Cognome"];
-        }
-
-        if(array_key_exists("Data_nascita", $associativeArray)) {
-            $bornDate = $associativeArray["Data_nascita"];
-        }
-
-        if(array_key_exists("Telefono", $associativeArray)) {
-            $telNumber = $associativeArray["Telefono"];
-        }
-
-        if(array_key_exists("Img_profilo", $associativeArray)) {
-            $imgProfile = $associativeArray["Img_profilo"];
-        }
-
-        if(array_key_exists("Mail", $associativeArray)) {
-            $mail = $associativeArray["Mail"];
-        }
-
-        if(array_key_exists("Newsletter", $associativeArray)) {
-            $newsletter = $associativeArray["Newsletter"];
-        }
-
-        if(array_key_exists("Addresses", $associativeArray)) {
-            //If passed also the array of addresses
-            $addresses = $associativeArray["Addresses"];
-        }
-
-        if(array_key_exists("Orders", $associativeArray)) {
-            //If passed also the array of orders
-            $addresses = $associativeArray["Orders"];
-        }
-
-        return new User($id, $name, $surname, $bornDate, $telNumber, $imgProfile, $mail, $newsletter);
-    }
-
+    
     /*
         Getters
     */
