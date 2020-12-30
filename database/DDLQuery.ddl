@@ -2,71 +2,71 @@ create database spaceair;
 use spaceair;
 
 
-create table UTENTE (
-     IdUtente int not null auto_increment primary key,
-     Nome varchar(20) not null,
-     Cognome varchar(20) not null,
-     Data_nascita date not null,
-     Telefono char(10) not null,
-     Img_profilo varchar(100) not null,
+create table USERS (
+     IdUser int not null auto_increment primary key,
+     Name varchar(20) not null,
+     Surname varchar(20) not null,
+     Borndate date not null,
+     Phone char(10) not null,
+     ProfileImg varchar(100) not null,
      Mail varchar(50) not null,
      Password char(128) not null,
      Salt char(128) not null,
-     Tipo tinyint not null,
-     Partita_iva char(11),
+     Type tinyint not null,
+     PartitaIva char(11),
      Newsletter tinyint
 );
 
-alter table UTENTE add constraint Tipo_utenteCHK check(Tipo in (1,2)); /*Controllo su tipo utente 1-Admin 2-Utente Normale*/
-alter table UTENTE add constraint NewsletterCHK check(Newsletter in (0,1)); /*Trasformo in boolean*/
+alter table USERS add constraint UserTypeCHK check(Type in (1,2)); /*Controllo su tipo USERS 1-Admin 2-USERS Normale*/
+alter table USERS add constraint NewsletterCHK check(Newsletter in (0,1)); /*Trasformo in boolean*/
 
-create table INDIRIZZO (
-     Cod_indirizzo int not null auto_increment primary key,
+create table ADDRESS (
+     CodAddress int not null auto_increment primary key,
      Via varchar(40) not null,
      Civico varchar(6) not null,
      Citta varchar(20) not null,
      Provincia varchar(20) not null,
      Cap varchar(10) not null,
-     IdUtente int not null,
-     foreign key(IdUtente) references UTENTE(IdUtente)
+     IdUser int not null,
+     foreign key(IdUser) references USERS(IdUser)
         on delete restrict
         on update cascade
 );
 
-create table PIANETA (
-     Cod_pianeta int not null auto_increment primary key,
-     Nome varchar(20) not null,
-     Temperatura int not null,
-     Massa float not null,
-     Superficie float not null,
-     Distanza_sole float not null,
-     Composizione varchar(10) not null,
-     Durata_giorno int not null, /*Minuti*/
+create table PLANET (
+     CodPlanet int not null auto_increment primary key,
+     Name varchar(20) not null,
+     Temperature int not null,
+     Mass float not null,
+     Surface float not null,
+     SunDistance float not null,
+     Composition varchar(10) not null,
+     DayLength int not null, /*Minuti*/
      Img varchar(100) not null,
-     Descrizione varchar(1000) not null,
-     Visibile tinyint not null
+     Description varchar(1000) not null,
+     Visible tinyint not null
 );
 
-alter table PIANETA add constraint VisibileCHK check(Visibile in (0,1)); /*Trasformo in boolean*/
-alter table PIANETA add constraint Composizione check(Composizione in ("Solido", "Liquido", "Gassoso", "Lava")); /*Check su composizione*/
+alter table PLANET add constraint VisibleCHK check(Visible in (0,1)); /*Trasformo in boolean*/
+alter table PLANET add constraint CompositionCHK check(Composition in ("Solido", "Liquido", "Gassoso", "Lava")); /*Check su composizione*/
 
-create table PACCHETTO (
-     Cod_pacchetto int not null auto_increment primary key,
-     Img_brochure varchar(100),
-     Data_ora_partenza datetime not null,
-     Data_ora_arrivo datetime not null,
-     Prezzo float not null,
-     Posti_max tinyint not null,
-     Descrizione varchar(1000) not null,
-     Cod_pianeta int not null,
-     foreign key(Cod_pianeta) references PIANETA(Cod_pianeta)
+create table PACKET (
+     CodPacket int not null auto_increment primary key,
+     ImgBrochure varchar(100),
+     DateTimeDeparture datetime not null,
+     DateTimeArrival datetime not null,
+     Price float not null,
+     MaxSeats tinyint not null,
+     Description varchar(1000) not null,
+     CodPlanet int not null,
+     foreign key(CodPlanet) references PLANET(CodPlanet)
         on delete restrict
         on update cascade
 );
 
-alter table PACCHETTO add constraint DataCHK check(Data_ora_partenza<Data_ora_arrivo);
-alter table PACCHETTO add constraint PrezzoCHK check(Prezzo>0);
-alter table PACCHETTO add constraint PostiCHK check(Posti_max>0);
+alter table PACKET add constraint DateCHK check(DateTimeDeparture<DateTimeArrival);
+alter table PACKET add constraint PriceCHK check(Price>0);
+alter table PACKET add constraint SeatsCHK check(MaxSeats>0);
 
 /*
 0-Carrello
@@ -74,85 +74,85 @@ alter table PACCHETTO add constraint PostiCHK check(Posti_max>0);
 2-In consegna
 3-Consegnato
 */
-create table STATO_ORDINE (
-     Cod_stato int not null auto_increment primary key,
-     Descrizione varchar(100) not null
+create table ORDER_STATE (
+     CodState int not null auto_increment primary key,
+     Description varchar(100) not null
 );
 
-create table ORDINE (
-     Cod_ordine int not null auto_increment primary key,
-     Data_acquisto datetime,
-     Totale float not null,
-     Cod_indirizzo_dest int,
-     Stato int not null,
-     IdUtente int not null,
-     foreign key(Cod_indirizzo_dest) references INDIRIZZO(Cod_indirizzo)
+create table ORDERS (
+     CodOrder int not null auto_increment primary key,
+     PurchaseDate datetime,
+     Total float not null,
+     DestAddressCode int,
+     State int not null,
+     IdUser int not null,
+     foreign key(DestAddressCode) references ADDRESS(CodAddress)
         on delete restrict
         on update cascade,
-     foreign key(Stato) references STATO_ORDINE(Cod_stato)
+     foreign key(State) references ORDER_STATE(CodState)
         on delete restrict
         on update cascade,
-     foreign key(IdUtente) references UTENTE(IdUtente)
+     foreign key(IdUser) references USERS(IdUser)
         on delete restrict
         on update cascade
 );
 
-alter table ORDINE add constraint TotaleCHK check(Totale>0);
+alter table ORDERS add constraint TotalCHK check(Total>0);
 
 create table TRACK (
-     Cod_ordine int not null,
-     Data_ora datetime not null,
-     Latitudine Decimal(8,6) not null,
-     Longitudine Decimal(9,6) not null,
-     Descrizione varchar(200) not null,
-     primary key(Cod_ordine, Data_ora),
-     foreign key(Cod_ordine) references ORDINE(Cod_ordine)
+     CodOrder int not null,
+     DateTime datetime not null,
+     Latitude Decimal(8,6) not null,
+     Longitude Decimal(9,6) not null,
+     Description varchar(200) not null,
+     primary key(CodOrder, DateTime),
+     foreign key(CodOrder) references ORDERS(CodOrder)
         on delete restrict
         on update cascade
 );
 
-create table PACCHETTO_IN_ORDINE (
-     Cod_pacchetto int not null,
-     Cod_ordine int not null,
-     Quantita smallint not null,
-     primary key (Cod_ordine, Cod_pacchetto),
-     foreign key(Cod_ordine) references ORDINE(Cod_ordine)
+create table PACKET_IN_ORDER (
+     CodPacket int not null,
+     CodOrder int not null,
+     Quantity smallint not null,
+     primary key (CodOrder, CodPacket),
+     foreign key(CodOrder) references ORDERS(CodOrder)
         on delete restrict
         on update cascade,
-    foreign key(Cod_pacchetto) references PACCHETTO(Cod_pacchetto)
+    foreign key(CodPacket) references PACKET(CodPacket)
         on delete restrict
         on update cascade
 );
 
-alter table PACCHETTO_IN_ORDINE add constraint QuantitaCHK check(Quantita>0);
+alter table PACKET_IN_ORDER add constraint QuantityCHK check(Quantity>0);
 
-create table RECENSIONE (
-     Data datetime not null,
-     Titolo varchar(50) not null,
-     Descrizione varchar(1000) not null,
-     Valutazione tinyint not null,
-     IdUtente int not null,
-     Cod_pianeta int not null,
-     primary key (IdUtente, Cod_pianeta),
-     foreign key(IdUtente) references UTENTE(IdUtente)
+create table REWIEW (
+     DateTime datetime not null,
+     Title varchar(50) not null,
+     Description varchar(1000) not null,
+     Rating tinyint not null,
+     IdUser int not null,
+     CodPlanet int not null,
+     primary key (IdUser, CodPlanet),
+     foreign key(IdUser) references USERS(IdUser)
         on delete restrict
         on update cascade,
-     foreign key(Cod_pianeta) references PIANETA(Cod_pianeta)
+     foreign key(CodPlanet) references PLANET(CodPlanet)
         on delete restrict
         on update cascade
 );
 
-alter table RECENSIONE add constraint ValutazioneCHK check(Valutazione between 1 and 5);
+alter table REWIEW add constraint RatingCHK check(Rating between 1 and 5);
 
-create table INTERESSE (
-     Data_interesse datetime not null,
-     IdUtente int not null,
-     Cod_pianeta int not null,
-     primary key (IdUtente, Cod_pianeta),
-     foreign key(IdUtente) references UTENTE(IdUtente)
+create table INTEREST (
+     Date datetime not null,
+     IdUser int not null,
+     CodPlanet int not null,
+     primary key (IdUser, CodPlanet),
+     foreign key(IdUser) references USERS(IdUser)
         on delete restrict
         on update cascade,
-     foreign key(Cod_pianeta) references PIANETA(Cod_pianeta)
+     foreign key(CodPlanet) references PLANET(CodPlanet)
         on delete restrict
         on update cascade
 );
@@ -163,44 +163,44 @@ create table INTERESSE (
 2-Notifica Viaggio Generico
 3-Notifica Pacchetto ordinato
 */
-create table NOTIFICA (
-     Cod_notifica int not null auto_increment primary key,
-     Data_ora datetime not null,
-     Titolo varchar(50) not null,
-     Descrizione varchar(500) not null,
-     Tipo_notifica tinyint not null,
-     IdUtente int,
-     Cod_pianeta int,
-     Cod_pacchetto int,
-     Cod_ordine int,
-     Cod_pacchetto_ordine int,
-     foreign key(IdUtente, Cod_pianeta) references INTERESSE(IdUtente, Cod_pianeta)
-		on delete restrict
+create table NOTIFICATION (
+     CodNotification int not null auto_increment primary key,
+     DateTime datetime not null,
+     Title varchar(50) not null,
+     Description varchar(500) not null,
+     Type tinyint not null,
+     IdUser int,
+     CodPlanet int,
+     CodPacket int,
+     CodOrder int,
+     CodPacketInOrder int,
+     foreign key(IdUser, CodPlanet) references INTEREST(IdUser, CodPlanet)
+		   on delete restrict
+         on update cascade,
+     foreign key(CodPacket) references PACKET(CodPacket)
+		   on delete restrict
+         on update cascade,
+     foreign key(CodOrder, CodPacketInOrder) references PACKET_IN_ORDER(CodOrder, CodPacket)
+		   on delete restrict
+         on update cascade
+);
+
+alter table NOTIFICATION add constraint TypeCHK check(Type between 0 and 3);
+
+create table USER_NOTIFICATION (
+     IdUser int not null,
+     View tinyint not null,
+     CodNotification int not null,
+     primary key (IdUser, CodNotification),
+     foreign key(IdUser) references USERS(IdUser)
+        on delete restrict
         on update cascade,
-     foreign key(Cod_pacchetto) references PACCHETTO(Cod_pacchetto)
-		on delete restrict
-        on update cascade,
-     foreign key(Cod_ordine, Cod_pacchetto_ordine) references PACCHETTO_IN_ORDINE(Cod_ordine, Cod_pacchetto)
-		on delete restrict
+     foreign key(CodNotification) references NOTIFICATION(CodNotification)
+        on delete restrict
         on update cascade
 );
 
-alter table NOTIFICA add constraint TipoCHK check(Tipo_notifica between 0 and 3);
-
-create table NOTIFICA_UTENTE (
-     IdUtente int not null,
-     Vista tinyint not null,
-     Cod_notifica int not null,
-     primary key (IdUtente, Cod_notifica),
-     foreign key(IdUtente) references UTENTE(IdUtente)
-        on delete restrict
-        on update cascade,
-     foreign key(Cod_notifica) references NOTIFICA(Cod_notifica)
-        on delete restrict
-        on update cascade
-);
-
-alter table NOTIFICA_UTENTE add constraint VistaCHK check(Vista in (0,1)); /*Trasformo in boolean*/
+alter table USER_NOTIFICATION add constraint ViewCHK check(View in (0,1)); /*Trasformo in boolean*/
 
 
 
@@ -215,11 +215,11 @@ Quando metto dataacquisto, mi va lo stato automaticamente
 ad accettato
 */
 delimiter $$
-create trigger data_acquisto_UPDATE after update on ORDINE
+create trigger date_purchase_UPDATE after update on ORDERS
 for each row
 begin
-	if new.Data_acquisto is not null
+	if new.PurchaseDate is not null
 	then
-		UPDATE ORDINE set Stato = 1 where Cod_ordine = new.Cod_ordine;
+		UPDATE ORDERS set State = 1 where CodOrder = new.CodOrder;
 	end if;
 end;$$
