@@ -1,6 +1,6 @@
 <?php 
-include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/ModelHelper.php";
-include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/handler/AbstractHandler.php";
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 class TestHandler extends AbstractHandler {
 

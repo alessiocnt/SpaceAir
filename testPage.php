@@ -1,8 +1,5 @@
 <?php
-
-require_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/ModelImpl.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/TestController.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/Controller.php";
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 $controller = new TestController(new ModelImpl());
 $controller->execute();

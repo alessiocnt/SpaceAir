@@ -1,6 +1,7 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/Model.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/ModelHelper.php";
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
+
 //Test
 include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/handler/TestHandler.php";
 

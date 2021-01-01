@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/Controller.php";
-include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/Model.php";
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 abstract class AbstractController implements Controller {
     private Model $model;
