@@ -7,6 +7,11 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/handler/TestHandler.ph
 
 class ModelImpl implements Model, ModelHelper {
     private DbManager $dbManager;
+
+    public function __construct(){
+        $this->dbManager = new DbManagerImpl("localhost", "root", "", "blogtw", 3306);       
+    }
+    
     /**
      * @return DbManager the dbManager
      */
