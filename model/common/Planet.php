@@ -1,45 +1,41 @@
 <?php
 
 /*
-    Class that represent a planet destination.
+    Class that represent a planet.
 */
 class Planet {
-    private int $id;
+    private int $codPlanet;
     private string $name;
     private int $temperature;
     private float $mass;
     private float $surface;
     private float $sunDistance;
     private string $composition;
-    private int $dayDuration;
+    private int $dayLength;
     private string $imgPlanet;
     private string $description;
     private bool $visible;
-    // private $packets = array(); //Array to store packets
-    // private $reviews = array(); //Array to store reviews of this planet
+    private $packages = array(); //Array to store package
+    private $reviews = array(); //Array to store reviews of this planet
 
-    /*
-        Base construct
-    */
-    public function __construct($builder) {
-        $this->id = $builder->getId();
-        $this->name = $builder->getName();
-        /*$this->temperature = $builder->getTemperature();
-        $this->mass = $builder->getMass();
-        $this->surface = $builder->getSurface();
-        $this->sunDistance = $builder->getSunDistance();
-        $this->composition = $builder->getComposition();
-        $this->dayDuration = $builder->getDayDuration();
-        $this->imgPlanet = $builder->getImgPlanet();
-        $this->description = $builder->getDescription();
-        $this->visible = $builder->isVisible();*/
+    /* Base construct */
+    public function __construct(int $codPlanet, string $name = "", int $temperature, float $mass, float $surface, float $sunDistance, string $composition = "", int $dayLength, string $imgPlanet = "", string $description = "", bool $visible) {
+        $this->codPlanet = $codPlanet;
+        $this->name = $name;
+        $this->temperature = $temperature;
+        $this->mass = $mass;
+        $this->surface = $surface;
+        $this->sunDistance = $sunDistance;
+        $this->composition = $composition;
+        $this->dayLength = $dayLength;
+        $this->imgPlanet = $imgPlanet;
+        $this->description = $description;
+        $this->visible = $visible;
     }
 
-    /*
-        Getters
-    */
-    public function getId() : int {
-        return $this->id;
+    /* Getters */
+    public function getCodPlanet() : int {
+        return $this->codPlanet;
     }
 
     public function getName() : string {
@@ -66,8 +62,8 @@ class Planet {
         return $this->composition;
     }
 
-    public function getDayDuration() : int {
-        return $this->dayDuration;
+    public function getDayLength() : int {
+        return $this->dayLength;
     }
 
     public function getImgPlanet() : string {
@@ -81,16 +77,14 @@ class Planet {
     public function isVisible() : bool {
         return $this->visible;
     }
-
-    /*
-        External relationships
     
-    public function setPackets($packets) {
-        $this->packets = $packets;
+    /* External relationships */
+    public function setPackages($packages) {
+        $this->packages = $packages;
     }
 
-    public function getPackets() {
-        return $this->packets;
+    public function getPackages() {
+        return $this->packages;
     }
 
     public function setReviews($reviews) {
@@ -99,8 +93,10 @@ class Planet {
 
     public function getReviews() {
         return $this->reviews;
-    }*/
+    }
+
 }
+
 
 ?>
 
