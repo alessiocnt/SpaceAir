@@ -1,6 +1,6 @@
 <?php
 
-class Package {
+class Packet {
     private int $code;
     private $img;
     private DateTime $departureDateHour;
@@ -9,9 +9,9 @@ class Package {
     private int $maxSeats;
     private int $aviableSeats;
     private string $description;
-    private Planet $destinationPlanet;
+    private int $destinationPlanet;
 
-    public function __construct(int $code, $img, DateTime $departureDateHour, DateTime $arriveDateHour, float $price, int $maxSeats, int $aviableSeats, string $description, Planet $destinationPlanet) {
+    public function __construct(int $code, $img, DateTime $departureDateHour, DateTime $arriveDateHour, float $price, int $maxSeats, int $aviableSeats, string $description, int $destinationPlanet) {
         $this->code = $code;
         $this->img = $img;
         $this->departureDateHour = $departureDateHour;
@@ -55,7 +55,7 @@ class Package {
         return $this->description;
     }
 
-    public function getDestinationPlanet() : Planet {
+    public function getDestinationPlanetId() : int {
         return $this->destinationPlanet;
     }
 }

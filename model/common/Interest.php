@@ -1,22 +1,21 @@
 <?php
 
-class Favourite {
-
-    private User $user;
-    private Planet $planet;
+class Interest {
+    private int $user;
+    private int $planet;
     private DateTime $date;
 
-    public function __construct(User $user, Planet $planet, DateTime $date) {
+    public function __construct(int $user, int $planet, DateTime $date) {
         $this->user = $user;
         $this->planet = $planet;
         $this->date = $date;
     }
 
-    public function getUser() : User {
+    public function getUserId() : int {
         return $this->user;
     }
 
-    public function getPlanet() : Planet {
+    public function getPlanetId() : int {
         return $this->planet;
     }
 

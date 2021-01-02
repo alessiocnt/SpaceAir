@@ -9,74 +9,52 @@ class Notification {
     private string $title;
     private string $description;
     private NotificationType $notificationType;
-    private User $user;
+    private ?int $user;
     private $notificationSubject;
+    private bool $seen;
 
 
-    public function __construct() { }
-
-    public static function create() {
-        return new self();
-    }
-
-    public function setCode(int $code) {
+    public function __construct(int $code, DateTime $dateHour, string $title, string $description, NotificationType $notificationType, int $user, $notificationSubject, bool $seen) {
         $this->code = $code;
-        return $this;
-    }
-
-    public function setDateHour(DateTime $dateHour) {
         $this->dateHour = $dateHour;
-        return $this;
-    }
-
-    public function setTitle(string $title) {
         $this->title = $title;
-        return $this;
-    }
-
-    public function setDescription(string $description) {
         $this->description = $description;
-        return $this;
-    }
-
-    public function setNotificationType(NotificationType $notificationType) {
         $this->notificationType = $notificationType;
-        return $this;
-    }
-
-    public function setUser(User $user) {
         $this->user = $user;
-        return $this;
-    }
-
-    public function setNotificationSubject($notificationSubject) {
         $this->notificationSubject = $notificationSubject;
-        return $this;
+        $this->seen = $seen;
     }
 
-    public function setFromAssociativeArray($associativeArray) {
-        $this->code = $associativeArray["Cod_notifica"];
-        $this->dateHour = DateTime::createFromFormat("Y-m-d H:i:s", $associativeArray["Data_ora"]);
-        $this->title = $associativeArray["Titolo"];
-        $this->description = $associativeArray["Descrizione"];
-        $this->notificationType = NotificationType::fromNumber($associativeArray["Tipo_notifica"]);
-        $this->notificationSubject = $this->calculateNotificationSubject($associativeArray);
+    public function getCode() : int {
+        return $this->code;
     }
 
-    private function calculateNotificationSubject($associativeArray) {
-        switch ($this->notificationType) {
-            case NotificationType::GENERAL:
-                return $associativeArray["Cod_pianeta"];
+    public function getDateHour() : DateTime {
+        return $this->dateHour;
+    }
 
-            case NotificationType::INTEREST:
-                return $associativeArray["Cod_pacchetto"];
+    public function getTitle() : string {
+        return $this->title;
+    }
+    
+    public function getDescription() : string {
+        return $this->description;
+    }
 
-            case NotificationType::FLIGHT:
-                return $associativeArray["Cod_ordine"];
+    public function getNotificationType() : NotificationType {
+        return $this->notificationType;
+    }
 
-            case NotificationType::PACKAGE:
-                return $associativeArray["Cod_pacchetto_ordinato"];
-        }
+    public function getUserId() : int {
+        return $this->user;
+    }
+
+    public function getNotificationSubject() {
+        return $this->notificationSubject;
+    }
+
+    public function isSeen() {
+        return $this->seen;
     }
 }
 
