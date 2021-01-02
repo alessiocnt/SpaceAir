@@ -15,7 +15,7 @@ class Planet {
     private string $imgPlanet;
     private string $description;
     private bool $visible;
-    private $packages = array(); //Array to store package
+    private $packets = array(); //Array to store packets
     private $reviews = array(); //Array to store reviews of this planet
 
     /* Base construct */
@@ -79,12 +79,12 @@ class Planet {
     }
     
     /* External relationships */
-    public function setPackages($packages) {
-        $this->packages = $packages;
+    public function setPackets($packets) {
+        $this->packages = $packets;
     }
 
-    public function getPackages() {
-        return $this->packages;
+    public function getPackets() {
+        return $this->packets;
     }
 
     public function setReviews($reviews) {
