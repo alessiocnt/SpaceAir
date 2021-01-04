@@ -1,0 +1,37 @@
+.logo-header {
+    width: 30px;
+    height: 30px;
+}
+
+.bg-custom {
+    background-color: #071E39 !important; 
+}
+
+ul.navbar-nav > li.nav-item > a.nav-link {
+    color: #E4E4E4;
+}
+
+
+.col-title {
+    color: #ffffff;
+}
+
+.col-error {
+    color: #CF6679;
+}
+
+.col-text {
+    color: #E4E4E4;
+}
+
+.col-dark {
+    color: #343C44;
+}
+
+.col-btn-impo {
+    background-color: #CF6679;
+}
+
+.col-btn-regular {
+    background-color: #DBCBCB;
+}
