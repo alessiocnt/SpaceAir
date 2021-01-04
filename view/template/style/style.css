@@ -35,3 +35,23 @@ ul.navbar-nav > li.nav-item > a.nav-link {
 .col-btn-regular {
     background-color: #DBCBCB;
 }
+
+
+/* Handle notification badge */
+.notification {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+
+.notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+  }
+  

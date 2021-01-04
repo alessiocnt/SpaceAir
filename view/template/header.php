@@ -27,15 +27,7 @@
 
         <!--Navbar icons near logo for device screen-->
         <div class="navbar-brand align-top ml-auto d-inline-block d-md-none">
-            <a href="#">
-                <img src="/spaceair/res/Icons/shopping_cart-white-18dp.svg" class="logo-header" alt="">
-            </a>
-            <a href="#">
-                <img src="/spaceair/res/Icons/notifications-white-18dp.svg" class="logo-header" alt="">
-            </a>
-            <a href="#">
-                <img src="/spaceair/res/Icons/account_circle-white-18dp.svg" class="logo-header" alt="">
-            </a>
+            <?php require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons.html"; ?>
         </div>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -51,15 +43,7 @@
 
         <!--Navbar icons, need to repeat in order to move them on the extreme right after the nav-item when over md view-->
         <div class="navbar-brand align-top ml-auto d-none d-md-block">
-            <a href="#">
-                <img src="/spaceair/res/Icons/shopping_cart-white-18dp.svg" class="logo-header" alt="">
-            </a>
-            <a href="#">
-                <img src="/spaceair/res/Icons/notifications-white-18dp.svg" class="logo-header" alt="">
-            </a>
-            <a href="#">
-                <img src="/spaceair/res/Icons/account_circle-white-18dp.svg" class="logo-header" alt="">
-            </a>
+            <?php require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons.html"; ?>
         </div>
 
       </nav>
