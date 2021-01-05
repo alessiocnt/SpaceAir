@@ -1,8 +1,1 @@
-<html>
-<head>
-    <title>Prova</title>
-</head>
-<body>
-    <?php echo "Ciao " . $data["name"]; ?>
-</body>
-</html>
+<p class="col-text"><?php echo "Ciao " . $data["name"]; ?></p>

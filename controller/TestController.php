@@ -12,7 +12,9 @@ class TestController extends AbstractController {
         //Get Data from model
         $name = $this->getModel()->getTestHandler()->getName();
         //Transform in data for the view
-        $data["name"] = $name;
+        $data["data"]["name"] = $name;
+        //Set the title
+        $data["header"]["title"] = "Test";
         //Create the view
         $view = new TestView();
         //Render the view

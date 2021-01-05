@@ -4,7 +4,11 @@
 }
 
 .bg-custom {
-    background-color: #071E39 !important; 
+    background-color: #071E39; 
+}
+
+.bg-sec {
+    background-color: #1C3D65; 
 }
 
 ul.navbar-nav > li.nav-item > a.nav-link {
@@ -34,6 +38,10 @@ ul.navbar-nav > li.nav-item > a.nav-link {
 
 .col-btn-regular {
     background-color: #DBCBCB;
+}
+
+footer a {
+    font-size: 0.8em;
 }
 
 
