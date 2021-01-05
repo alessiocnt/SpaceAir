@@ -3,10 +3,10 @@
     <div class="col-12">
         <footer>
         <nav class="nav text-monospace">
-            <a href="#" class="px-1 py-2  col-text nav-link col-4 col-md-3 text-center" href="#">ABOUT US</a>    
-            <a href="#" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center" href="#">CONTACTS</a>
-            <a href="#" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center" href="#">COOKIE POLICY</a>
-            <a href="#" class="px-1 py-2 col-text nav-link col-12 col-md-3 text-center" href="#">PRIVACY POLICY</a>
+            <a href="#" class="px-1 py-2  col-text nav-link col-4 col-md-3 text-center">ABOUT US</a>    
+            <a href="#" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center">CONTACTS</a>
+            <a href="#" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center">COOKIE POLICY</a>
+            <a href="#" class="px-1 py-2 col-text nav-link col-12 col-md-3 text-center">PRIVACY POLICY</a>
         </nav>
         </footer>
     </div>

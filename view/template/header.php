@@ -10,7 +10,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="/spaceair/view/template/style/style.css" >
 
-    <title><?php echo $headerInfo["header"]["title"]; ?></title>
+    <title><?php echo $headerInfo["title"]; ?></title>
 </head>
 <body class="bg-custom">
     <nav class="navbar navbar-expand-md navbar-dark bg-custom">
@@ -21,7 +21,7 @@
 
         <!--SpaceAir logo and name-->
         <a class="navbar-brand mx-auto" href="#">
-            <img src="/spaceair/res/Icons/logo.svg" class="d-inline-block align-top logo-header" alt="" loading="lazy">
+            <img src="/spaceair/res/Icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
             SPACEAIR
         </a>
 
