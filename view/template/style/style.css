@@ -28,6 +28,14 @@ ul.navbar-nav > li.nav-item > a.nav-link {
     color: #E4E4E4;
 }
 
+a.col-text:hover {
+    color: #DBCBCB;
+}
+
+a.col-text:active {
+    color: #DBCBCB;
+}
+
 .col-dark {
     color: #343C44;
 }
