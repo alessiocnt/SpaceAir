@@ -43,6 +43,10 @@ a.col-text:active {
     color: #343C44;
 }
 
+.col-blue {
+    color: #071E39;
+}
+
 .col-btn-impo {
     background-color: #CF6679;
 }
@@ -68,7 +72,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 textarea {
@@ -90,6 +94,10 @@ textarea {
 
 .list-impo-text {
     font-size: 1.3em;
+}
+
+.impo-text {
+    font-size: 2em;
 }
 
 /* Handle notification badge */
