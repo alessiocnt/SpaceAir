@@ -82,6 +82,16 @@ textarea {
     max-height: 150px;
 }
 
+.planet-img {
+    max-height: 70px;
+    background-color: #071E39;
+    border-radius: 10%;
+}
+
+.list-impo-text {
+    font-size: 1.3em;
+}
+
 /* Handle notification badge */
 .notification {
     color: white;
