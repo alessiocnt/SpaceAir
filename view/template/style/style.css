@@ -28,7 +28,9 @@ ul.navbar-nav > li.nav-item > a.nav-link {
 .col-text {
     color: #E4E4E4;
 }
-
+.col-link {
+    color: #DBCBCB;
+}
 a.col-text:hover {
     color: #DBCBCB;
 }
@@ -47,6 +49,10 @@ a.col-text:active {
 
 .col-btn-regular {
     background-color: #DBCBCB;
+}
+
+.col-back-white {
+    background-color: #E4E4E4;
 }
 
 footer a {

@@ -1,5 +1,5 @@
 </main>
-<div class="row bg-sec justify-content-center">
+<div class="row bg-sec justify-content-center mt-5">
     <div class="col-12">
         <footer>
         <nav class="nav text-monospace">
