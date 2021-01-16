@@ -49,6 +49,13 @@ a.col-text:active {
     background-color: #DBCBCB;
 }
 
+.home-img {
+    top: 0; 
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 footer a {
     font-size: 0.8em;
 }
