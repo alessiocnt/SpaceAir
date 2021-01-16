@@ -6,11 +6,11 @@
     </div>
     <div class="row">
         <div class="col-12 text-center p-4">
-            <img src="/spaceair/res/icons/decorative/undraw_Outer_space_drqu.svg" alt="" class="w-50">
+            <img src="/spaceair/res/icons/decorative/undraw_Outer_space_drqu.svg" alt="" class="decorative-img mw-50">
         </div>
     </div>
     <div class="row mt-2">
-        <div class="offset-1 col-10">
+        <div class="offset-1 col-10 offset-md-4 col-md-4">
             <section>
                 <form action="" method="POST">
                     <fieldset class="form-group"><legend class="col-title">Dati Utente</legend>
@@ -72,7 +72,7 @@
                         <legend class="col-text">Immagine di profilo</legend>
                         <div class="row">
                             <div class="col-12 text-center mt-1 mb-4">
-                                <img src="/spaceair/res/icons/decorative/user.jpeg" class="rounded-circle w-50" alt="Immagine selezionata"/>
+                                <img src="/spaceair/res/icons/decorative/user.jpeg" class="decorative-img rounded-circle mw-50" alt="Immagine selezionata"/>
                             </div>
                         </div>
                         <div class="custom-file">
@@ -90,6 +90,4 @@
                 <p class="mt-1 col-text font-weight-light">Hai gi&agrave un account? <a href="#" class="col-link">Login</a></p>
             </section>
         </div>
-
-
 </section>

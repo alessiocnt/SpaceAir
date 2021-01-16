@@ -73,6 +73,11 @@ textarea {
     outline: none;
 }
 
+/*Handle header decorative images*/
+.decorative-img {
+    max-height: 150px;
+}
+
 /* Handle notification badge */
 .notification {
     color: white;
