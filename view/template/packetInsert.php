@@ -89,7 +89,7 @@
                         <form action="">
                             <div class="row mb-3">
                                 <div class="container">
-                                    <label for="inputDestinazione" style="color: #ffffff">Destinazione</label>
+                                    <label for="inputDestinazione">Destinazione</label>
                                     <select name="inputDestination" id="inputDestination" class="form-control">
                                         <option selected>Seleziona...</option>
                                         <option value="Marte">Marte</option>
@@ -99,7 +99,7 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-6">
-                                    <label for="inputDate" style="color: #ffffff">Data</label>
+                                    <label for="inputDate">Data</label>
                                     <input type="date" class="form-control" name="inputDate" id="inputDate" />
                                 </div>
                                 <div class="col-6">
@@ -109,7 +109,7 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-6">
-                                    <label for="inputCapacity" style="color: #ffffff">Capienza</label>
+                                    <label for="inputCapacity">Capienza</label>
                                     <input type="text" class="form-control" name="inputCapacity" id="inputCapacity" />
                                 </div>
                                 <div class="col-6">
@@ -128,7 +128,7 @@
                             <div class="row mb-3">
                                 <div class="container">
                                     <label for="inputDescription">Descrizione</label>
-                                    <textarea class="form-control" name="inputDescription" id="inputDescription" rows="5" style="overflow: hidden; resize: none; outline: none;"></textarea>
+                                    <textarea class="form-control" name="inputDescription" id="inputDescription" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">

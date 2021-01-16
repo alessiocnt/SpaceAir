@@ -15,13 +15,6 @@ ul.navbar-nav > li.nav-item > a.nav-link {
     color: #E4E4E4;
 }
 
-label, h1 {
-    color: #ffffff;
-}
-
-h1 {
-    text-align: center;
-}
 
 
 .col-title {
@@ -60,6 +53,19 @@ footer a {
     font-size: 0.8em;
 }
 
+label, h1 {
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+}
+
+textarea {
+    overflow: hidden; 
+    resize: none; 
+    outline: none;
+}
 
 /* Handle notification badge */
 .notification {
