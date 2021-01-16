@@ -89,7 +89,7 @@
                         <form action="">
                             <div class="row mb-3">
                                 <div class="container">
-                                    <label for="inputDestinazione">Destinazione</label>
+                                    <label for="inputDestination">Destinazione</label>
                                     <select name="inputDestination" id="inputDestination" class="form-control">
                                         <option selected>Seleziona...</option>
                                         <option value="Marte">Marte</option>
