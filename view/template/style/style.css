@@ -67,6 +67,10 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-size: 1.2em;
+}
+
 textarea {
     overflow: hidden; 
     resize: none; 
@@ -94,5 +98,7 @@ textarea {
     border-radius: 50%;
     background: red;
     color: white;
-  }
+}
+
+
   
