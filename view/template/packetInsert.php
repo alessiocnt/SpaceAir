@@ -110,7 +110,7 @@
                             <div class="row mb-3">
                                 <div class="col-6">
                                     <label for="inputCapacity">Capienza</label>
-                                    <input type="text" class="form-control" name="inputCapacity" id="inputCapacity" />
+                                    <input type="number" min="0" max="10000" step="1" class="form-control" name="inputCapacity" id="inputCapacity" />
                                 </div>
                                 <div class="col-6">
                                     <label for="inputPrice">Prezzo</label>
@@ -118,7 +118,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">€</span>
                                         </div>
-                                        <input type="text" class="form-control" name="inputPrice" id="inputPrice" aria-label="Amount (to the nearest dollar)"/>
+                                        <input type="number" min="0" step="1" class="form-control" name="inputPrice" id="inputPrice" aria-label="Amount (to the nearest dollar)"/>
                                         <div class="input-group-append">
                                             <span class="input-group-text">.00</span>
                                         </div>
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-2 offset-10">
+                                <div class="col-4 offset-8 col-md-2 offset-md-10">
                                     <input type="submit" class="form-control" value="Inserisci"/>
                                 </div>
                             </div>
