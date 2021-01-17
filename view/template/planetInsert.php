@@ -105,7 +105,7 @@
                                 <div class="container col-6">
                                     <label for="inputComposition">Composizione</label>
                                     <select name="inputComposition" id="inputComposition" class="form-control" required>
-                                        <option selected>Seleziona...</option>
+                                        <option value = "" selected hidden>Seleziona...</option>
                                         <option value="Marte">Solido</option>
                                         <option value="Venere">Liquido</option>
                                     </select>

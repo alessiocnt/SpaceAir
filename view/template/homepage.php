@@ -50,8 +50,6 @@
     </nav>
 
 
-
-    <main> 
         <section class="mb-5">
             <img class="home-img img-fluid mb-3" src="/spaceair/res/Icons/home-shuttle.jpg" alt="Shuttle utilizzato per i viaggi.">
             <p class="col-text text-center mb-3">Viaggia con noi, lasciati ispirare dal nostro universo.</p>
