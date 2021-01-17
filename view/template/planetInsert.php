@@ -23,7 +23,7 @@
 
         <!--SpaceAir logo and name-->
         <a class="navbar-brand mx-auto" href="#">
-            <img src="/spaceair/res/Icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
+            <img src="/spaceair/res/icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
             SPACEAIR
         </a>
 
