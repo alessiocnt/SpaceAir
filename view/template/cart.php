@@ -76,7 +76,7 @@
                                                 <img src="../../res/img/mars.png" class="card-img" alt="">
                                             </div>
                                             <div class="col-8 col-md-9">
-                                                <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-1" alt="Rimuovi dal carrello">
+                                                <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Rimuovi dal carrello">
                                                 <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Marte</p>
                                                 <p>20.11.2021 - 14:46</p>
                                                 <p class="text-uppercase my-0">Andrea Giulianelli</p>
@@ -95,7 +95,7 @@
                                                 <img src="../../res/img/venus.png" class="card-img" alt="">
                                             </div>
                                             <div class="col-8 col-md-9">
-                                                <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-1" alt="Rimuovi dal carrello">
+                                                <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Rimuovi dal carrello">
                                                 <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Venere</p>
                                                 <p>22.01.2021 - 19:12</p>
                                                 <p class="text-uppercase my-0">Andrea Giulianelli</p>
