@@ -81,6 +81,7 @@
                                                 <p>20.11.2021 - 14:46</p>
                                                 <p class="text-uppercase my-0">Andrea Giulianelli</p>
                                                 <p class="font-weight-normal my-0">15.03.2021</p>
+                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo  €9200</p>
                                             </div>
                                         </div>
                                     </div>
@@ -100,6 +101,7 @@
                                                 <p>22.01.2021 - 19:12</p>
                                                 <p class="text-uppercase my-0">Andrea Giulianelli</p>
                                                 <p class="font-weight-normal my-0">11.02.2021</p>
+                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo  €7500</p>
                                             </div>
                                         </div>
                                     </div>
@@ -108,6 +110,16 @@
                     </section>
                 </div>
             </div>
+            <section>
+                <div class="col-md-6 offset-md-3">
+
+                    <div class="row cart-total">
+                        <div class="container">
+                            <p class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale  €16700</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 
             <!-- FOOTER -->

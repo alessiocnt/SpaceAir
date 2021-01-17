@@ -141,5 +141,9 @@ textarea {
     color: white;
 }
 
+.cart-total {
+    border-top: 2px solid white;
+}
+
 
   
