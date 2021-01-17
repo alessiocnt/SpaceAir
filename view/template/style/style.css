@@ -98,6 +98,10 @@ h2 {
     font-size: 1.3em;
 }
 
+h3 {
+    font-size: 0.8em;
+}
+
 textarea {
     overflow: hidden; 
     resize: none; 
@@ -113,6 +117,10 @@ textarea {
     max-height: 70px;
     background-color: #071E39;
     border-radius: 10%;
+}
+
+.list-secondary-text {
+    font-size: 0.8em;
 }
 
 .list-impo-text {
