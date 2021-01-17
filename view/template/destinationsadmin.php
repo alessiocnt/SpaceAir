@@ -50,38 +50,72 @@
     </nav>
 
 
-        <section class="mb-5">
-            <img class="home-img img-fluid mb-3" src="/spaceair/res/icons/home-shuttle.jpg" alt="Shuttle utilizzato per i viaggi.">
-            <p class="col-text text-center mb-3">Viaggia con noi, lasciati ispirare dal nostro universo.</p>
-            <a href="#" class="btn col-btn-regular col-10 offset-1 mb-3">Destinazioni</a>
-            <a href="#overview">
-                <div class="text-center">
-                    <img alt="Altro" src="/spaceair/res/icons/keyboard_arrow_down-white-18dp.svg" class="scale-x2">
+
+
+        
+        <section>
+            <header class="offset-1 mb-3">
+                <div class="row">
+                    <div class="col-12 pl-0">
+                            <h1 class="text-left col-title font-weight-lighter">Destinazioni</h1>
+                    </div>
                 </div>
-            </a>
+            </header>
+            <div class="row">
+
+            <div class="col-10 offset-1 mb-5">
+                <div class="row">
+                    <input type="search" class="form-control col-11" name="searchBar" id="searchBar" autocomplete="on"/>
+                    <button class="btn col-1" type="submit">
+                        <span class="input-group-addon">
+                            <img src="/spaceair/res/icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-10 offset-1 col-md-6 offset-md-3">
+                <ul class="list-group">
+                    <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
+                        <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
+                        <button class="btn pull-right" type="button">
+                            <img src="/spaceair/res/icons/edit-black-18dp.svg" class="float-right" alt="Modifica">
+                        </button>
+                        <button class="btn pull-right" type="button">
+                            <img src="/spaceair/res/icons/delete-black-18dp.svg" class="float-right" alt="Elimina">
+                        </button>
+                    </li>
+                    <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
+                        <a href="#" class="col-dark list-impo-text col-8 col-md-10">Mercurio</a>
+                        <button class="btn pull-right" type="button">
+                            <img src="/spaceair/res/icons/edit-black-18dp.svg" class="float-right" alt="Modifica">
+                        </button>
+                        <button class="btn pull-right" type="button">
+                            <img src="/spaceair/res/icons/delete-black-18dp.svg" class="float-right" alt="Elimina">
+                        </button>
+                    </li>
+                    <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
+                        <a href="#" class="col-dark list-impo-text col-8 col-md-10">Venere</a>
+                        <button class="btn pull-right" type="button">
+                            <img src="/spaceair/res/icons/edit-black-18dp.svg" class="float-right" alt="Modifica">
+                        </button>
+                        <button class="btn pull-right" type="button">
+                            <img src="/spaceair/res/icons/delete-black-18dp.svg" class="float-right" alt="Elimina">
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </section>
 
-        <section>
-            <a name="overview"></a>
-            <article class="mb-5 col-10 offset-1">
-                <header>
-                    <h2 class="text-center col-title">LUNA</h2>
-                </header>
-                <div class="row">
-                    <ul class="col-text col-2 space-vertical">
-                        <li class="w-100">Temperatura 25°C</li>
-                        <li class="w-100">Massa 25°C</li>
-                        <li class="w-100">Composizione 25°C</li>
-                    </ul>
-                    <img alt="Luna" src="/spaceair/res/img/moon.png" class="col-8">
-                    <ul class="col-text col-2 space-vertical">
-                        <li class="w-100">Distanza dal Sole 25°C</li>
-                        <li class="w-100">Superficie 25°C</li>
-                        <li class="w-100">Giornata 25°C</li>
-                    </ul>
-                </div>
-            </article>
-        </section>
+
+
+
+
+
+
+
+
+
 
 
     <div class="container-fluid">
