@@ -11,7 +11,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="style/style.css">
 
-    <title><?php echo $headerInfo["title"]; ?></title>
+    <title>Carrello</title>
 </head>
 
 <body class="bg-custom">
@@ -56,83 +56,40 @@
 
 
 
-
-
-
-
-
-
-
-
-
             <!-- HEADER -->
 
             <header>
-                <h1>Inserimento nuovo viaggio</h1>
+                <h1>Carrello</h1>
             </header>
 
+
             <div class="row">
-                <div class="col-md-6 offset-md-3 mb-3">
-                    <form action="">
-                        <div class="row mb-3">
-                            <div class="container">
-                                <label for="inputDestination">Destinazione</label>
-                                <select name="inputDestination" id="inputDestination" class="form-control" required>
-                                    <option value="" selected hidden>Seleziona...</option>
-                                    <option value="Marte">Marte</option>
-                                    <option value="Venere">Venere</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <label for="inputDate">Data</label>
-                                <input type="date" class="form-control" name="inputDate" id="inputDate" required />
-                            </div>
-                            <div class="col-6">
-                                <label for="inputHour">Ora partenza</label>
-                                <input type="time" class="form-control" name="inputHour" id="inputHour" required />
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <label for="inputCapacity">Capienza</label>
-                                <input type="number" min="0" max="10000" step="1" class="form-control" name="inputCapacity" id="inputCapacity" required />
-                            </div>
-                            <div class="col-6">
-                                <label for="inputPrice">Prezzo</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">€</span>
+
+                <div class="col-12 offset-md-4 mb-3 mt-3">
+                    <section>
+                        <div class="row ml-1 mr-1">
+                            <div class="card mb-3" style="max-width: 100%;">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="../../res/img/mars.png" class="card-img" alt="">
                                     </div>
-                                    <input type="number" min="0" step="1" class="form-control" name="inputPrice" id="inputPrice" aria-label="Amount (to the nearest dollar)" required />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">.00</span>
+                                    <div class="col-md-7">
+                                        <div class="card-body">
+                                            <p class="card-text">Viaggio per marte <br />
+                                                25.12.2020 - 14.30</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <img src="../../res/icons/remove_shopping_cart-black-18dp.svg" alt="Rimuovi dal carrello"> <!-- TODO rendere accessibile -->
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="container">
-                                <label for="inputDescription">Descrizione</label>
-                                <textarea class="form-control" name="inputDescription" id="inputDescription" rows="5" required></textarea>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-4">
-                                <label for="inputVisible">Visibile</label>
-                                <input type="checkbox" name="inputDescription" id="inputVisible">
-                            </div>
-                            <div class="col-4 offset-4 col-md-2 offset-md-6">
-                                <input type="submit" class="form-control" value="Inserisci" />
-                            </div>
-                        </div>
-                    </form>
+                    </section>
                 </div>
             </div>
 
 
-            <!-- FOOTER -->
+           
+                <!-- FOOTER -->
 
 
 
