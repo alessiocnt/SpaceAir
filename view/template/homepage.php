@@ -73,7 +73,7 @@
                         <li class="w-100">Massa 25°C</li>
                         <li class="w-100">Composizione 25°C</li>
                     </ul>
-                    <img alt="Luna" src="/spaceair/res/img/moon.png" class="col-8">
+                    <img alt="Luna" src="/spaceair/res/img/moon.png" class="col-8 img-fluid">
                     <ul class="col-text col-2 space-vertical">
                         <li class="w-100">Distanza dal Sole 25°C</li>
                         <li class="w-100">Superficie 25°C</li>

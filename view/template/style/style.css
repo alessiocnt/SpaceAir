@@ -76,6 +76,10 @@ a.col-text:active {
     align-content:space-between;
 }
 
+input {
+    overflow: hidden;
+}
+
 ul {
     margin: 0;
     padding: 0;
