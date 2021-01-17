@@ -77,10 +77,29 @@
                                             </div>
                                             <div class="col-8 col-md-9">
                                                 <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-1" alt="Rimuovi dal carrello">
-                                                <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Venere</p>
+                                                <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Marte</p>
                                                 <p>20.11.2021 - 14:46</p>
                                                 <p class="text-uppercase my-0">Andrea Giulianelli</p>
                                                 <p class="font-weight-normal my-0">15.03.2021</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </article>
+                        <article>
+                            <div class="row ml-1 mr-1">
+                                <div class="col-12 col-md-6 offset-md-3">
+                                    <div class="rounded my-2 col-back-white p-4 col-dark ">
+                                        <div class="row">
+                                            <div class="col-4 col-md-3">
+                                                <img src="../../res/img/venus.png" class="card-img" alt="">
+                                            </div>
+                                            <div class="col-8 col-md-9">
+                                                <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-1" alt="Rimuovi dal carrello">
+                                                <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Venere</p>
+                                                <p>22.01.2021 - 19:12</p>
+                                                <p class="text-uppercase my-0">Andrea Giulianelli</p>
+                                                <p class="font-weight-normal my-0">11.02.2021</p>
                                             </div>
                                         </div>
                                     </div>
