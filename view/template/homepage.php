@@ -23,7 +23,7 @@
 
         <!--SpaceAir logo and name-->
         <a class="navbar-brand mx-auto" href="#">
-            <img src="/spaceair/res/Icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
+            <img src="/spaceair/res/icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
             SPACEAIR
         </a>
 
@@ -51,12 +51,12 @@
 
 
         <section class="mb-5">
-            <img class="home-img img-fluid mb-3" src="/spaceair/res/Icons/home-shuttle.jpg" alt="Shuttle utilizzato per i viaggi.">
+            <img class="home-img img-fluid mb-3" src="/spaceair/res/icons/home-shuttle.jpg" alt="Shuttle utilizzato per i viaggi.">
             <p class="col-text text-center mb-3">Viaggia con noi, lasciati ispirare dal nostro universo.</p>
             <a href="#" class="btn col-btn-regular col-10 offset-1 mb-3">Destinazioni</a>
             <a href="#overview">
                 <div class="text-center">
-                    <img alt="Altro" src="/spaceair/res/Icons/keyboard_arrow_down-white-18dp.svg" class="scale-x2">
+                    <img alt="Altro" src="/spaceair/res/icons/keyboard_arrow_down-white-18dp.svg" class="scale-x2">
                 </div>
             </a>
         </section>
@@ -73,7 +73,7 @@
                         <li class="w-100">Massa 25°C</li>
                         <li class="w-100">Composizione 25°C</li>
                     </ul>
-                    <img alt="Luna" src="/spaceair/res/Icons/luna.png" class="col-8">
+                    <img alt="Luna" src="/spaceair/res/icons/luna.png" class="col-8">
                     <ul class="col-text col-2 space-vertical">
                         <li class="w-100">Distanza dal Sole 25°C</li>
                         <li class="w-100">Superficie 25°C</li>

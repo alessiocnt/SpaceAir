@@ -23,7 +23,7 @@
 
         <!--SpaceAir logo and name-->
         <a class="navbar-brand mx-auto" href="#">
-            <img src="/spaceair/res/Icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
+            <img src="/spaceair/res/icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
             SPACEAIR
         </a>
 
@@ -68,7 +68,7 @@
                     <input type="search" class="form-control col-11" name="searchBar" id="searchBar" autocomplete="on"/>
                     <button class="btn col-1" type="submit">
                         <span class="input-group-addon">
-                            <img src="/spaceair/res/Icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
+                            <img src="/spaceair/res/icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
                         </span>
                     </button>
                 </div>
@@ -79,19 +79,19 @@
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
                         <button class="btn pull-right" type="button">
-                            <img src="/spaceair/res/Icons/favorite-24px.svg" class="float-right" alt="Preferiti">
+                            <img src="/spaceair/res/icons/favorite-24px.svg" class="float-right" alt="Preferiti">
                         </button>
                     </li>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
                         <button class="btn pull-right" type="button">
-                            <img src="/spaceair/res/Icons/favorite-24px.svg" class="float-right" alt="Preferiti">
+                            <img src="/spaceair/res/icons/favorite-24px.svg" class="float-right" alt="Preferiti">
                         </button>
                     </li>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
                         <button class="btn pull-right" type="button">
-                            <img src="/spaceair/res/Icons/favorite-24px.svg" class="float-right" alt="Preferiti">
+                            <img src="/spaceair/res/icons/favorite-24px.svg" class="float-right" alt="Preferiti">
                         </button>
                     </li>
                 </ul>
