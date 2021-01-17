@@ -28,7 +28,9 @@ ul.navbar-nav > li.nav-item > a.nav-link {
 .col-text {
     color: #E4E4E4;
 }
-
+.col-link {
+    color: #DBCBCB;
+}
 a.col-text:hover {
     color: #DBCBCB;
 }
@@ -39,6 +41,10 @@ a.col-text:active {
 
 .col-dark {
     color: #343C44;
+}
+
+.col-blue {
+    color: #071E39;
 }
 
 .col-btn-impo {
@@ -56,6 +62,10 @@ a.col-text:active {
     min-height: 100%;
 }
 
+.col-back-white {
+    background-color: #E4E4E4;
+}
+
 footer a {
     font-size: 0.8em;
 }
@@ -68,10 +78,33 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-size: 1.3em;
+}
+
 textarea {
     overflow: hidden; 
     resize: none; 
     outline: none;
+}
+
+/*Handle header decorative images*/
+.decorative-img {
+    max-height: 150px;
+}
+
+.planet-img {
+    max-height: 70px;
+    background-color: #071E39;
+    border-radius: 10%;
+}
+
+.list-impo-text {
+    font-size: 1.3em;
+}
+
+.impo-text {
+    font-size: 2em;
 }
 
 /* Handle notification badge */
@@ -90,5 +123,7 @@ textarea {
     border-radius: 50%;
     background: red;
     color: white;
-  }
+}
+
+
   
