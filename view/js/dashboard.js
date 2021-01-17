@@ -6,11 +6,11 @@ function createPlanetGraph(id,inputData) {
     });
 
     let tableId = "#"+id+"table";
-    let tableHtml = ""
+    let tableHtml = "";
     //Create table for accessibility
     tableHtml += `
-    <table>
-        <thead>
+    <table class="mt-3 col-10 offset-1 table table-light table-striped">
+        <thead class="col-btn-impo">
             <tr>
                 <th id="planet">Pianeta</th>
                 <th id="ticketsold">Biglietti venduti</th>
@@ -26,6 +26,7 @@ function createPlanetGraph(id,inputData) {
         `;
     });
 
+    tableHtml += "</tbody></table>";
     $(tableId).html(tableHtml);
 
     return new CanvasJS.Chart(id+"chart", {
@@ -68,8 +69,8 @@ function createTicketGraph(id, inputData) {
     let tableHtml = ""
     //Create table for accessibility
     tableHtml += `
-    <table>
-        <thead>
+    <table class="mt-3 col-10 offset-1 table table-light table-striped">
+        <thead class="col-btn-impo">
             <tr>
                 <th id="ticket">Viaggio</th>
                 <th id="percentuale">Percentuale</th>
@@ -121,4 +122,12 @@ $(document).ready(function() {
     const piechart = createTicketGraph("popularticket",data2);
     chart.render();
     piechart.render();
+
+
+    $("#shop").on("click",function() {
+        $("#shoptable").slideToggle();
+    });
+    $("#popularticket").on("click",function() {
+        $("#populartickettable").slideToggle();
+    });
 });
