@@ -65,7 +65,7 @@
 
             <div class="row">
 
-                <div class="col-12 offset-md-4 mb-3 mt-3">
+                <div class="col-6 offset-3 mb-3 mt-3">
                     <section>
                         <div class="row ml-1 mr-1">
                             <div class="card mb-3" style="max-width: 100%;">
@@ -87,8 +87,6 @@
                 </div>
             </div>
 
-
-           
                 <!-- FOOTER -->
 
 
