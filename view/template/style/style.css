@@ -59,6 +59,29 @@ a.col-text:active {
     background-color: #E4E4E4;
 }
 
+.home-img {
+    top: 0; 
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.scale-x2 {
+    transform:scale(2,2);
+}
+
+.space-vertical {
+    display: flex;
+    flex-wrap: wrap;
+    align-content:space-between;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
 footer a {
     font-size: 0.8em;
 }
