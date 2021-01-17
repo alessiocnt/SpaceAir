@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="/spaceair/view/template/style/style.css" >
 
     <title><?php echo $headerInfo["title"]; ?></title>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- Custom Js -->
+    <?php foreach($headerInfo["js"] as $jsFile):?>
+      <script src="<?php echo $jsFile?>"></script>
+    <?php endforeach ?>
+
 </head>
 <body class="bg-custom">
     <nav class="navbar navbar-expand-md navbar-dark bg-custom">

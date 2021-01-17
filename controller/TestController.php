@@ -15,6 +15,8 @@ class TestController extends AbstractController {
         $data["data"]["name"] = $name;
         //Set the title
         $data["header"]["title"] = "Test";
+        //Set custom js
+        $data["header"]["js"] = ["https://canvasjs.com/assets/script/canvasjs.min.js", "/spaceair/view/js/dashboard.js"];
         //Create the view
         $view = new TestView();
         //Render the view
