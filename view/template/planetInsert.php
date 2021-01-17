@@ -62,12 +62,12 @@
                             <div class="row mb-3">
                                 <div class="col-6">
                                     <label for="inputName">Nome</label>
-                                    <input type="text" class="form-control" name="inputName" id="inputName" />
+                                    <input type="text" class="form-control" name="inputName" id="inputName" autocomplete="on" required/>
                                 </div>
                                 <div class="col-6">
                                     <!-- TODO Sistemare sta merda. -->
                                     <label for="inputImage" class="form-label">Immagine</label>
-                                    <input type="file" class="form-control" id="inputImage">
+                                    <input type="file" class="form-control" id="inputImage" autocomplete="on" required/>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -77,12 +77,12 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">°C</span>
                                         </div>
-                                        <input type="number" class="form-control" name="inputTemperature" id="inputTemperature"/>
+                                        <input type="number" class="form-control" name="inputTemperature" id="inputTemperature" autocomplete="on" required/>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <label for="inputSunDistance">Distanza dal Sole</label>
-                                    <input type="number" class="form-control" name="inputSunDistance" id="inputSunDistance" />
+                                    <input type="number" class="form-control" name="inputSunDistance" id="inputSunDistance" autocomplete="on" required/>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -92,19 +92,19 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Kg</span>
                                         </div>
-                                        <input type="number" class="form-control" name="inputMass" id="inputMass"/>
+                                        <input type="number" class="form-control" name="inputMass" id="inputMass" autocomplete="on" required/>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <label for="inputSurface">Superficie</label>
-                                    <input type="number" class="form-control" name="inputSurface" id="inputSurface" />
+                                    <input type="number" class="form-control" name="inputSurface" id="inputSurface" autocomplete="on" required/>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="container col-6">
                                     <label for="inputComposition">Composizione</label>
-                                    <select name="inputComposition" id="inputComposition" class="form-control">
+                                    <select name="inputComposition" id="inputComposition" class="form-control" required>
                                         <option selected>Seleziona...</option>
                                         <option value="Marte">Solido</option>
                                         <option value="Venere">Liquido</option>
@@ -116,22 +116,22 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Ore</span>
                                         </div>
-                                        <input type="number" class="form-control" name="inputDay" id="inputDay"/>
+                                        <input type="number" class="form-control" name="inputDay" id="inputDay" autocomplete="on" required/>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="container">
                                     <label for="inputDescription">Descrizione pianeta</label>
-                                    <textarea class="form-control" name="inputDescription" id="inputDescription" rows="5" style="overflow: hidden; resize: none; outline: none;"></textarea>
+                                    <textarea class="form-control" name="inputDescription" id="inputDescription" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-2">
+                                <div class="col-6">
                                     <label for="inputVisible">Visibile</label>
                                     <input type="checkbox" name="inputDescription" id="inputVisible">
                                 </div>
-                                <div class="col-4 offset-6 col-md-2 offset-md-8">
+                                <div class="col-6">
                                     <input type="submit" class="form-control" value="Inserisci"/>
                                 </div>
 
