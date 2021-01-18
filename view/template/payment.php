@@ -11,7 +11,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="style/style.css">
 
-    <title><?php echo $headerInfo["title"]; ?></title>
+    <title>Pagamento</title>
 </head>
 
 <body class="bg-custom">

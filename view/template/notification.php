@@ -59,10 +59,10 @@
             <!-- HEADER -->
 
             <div class="row">
-                <header class="col-md-6 offset-md-3 offset-1">
-                    <div class="row">
+                <header class="col-md-6 offset-md-3 offset-md-1">
+                    <div class="container pl-0">
                         <div class="col-12 pl-0">
-                            <h1 class="text-left col-title font-weight-lighter">Carrello</h1>
+                            <h1 class="text-left col-title font-weight-lighter">Notifiche</h1>
                         </div>
                     </div>
                 </header>
@@ -72,7 +72,7 @@
                     <section>
                         <article>
                             <div class="row ml-1 mr-1">
-                                <div class="col-12 col-md-6 offset-md-3">
+                                <div class="col-12 col-md-6 offset-md-3 p-0">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-12 ">
@@ -85,7 +85,7 @@
                         </article>
                         <article>
                         <div class="row ml-1 mr-1">
-                                <div class="col-12 col-md-6 offset-md-3">
+                                <div class="col-12 col-md-6 offset-md-3 p-0">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-12 ">
@@ -98,7 +98,7 @@
                         </article>
                         <article>
                         <div class="row ml-1 mr-1">
-                                <div class="col-12 col-md-6 offset-md-3">
+                                <div class="col-12 col-md-6 offset-md-3 p-0">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-12 ">
