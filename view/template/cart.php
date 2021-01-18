@@ -81,8 +81,11 @@
                                                 <p>20.11.2021 - 14:46</p>
                                                 <p class="text-uppercase my-0">Andrea Giulianelli</p>
                                                 <p class="font-weight-normal my-0">15.03.2021</p>
-                                                <input type="number" class="font-weight-normal my-0 float-left bottom mr-md-1 mt-4" min="1" step="1" max="10" name="packetQuantity" id="packetQuantity" value="2">
                                                 <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">Costo  €9200</p>
+                                                <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
+                                                <div class="input-group col-2 pl-0">
+                                                    <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="2" min="1" max="10" step="1"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -103,6 +106,10 @@
                                                 <p class="text-uppercase my-0">Andrea Giulianelli</p>
                                                 <p class="font-weight-normal my-0">11.02.2021</p>
                                                 <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo  €7500</p>
+                                                <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
+                                                <div class="input-group col-2 pl-0">
+                                                    <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="1" min="1" max="10" step="1"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
