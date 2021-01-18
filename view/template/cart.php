@@ -57,18 +57,16 @@
 
 
             <!-- HEADER -->
-
-            <header class="col-md-6 offset-3">
-                <div class="row">
-                    <div class="col-12 pl-0">
-                        <h1 class="text-left col-title font-weight-lighter">Carrello</h1>
-                    </div>
-                </div>
-            </header>
-
-
             <div class="row">
-
+                <header class="col-md-6 offset-md-3 offset-1">
+                    <div class="row">
+                        <div class="col-12 pl-0">
+                            <h1 class="text-left col-title font-weight-lighter">Carrello</h1>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <div class="row">
                 <div class="col-12 mb-3 mt-3">
                     <section>
                         <article>
@@ -89,7 +87,7 @@
                                                 <p class="font-weight-normal my-0">15.03.2021</p>
                                                 <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">Costo €9200</p>
                                                 <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
-                                                <div class="input-group col-2 pl-0">
+                                                <div class="input-group col-4 col-md-2 pl-0">
                                                     <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="2" min="1" max="10" step="1" />
                                                 </div>
                                             </div>
@@ -115,7 +113,7 @@
                                                 <p class="font-weight-normal my-0">11.02.2021</p>
                                                 <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo €7500</p>
                                                 <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
-                                                <div class="input-group col-2 pl-0">
+                                                <div class="input-group col-4 col-md-2 pl-0">
                                                     <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="1" min="1" max="10" step="1" />
                                                 </div>
                                             </div>
@@ -128,7 +126,6 @@
             </div>
             <section>
                 <div class="col-md-6 offset-md-3">
-
                     <div class="row top-line">
                         <div class="container">
                             <p class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale €16700</p>

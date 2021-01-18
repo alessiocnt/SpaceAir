@@ -67,13 +67,15 @@
 
             <!-- HEADER -->
 
-            <header class="col-md-6 offset-3">
-                <div class="row">
-                    <div class="col-12 pl-0">
-                        <h1 class="text-left col-title font-weight-lighter">Pagamento</h1>
+            <div class="row">
+                <header class="col-md-6 offset-md-3 offset-1">
+                    <div class="row">
+                        <div class="col-12 pl-0">
+                            <h1 class="text-left col-title font-weight-lighter">Carrello</h1>
+                        </div>
                     </div>
-                </div>
-            </header>
+                </header>
+            </div>
             <section>
                 <article>
                     <div class="row">
@@ -130,10 +132,9 @@
                                         <a href="" title="Paga con PayPal">
                                             <img src="../../res/icons/paypal.svg" alt="Paga tramite PayPal" class="rounded mx-auto d-block pt-2 pb-2" />
                                         </a>
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </article>

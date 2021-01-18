@@ -58,17 +58,16 @@
 
             <!-- HEADER -->
 
-            <header class="col-md-6 offset-3">
-                <div class="row">
-                    <div class="col-12 pl-0">
-                        <h1 class="text-left col-title font-weight-lighter">Preferiti</h1>
-                    </div>
-                </div>
-            </header>
-
-
             <div class="row">
-
+                <header class="col-md-6 offset-md-3 offset-1">
+                    <div class="row">
+                        <div class="col-12 pl-0">
+                            <h1 class="text-left col-title font-weight-lighter">Carrello</h1>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <div class="row">
                 <div class="col-12 mb-3 mt-3">
                     <section>
                     <article>
