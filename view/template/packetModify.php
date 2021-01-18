@@ -68,10 +68,10 @@
             <!-- HEADER -->
 
             <div class="row">
-                <header class="col-md-6 offset-md-3 offset-1">
-                    <div class="row">
+                <header class="col-md-6 offset-md-3 offset-md-1">
+                    <div class="container pl-0">
                         <div class="col-12 pl-0">
-                            <h1 class="text-left col-title font-weight-lighter">Carrello</h1>
+                            <h1 class="text-left col-title font-weight-lighter">Modifica pacchetto</h1>
                         </div>
                     </div>
                 </header>
