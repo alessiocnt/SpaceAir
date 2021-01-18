@@ -67,14 +67,18 @@
 
             <!-- HEADER -->
 
-            <header>
-                <h1 class="col-title font-weight-lighter">Pagamento</h1>
+            <header class="col-md-6 offset-3">
+                <div class="row">
+                    <div class="col-12 pl-0">
+                        <h1 class="text-left col-title font-weight-lighter">Pagamento</h1>
+                    </div>
+                </div>
             </header>
             <section>
                 <article>
                     <div class="row">
                         <div class="top-line col-md-6 offset-md-3 mb-6">
-                        <h2 class="text-center col-title font-weight-lighter mt-12">Indirizzo di consegna</h2>
+                            <h2 class="text-center col-title font-weight-lighter mt-12">Indirizzo di consegna</h2>
                             <form action="">
                                 <div class="row mb-3 mt-2">
                                     <div class="col-9">
@@ -112,7 +116,7 @@
                 <article>
                     <div class="row">
                         <div class="top-line col-md-6 offset-md-3 mb-6">
-                        <h2 class="text-center col-title font-weight-lighter mt-12">Metodo di pagamento</h2>
+                            <h2 class="text-center col-title font-weight-lighter mt-12">Metodo di pagamento</h2>
                             <div class="row">
                                 <div class="col-3 offset-2 col-md-1 offset-md-4">
                                     <div class="rounded my-2 col-back-white p-1 col-dark">
@@ -138,7 +142,7 @@
                                         <label for="inputNumeroCarta">Numero carta</label>
                                         <input type="number" minlength="13" step="1" min="0" class="form-control" name="inputNumeroCarta" id="inputNumeroCarta" required />
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-12">

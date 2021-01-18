@@ -67,8 +67,12 @@
 
             <!-- HEADER -->
 
-            <header>
-                <h1>Inserimento nuovo viaggio</h1>
+            <header class="col-md-6 offset-3">
+                <div class="row">
+                    <div class="col-12 pl-0">
+                        <h1 class="text-left col-title font-weight-lighter">Inserimento nuovo viaggio</h1>
+                    </div>
+                </div>
             </header>
 
             <div class="row">
@@ -105,7 +109,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">€</span>
                                     </div>
-                                    <input type="number" min="0" step="1" class="form-control" name="inputPrice" id="inputPrice" aria-label="Amount (to the nearest dollar)" required />
+                                    <input type="number" min="0" step="1" class="form-control" name="inputPrice" id="inputPrice" required />
                                     <div class="input-group-append">
                                         <span class="input-group-text">.00</span>
                                     </div>
