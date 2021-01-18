@@ -50,12 +50,14 @@
     </nav>
 
 
-
-    <div class="container-fluid">
-        <main>
-            <div class="container-fluid">
-                <h1>Nuova destinazione</h1>
-
+            <section>      
+                <header class="offset-1 mb-3 col-md-6 offset-md-3">
+                    <div class="row">
+                        <div class="col-12 pl-0">
+                                <h1 class="text-left col-title font-weight-lighter">Nuova destinazione</h1>
+                        </div>
+                    </div>
+                </header>
                 <div class="row">
                     <div class="col-md-6 offset-md-3 mb-3">
                         <form action="">
@@ -136,18 +138,20 @@
                                 <div class="col-6">
                                     <input type="submit" class="form-control" value="Inserisci"/>
                                 </div>
-
-            
-                            </div>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
+            </section>
 
 
 
 
+
+
+
+    <div class="container-fluid">
+        <main>
         <!-- FOOTER -->
         </main>
         <div class="row bg-sec justify-content-center">

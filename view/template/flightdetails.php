@@ -54,7 +54,7 @@
 
         
                     <section>
-                        <header class="col-10 offset-1">
+                        <header class="col-10 offset-1 col-md-6 offset-md-3">
                             <div class="row">
                                 <div class="col-12 pl-0">
                                         <h1 class="text-left col-title font-weight-lighter">Dettagli volo</h1>
@@ -62,7 +62,7 @@
                             </div>
                         </header>
 
-                        <section class="mb-3 col-10 offset-1">
+                        <section class="mb-3 col-10 offset-1 col-md-6 offset-md-3">
                             <div class="row mb-3">
                                 <div class="rounded my-2 col-back-white p-4 col-dark col-12">
                                     <img src="/spaceair/res/img/moon.png" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
@@ -78,7 +78,7 @@
                                 </p>
                             </div>
                         </section>
-                        <section class="mb-3 col-10 offset-1">
+                        <section class="mb-3 col-10 offset-1 col-md-6 offset-md-3">
                             <div class="row">
                                 <div class="col-12 px-0">
                                         <h2 class="text-left col-title font-weight-lighter">Informazioni</h2>
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                         </section>  
-                        <section class="mb-3 p-0 col-10 offset-1">
+                        <section class="mb-3 p-0 col-10 offset-1 col-md-6 offset-md-3">
                             <form action="" class="rounded my-2 col-back-white p-4 col-dark col-12">
                                 <div class="row">
                                     <p class="col-4 col-dark font-weight-bold list-impo-text">Quantità</p>
