@@ -70,6 +70,10 @@ a.col-text:active {
     transform:scale(2,2);
 }
 
+.scale-x075 {
+    transform:scale(0.75,0.75);
+}
+
 .space-vertical {
     display: flex;
     flex-wrap: wrap;
