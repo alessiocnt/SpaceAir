@@ -81,7 +81,8 @@
                                                 <p>20.11.2021 - 14:46</p>
                                                 <p class="text-uppercase my-0">Andrea Giulianelli</p>
                                                 <p class="font-weight-normal my-0">15.03.2021</p>
-                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo  €9200</p>
+                                                <input type="number" class="font-weight-normal my-0 float-left bottom mr-md-1 mt-4" min="1" step="1" max="10" name="packetQuantity" id="packetQuantity" value="2">
+                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">Costo  €9200</p>
                                             </div>
                                         </div>
                                     </div>
