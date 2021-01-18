@@ -68,12 +68,13 @@
             <!-- HEADER -->
 
             <header>
-                <h1>Pagamento</h1>
+                <h1 class="col-title font-weight-lighter">Pagamento</h1>
             </header>
             <section>
                 <article>
                     <div class="row">
                         <div class="top-line col-md-6 offset-md-3 mb-6">
+                        <h2 class="text-center col-title font-weight-lighter mt-12">Indirizzo di consegna</h2>
                             <form action="">
                                 <div class="row mb-3 mt-2">
                                     <div class="col-9">
@@ -111,6 +112,7 @@
                 <article>
                     <div class="row">
                         <div class="top-line col-md-6 offset-md-3 mb-6">
+                        <h2 class="text-center col-title font-weight-lighter mt-12">Metodo di pagamento</h2>
                             <div class="row">
                                 <div class="col-3 offset-2 col-md-1 offset-md-4">
                                     <div class="rounded my-2 col-back-white p-1 col-dark">
@@ -155,7 +157,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-10 offset-2 col-md-4 offset-md-8">
+                                    <div class="col-10 offset-2 col-md-5 offset-md-7">
                                         <input type="submit" class="form-control" value="Conferma Metodo di Pagamento" />
                                     </div>
                                 </div>
