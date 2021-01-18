@@ -113,14 +113,13 @@
             <section>
                 <div class="col-md-6 offset-md-3">
 
-                    <div class="row cart-total">
+                    <div class="row top-line">
                         <div class="container">
                             <p class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale  €16700</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3 offset-9">
-
+                        <div class="col-7 offset-5 col-md-3 offset-md-9">
                             <form action="">
                                 <input type="submit" class="form-control float-right mb-4" value="Procedi all'acquisto" />
                             </form>
