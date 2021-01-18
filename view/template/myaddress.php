@@ -1,12 +1,12 @@
 <section>
     <header>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-6 offset-md-3 pl-md-2">
                     <h1 class="text-left col-title font-weight-lighter">I miei indirizzi di consegna</h1>
             </div>
         </div>
     </header>
-    <a class="btn col-btn-regular" href="#" role="button">Aggiungi</a>
+    <a class="btn col-btn-regular offset-md-3 pl-md-2" href="#" role="button">Aggiungi</a>
     <div class="row mt-5">
         <div class="col-12 col-md-6 offset-md-3">
             <article class="col-back-white rounded p-3 mb-3">

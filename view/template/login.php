@@ -1,7 +1,7 @@
 <section>
     <header>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-4 offset-md-4 pl-md-2">
                     <h1 class="text-left col-title font-weight-lighter">Login</h1>
             </div>
         </div>

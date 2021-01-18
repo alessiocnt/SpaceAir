@@ -1,7 +1,7 @@
 </main>
 </div>
 
-<footer class="row mt-auto bg-sec justify-content-center ">
+<footer class="mt-auto bg-sec justify-content-center ">
 <nav class="nav col-12 text-monospace">
     <a href="#" class="px-1 py-2  col-text nav-link col-4 col-md-3 text-center">ABOUT US</a>    
     <a href="#" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center">CONTACTS</a>
