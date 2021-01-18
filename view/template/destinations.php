@@ -54,7 +54,7 @@
 
         
         <section>
-            <header class="offset-1 mb-3">
+            <header class="offset-1 mb-3 col-md-6 offset-md-3 p-0">
                 <div class="row">
                     <div class="col-12 pl-0">
                             <h1 class="text-left col-title font-weight-lighter">Destinazioni</h1>
@@ -63,7 +63,7 @@
             </header>
             <div class="row">
 
-            <div class="col-10 offset-1 mb-5">
+            <div class="col-10 offset-1 col-md-6 offset-md-3 mb-5">
                 <div class="row">
                     <input type="search" class="form-control col-11" name="searchBar" id="searchBar" autocomplete="on"/>
                     <button class="btn col-1" type="submit">
@@ -74,27 +74,27 @@
                 </div>
             </div>
 
-            <div class="col-10 offset-1 col-md-6 offset-md-3">
+            <div class="col-10 offset-1 col-md-6 offset-md-3 p-0">
                 <ul class="list-group">
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                        <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
-                        <div class="col-4 col-md-2">
+                        <a href="#" class="col-dark list-impo-text col-8">Luna</a>
+                        <div class="col-4">
                             <button class="btn float-right" type="button">
                                 <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
                             </button>
                         </div>
                     </li>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                        <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
-                        <div class="col-4 col-md-2">
+                        <a href="#" class="col-dark list-impo-text col-8">Luna</a>
+                        <div class="col-4">
                             <button class="btn float-right" type="button">
                                 <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
                             </button>
                         </div>
                     </li>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                        <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
-                        <div class="col-4 col-md-2">
+                        <a href="#" class="col-dark list-impo-text col-8">Luna</a>
+                        <div class="col-4">
                             <button class="btn float-right" type="button">
                                 <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
                             </button>
