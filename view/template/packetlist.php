@@ -76,7 +76,7 @@
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-4 col-md-2">
-                                                <img src="../../res/img/mars.png" class="card-img" alt="">
+                                                <img src="/spaceair/res/img/mars.png" class="card-img" alt="">
                                             </div>
                                             <div class="col-8 col-md-10">
                                                 <a href="" title="Modifica viaggio">
@@ -97,7 +97,7 @@
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-4 col-md-2">
-                                                <img src="../../res/img/venus.png" class="card-img" alt="">
+                                                <img src="/spaceair/res/img/venus.png" class="card-img" alt="">
                                             </div>
                                             <div class="col-8 col-md-10">
                                                 <a href="" title="Modifica viaggio">
@@ -120,7 +120,7 @@
                     <div class="col-md-6 offset-md-3 mr-1">
                         <!-- Light circle button with ripple effect -->
                         <button class="btn rounded-circle col-btn-impo btn-md pmd-btn-raised float-right top-add-btn" type="button" aria-label="Aggiungi nuovo viaggio">
-                            <img src="../../res/icons/add-black-36dp.svg" class="pt-1 pb-1"/>
+                            <img src="/spaceair/res/icons/add-black-36dp.svg" class="pt-1 pb-1"/>
                         </button>
                     </div>
                 </div>

@@ -76,7 +76,7 @@
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-4 col-md-3">
-                                                <img src="../../res/img/mars.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
+                                                <img src="/spaceair/res/img/mars.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
                                             </div>
                                             <div class="col-8 col-md-9">
                                                 <a href="" title="Rimuovi dai preferiti">
@@ -95,7 +95,7 @@
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-4 col-md-3">
-                                                <img src="../../res/img/venus.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
+                                                <img src="/spaceair/res/img/venus.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
                                             </div>
                                             <div class="col-8 col-md-9">
                                                 <a href="" title="Rimuovi dai preferiti">

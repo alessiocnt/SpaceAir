@@ -75,7 +75,7 @@
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-4 col-md-3">
-                                                <img src="../../res/img/mars.png" class="card-img" alt="">
+                                                <img src="/spaceair/res/img/mars.png" class="card-img" alt="">
                                             </div>
                                             <div class="col-8 col-md-9">
                                                 <a href="" title="Rimuovi dal carrello">
@@ -101,7 +101,7 @@
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-4 col-md-3">
-                                                <img src="../../res/img/venus.png" class="card-img" alt="">
+                                                <img src="/spaceair/res/img/venus.png" class="card-img" alt="">
                                             </div>
                                             <div class="col-8 col-md-9">
                                                 <a href="" title="Rimuovi dal carrello">
