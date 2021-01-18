@@ -34,10 +34,12 @@
                 <div class="form-group">
                     <label for="password" class="col-text">Password</label>
                     <input type="password" class="col-back-white form-control" name="password" id="password" required/>
+                    <p class="col-error d-none">La password deve essere lunga almeno 8 caratteri</p>
                 </div>
                 <div class="form-group">
                     <label for="confirmpassword" class="col-text">Conferma Password</label>
                     <input type="password" class="col-back-white form-control" name="confirmpassword" id="confirmpassword" required/>
+                    <p class="col-error d-none">Le due password non corrispondono</p>
                 </div>
                 </fieldset>
 

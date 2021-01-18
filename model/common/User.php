@@ -7,6 +7,7 @@ class User {
     private int $id;
     private string $name;
     private string $surname;
+    private string $password;
     private $bornDate;
     private $telNumber;
     private string $imgProfile;
@@ -20,7 +21,7 @@ class User {
         all optional unless the id, so we can create an object only with the id
         without using the Builder
     */
-    public function __construct(int $id, string $name = "",string $surname = "", $bornDate = "", $telNumber = "", $imgProfile = "", $mail = "", $newsletter = false) {
+    public function __construct(int $id, string $name = "",string $surname = "", $bornDate = "", $telNumber = "", $imgProfile = "", $mail = "", $newsletter = false, $password = "") {
         $this->id = $id;
         $this->name = $name;
         $this->surname = $surname;
@@ -29,6 +30,7 @@ class User {
         $this->imgProfile = $imgProfile;
         $this->mail = $mail;
         $this->newsletter = (bool) $newsletter;
+        $this->password = $password;
     }
     
     /*
@@ -50,7 +52,7 @@ class User {
         return $this->bornDate;
     }
 
-    public function getTelNumber() {
+    public function getPhone() {
         return $this->telNumber;
     }
 
@@ -64,6 +66,10 @@ class User {
 
     public function hasNewsletter() {
         return $this->newsletter == 1;
+    }
+
+    public function getPassword() {
+        return $this->password;
     }
 
 

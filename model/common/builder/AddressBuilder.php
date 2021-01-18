@@ -2,7 +2,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class AddressBuilder implements Builder{
-    private int $codAddress;
+    private int $codAddress = 0;
     private string $via = "";
     private string $civico = "";
     private string $citta = "";

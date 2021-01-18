@@ -17,9 +17,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-10 offset-1 offset-md-2 col-md-4 pr-md-5">
             <div class="row mt-4">
-                <div class="offset-1 col-10">
+                <div class="col-12 px-0">
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2">
                             <a class="col-back-white nav-link rounded col-dark" href="#">
@@ -43,11 +43,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-10 offset-1 offset-md-0 col-md-4 pl-md-5">
             <!-- I miei interessi -->
             <div class="row mt-4">
-                <div class="offset-1 col-10">
-                    <section class="rounded col-dark bg-light p-4">
+                <div class="col-12 rounded col-dark bg-light p-4">
+                    <section>
                         <h2>I miei interessi<span class="float-right"><img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/></span></h2>
                         <ul class="mt-3">
                             <li>Luna 10/12/2020</li>
@@ -59,4 +59,5 @@
             </div>
         </div>
     </div>
+    <a class="mt-5 btn col-btn-impo col-text col-4 offset-4 col-md-2 offset-md-5" href="#" role="button">Logout</a>
 </section>

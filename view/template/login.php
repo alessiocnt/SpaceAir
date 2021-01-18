@@ -13,7 +13,7 @@
     </header>
     <div class="row mt-2">
         <div class="offset-1 col-10 offset-md-4 col-md-4">
-            <form action="" method="POST">
+            <form action="#" method="POST">
                 <div class="form-group">
                     <label for="email" class="col-text">Email</label>
                     <input type="email" class="col-back-white form-control" name="email" id="email" autocomplete="on" required/>

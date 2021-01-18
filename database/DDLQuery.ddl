@@ -9,7 +9,7 @@ create table USERS (
      Borndate date not null,
      Phone char(10) not null,
      ProfileImg varchar(100) not null,
-     Mail varchar(50) not null,
+     Mail varchar(50) not null unique,
      Password char(128) not null,
      Salt char(128) not null,
      Type tinyint not null,
