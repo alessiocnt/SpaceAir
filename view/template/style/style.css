@@ -111,7 +111,7 @@ h3 {
 }
 
 textarea {
-    overflow: hidden; 
+    overflow-y: scroll; 
     resize: none; 
     outline: none;
 }
