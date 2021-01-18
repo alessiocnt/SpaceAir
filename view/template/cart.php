@@ -27,14 +27,15 @@
                                     <p class="text-uppercase my-0">Andrea Giulianelli</p>
                                     <p class="font-weight-normal my-0">15.03.2021</p>
                                     <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">Costo €9200</p>
-                                    <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
+                                    <label for="inputQuantity1" class="invisible custom-file-label">Quantità prodotto</label>
                                     <div class="input-group col-4 col-md-2 pl-0">
-                                        <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="2" min="1" max="10" step="1" />
+                                        <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity1" id="inputQuantity1" value="2" min="1" max="10" step="1" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </article>
             <article>
                 <div class="row ml-1 mr-1">
@@ -53,14 +54,15 @@
                                     <p class="text-uppercase my-0">Andrea Giulianelli</p>
                                     <p class="font-weight-normal my-0">11.02.2021</p>
                                     <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo €7500</p>
-                                    <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
+                                    <label for="inputQuantity2" class="invisible custom-file-label">Quantità prodotto</label>
                                     <div class="input-group col-4 col-md-2 pl-0">
-                                        <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="1" min="1" max="10" step="1" />
+                                        <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity2" id="inputQuantity2" value="1" min="1" max="10" step="1" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </article>
         </section>
     </div>

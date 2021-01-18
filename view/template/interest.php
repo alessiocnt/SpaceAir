@@ -28,6 +28,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </article>
             <article>
                 <div class="row ml-1 mr-1">
@@ -47,6 +48,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </article>
         </section>
     </div>

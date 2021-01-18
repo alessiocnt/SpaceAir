@@ -13,7 +13,7 @@
             <div class="row mb-3">
                 <div class="container">
                     <label for="inputDestination">Destinazione</label>
-                    <select name="inputDestination" id="inputDestination" class="form-control" required>
+                    <select name="inputDestination" id="inputDestination" class="form-control">
                         <option selected value="Marte">Marte</option>
                         <option value="Venere">Venere</option>
                     </select>
