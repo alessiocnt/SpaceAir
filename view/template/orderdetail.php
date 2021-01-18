@@ -11,7 +11,7 @@
             <div class="col-12 col-md-6 offset-md-3">
                 <h2 class="mt-3 col-text font-weight-light">Informazioni generali</h2>
                 <div class="rounded my-2 col-back-white p-4 col-dark ">
-                    <img src="/spaceair/res/icons/luna.png" class="planet-img mw-25 float-right mr-4" alt="">
+                    <img src="/spaceair/res/img/moon.png" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
                     <p class="my-0 text-uppercase font-weight-bold list-impo-text">Venere</p>
                     <p>20.11.2021 - 14:46</p>
                     <p class="text-uppercase my-0">Andrea Giulianelli</p>
@@ -37,7 +37,7 @@
             <div class="col-12 col-md-6 offset-md-3 text-center">
                 <!-- GENERARE QR CODE -->
                 <!-- metto per ora un'immagine solo per prova -->
-                <img src="/spaceair/res/icons/test_qrcode.png" class="bg-light w-50" alt="">
+                <img src="/spaceair/res/icons/test_qrcode.png" class="bg-light w-50" alt=""/>
             </div>
         </div>
     </section>
@@ -53,7 +53,7 @@
                     <li class="nav-item mb-2">
                         <a class="col-btn-impo nav-link rounded col-text" href="#">
                             Tracking
-                            <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="apri i miei ordini">
+                            <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="apri i miei ordini"/>
                         </a>
                     </li>
                 </ul>

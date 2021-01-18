@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-12 text-center p-4">
-                <img src="/spaceair/res/icons/decorative/undraw_Outer_space_drqu.svg" alt="" class="decorative-img mw-50">
+                <img src="/spaceair/res/icons/decorative/undraw_Outer_space_drqu.svg" alt="" class="decorative-img mw-50"/>
             </div>
         </div>
     </header>

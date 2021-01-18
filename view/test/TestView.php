@@ -4,7 +4,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader
 class TestView extends ViewBaseImpl {
 
     protected function renderMain($data) {
-        require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/orderdetail.php";
+        require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/dashboardhome.php";
     }
 }
 ?>
