@@ -11,7 +11,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="style/style.css">
 
-    <title>Carrello</title>
+    <title>Elenco viaggi</title>
 </head>
 
 <body class="bg-custom">
@@ -57,11 +57,12 @@
 
 
             <!-- HEADER -->
+
             <div class="row">
                 <header class="col-md-6 offset-md-3 offset-md-1 pl-md-2">
                     <div class="container pl-0">
                         <div class="col-12 pl-0">
-                            <h1 class="text-left col-title font-weight-lighter">Carrello</h1>
+                            <h1 class="text-left col-title font-weight-lighter">Elenco viaggi</h1>
                         </div>
                     </div>
                 </header>
@@ -74,22 +75,17 @@
                                 <div class="col-12 col-md-6 offset-md-3 p-0">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
-                                            <div class="col-4 col-md-3">
+                                            <div class="col-4 col-md-2">
                                                 <img src="/spaceair/res/img/mars.png" class="card-img" alt="">
                                             </div>
-                                            <div class="col-8 col-md-9">
-                                                <a href="" title="Rimuovi dal carrello">
-                                                    <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right md-1" alt="Rimuovi dal carrello">
+                                            <div class="col-8 col-md-10">
+                                                <a href="" title="Modifica viaggio">
+                                                    <img src="/spaceair/res/icons/edit-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Modifica viaggio">
                                                 </a>
                                                 <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Marte</p>
                                                 <p>20.11.2021 - 14:46</p>
-                                                <p class="text-uppercase my-0">Andrea Giulianelli</p>
-                                                <p class="font-weight-normal my-0">15.03.2021</p>
-                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">Costo €9200</p>
-                                                <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
-                                                <div class="input-group col-4 col-md-2 pl-0">
-                                                    <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="2" min="1" max="10" step="1" />
-                                                </div>
+                                                <p class="font-weight-normal my-0">7 posti disponibili</p>
+                                                <p class="font-weight-normal my-0 float-right bottom mr-1">Prezzo €4600</p>
                                             </div>
                                         </div>
                                     </div>
@@ -100,22 +96,17 @@
                                 <div class="col-12 col-md-6 offset-md-3 p-0">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
-                                            <div class="col-4 col-md-3">
+                                            <div class="col-4 col-md-2">
                                                 <img src="/spaceair/res/img/venus.png" class="card-img" alt="">
                                             </div>
-                                            <div class="col-8 col-md-9">
-                                                <a href="" title="Rimuovi dal carrello">
-                                                    <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Rimuovi dal carrello">
+                                            <div class="col-8 col-md-10">
+                                                <a href="" title="Modifica viaggio">
+                                                    <img src="/spaceair/res/icons/edit-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Modifica viaggio">
                                                 </a>
                                                 <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Venere</p>
                                                 <p>22.01.2021 - 19:12</p>
-                                                <p class="text-uppercase my-0">Andrea Giulianelli</p>
-                                                <p class="font-weight-normal my-0">11.02.2021</p>
-                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo €7500</p>
-                                                <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
-                                                <div class="input-group col-4 col-md-2 pl-0">
-                                                    <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="1" min="1" max="10" step="1" />
-                                                </div>
+                                                <p class="font-weight-normal my-0">9 posti disponibili</p>
+                                                <p class="font-weight-normal my-0 float-right bottom mr-1">Prezzo €7500</p>
                                             </div>
                                         </div>
                                     </div>
@@ -125,21 +116,18 @@
                 </div>
             </div>
             <section>
-                <div class="col-md-6 offset-md-3">
-                    <div class="row top-line">
-                        <div class="container">
-                            <p class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale €16700</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 offset-5 col-md-3 offset-md-9">
-                            <form action="">
-                                <input type="submit" class="form-control float-right mb-4" value="Procedi all'acquisto" />
-                            </form>
-                        </div>
+                <div class="row fixed-bottom">
+                    <div class="col-md-6 offset-md-3 mr-1">
+                        <!-- Light circle button with ripple effect -->
+                        <a href="#" class="btn rounded-circle col-btn-impo btn-md pmd-btn-raised float-right top-add-btn" title="Aggiungi nuovo viaggio">
+                            <img src="/spaceair/res/icons/add-black-36dp.svg" class="pt-1 pb-1"/>
+                        </a>
                     </div>
                 </div>
             </section>
+
+
+
 
 
             <!-- FOOTER -->
@@ -155,7 +143,7 @@
 
 
         </main>
-        <div class="row bg-sec justify-content-center">
+        <div class="row bg-sec justify-content-center fixed-bottom">
             <div class="col-12">
                 <footer>
                     <nav class="nav text-monospace">

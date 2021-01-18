@@ -11,7 +11,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="style/style.css">
 
-    <title><?php echo $headerInfo["title"]; ?></title>
+    <title>Modifica pacchetto</title>
 </head>
 
 <body class="bg-custom">
@@ -67,14 +67,15 @@
 
             <!-- HEADER -->
 
-            <header class="col-md-6 offset-3">
-                <div class="row">
-                    <div class="col-12 pl-0">
-                        <h1 class="text-left col-title font-weight-lighter">Modifica viaggio</h1>
+            <div class="row">
+                <header class="col-md-6 offset-md-3 offset-md-1">
+                    <div class="container pl-0">
+                        <div class="col-12 pl-0">
+                            <h1 class="text-left col-title font-weight-lighter">Modifica pacchetto</h1>
+                        </div>
                     </div>
-                </div>
-            </header>
-
+                </header>
+            </div>
             <div class="row">
                 <div class="col-md-6 offset-md-3 mb-3">
                     <form action="">

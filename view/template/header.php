@@ -24,7 +24,7 @@
     <?php endforeach ?>
 
 </head>
-<body class="bg-custom">
+<body class="bg-custom d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-md navbar-dark bg-custom">
         <!--Toggler for the navbar-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

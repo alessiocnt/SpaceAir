@@ -58,26 +58,25 @@
 
             <!-- HEADER -->
 
-            <header class="col-md-6 offset-3">
-                <div class="row">
-                    <div class="col-12 pl-0">
-                        <h1 class="text-left col-title font-weight-lighter">Preferiti</h1>
-                    </div>
-                </div>
-            </header>
-
-
             <div class="row">
-
+                <header class="col-md-6 offset-md-3 offset-md-1 pl-md-2">
+                    <div class="container pl-0">
+                        <div class="col-12 pl-0">
+                            <h1 class="text-left col-title font-weight-lighter">Preferiti</h1>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <div class="row">
                 <div class="col-12 mb-3 mt-3">
                     <section>
                     <article>
                             <div class="row ml-1 mr-1">
-                                <div class="col-12 col-md-6 offset-md-3">
+                                <div class="col-12 col-md-6 offset-md-3 p-0">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-4 col-md-3">
-                                                <img src="../../res/img/mars.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
+                                                <img src="/spaceair/res/img/mars.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
                                             </div>
                                             <div class="col-8 col-md-9">
                                                 <a href="" title="Rimuovi dai preferiti">
@@ -92,11 +91,11 @@
                         </article>
                         <article>
                             <div class="row ml-1 mr-1">
-                                <div class="col-12 col-md-6 offset-md-3">
+                                <div class="col-12 col-md-6 offset-md-3 p-0">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
                                             <div class="col-4 col-md-3">
-                                                <img src="../../res/img/venus.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
+                                                <img src="/spaceair/res/img/venus.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
                                             </div>
                                             <div class="col-8 col-md-9">
                                                 <a href="" title="Rimuovi dai preferiti">
