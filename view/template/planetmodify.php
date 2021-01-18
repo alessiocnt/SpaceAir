@@ -134,7 +134,7 @@
                                     <input type="checkbox" name="inputDescription" id="inputVisible">
                                 </div>
                                 <div class="col-6">
-                                    <input type="submit" class="form-control" value="Inserisci"/>
+                                    <input type="submit" class="form-control" value="Modifica"/>
                                 </div>
 
             
