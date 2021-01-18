@@ -57,7 +57,7 @@
             <header class="offset-1 mb-3 col-md-6 offset-md-3 p-0">
                 <div class="row">
                     <div class="col-12 pl-0">
-                            <h1 class="text-left col-title font-weight-lighter">Destinazioni</h1>
+                            <h1 class="text-left col-title font-weight-lighter">Elenco destinazioni</h1>
                     </div>
                 </div>
             </header>
@@ -79,24 +79,33 @@
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8">Luna</a>
                         <div class="col-4">
-                            <button class="btn float-right" type="button">
-                                <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                            <button class="btn float-right p-1" type="button">
+                                <img src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
+                            </button>
+                            <button class="btn float-right p-1" type="button">
+                                <img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
                             </button>
                         </div>
                     </li>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8">Luna</a>
                         <div class="col-4">
-                            <button class="btn float-right" type="button">
-                                <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                            <button class="btn float-right p-1" type="button">
+                                <img src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
+                            </button>
+                            <button class="btn float-right p-1" type="button">
+                                <img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
                             </button>
                         </div>
                     </li>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8">Luna</a>
                         <div class="col-4">
-                            <button class="btn float-right" type="button">
-                                <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                            <button class="btn float-right p-1" type="button">
+                                <img src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
+                            </button>
+                            <button class="btn float-right p-1" type="button">
+                                <img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
                             </button>
                         </div>
                     </li>
