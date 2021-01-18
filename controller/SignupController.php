@@ -5,10 +5,19 @@ class SignupController extends AbstractController {
     
     public function __construct($model) {
         parent::__construct($model);
+
+        //Start secure session
+        Utils::sec_session_start();
     }
 
     public function execute() {
-        if(isset($_POST["password"])) {
+        //Check if already logged
+        $userHandler = $this->getModel()->getUserHandler();
+        if($userHandler->checkLogin()) {
+            //Go to profile page
+            header("Location:testPage.php");
+
+        } else if(isset($_POST["password"])) {
             $data["Name"] = $_POST["name"];
             $data["Surname"] = $_POST["surname"];
             $data["Borndate"] = $_POST["borndate"];
@@ -30,16 +39,26 @@ class SignupController extends AbstractController {
             $address = $builderA->createFromAssoc($dataAddress);
 
             $user->setAddresses(array($address));
-
-            $result = $this->getModel()->getUserHandler()->signup($user);
+            
+            //$data["img"] = "" ; 
+            
+            $result = $userHandler->signup($user);
 
             if($result == true) {
                 echo("OOOOKKKKKK");
             } else {
-                echo("NOOOO");
+                $data["data"]["error"] = "Registrazione non andata a buon fine, assicurati di non aver gi&agrave; un altro account con la stessa mail";
+                //Set the title
+                $data["header"]["title"] = "Registrazione";
+                //Set custom js
+                $data["header"]["js"] = ["/spaceair/view/js/sha512.js","/spaceair/view/js/signup.js"];
+                //Set custom css
+                $data["header"]["css"] = [];
+                //Create the view
+                $view = new GenericView("signup");
+                //Render the view
+                $view->render($data); 
             }
-
-            //$data["img"] = "" ; 
         } else {
             $data["data"] = [];
             //Set the title

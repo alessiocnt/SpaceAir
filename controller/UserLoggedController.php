@@ -21,6 +21,7 @@ class TestController extends AbstractController {
             $this->executePage();
         } else {
             //Render Login
+            header("Location:login.php");
         }
     }
 

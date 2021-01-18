@@ -13,6 +13,10 @@
     </header>
     <div class="row mt-2">
         <div class="offset-1 col-10 offset-md-4 col-md-4">
+            <?php if(isset($data["error"])):?>
+                <p class="col-error"><?php echo $data["error"]?></p>
+            <?php endif ?>
+            <p>
             <form action="" method="POST">
                 <fieldset class="form-group"><legend class="col-title">Dati Utente</legend>
                 <div class="form-group">

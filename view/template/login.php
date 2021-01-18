@@ -22,6 +22,9 @@
                     <label for="password" class="col-text">Password</label>
                     <input type="password" class="col-back-white form-control" name="password" id="password" required/>
                 </div>
+                <?php if(isset($data["error"])):?>
+                    <p class="col-error"><?php echo $data["error"]?></p>
+                <?php endif ?>
 
                 <input type="submit" class="mt-2 py-2 col-12 btn col-btn-impo col-title font-weight-light" value="Login"/> 
             </form>

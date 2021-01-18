@@ -143,7 +143,24 @@ class UserHandler extends AbstractHandler {
             $insert_stmt->bind_param('ssssssssii', $name, $surname, $borndate, $phone, $imgProfile, $mail, $password, $random_salt, $type, $newsletter);
             // Esegui la query ottenuta.
             $insert_stmt->execute();
-            return true;
+            
+            //Get the insert user id
+            $userId = $db->insert_id;
+            $address = $user->getAddresses()[0];
+
+            //Add the address
+            if ($insert_stmt = $db->prepare("INSERT INTO ADDRESS (Via, Civico, Citta, Provincia, Cap, IdUser) VALUES(?,?,?,?,?,?)")) {    
+                $via = $address->getVia();
+                $civico = $address->getCivico();
+                $citta = $address->getCitta();
+                $provincia = $address->getProvincia();
+                $cap = $address->getCap();
+                $insert_stmt->bind_param('sssssi',$via, $civico, $citta, $provincia, $cap, $userId); 
+                $insert_stmt->execute();   
+
+                return true;
+            }
+            
         }
 
         return false;

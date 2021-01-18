@@ -11,23 +11,30 @@ class LoginController extends AbstractController {
     }
 
     public function execute() {
+        $userHandler = $this->getModel()->getUserHandler();
         //Check if already logged
-
-        //Check post
-
-        //Login check
-
-
-        if(isset($_POST['email'], $_POST['password'])) { 
+        if($userHandler->checkLogin()) {
+            //Go to profile page
+            header("Location:testPage.php");
+        }else if(isset($_POST['email'], $_POST['criptopassword'])) { 
             $email = $_POST['email'];
             $password = $_POST['criptopassword']; // Recupero la password criptata.
-            if($this->getModel()->getUserHandler()->login($email, $password)) {
+            if($userHandler->login($email, $password)) {
                // Login eseguito
                echo 'Success: You have been logged in!';
             } else {
-               // Login fallito
-               //header('Location: ./login.php?error=1');
-               echo 'LOGIN FALLITO';
+                // Login fallito
+                $data["data"]["error"] = "E-Mail o Password errati";
+                //Set the title
+                $data["header"]["title"] = "Login";
+                //Set custom js
+                $data["header"]["js"] = ["/spaceair/view/js/sha512.js","/spaceair/view/js/login.js"];
+                //Set custom css
+                $data["header"]["css"] = [];
+                //Create the view
+                $view = new GenericView("login");
+                //Render the view
+                $view->render($data); 
             }
         } else {
             $data["data"] = [];
