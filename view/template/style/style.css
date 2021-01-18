@@ -157,10 +157,10 @@ textarea {
     color: white;
 }
 
-<<<<<<< HEAD
 .top-line {
     border-top: 2px solid #E4E4E4;
-=======
+}
+
 .graph {
     width: 100%;
     height: 250px;
@@ -168,7 +168,6 @@ textarea {
 
 .graph-table {
     display: none;
->>>>>>> a8eeeee3e36e32a84eb84ed64a688e3ac840fe49
 }
 
 
