@@ -96,15 +96,17 @@
                         <section class="mb-3 p-0 col-10 offset-1">
                             <form action="" class="rounded my-2 col-back-white p-4 col-dark col-12">
                                 <div class="row">
-                                    <button class="btn float-right" type="button">
-                                        <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="float-right" alt="Aggiungi al carrello">
-                                    </button>
                                     <p class="col-4 col-dark font-weight-bold list-impo-text">Quantità</p>
                                     <div class="col-4">
                                         <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
                                         <div class="input-group">
                                             <input type="number" class="form-control" name="inputQuantity" id="inputQuantity" value="1" min="0" max="100" step="1"/>
                                         </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn float-right" type="button">
+                                            <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="float-right" alt="Aggiungi al carrello">
+                                        </button>
                                     </div>
                                 </div>
                             </form>
