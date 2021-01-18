@@ -78,21 +78,27 @@
                 <ul class="list-group">
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
-                        <button class="btn pull-right" type="button">
-                            <img src="/spaceair/res/icons/favorite-24px.svg" class="float-right" alt="Preferiti">
-                        </button>
+                        <div class="col-4 col-md-2">
+                            <button class="btn float-right" type="button">
+                                <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                            </button>
+                        </div>
                     </li>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
-                        <button class="btn pull-right" type="button">
-                            <img src="/spaceair/res/icons/favorite-24px.svg" class="float-right" alt="Preferiti">
-                        </button>
+                        <div class="col-4 col-md-2">
+                            <button class="btn float-right" type="button">
+                                <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                            </button>
+                        </div>
                     </li>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8 col-md-10">Luna</a>
-                        <button class="btn pull-right" type="button">
-                            <img src="/spaceair/res/icons/favorite-24px.svg" class="float-right" alt="Preferiti">
-                        </button>
+                        <div class="col-4 col-md-2">
+                            <button class="btn float-right" type="button">
+                                <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                            </button>
+                        </div>
                     </li>
                 </ul>
             </div>
