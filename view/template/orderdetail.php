@@ -1,7 +1,7 @@
 <section>
     <header>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-6 offset-md-3">
                     <h1 class="text-left col-title font-weight-lighter">Dettaglio</h1>
             </div>
         </div>
