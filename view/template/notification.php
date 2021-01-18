@@ -11,7 +11,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="style/style.css">
 
-    <title>Carrello</title>
+    <title>Notifiche</title>
 </head>
 
 <body class="bg-custom">
@@ -61,7 +61,7 @@
             <header class="col-md-6 offset-3">
                 <div class="row">
                     <div class="col-12 pl-0">
-                        <h1 class="text-left col-title font-weight-lighter">Carrello</h1>
+                        <h1 class="text-left col-title font-weight-lighter">Notifiche</h1>
                     </div>
                 </div>
             </header>
@@ -76,48 +76,35 @@
                                 <div class="col-12 col-md-6 offset-md-3">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
-                                            <div class="col-4 col-md-3">
-                                                <img src="../../res/img/mars.png" class="card-img" alt="">
-                                            </div>
-                                            <div class="col-8 col-md-9">
-                                                <a href="" title="Rimuovi dal carrello">
-                                                    <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Rimuovi dal carrello">
-                                                </a>
-                                                <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Marte</p>
-                                                <p>20.11.2021 - 14:46</p>
-                                                <p class="text-uppercase my-0">Andrea Giulianelli</p>
-                                                <p class="font-weight-normal my-0">15.03.2021</p>
-                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">Costo €9200</p>
-                                                <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
-                                                <div class="input-group col-2 pl-0">
-                                                    <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="2" min="1" max="10" step="1" />
-                                                </div>
+                                            <div class="col-12 ">
+                                                <p class="font-weight-normal my-0">Rimangono solo 5 posti disponibili per il Viaggio per Marte con partenza in data 25.12.2020. Affrettati!</p>
+                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">22.12.2020</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                         </article>
                         <article>
-                            <div class="row ml-1 mr-1">
+                        <div class="row ml-1 mr-1">
                                 <div class="col-12 col-md-6 offset-md-3">
                                     <div class="rounded my-2 col-back-white p-4 col-dark ">
                                         <div class="row">
-                                            <div class="col-4 col-md-3">
-                                                <img src="../../res/img/venus.png" class="card-img" alt="">
+                                            <div class="col-12 ">
+                                                <p class="font-weight-normal my-0">Ecco il tuo biglietto per il Viaggio verso Venere che hai acquistato</p>
+                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">30.11.2020</p>
                                             </div>
-                                            <div class="col-8 col-md-9">
-                                                <a href="" title="Rimuovi dal carrello">
-                                                    <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Rimuovi dal carrello">
-                                                </a>
-                                                <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Venere</p>
-                                                <p>22.01.2021 - 19:12</p>
-                                                <p class="text-uppercase my-0">Andrea Giulianelli</p>
-                                                <p class="font-weight-normal my-0">11.02.2021</p>
-                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo €7500</p>
-                                                <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
-                                                <div class="input-group col-2 pl-0">
-                                                    <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity" id="inputQuantity" value="1" min="1" max="10" step="1" />
-                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </article>
+                        <article>
+                        <div class="row ml-1 mr-1">
+                                <div class="col-12 col-md-6 offset-md-3">
+                                    <div class="rounded my-2 col-back-white p-4 col-dark ">
+                                        <div class="row">
+                                            <div class="col-12 ">
+                                                <p class="font-weight-normal my-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus risus libero, eleifend elit ullamcorper suscipit. Etiam sit amet finibus tortor, vitae venenatis justo. Vestibulum non nibh non ligula sodales aliquet. In justo, id tempus dui vulputate vitae. Aenean aliquet, nisi a auctor efficitur, odio lectus ultrices tortor, vel tincidunt est sapien urna. Nunc id nisl metus. Vivamus vehicula quis erat vel mattis. Ut ornare ultricies turpis, sed volutpat lacus semper eu. Sed mollis magna . Sed rutrum diam nibh. Donec at purus cursus, ornare libero ac, mollis justo. Curabitur vestibulum, eros eget sodales tincidunt, at sollicitudin leo orci vitae arcu.</p>
+                                                <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">05.11.2020</p>
                                             </div>
                                         </div>
                                     </div>
@@ -126,23 +113,6 @@
                     </section>
                 </div>
             </div>
-            <section>
-                <div class="col-md-6 offset-md-3">
-
-                    <div class="row top-line">
-                        <div class="container">
-                            <p class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale €16700</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 offset-5 col-md-3 offset-md-9">
-                            <form action="">
-                                <input type="submit" class="form-control float-right mb-4" value="Procedi all'acquisto" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
 
             <!-- FOOTER -->
