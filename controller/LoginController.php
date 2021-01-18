@@ -38,7 +38,7 @@ class LoginController extends AbstractController {
             //Set custom css
             $data["header"]["css"] = [];
             //Create the view
-            $view = new LoginView();
+            $view = new GenericView("login");
             //Render the view
             $view->render($data); 
         }

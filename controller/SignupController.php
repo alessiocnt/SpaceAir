@@ -49,7 +49,7 @@ class SignupController extends AbstractController {
             //Set custom css
             $data["header"]["css"] = [];
             //Create the view
-            $view = new SignupView();
+            $view = new GenericView("signup");
             //Render the view
             $view->render($data); 
         }
