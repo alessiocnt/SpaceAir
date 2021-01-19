@@ -96,7 +96,7 @@ class Order {
     }
 
     public function setUser(User $user) {
-        $this->user = user;
+        $this->user = $user;
     }
 
 }
