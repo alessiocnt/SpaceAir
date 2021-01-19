@@ -30,7 +30,7 @@ class ModelImpl implements Model, ModelHelper {
     }
 
     public function getPlanetHandler() {
-        return new UserHandler($this);
+        return new PlanetHandler($this);
     }
 }
 

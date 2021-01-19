@@ -40,6 +40,21 @@ class PlanetHandler extends AbstractHandler {
         }
         return false;
     }
+
+    public function getPlanets() {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM PLANET WHERE Visible = true");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+
+        $builder = new PlanetBuilder();
+        $planets = array();
+        foreach ($result as $planet) {
+            array_push($planets,$builder->createFromAssoc($planet));
+        }
+        return $planets;
+    }
 }
 
 ?>
