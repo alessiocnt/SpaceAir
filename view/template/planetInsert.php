@@ -8,7 +8,7 @@
     </header>
     <div class="row">
         <div class="col-md-6 offset-md-3 mb-3">
-            <form action="">
+            <form action="" method="POST">
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="inputName">Nome</label>
@@ -18,7 +18,7 @@
                         <label for="inputImage">Immagine</label>
                         <div class="custom-file" id="inputImage">
                             <label for="img" class="custom-file-label">Clicca per inserire</label>
-                            <input type="file" class="form-control" name="img" id="img" required/>
+                            <input type="file" class="form-control" name="img" id="img"/>
                         </div>
                     </div>
                 </div>
@@ -60,10 +60,12 @@
                             <option value = "" selected hidden>Seleziona...</option>
                             <option value="Marte">Solido</option>
                             <option value="Venere">Liquido</option>
+                            <option value="Venere">Gassoso</option>
+                            <option value="Venere">Lava</option>
                         </select>
                     </div>
                     <div class="col-6">
-                        <label for="inputDay">Massa</label>
+                        <label for="inputDay">Durata del giorno</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Ore</span>
@@ -87,6 +89,9 @@
                         <input type="submit" class="form-control" value="Inserisci"/>
                     </div>
                 </div>
+                <?php if(isset($data["error"])):?>
+                    <p class="col-error col-12"><?php echo $data["error"]?></p>
+                <?php endif ?>
             </form>
         </div>
     </div>

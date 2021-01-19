@@ -28,6 +28,10 @@ class ModelImpl implements Model, ModelHelper {
     public function getUserHandler() {
         return new UserHandler($this);
     }
+
+    public function getPlanetHandler() {
+        return new PlanetHandler($this);
+    }
 }
 
 ?>
