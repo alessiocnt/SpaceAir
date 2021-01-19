@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class TestController extends AbstractController {
+abstract class UserLoggedController extends AbstractController {
     
     public function __construct($model) {
         parent::__construct($model);

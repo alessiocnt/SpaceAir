@@ -2,7 +2,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class PlanetBuilder implements Builder{
-    private int $codPlanet;
+    private int $codPlanet = 0;
     private string $name = "";
     private int $temperature;
     private float $mass;

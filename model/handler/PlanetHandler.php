@@ -20,7 +20,7 @@ class PlanetHandler extends AbstractHandler {
         if(count($result) > 0) {
             return false;
         }
-
+        
         if ($insert_stmt = $db->prepare("INSERT INTO PLANET (Name, Temperature, Mass, Surface, SunDistance, Composition, DayLength, Img, Description, Visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);")) {    
             $visible = $planet->isVisible() ? 1 : 0;
             $name = $planet->getName();

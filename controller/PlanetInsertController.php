@@ -1,27 +1,15 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class PlanetInsertController extends AbstractController {
+class PlanetInsertController extends UserLoggedController {
     
     public function __construct($model) {
         parent::__construct($model);
-
-        //Start secure session
-        Utils::sec_session_start();
     }
 
-    public function execute() {
-        $userHandler = $this->getModel()->getUserHandler();
+    public function executePage() {
         $planetHandler = $this->getModel()->getPlanetHandler();
-        //Check if already logged
-        if($userHandler->checkLogin()) {
-            $data["data"]["error"] = "";
-            $data["header"]["title"] = "Nuova destinazione";
-            $data["header"]["js"] = [];
-            $data["header"]["css"] = [];
-            $view = new GenericView("planetinsert");
-            $view->render($data);
-        } else if(isset($_POST["inputName"])) {
+        if(isset($_POST["inputName"])) {
             $data["Name"] = $_POST["inputName"];
             /* $data["imgPlanet"] = $_POST["inputImage"]; */
             $data["Temperature"] = $_POST["inputTemperature"];
@@ -49,8 +37,12 @@ class PlanetInsertController extends AbstractController {
                 $view->render($data); 
             }
         } else {
-            //Go to login page
-            header("Location:login.php"); 
+            $data["data"] = [];
+            $data["header"]["title"] = "Nuova destinazione";
+            $data["header"]["js"] = [];
+            $data["header"]["css"] = [];
+            $view = new GenericView("planetinsert");
+            $view->render($data); 
         }
     }
 }
