@@ -3,10 +3,10 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader
 
 
 class PacketInOrder {
-    private Package $packet;
+    private Packet $packet;
     private int $quantity;
 
-    public function __construct(Package $packet, int $quantity) {
+    public function __construct(Packet $packet, int $quantity) {
         $this->packet = $packet;
         $this->quantity = $quantity;
     }
@@ -14,7 +14,7 @@ class PacketInOrder {
     /*
         Getters
     */
-    public function getPacket() : Package {
+    public function getPacket() : Packet {
         return $this->packet;
     }
 
