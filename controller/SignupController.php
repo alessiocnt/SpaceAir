@@ -13,11 +13,11 @@ class SignupController extends AbstractController {
     public function execute() {
         //Check if already logged
         $userHandler = $this->getModel()->getUserHandler();
-        if($userHandler->checkLogin()) {
+        if($userHandler->checkLogin(UserHandler::$LOGINOKUSER)) {
             //Go to profile page
             header("Location:testPage.php");
 
-        } else if(isset($_POST["password"])) {
+        } else if(isset($_POST["criptopassword"])) {
             $data["Name"] = $_POST["name"];
             $data["Surname"] = $_POST["surname"];
             $data["Borndate"] = $_POST["borndate"];
@@ -44,10 +44,20 @@ class SignupController extends AbstractController {
             
             $result = $userHandler->signup($user);
 
-            if($result == true) {
-                echo("OOOOKKKKKK");
+            if($result == UserHandler::$SIGNUPOK) {
+                //Log User and go to the profile page (because login will see the user already logged)
+                $userHandler->login($user->getMail(), $user->getPassword());
+                header("Location:login.php");
             } else {
-                $data["data"]["error"] = "Registrazione non andata a buon fine, assicurati di non aver gi&agrave; un altro account con la stessa mail";
+                switch($result) {
+                    case UserHandler::$MAILERRORSIGNUP:
+                        $data["data"]["error"] = "Registrazione non andata a buon fine, assicurati di non aver gi&agrave; un altro account con la stessa mail";
+                    break;
+                    case UserHandler::$SIGNUPNO:
+                        $data["data"]["error"] = "Errore, riprova";
+                    break;
+                }
+                
                 //Set the title
                 $data["header"]["title"] = "Registrazione";
                 //Set custom js

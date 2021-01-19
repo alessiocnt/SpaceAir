@@ -13,18 +13,28 @@ class LoginController extends AbstractController {
     public function execute() {
         $userHandler = $this->getModel()->getUserHandler();
         //Check if already logged
-        if($userHandler->checkLogin()) {
+        if($userHandler->checkLogin(UserHandler::$LOGINOKUSER)) {
             //Go to profile page
             header("Location:testPage.php");
         }else if(isset($_POST['email'], $_POST['criptopassword'])) { 
             $email = $_POST['email'];
             $password = $_POST['criptopassword']; // Recupero la password criptata.
-            if($userHandler->login($email, $password)) {
+            $result = $userHandler->login($email, $password);
+            if($result == UserHandler::$LOGINOKUSER) {
                // Login eseguito
                echo 'Success: You have been logged in!';
             } else {
                 // Login fallito
-                $data["data"]["error"] = "E-Mail o Password errati";
+                switch($result) {
+                    case UserHandler::$LOGINERROR:
+                        $data["data"]["error"] = "Email o Password incorretta, riprova";
+                    break;
+                    case UserHandler::$USERDISABLED:
+                        $data["data"]["error"] = "Utente momentaneamente disabilitato, riprova pi&ugrave; tardi";
+                    break;
+                    default:
+                    break;
+                }
                 //Set the title
                 $data["header"]["title"] = "Login";
                 //Set custom js

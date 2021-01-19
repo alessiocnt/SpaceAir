@@ -29,8 +29,7 @@ abstract class UserLoggedController extends AbstractController {
     abstract protected function executePage();
 
     private function checkLogin() {
-        $userType = 2;
-        return $this->getModel()->getUserHandler()->checkLogin($userType);
+        return $this->getModel()->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER);
     }
 
 }
