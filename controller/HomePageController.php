@@ -13,8 +13,6 @@ class HomePageController extends AbstractController {
     public function execute() {
         $planetHandler = $this->getModel()->getPlanetHandler();
         //Recupera i dati dei pianeti
-        echo("AAAAAAAAAAAAAAA");
-var_dump($planetHandler->getPlanets());
         $data["data"]["planets"] = $planetHandler->getPlanets();
         
         $data["header"]["title"] = "SpaceAir - Home";

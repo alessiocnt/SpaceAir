@@ -59,5 +59,5 @@
         </div>
       </nav>
 
-      <div class="container-fluid">
+      <div class="container-fluid p-0">
         <main class="my-4">
