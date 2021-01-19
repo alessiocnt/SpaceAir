@@ -48,7 +48,7 @@ class SignupController extends AbstractController {
         
             //Create User
             $result = $userHandler->signup($user);
-
+            
             if($result == UserHandler::$SIGNUPOK) {
                 //Log User and go to the profile page (because login will see the user already logged)
                 $userHandler->login($user->getMail(), $user->getPassword());
@@ -87,7 +87,7 @@ class SignupController extends AbstractController {
                 $view = new GenericView("signup");
                 //Render the view
                 $view->render($data); 
-            }
+            } 
         } else {
             $data["data"] = [];
             //Set the title

@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/AbstractController.php";
-include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/test/TestView.php";
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 class TestController extends AbstractController {
     
@@ -9,6 +9,16 @@ class TestController extends AbstractController {
     }
 
     public function execute() {
+
+        //Create general notification
+        $notificationData = ["DateTime" => date('Y-m-d H:i:s'),"Title" => "Benvenuto","Description" => "Grazie per essere entrato a fare parte della famiglia SpaceAir!","Type"=> NotificationType::GENERAL];
+        $builder = new NotificationBuilder();
+        $notification = $builder->createFromAssoc($notificationData);
+        var_dump($notification);
+
+
+
+
         //Get Data from model
         $name = $this->getModel()->getTestHandler()->getName();
         //Transform in data for the view
@@ -23,6 +33,7 @@ class TestController extends AbstractController {
         $view = new TestView();
         //Render the view
         $view->render($data);
+
     }
 }
 ?>

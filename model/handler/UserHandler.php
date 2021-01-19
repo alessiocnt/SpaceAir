@@ -185,6 +185,9 @@ class UserHandler extends AbstractHandler {
                $insert_stmt->bind_param('sssssi',$via, $civico, $citta, $provincia, $cap, $userId); 
                $insert_stmt->execute();   
 
+               //--TODO-- Send notification
+               
+
                return UserHandler::$SIGNUPOK;
          }
          

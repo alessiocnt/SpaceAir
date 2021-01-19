@@ -8,13 +8,13 @@ class Notification {
     private DateTime $dateHour;
     private string $title;
     private string $description;
-    private NotificationType $notificationType;
+    private int $notificationType;
     private ?int $user;
     private $notificationSubject;
     private bool $seen;
 
 
-    public function __construct(int $code, DateTime $dateHour, string $title, string $description, NotificationType $notificationType, int $user, $notificationSubject, bool $seen) {
+    public function __construct(int $code, DateTime $dateHour, string $title, string $description, int $notificationType, int $user, $notificationSubject, bool $seen) {
         $this->code = $code;
         $this->dateHour = $dateHour;
         $this->title = $title;
