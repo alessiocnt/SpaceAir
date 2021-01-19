@@ -37,7 +37,7 @@ class PlanetInsertController extends UserLoggedController {
                 $view->render($data); 
             }
         } else {
-            $data["data"] = [];
+            $data["data"] = "";
             $data["header"]["title"] = "Nuova destinazione";
             $data["header"]["js"] = [];
             $data["header"]["css"] = [];

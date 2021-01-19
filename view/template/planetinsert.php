@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <?php if(isset($data["error"])):?>
-                    <p class="col-error col-12"><?php echo $data["error"]?></p>
+                    <p class="col-error col-12 p-0"><?php echo $data["error"]?></p>
                 <?php endif ?>
             </form>
         </div>

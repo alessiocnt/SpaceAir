@@ -33,8 +33,6 @@ class PlanetHandler extends AbstractHandler {
         $img = $planet->getImgPlanet();
         $description = $planet->getDescription();
 
-        var_dump($composition);
-
         if (!$insert_stmt->bind_param('sidddsissi', $name, $temperature, $mass, $surface, $sunDistance, $composition, $dayLength, $img, $description, $visible)) {
             echo "Binding parameters failed: (" . $insert_stmt->errno . ") " . $insert_stmt->error;
             return false;
