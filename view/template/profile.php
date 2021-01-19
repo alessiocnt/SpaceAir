@@ -59,5 +59,5 @@
             </div>
         </div>
     </div>
-    <a class="mt-5 btn col-btn-impo col-text col-4 offset-4 col-md-2 offset-md-5" href="#" role="button">Logout</a>
+    <a class="mt-5 btn col-btn-impo col-text col-4 offset-4 col-md-2 offset-md-5" href="?logout=1" role="button">Logout</a>
 </section>

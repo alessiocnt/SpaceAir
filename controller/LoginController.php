@@ -21,8 +21,12 @@ class LoginController extends AbstractController {
             $password = $_POST['criptopassword']; // Recupero la password criptata.
             $result = $userHandler->login($email, $password);
             if($result == UserHandler::$LOGINOKUSER) {
-               // Login eseguito
-               echo 'Success: You have been logged in!';
+               // Login user, go to profile page
+               header("Location:profile.php");
+            } else if($result == UserHandler::$LOGINOKADMIN) {
+                //Login admin, go to dashboard
+                //------TODO--------
+                echo 'Success ADMIN: You have been logged in!';
             } else {
                 // Login fallito
                 switch($result) {
