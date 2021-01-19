@@ -15,8 +15,11 @@ class LoginController extends AbstractController {
         //Check if already logged
         if($userHandler->checkLogin(UserHandler::$LOGINOKUSER)) {
             //Go to profile page
-            header("Location:testPage.php");
-        }else if(isset($_POST['email'], $_POST['criptopassword'])) { 
+            header("Location:profile.php");
+        } else if($userHandler->checkLogin(UserHandler::$LOGINOKADMIN)){
+            //Go to dashboard
+            header("Location:dashboardhome.php");
+        } else if(isset($_POST['email'], $_POST['criptopassword'])) { 
             $email = $_POST['email'];
             $password = $_POST['criptopassword']; // Recupero la password criptata.
             $result = $userHandler->login($email, $password);

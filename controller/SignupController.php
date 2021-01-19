@@ -15,7 +15,7 @@ class SignupController extends AbstractController {
         $userHandler = $this->getModel()->getUserHandler();
         if($userHandler->checkLogin(UserHandler::$LOGINOKUSER)) {
             //Go to profile page
-            header("Location:testPage.php");
+            header("Location:profile.php");
 
         } else if(isset($_POST["criptopassword"])) {
             $data["Name"] = $_POST["name"];
@@ -24,6 +24,11 @@ class SignupController extends AbstractController {
             $data["Mail"] = $_POST["email"];
             $data["Password"] = $_POST["criptopassword"];
             $data["Newsletter"] = isset($_POST["newsletter"]);
+            
+            var_dump($_FILES);
+            if(isset($_FILES["img"])) {
+                $data["ProfileImg"] = $_FILES["img"];
+            }
 
             $builder = new UserBuilder();
             $user = $builder->createFromAssoc($data);
@@ -38,10 +43,10 @@ class SignupController extends AbstractController {
             $builderA = new AddressBuilder();
             $address = $builderA->createFromAssoc($dataAddress);
 
+            //Add signup address to user obj.
             $user->setAddresses(array($address));
-            
-            //$data["img"] = "" ; 
-            
+        
+            //Create User
             $result = $userHandler->signup($user);
 
             if($result == UserHandler::$SIGNUPOK) {
@@ -55,6 +60,20 @@ class SignupController extends AbstractController {
                     break;
                     case UserHandler::$SIGNUPNO:
                         $data["data"]["error"] = "Errore, riprova";
+                    break;
+                    case Utils::$NOIMAGE:
+                        $data["data"]["error"] = "File caricato non &egrave; un'immagine!";
+                    break;
+                    case Utils::$IMAGETOOBIG:
+                        $data["data"]["error"] = "File caricato pesa troppo! Dimensione massima &egrave; 500 KB.";
+                    break;
+                    case Utils::$EXTENSIONERROR:
+                        $data["data"]["error"] = "Accettate solo le seguenti estensioni: jpg, jpeg, png, gif";
+                    break;
+                    case Utils::$UPLOADERROR:
+                        $data["data"]["error"] = "Errore nel caricamento dell'immagine.";
+                    break;
+                    default:
                     break;
                 }
                 

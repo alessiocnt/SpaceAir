@@ -17,7 +17,7 @@
                 <p class="col-error"><?php echo $data["error"]?></p>
             <?php endif ?>
             <p>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <fieldset class="form-group"><legend class="col-title">Dati Utente</legend>
                 <div class="form-group">
                     <label for="name" class="col-text">Nome</label>
@@ -82,9 +82,9 @@
                             <img src="/spaceair/res/icons/decorative/user.jpeg" class="decorative-img rounded-circle mw-50" alt="Immagine selezionata"/>
                         </div>
                     </div>
-                    <div class="custom-file">
-                        <label for="img" class="custom-file-label">Clicca per inserire</label>
-                        <input type="file" class="custom-file-input col-back-white" name="img" id="img"/>
+                    <div class="">
+                        <input type="file" class="col-back-white" name="img" id="img"/>
+                        <label for="img" class="">Clicca per inserire</label>
                     </div>
                 </fieldset>
 
