@@ -21,23 +21,30 @@ class PlanetHandler extends AbstractHandler {
             return false;
         }
         
-        if ($insert_stmt = $db->prepare("INSERT INTO PLANET (Name, Temperature, Mass, Surface, SunDistance, Composition, DayLength, Img, Description, Visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);")) {    
-            $visible = $planet->isVisible() ? 1 : 0;
-            $name = $planet->getName();
-            $temperature = $planet->getTemperature();
-            $mass = $planet->getMass();
-            $surface = $planet->getSurface();
-            $sunDistance = $planet->getSunDistance();
-            $composition = $planet->getComposition();
-            $dayLength = $planet->getDayLength();
-            $img = $planet->getImgPlanet();
-            $description = $planet->getDescription();
-            
-            $insert_stmt->bind_param('sifffsissi', $name, $temperature, $mass, $surface, $sunDistance, $composition, $dayLength, $img, $description, $visible);
-            $insert_stmt->execute();
-            return true;
+        $insert_stmt = $db->prepare("INSERT INTO PLANET (Name, Temperature, Mass, Surface, SunDistance, Composition, DayLength, Img, Description, Visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");   
+        $visible = $planet->isVisible() ? 1 : 0;
+        $name = $planet->getName();
+        $temperature = $planet->getTemperature();
+        $mass = $planet->getMass();
+        $surface = $planet->getSurface();
+        $sunDistance = $planet->getSunDistance();
+        $composition = $planet->getComposition();
+        $dayLength = $planet->getDayLength();
+        $img = $planet->getImgPlanet();
+        $description = $planet->getDescription();
+
+        var_dump($composition);
+
+        if (!$insert_stmt->bind_param('sidddsissi', $name, $temperature, $mass, $surface, $sunDistance, $composition, $dayLength, $img, $description, $visible)) {
+            echo "Binding parameters failed: (" . $insert_stmt->errno . ") " . $insert_stmt->error;
+            return false;
         }
-        return false;
+        if (!$insert_stmt->execute()) {
+            echo "Execute failed: (" . $insert_stmt->errno . ") " . $insert_stmt->error;
+            //"Solido", "Liquido", "Gassoso", "Lava"
+            return false;
+        }
+        return true;
     }
 
     public function getPlanets() {

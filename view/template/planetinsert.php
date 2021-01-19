@@ -58,10 +58,10 @@
                         <label for="inputComposition">Composizione</label>
                         <select name="inputComposition" id="inputComposition" class="form-control" required>
                             <option value = "" selected hidden>Seleziona...</option>
-                            <option value="Marte">Solido</option>
-                            <option value="Venere">Liquido</option>
-                            <option value="Venere">Gassoso</option>
-                            <option value="Venere">Lava</option>
+                            <option value="Solido">Solido</option>
+                            <option value="Liquido">Liquido</option>
+                            <option value="Gassoso">Gassoso</option>
+                            <option value="Lava">Lava</option>
                         </select>
                     </div>
                     <div class="col-6">
