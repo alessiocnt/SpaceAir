@@ -12,13 +12,12 @@ class PlanetHandler extends AbstractHandler {
         $db = $this->getModelHelper()->getDbManager()->getDb();
 
         $planetName = $planet->getName();
-        //Check planet already exists
+        //Check if the planet already exists
         $stmt = $db->prepare("SELECT Name FROM PLANET WHERE Name = ?");
         $stmt->bind_param("s",$planetName);
         $stmt->execute();
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         if(count($result) > 0) {
-            //Another planet with the same name
             return false;
         }
 
