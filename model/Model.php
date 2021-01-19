@@ -1,7 +1,8 @@
 <?php
 
 interface Model {
-    //public function getGestioneUtenti();
+    public function getUserHandler();
+    //Test
     public function getTestHandler();
 }
 

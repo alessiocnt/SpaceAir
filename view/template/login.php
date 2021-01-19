@@ -1,7 +1,7 @@
 <section>
     <header>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-4 offset-md-4 pl-md-2">
                     <h1 class="text-left col-title font-weight-lighter">Login</h1>
             </div>
         </div>
@@ -13,7 +13,7 @@
     </header>
     <div class="row mt-2">
         <div class="offset-1 col-10 offset-md-4 col-md-4">
-            <form action="" method="POST">
+            <form action="#" method="POST">
                 <div class="form-group">
                     <label for="email" class="col-text">Email</label>
                     <input type="email" class="col-back-white form-control" name="email" id="email" autocomplete="on" required/>
@@ -22,6 +22,9 @@
                     <label for="password" class="col-text">Password</label>
                     <input type="password" class="col-back-white form-control" name="password" id="password" required/>
                 </div>
+                <?php if(isset($data["error"])):?>
+                    <p class="col-error"><?php echo $data["error"]?></p>
+                <?php endif ?>
 
                 <input type="submit" class="mt-2 py-2 col-12 btn col-btn-impo col-title font-weight-light" value="Login"/> 
             </form>

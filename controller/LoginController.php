@@ -1,0 +1,54 @@
+<?php
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
+class LoginController extends AbstractController {
+    
+    public function __construct($model) {
+        parent::__construct($model);
+
+        //Start secure session
+        Utils::sec_session_start();
+    }
+
+    public function execute() {
+        $userHandler = $this->getModel()->getUserHandler();
+        //Check if already logged
+        if($userHandler->checkLogin()) {
+            //Go to profile page
+            header("Location:testPage.php");
+        }else if(isset($_POST['email'], $_POST['criptopassword'])) { 
+            $email = $_POST['email'];
+            $password = $_POST['criptopassword']; // Recupero la password criptata.
+            if($userHandler->login($email, $password)) {
+               // Login eseguito
+               echo 'Success: You have been logged in!';
+            } else {
+                // Login fallito
+                $data["data"]["error"] = "E-Mail o Password errati";
+                //Set the title
+                $data["header"]["title"] = "Login";
+                //Set custom js
+                $data["header"]["js"] = ["/spaceair/view/js/sha512.js","/spaceair/view/js/login.js"];
+                //Set custom css
+                $data["header"]["css"] = [];
+                //Create the view
+                $view = new GenericView("login");
+                //Render the view
+                $view->render($data); 
+            }
+        } else {
+            $data["data"] = [];
+            //Set the title
+            $data["header"]["title"] = "Login";
+            //Set custom js
+            $data["header"]["js"] = ["/spaceair/view/js/sha512.js","/spaceair/view/js/login.js"];
+            //Set custom css
+            $data["header"]["css"] = [];
+            //Create the view
+            $view = new GenericView("login");
+            //Render the view
+            $view->render($data); 
+        }
+    }
+}
+?>

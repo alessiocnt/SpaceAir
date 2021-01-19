@@ -1,7 +1,7 @@
 <section>
     <header>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-6 offset-md-4 pl-md-2">
                     <h1 class="text-left col-title font-weight-lighter">Registrazione</h1>
             </div>
         </div>
@@ -13,6 +13,10 @@
     </header>
     <div class="row mt-2">
         <div class="offset-1 col-10 offset-md-4 col-md-4">
+            <?php if(isset($data["error"])):?>
+                <p class="col-error"><?php echo $data["error"]?></p>
+            <?php endif ?>
+            <p>
             <form action="" method="POST">
                 <fieldset class="form-group"><legend class="col-title">Dati Utente</legend>
                 <div class="form-group">
@@ -34,10 +38,12 @@
                 <div class="form-group">
                     <label for="password" class="col-text">Password</label>
                     <input type="password" class="col-back-white form-control" name="password" id="password" required/>
+                    <p class="col-error d-none">La password deve essere lunga almeno 8 caratteri</p>
                 </div>
                 <div class="form-group">
                     <label for="confirmpassword" class="col-text">Conferma Password</label>
                     <input type="password" class="col-back-white form-control" name="confirmpassword" id="confirmpassword" required/>
+                    <p class="col-error d-none">Le due password non corrispondono</p>
                 </div>
                 </fieldset>
 

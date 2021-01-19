@@ -8,11 +8,11 @@ class DbManagerImpl implements DbManager {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
             die("Connection to database failed: " . $db->connect_error);
-        }        
+        }
     }
 
     public function getDb() {
-        return $this->$db;
+        return $this->db;
     }
 
 }

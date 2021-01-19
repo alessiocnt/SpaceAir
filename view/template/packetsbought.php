@@ -1,12 +1,12 @@
 <section>
     <header>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-6 offset-md-3 pl-md-2">
                     <h1 class="text-left col-title font-weight-lighter">Elenco pacchetti acquistati</h1>
             </div>
         </div>
     </header>
-    <table class="mt-3 col-10 offset-1 table table-light table-striped">
+    <table class="mt-3 col-10 offset-1 col-md-6 offset-md-3 table table-light table-striped">
         <thead class="col-btn-impo">
             <tr>
                 <th id="name">Nome</th>
