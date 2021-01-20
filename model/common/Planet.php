@@ -19,7 +19,7 @@ class Planet {
     private $reviews = array(); //Array to store reviews of this planet
 
     /* Base construct */
-    public function __construct(int $codPlanet, string $name = "", int $temperature, float $mass, float $surface, float $sunDistance, string $composition = "", int $dayLength, string $imgPlanet = "", string $description = "", bool $visible) {
+    public function __construct(int $codPlanet, string $name = "", int $temperature = 0, float $mass = 0, float $surface = 0, float $sunDistance = 0, string $composition = "", int $dayLength = 0, string $imgPlanet = "", string $description = "", bool $visible = false) {
         $this->codPlanet = $codPlanet;
         $this->name = $name;
         $this->temperature = $temperature;

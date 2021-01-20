@@ -40,6 +40,10 @@ class ModelImpl implements Model, ModelHelper {
     public function getCartHandler() {
         return new CartHandler($this);
     }
+    
+    public function getNotificationDispatcher() {
+        return new NotificationDispatcher($this);
+    }
 }
 
 ?>

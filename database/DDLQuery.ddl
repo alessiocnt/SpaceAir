@@ -177,10 +177,10 @@ create table INTEREST (
          on update cascade
 );
 
-alter table TEMPLATE_NOTIFICATION add constraint TypeCHK check(Type between 0 and 3);
-alter table TEMPLATE_NOTIFICATION add constraint TypeRegularCHK check((Type = 0 and CodPlanet = null and CodPacket = null) or
-   (Type = 1 and CodPacket != null and CodPlanet = null) or
-   (Type = 2 and CodPlanet != null and CodPacket = null));
+alter table TEMPLATE_NOTIFICATION add constraint TypeCHK check(Type between 0 and 2);
+alter table TEMPLATE_NOTIFICATION add constraint TypeRegularCHK check((Type = 0 and CodPlanet IS NULL and CodPacket IS NULL) or
+   (Type = 1 and CodPacket IS NOT NULL and CodPlanet IS NULL) or
+   (Type = 2 and CodPlanet IS NOT NULL and CodPacket IS NULL));
 
 create table USER_NOTIFICATION (
      IdUser int not null,
