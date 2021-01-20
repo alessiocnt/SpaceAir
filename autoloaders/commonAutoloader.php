@@ -9,7 +9,7 @@
     */
     spl_autoload_register(function($className) {
         $searchPath = array("/model/", "/model/handler/", "/model/common/", "/model/common/builder/", "/model/db/" , "/model/utils/", 
-    "/controller/", "/controller/utils/", "/controller/api/", "/view/");
+    "/controller/", "/controller/utils/", "/controller/api/", "/view/", "/view/test/");
         foreach($searchPath as $path) {
             $fullPath = $_SERVER["DOCUMENT_ROOT"] . "/spaceair" . $path . $className .".php"; 
             if(file_exists($fullPath)) {

@@ -2,9 +2,8 @@
 
 class NotificationType {
     const GENERAL = 0;
-    const INTEREST = 1;
-    const FLIGHT = 2;
-    const PACKAGE = 3;
+    const PACKAGE = 1;
+    const PLANET = 2;
     /*
     static function fromNumber($i) {
         switch ($i) {

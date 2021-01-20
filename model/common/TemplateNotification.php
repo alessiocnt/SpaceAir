@@ -3,26 +3,24 @@
 /**
  * Class that models a notification
  */
-class Notification {
+class TemplateNotification {
     private int $code;
-    private DateTime $dateHour;
+    private ?DateTime $dateHour;
     private string $title;
     private string $description;
     private int $notificationType;
-    private ?int $user;
-    private $notificationSubject;
-    private bool $seen;
+    private ?Planet $planet;
+    private ?Packet $packet;
 
 
-    public function __construct(int $code, DateTime $dateHour, string $title, string $description, int $notificationType, int $user, $notificationSubject, bool $seen) {
+    public function __construct(int $code, $dateHour = NULL, string $title = "", string $description = "", int $notificationType = 0, Planet $planet = NULL, Packet $packet = NULL) {
         $this->code = $code;
         $this->dateHour = $dateHour;
         $this->title = $title;
         $this->description = $description;
         $this->notificationType = $notificationType;
-        $this->user = $user;
-        $this->notificationSubject = $notificationSubject;
-        $this->seen = $seen;
+        $this->planet = $planet;
+        $this->packet = $packet;
     }
 
     public function getCode() : int {
@@ -41,20 +39,27 @@ class Notification {
         return $this->description;
     }
 
-    public function getNotificationType() : NotificationType {
+    public function getNotificationType() : int {
         return $this->notificationType;
     }
 
-    public function getUserId() : int {
-        return $this->user;
+    public function getPlanet() : Planet {
+        return $this->planet;
     }
 
-    public function getNotificationSubject() {
-        return $this->notificationSubject;
+    public function getPacket() : Packet {
+        return $this->packet;
     }
 
-    public function isSeen() {
-        return $this->seen;
+
+    //Only allow this setter
+
+    public function setPlanet(Planet $planet) {
+        $this->planet = $planet;
+    }
+
+    public function setPacket(Packet $packet) {
+        $this->packet = $packet;
     }
 }
 

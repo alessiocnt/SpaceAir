@@ -3,7 +3,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader
 
 
 class TestController extends AbstractController {
-    
+
     public function __construct($model) {
         parent::__construct($model);
     }
@@ -11,11 +11,12 @@ class TestController extends AbstractController {
     public function execute() {
 
         //Create general notification
-        $notificationData = ["DateTime" => date('Y-m-d H:i:s'),"Title" => "Benvenuto","Description" => "Grazie per essere entrato a fare parte della famiglia SpaceAir!","Type"=> NotificationType::GENERAL];
+        /*$notificationData = ["DateTime" => date('Y-m-d H:i:s'),"Title" => "Benvenuto","Description" => "Grazie per essere entrato a fare parte della famiglia SpaceAir!","Type"=> NotificationType::GENERAL];
         $builder = new NotificationBuilder();
         $notification = $builder->createFromAssoc($notificationData);
-        var_dump($notification);
+        var_dump($notification);*/
 
+        $this->getModel()->getNotificationDispatcher()->createGeneral("Titolo","Ciao belli", new User(1));
 
 
 
