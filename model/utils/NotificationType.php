@@ -2,7 +2,7 @@
 
 class NotificationType {
     const GENERAL = 0;
-    const PACKAGE = 1;
+    const PACKET = 1;
     const PLANET = 2;
     /*
     static function fromNumber($i) {
