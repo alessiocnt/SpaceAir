@@ -59,6 +59,27 @@ class PlanetHandler extends AbstractHandler {
         }
         return $planets;
     }
+
+    public function searchPlanetByName($name) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM planet WHERE Name = ?");
+        if (!$stmt->bind_param('s', $name)) {
+            //echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+            return false;
+        }
+        if (!$stmt->execute()) {
+            //echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } else {
+            $builder = new PlanetBuilder();
+            $planet = $builder->createFromAssoc($result[0]);
+            return array($planet);
+        }
+    }
 }
 
 ?>

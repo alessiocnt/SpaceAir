@@ -4,12 +4,12 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader
 class PlanetBuilder implements Builder{
     private int $codPlanet = 0;
     private string $name = "";
-    private int $temperature;
-    private float $mass;
-    private float $surface;
-    private float $sunDistance;
+    private int $temperature = 0;
+    private float $mass = 0;
+    private float $surface = 0;
+    private float $sunDistance = 0;
     private string $composition = "";
-    private int $dayLength;
+    private int $dayLength = 0;
     private string $imgPlanet = "";
     private string $description = "";
     private bool $visible = true;

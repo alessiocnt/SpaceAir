@@ -8,7 +8,7 @@
     </header>
 
     <div class="col-10 offset-1 col-md-6 offset-md-3 mb-5">
-        <form action="">
+        <form action="" method="POST">
             <div class="row">
                 <label for="searchBar" class="d-none">Ricerca</label>
                 <input type="search" class="form-control col-11" name="searchBar" id="searchBar" autocomplete="on"/>
@@ -23,30 +23,21 @@
 
     <div class="col-10 offset-1 col-md-6 offset-md-3 p-0">
         <ul class="list-group">
-            <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                <a href="#" class="col-dark list-impo-text col-8">Luna</a>
-                <div class="col-4">
-                    <button class="btn float-right" type="button">
-                        <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
-                    </button>
-                </div>
-            </li>
-            <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                <a href="#" class="col-dark list-impo-text col-8">Luna</a>
-                <div class="col-4">
-                    <button class="btn float-right" type="button">
-                        <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
-                    </button>
-                </div>
-            </li>
-            <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                <a href="#" class="col-dark list-impo-text col-8">Luna</a>
-                <div class="col-4">
-                    <button class="btn float-right" type="button">
-                        <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
-                    </button>
-                </div>
-            </li>
+            <?php if(isset($data["error"])):?>
+                <p class="col-error col-12 p-0"><?php echo $data["error"]?></p>
+            <?php endif ?>
+            <?php if(isset($data["planets"])):?>
+                <?php foreach($data["planets"] as $planet): ?>
+                    <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
+                        <a href="#" class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></a>
+                        <div class="col-4">
+                            <button class="btn float-right" type="button">
+                                <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                            </button>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif ?>
         </ul>
     </div>
 </section>
