@@ -20,6 +20,7 @@
             </div>
         </form>
     </div>
+    <div id="fav-res" class="col-error col-10 offset-1 col-md-6 offset-md-3 mb-2 p-0"></div>
 
     <div class="col-10 offset-1 col-md-6 offset-md-3 p-0">
         <ul class="list-group">
@@ -31,7 +32,7 @@
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></a>
                         <div class="col-4">
-                            <button class="btn float-right" type="button">
+                            <button id="<?php echo $planet->getName(); ?>" class="btn_fav btn float-right" type="button">
                                 <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
                             </button>
                         </div>
