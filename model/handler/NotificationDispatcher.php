@@ -17,7 +17,7 @@ class NotificationDispatcher extends AbstractHandler{
     public function __construct(ModelHelper $model) {
         parent::__construct($model);
         array_push($this->senders, new BaseNotificator($this->getModelHelper()->getDbManager()->getDb()));
-        //array_push($this->senders, new EmailNotificator($this->getModelHelper()->getDbManager()->getDb()));
+        array_push($this->senders, new EmailNotificator());
     }
 
     private function send($data, $users) {

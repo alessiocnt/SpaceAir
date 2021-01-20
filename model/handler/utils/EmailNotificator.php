@@ -8,7 +8,9 @@ class EmailNotificator implements NotificationSender {
 
     //users is an array of user
     public function send(TemplateNotification $notification, $users) {
-
+        foreach($users as $user) {
+            mail($user->getMail(), $notification->getTitle(), $notification->getDescription());
+        }
     }
 }
 
