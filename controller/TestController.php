@@ -10,13 +10,10 @@ class TestController extends AbstractController {
 
     public function execute() {
 
-        //Create general notification
-        /*$notificationData = ["DateTime" => date('Y-m-d H:i:s'),"Title" => "Benvenuto","Description" => "Grazie per essere entrato a fare parte della famiglia SpaceAir!","Type"=> NotificationType::GENERAL];
-        $builder = new NotificationBuilder();
-        $notification = $builder->createFromAssoc($notificationData);
-        var_dump($notification);*/
-
         $this->getModel()->getNotificationDispatcher()->createGeneral("Titolo","Ciao belli", array(new User(1), new User(28)));
+        //$this->getModel()->getNotificationDispatcher()->createPacketRelated("Titolo","Ciao belli",new Packet(1) , array(new User(1), new User(28)));
+        //$this->getModel()->getNotificationDispatcher()->createPlanetRelated("Titolo","Ciao belli",new Planet(1) , array(new User(1), new User(28)));
+
 
 
 

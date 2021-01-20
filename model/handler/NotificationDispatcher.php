@@ -37,8 +37,20 @@ class NotificationDispatcher extends AbstractHandler{
         $this->send($notificationData, $users);
     }
 
-    public function createPacketRelated(string $title, string $description, Packet $packet) {
-        
+    public function createPacketRelated(string $title, string $description, Packet $packet, $users) {
+        //Create general notification directed to users
+        $dateTime = date('Y-m-d H:i:s');
+        $type = NotificationType::GENERAL;
+        $notificationData = array("DateTime" => $dateTime, "Title" => $title, "Description" => $description, "Type" => $type, "CodPacket" => $packet->getCode());
+        $this->send($notificationData, $users);
+    }
+
+    public function createPlanetRelated(string $title, string $description, Planet $packet, $users) {
+        //Create general notification directed to users
+        $dateTime = date('Y-m-d H:i:s');
+        $type = NotificationType::GENERAL;
+        $notificationData = array("DateTime" => $dateTime, "Title" => $title, "Description" => $description, "Type" => $type, "CodPlanet" => $packet->getCodPlanet());
+        $this->send($notificationData, $users);
     }
 }
 
