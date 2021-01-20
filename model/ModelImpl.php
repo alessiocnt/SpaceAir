@@ -32,6 +32,10 @@ class ModelImpl implements Model, ModelHelper {
     public function getPlanetHandler() {
         return new PlanetHandler($this);
     }
+
+    public function getPacketHandler() {
+        return new PacketHandler($this);
+    }
 }
 
 ?>

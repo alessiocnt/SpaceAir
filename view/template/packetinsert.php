@@ -10,25 +10,31 @@
 
 <div class="row">
     <div class="col-md-6 offset-md-3 mb-3">
-        <form action="">
-            <div class="row mb-3">
-                <div class="container">
+        <form action="" method="POST">
+            <div class="row mb-2">
+                <div class="col-11">
                     <label for="inputDestination">Destinazione</label>
                     <select name="inputDestination" id="inputDestination" class="form-control" required>
                         <option value="" selected hidden>Seleziona...</option>
-                        <option value="Marte">Marte</option>
-                        <option value="Venere">Venere</option>
+                        <?php foreach($data["planets"] as $planet): ?>
+                        <option value="<?= $planet->getCodPlanet() ?>"><?= $planet->getName() ?></option>
+                        <?php endforeach; ?>
                     </select>
+                </div>
+                <div class="col-1">
+                    <a href="planetinsert.php" class="btn rounded-circle col-back-white btn-md pmd-btn-raised mt-3" title="Aggiungi nuovo pianeta">
+                        <img src="/spaceair/res/icons/add-black-36dp.svg" class="pt-1 pb-1" />
+                    </a>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-6">
-                    <label for="inputDate">Data</label>
-                    <input type="date" class="form-control" name="inputDate" id="inputDate" required />
+                    <label for="inputDepartureDateHour">Data e ora partenza</label>
+                    <input type="datetime-local" class="form-control" name="inputDepartureDateHour" id="inputDepartureDateHour" required />
                 </div>
                 <div class="col-6">
-                    <label for="inputHour">Ora partenza</label>
-                    <input type="time" class="form-control" name="inputHour" id="inputHour" required />
+                <label for="inputArriveDateHour">Data e ora arrivo</label>
+                    <input type="datetime-local" class="form-control" name="inputArriveDateHour" id="inputArriveDateHour" required />
                 </div>
             </div>
             <div class="row mb-3">
@@ -58,12 +64,15 @@
             <div class="row mb-3">
                 <div class="col-4">
                     <label for="inputVisible">Visibile</label>
-                    <input type="checkbox" name="inputDescription" id="inputVisible">
+                    <input type="checkbox" name="inputVisible" id="inputVisible">
                 </div>
                 <div class="col-4 offset-4 col-md-2 offset-md-6">
                     <input type="submit" class="form-control" value="Inserisci" />
                 </div>
             </div>
+            <?php if(isset($data["error"])):?>
+                <p class="col-error col-12"><?php echo $data["error"]?></p>
+            <?php endif ?>
         </form>
     </div>
 </div>
