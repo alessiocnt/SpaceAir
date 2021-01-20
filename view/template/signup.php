@@ -17,7 +17,7 @@
                 <p class="col-error"><?php echo $data["error"]?></p>
             <?php endif ?>
             <p>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <fieldset class="form-group"><legend class="col-title">Dati Utente</legend>
                 <div class="form-group">
                     <label for="name" class="col-text">Nome</label>
@@ -78,14 +78,14 @@
                 <fieldset class="form-group">
                     <legend class="col-text">Immagine di profilo</legend>
                     <div class="row">
-                        <div class="col-12 text-center mt-1 mb-4">
-                            <img src="/spaceair/res/icons/decorative/user.jpeg" class="decorative-img rounded-circle mw-50" alt="Immagine selezionata"/>
+                        <div class="col-12 mt-1 mb-4 align-center">
+                            <div class="mx-auto avatar-container">
+                                <img src="/spaceair/res/icons/decorative/user.jpeg" id="previewimg" class="avatar-img rounded-circle" alt="Immagine selezionata"/>
+                            </div>
                         </div>
                     </div>
-                    <div class="custom-file">
-                        <label for="img" class="custom-file-label">Clicca per inserire</label>
-                        <input type="file" class="custom-file-input col-back-white" name="img" id="img"/>
-                    </div>
+                    <input type="file" class="rounded p-1 col-back-white" name="img" id="img"/>
+                    <label for="img" class="">Clicca per inserire</label>
                 </fieldset>
 
                 <div class="custom-control custom-checkbox mt-5">

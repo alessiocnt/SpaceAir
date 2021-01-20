@@ -8,7 +8,7 @@ class NotificationBuilder implements Builder {
     private DateTime $dateHour;
     private string $title;
     private string $description;
-    private NotificationType $notificationType;
+    private int $notificationType;
     private ?int $user;
     private $notificationSubject;
     private bool $seen;
@@ -42,7 +42,7 @@ class NotificationBuilder implements Builder {
     }
 
     public function setType($type) {
-        $this->notificationType = NotificationType::fromNumber($type);
+        $this->notificationType = $type;
     }
 
     public function setIdUser($idUser) {
@@ -53,6 +53,7 @@ class NotificationBuilder implements Builder {
         $this->seen = $view;
     }
 
+    
     private function calculateNotificationSubject($associativeArray) {
         switch ($this->notificationType) {
             case NotificationType::GENERAL:

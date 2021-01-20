@@ -8,7 +8,7 @@ class UserBuilder implements Builder{
     private string $password = "" ;
     private $bornDate = "";
     private $telNumber = "";
-    private string $imgProfile = "";
+    private $imgProfile = "";
     private string $mail = "";
     private bool $newsletter = false; 
 

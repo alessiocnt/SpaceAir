@@ -5,6 +5,7 @@ class NotificationType {
     const INTEREST = 1;
     const FLIGHT = 2;
     const PACKAGE = 3;
+    /*
     static function fromNumber($i) {
         switch ($i) {
             case '0':
@@ -19,7 +20,7 @@ class NotificationType {
             default:
                 return NotificationType::PACKAGE;
         }
-    }
+    }*/
 }
 
 ?>

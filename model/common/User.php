@@ -10,7 +10,7 @@ class User {
     private string $password;
     private $bornDate;
     private $telNumber;
-    private string $imgProfile;
+    private $imgProfile;
     private string $mail;
     private bool $newsletter;
     private $addresses = array(); //Array to store addresses

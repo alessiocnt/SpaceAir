@@ -145,6 +145,17 @@ class UserHandler extends AbstractHandler {
       $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
       // Crea una password usando la chiave appena creata.
       $password = hash('sha512', $user->getPassword().$random_salt);
+      
+      echo exec('whoami');
+      //First try to insert image
+      if($user->getImgProfile() != "") {
+         list($uploadResult, $imageName) = Utils::uploadImage($_SERVER["DOCUMENT_ROOT"] . "/spaceair/res/upload/user/", $user->getImgProfile());
+         if($uploadResult != Utils::$IMGUPLOADOK) {
+            return $uploadResult;
+         }
+      }
+      
+      //"If" for clarity, but it will always succeed, because I have checked the mail before
       // Inserisci a questo punto il codice SQL per eseguire la INSERT nel tuo database
       // Assicurati di usare statement SQL 'prepared'.
       if ($insert_stmt = $db->prepare("INSERT INTO USERS (Name, Surname, Borndate, Phone, ProfileImg, Mail, Password, Salt, Type, Newsletter) VALUES (?,?,?,?,?,?,?,?,?,?);")) {    
@@ -154,7 +165,7 @@ class UserHandler extends AbstractHandler {
          $surname = $user->getSurname();
          $borndate = $user->getBornDate();
          $phone = $user->getPhone();
-         $imgProfile = $user->getImgProfile();
+         $imgProfile = $imageName;
          $mail = $user->getMail();
          $insert_stmt->bind_param('ssssssssii', $name, $surname, $borndate, $phone, $imgProfile, $mail, $password, $random_salt, $type, $newsletter);
          // Esegui la query ottenuta.
@@ -173,6 +184,9 @@ class UserHandler extends AbstractHandler {
                $cap = $address->getCap();
                $insert_stmt->bind_param('sssssi',$via, $civico, $citta, $provincia, $cap, $userId); 
                $insert_stmt->execute();   
+
+               //--TODO-- Send notification
+               
 
                return UserHandler::$SIGNUPOK;
          }
