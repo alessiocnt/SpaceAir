@@ -16,7 +16,7 @@ class TestController extends AbstractController {
         $notification = $builder->createFromAssoc($notificationData);
         var_dump($notification);*/
 
-        $this->getModel()->getNotificationDispatcher()->createGeneral("Titolo","Ciao belli", new User(1));
+        $this->getModel()->getNotificationDispatcher()->createGeneral("Titolo","Ciao belli", array(new User(1), new User(28)));
 
 
 

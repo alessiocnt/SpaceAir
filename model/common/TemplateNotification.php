@@ -27,7 +27,7 @@ class TemplateNotification {
         return $this->code;
     }
 
-    public function getDateHour() : DateTime {
+    public function getDateHour() : ?DateTime {
         return $this->dateHour;
     }
 
@@ -43,11 +43,11 @@ class TemplateNotification {
         return $this->notificationType;
     }
 
-    public function getPlanet() : Planet {
+    public function getPlanet() : ?Planet {
         return $this->planet;
     }
 
-    public function getPacket() : Packet {
+    public function getPacket() : ?Packet {
         return $this->packet;
     }
 
