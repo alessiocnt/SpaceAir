@@ -16,7 +16,7 @@ class MyAddressController extends UserLoggedController {
         //Set the title
         $data["header"]["title"] = "I miei indirizzi";
         //Set custom js
-        $data["header"]["js"] = [];
+        $data["header"]["js"] = ["/spaceair/view/js/myaddress.js"];
         //Set custom css
         $data["header"]["css"] = [];
         //Create the view

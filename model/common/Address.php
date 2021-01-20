@@ -71,7 +71,7 @@ class Address {
         Setter
     */
     public function setUser(User $user) {
-        $this->user = user;
+        $this->user = $user;
     }
     
 }

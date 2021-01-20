@@ -68,6 +68,37 @@ class UserInfoHandler extends AbstractHandler {
 
         return array();
     }
+
+    public function addAddress(Address $address) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if($stmt = $db->prepare("INSERT INTO ADDRESS (Via, Civico, Citta, Provincia, Cap, IdUser) VALUES(?,?,?,?,?,?)")) {
+            $via = $address->getVia();
+            $civico = $address->getCivico();
+            $citta = $address->getCitta();
+            $provincia = $address->getProvincia();
+            $cap = $address->getCap();
+            $userId = $address->getUser()->getId();
+
+            $stmt->bind_param('sssssi',$via, $civico, $citta, $provincia, $cap, $userId); 
+            $stmt->execute();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function deleteAddress(Address $address) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if($stmt = $db->prepare("DELETE FROM `ADDRESS` WHERE `ADDRESS`.`CodAddress` = ?")) {
+            $stmt->bind_param($address->getCodAddress());
+            $stmt->execute();
+
+            return true;
+        }
+
+        return false;
+    }
 }
 
 ?>
