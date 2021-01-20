@@ -159,37 +159,28 @@ create table INTEREST (
 
 /*
 0-Notifica Generale
-1-Notifica Interesse
-2-Notifica Viaggio Generico
-3-Notifica Pacchetto ordinato
-*/
-create table NOTIFICATION (
+1-Notifica Pacchetto
+2-Notifica Pianeta
+*/create table TEMPLATE_NOTIFICATION (
      CodNotification int not null auto_increment primary key,
      DateTime datetime not null,
      Title varchar(50) not null,
      Description varchar(500) not null,
      Type tinyint not null,
-     IdUser int,
      CodPlanet int,
      CodPacket int,
-     CodOrder int,
-     CodPacketInOrder int,
-     foreign key(IdUser, CodPlanet) references INTEREST(IdUser, CodPlanet)
-		   on delete restrict
-         on update cascade,
      foreign key(CodPacket) references PACKET(CodPacket)
 		   on delete restrict
          on update cascade,
-     foreign key(CodOrder, CodPacketInOrder) references PACKET_IN_ORDER(CodOrder, CodPacket)
-		   on delete restrict
+      foreign key(CodPlanet) references PLANET(CodPlanet)
+         on delete restrict
          on update cascade
 );
 
-alter table NOTIFICATION add constraint TypeCHK check(Type between 0 and 3);
-alter table NOTIFICATION add constraint TypeRegularCHK check((Type = 0 and IdUser = null and CodPlanet = null and CodPacket = null and CodOrder = null and CodPacketInOrder = null) or
-   (Type = 1 and IdUser != null and CodPlanet != null and CodPacket = null and CodOrder = null and CodPacketInOrder = null) or
-   (Type = 2 and IdUser = null and CodPlanet = null and CodPacket != null and CodOrder = null and CodPacketInOrder = null) or
-   (Type = 0 and IdUser = null and CodPlanet = null and CodPacket = null and CodOrder != null and CodPacketInOrder != null));
+alter table TEMPLATE_NOTIFICATION add constraint TypeCHK check(Type between 0 and 3);
+alter table TEMPLATE_NOTIFICATION add constraint TypeRegularCHK check((Type = 0 and CodPlanet = null and CodPacket = null) or
+   (Type = 1 and CodPacket != null and CodPlanet = null) or
+   (Type = 2 and CodPlanet != null and CodPacket = null));
 
 create table USER_NOTIFICATION (
      IdUser int not null,
@@ -199,14 +190,12 @@ create table USER_NOTIFICATION (
      foreign key(IdUser) references USERS(IdUser)
         on delete restrict
         on update cascade,
-     foreign key(CodNotification) references NOTIFICATION(CodNotification)
+     foreign key(CodNotification) references TEMPLATE_NOTIFICATION(CodNotification)
         on delete restrict
         on update cascade
 );
 
 alter table USER_NOTIFICATION add constraint ViewCHK check(View in (0,1)); /*Trasformo in boolean*/
-
-
 
 
 
