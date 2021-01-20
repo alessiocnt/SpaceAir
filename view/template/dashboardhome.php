@@ -79,6 +79,11 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="row">
+                            <div class="col-12">
+                                <a class="mt-5 btn col-btn-impo col-text offset-1 col-4 col-md-2" href="?logout=1" role="button">Logout</a>
+                            </div>
+                    </div>
             </section>
         </div>
     </div>

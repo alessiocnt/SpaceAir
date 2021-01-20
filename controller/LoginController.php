@@ -28,8 +28,7 @@ class LoginController extends AbstractController {
                header("Location:profile.php");
             } else if($result == UserHandler::$LOGINOKADMIN) {
                 //Login admin, go to dashboard
-                //------TODO--------
-                echo 'Success ADMIN: You have been logged in!';
+                header("Location:dashboardhome.php");
             } else {
                 // Login fallito
                 switch($result) {
