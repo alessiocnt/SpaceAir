@@ -20,9 +20,7 @@ class NotificationDispatcher extends AbstractHandler{
         //array_push($this->senders, new EmailNotificator($this->getModelHelper()->getDbManager()->getDb()));
     }
 
-    private function send($data, $users) {
-        $builder = new TemplateNotificationBuilder();
-        $template = $builder->createFromAssoc($data);
+    private function send($template, $users) {
         foreach($this->senders as $sender) {
             $sender->send($template, $users);
         }
@@ -34,23 +32,33 @@ class NotificationDispatcher extends AbstractHandler{
         $dateTime = date('Y-m-d H:i:s');
         $type = NotificationType::GENERAL;
         $notificationData = array("DateTime" => $dateTime, "Title" => $title, "Description" => $description, "Type" => $type);
-        $this->send($notificationData, $users);
+        $builder = new TemplateNotificationBuilder();
+        $template = $builder->createFromAssoc($notificationData);
+        $this->send($template, $users);
     }
 
     public function createPacketRelated(string $title, string $description, Packet $packet, $users) {
         //Create general notification directed to users
         $dateTime = date('Y-m-d H:i:s');
         $type = NotificationType::PACKET;
-        $notificationData = array("DateTime" => $dateTime, "Title" => $title, "Description" => $description, "Type" => $type, "CodPacket" => $packet->getCode());
-        $this->send($notificationData, $users);
+        $notificationData = array("DateTime" => $dateTime, "Title" => $title, "Description" => $description, "Type" => $type);
+        $builder = new TemplateNotificationBuilder();
+        $template = $builder->createFromAssoc($notificationData);
+        $template->setPacket($packet);
+
+        $this->send($template, $users);
     }
 
-    public function createPlanetRelated(string $title, string $description, Planet $packet, $users) {
+    public function createPlanetRelated(string $title, string $description, Planet $planet, $users) {
         //Create general notification directed to users
         $dateTime = date('Y-m-d H:i:s');
         $type = NotificationType::PLANET;
-        $notificationData = array("DateTime" => $dateTime, "Title" => $title, "Description" => $description, "Type" => $type, "CodPlanet" => $packet->getCodPlanet());
-        $this->send($notificationData, $users);
+        $notificationData = array("DateTime" => $dateTime, "Title" => $title, "Description" => $description, "Type" => $type);
+        $builder = new TemplateNotificationBuilder();
+        $template = $builder->createFromAssoc($notificationData);
+        $template->setPlanet($planet);
+
+        $this->send($template, $users);
     }
 }
 
