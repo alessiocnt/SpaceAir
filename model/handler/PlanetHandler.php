@@ -81,20 +81,36 @@ class PlanetHandler extends AbstractHandler {
         }
     }
 
-    /* public function addFavourite($planet, $user) {
+    public function addFavourite($userId, $planet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("INSERT INTO INTEREST (Date, IdUser, CodPlanet) VALUES (?, ?, ?);");   
         $planetCode = $planet->getCodPlanet();
-        if (!$stmt->bind_param('sii', CURRENT_TIMESTAMP, $user, $planetCode)) {
-            echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+        $time = date('Y-m-d H:i:s');
+        if (!$stmt->bind_param('sii', $time, $userId, $planetCode)) {
             return false;
         }
         if (!$stmt->execute()) {
-            echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
             return false;
         }
         return true;
-    } */
+    }
+
+    public function hidePlanet($planet) {
+        //UPDATE PLANET SET Visible = 0 WHERE CodPlanet = 1;
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+
+        $planetId = $planet->getCodPlanet();
+        $visible = 0;
+        $stmt = $db->prepare("UPDATE PLANET SET Visible = ? WHERE CodPlanet = ?");   
+        if (!$stmt->bind_param('ii', $visible, $planetId)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        return true;
+    }
+
 }
 
 ?>

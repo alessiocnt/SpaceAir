@@ -6,14 +6,14 @@ $model = new ModelImpl();
 $planetHandler = $model->getPlanetHandler();
 
 if(!isset($_SESSION["user_id"])) {
-    $res = json_encode(array("msg"=>"Effettua il login per sbloccare questa funzione."));
+    $res = json_encode(array("msg"=>"Effettua il login."));
 } else {
     $user = $_SESSION["user_id"];
     $planet = $planetHandler->searchPlanetByName($_POST["planet"])[0];
-    if($planetHandler->addFavourite($user, $planet)) {
-        $res = json_encode(array("msg"=>"Aggiunta avvenuta con successo."));
+    if($planetHandler->hidePlanet($planet)) {
+        $res = json_encode(array("msg"=>"Rimozione avvenuta con successo."));
     } else {
-        $res = json_encode(array("msg"=>"Errore nell'aggiunta ai preferiti."));
+        $res = json_encode(array("msg"=>"Errore nella rimozione."));
     }
 } 
 echo($res);
