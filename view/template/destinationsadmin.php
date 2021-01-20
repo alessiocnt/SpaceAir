@@ -20,42 +20,28 @@
             </div>
         </form>
     </div>
+    <div id="msg-res" class="col-error col-10 offset-1 col-md-6 offset-md-3 mb-2 p-0"></div>
 
     <div class="col-10 offset-1 col-md-6 offset-md-3 p-0">
         <ul class="list-group">
-            <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                <a href="#" class="col-dark list-impo-text col-8">Luna</a>
-                <div class="col-4">
-                    <button class="btn float-right p-1" type="button">
-                        <img src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
-                    </button>
-                    <button class="btn float-right p-1" type="button">
-                        <img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
-                    </button>
-                </div>
-            </li>
-            <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                <a href="#" class="col-dark list-impo-text col-8">Mercurio</a>
-                <div class="col-4">
-                    <button class="btn float-right p-1" type="button">
-                        <img src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
-                    </button>
-                    <button class="btn float-right p-1" type="button">
-                        <img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
-                    </button>
-                </div>
-            </li>
-            <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                <a href="#" class="col-dark list-impo-text col-8">Venere</a>
-                <div class="col-4">
-                    <button class="btn float-right p-1" type="button">
-                        <img src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
-                    </button>
-                    <button class="btn float-right p-1" type="button">
-                        <img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
-                    </button>
-                </div>
-            </li>
+            <?php if(isset($data["error"])):?>
+                <p class="col-error col-12 p-0"><?php echo $data["error"]?></p>
+            <?php endif ?>
+            <?php if(isset($data["planets"])):?>
+                <?php foreach($data["planets"] as $planet): ?>
+                    <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
+                        <a href="#" class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></a>
+                        <div class="col-4">
+                            <button id="<?php echo $planet->getName(); ?>" class="btn_del btn float-right p-1" type="button">
+                                <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
+                            </button>
+                            <button id="<?php echo $planet->getName(); ?>" class="btn_edit btn float-right p-1" type="button">
+                                <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
+                            </button>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif ?>
         </ul>
     </div>
     <section>

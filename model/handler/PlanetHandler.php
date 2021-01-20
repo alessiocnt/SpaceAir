@@ -95,6 +95,21 @@ class PlanetHandler extends AbstractHandler {
         return true;
     }
 
+    public function hidePlanet($planet) {
+        //UPDATE PLANET SET Visible = 0 WHERE CodPlanet = 1;
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+
+        $planetId = $planet->getCodPlanet();
+        $visible = 0;
+        $stmt = $db->prepare("UPDATE PLANET SET Visible = ? WHERE CodPlanet = ?");   
+        if (!$stmt->bind_param('ii', $visible, $planetId)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        return true;
+    }
 
 }
 

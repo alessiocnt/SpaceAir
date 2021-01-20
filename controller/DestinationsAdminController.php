@@ -9,7 +9,7 @@ class DestinationsAdminController extends AbstractController {
         //Start secure session
         Utils::sec_session_start();
     }
-
+// TODO controlli che sia loggato come admin
     public function execute() {
         $planetHandler = $this->getModel()->getPlanetHandler();
         if(isset($_POST["searchBar"]) && $_POST["searchBar"]!=null) {
@@ -17,25 +17,25 @@ class DestinationsAdminController extends AbstractController {
             $result = $planetHandler->searchPlanetByName($planetName);
             if($result == false) {
                 $data["data"]["error"] = "Nessun pianeta trovato.";
-                $data["header"]["title"] = "Destinazioni Create";
-                $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
+                $data["header"]["title"] = "Elenco destinazioni";
+                $data["header"]["js"] = ["/spaceair/view/js/editDestination.js", "/spaceair/view/js/deleteDestination.js"];
                 $data["header"]["css"] = [];
-                $view = new GenericView("destinations");
+                $view = new GenericView("destinationsadmin");
                 $view->render($data);
             } else {
                 $data["data"]["planets"] = $result;
-                $data["header"]["title"] = "Destinazioni";
-                $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
+                $data["header"]["title"] = "Elenco destinazioni";
+                $data["header"]["js"] = ["/spaceair/view/js/editDestination.js", "/spaceair/view/js/deleteDestination.js"];
                 $data["header"]["css"] = [];
-                $view = new GenericView("destinations");
+                $view = new GenericView("destinationsadmin");
                 $view->render($data); 
             }
         } else {
             $data["data"]["planets"] = $planetHandler->getPlanets();
-            $data["header"]["title"] = "Destinazioni";
-            $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
+            $data["header"]["title"] = "Elenco destinazioni";
+            $data["header"]["js"] = ["/spaceair/view/js/editDestination.js", "/spaceair/view/js/deleteDestination.js"];
             $data["header"]["css"] = [];
-            $view = new GenericView("destinations");
+            $view = new GenericView("destinationsadmin");
             $view->render($data); 
         }
     }
