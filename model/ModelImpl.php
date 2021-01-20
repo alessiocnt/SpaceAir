@@ -37,6 +37,10 @@ class ModelImpl implements Model, ModelHelper {
         return new PacketHandler($this);
     }
 
+    public function getCartHandler() {
+        return new CartHandler($this);
+    }
+    
     public function getNotificationDispatcher() {
         return new NotificationDispatcher($this);
     }

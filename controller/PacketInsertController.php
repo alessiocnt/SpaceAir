@@ -21,7 +21,6 @@ class PacketInsertController extends UserLoggedController {
             $data["Price"] = $_POST["inputPrice"];
             $data["Description"] = $_POST["inputDescription"];
             $data["Visible"] = $_POST["inputVisible"] == "on" ? 1 : 0;
-            var_dump($data);
 
             $builder = new PacketBuilder();
             $packet = $builder->createFromAssoc($data);
