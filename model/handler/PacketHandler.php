@@ -27,6 +27,23 @@ class PacketHandler extends AbstractHandler {
         return false;
     }
 
+    public function getPacketById($id) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM PACKET WHERE Visible = true AND CodPacket = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+        
+        $builder = new PacketBuilder();
+        foreach ($result as $val) {
+            $val["DateTimeDeparture"] = DateTime::createFromFormat("Y-m-d H:i:s", $val["DateTimeDeparture"])->format('Y-m-j\TH:i');
+            $val["DateTimeArrival"] = DateTime::createFromFormat("Y-m-d H:i:s", $val["DateTimeArrival"])->format('Y-m-j\TH:i');
+            return $builder->createFromAssoc($val);
+        }
+        //return $builder->createFromAssoc($result[0]);
+    }
+
     public function getPackets() {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PACKETS WHERE Visible = true");
