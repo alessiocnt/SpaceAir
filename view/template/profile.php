@@ -15,7 +15,7 @@
     </div>
     <div class="row">
         <div class="col-12 text-center">
-            <p class="col-text font-weight-bolder">Andrea</p>
+            <p class="col-text font-weight-bolder"><?php echo $data["user"]->getName() . " " . $data["user"]->getSurname(); ?></p>
         </div>
     </div>
     <div class="row">
