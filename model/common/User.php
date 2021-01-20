@@ -15,6 +15,7 @@ class User {
     private bool $newsletter;
     private $addresses = array(); //Array to store addresses
     private $orders = array(); //Array to store orders
+    private $interests = array();
 
     /*
         Base construct
@@ -93,6 +94,14 @@ class User {
     public function getOrders() {
         //NOTICE: array in php are treates as copy
         return $this->orders;
+    }
+
+    public function getInterests() {
+        return $this->interests;
+    }
+
+    public function setInterests($interests) {
+        $this->interests = $interests;
     }
 }
 

@@ -14,7 +14,12 @@ class ProfileController extends UserLoggedController {
             Utils::logout();
             header("Location:login.php");
         } else {
-            $data["data"] = [];
+            //Get User data
+            $userInfoHandler = $this->getModel()->getUserInfoHandler();
+            $currentUser = $userInfoHandler->getUserInfo(new User(Utils::getUserId()));
+            $currentUser->setInterests($userInfoHandler->getUserInterest($currentUser));
+            
+            $data["data"]["user"] = $currentUser;
             //Set the title
             $data["header"]["title"] = "Profilo";
             //Set custom js

@@ -7,8 +7,10 @@
         </div>
     </header>
     <div class="row mt-3 mb-2">
-        <div class="col-12 text-center">
-            <img src="/spaceair/res/icons/decorative/user.jpeg" class="decorative-img rounded-circle mw-50" alt="Immagine Profilo"/>
+        <div class="col-12 mt-1 mb-4 align-center">
+            <div class="mx-auto avatar-container">
+                <img src="/spaceair/res/upload/user/<?php echo $data["user"]->getImgProfile() == "" ? "user.png" : $data["user"]->getImgProfile();?>" class="avatar-img rounded-circle" alt="Immagine Profilo"/>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -28,7 +30,7 @@
                             </a>
                         </li>
                         <li class="nav-item my-1">
-                            <a class="col-back-white nav-link rounded col-dark" href="#">
+                            <a class="col-back-white nav-link rounded col-dark" href="myaddress.php">
                                 I miei indirizzi di consegna
                                 <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="apri i miei indirizzi di consegna"/>
                             </a>
@@ -50,9 +52,9 @@
                     <section>
                         <h2>I miei interessi<span class="float-right"><img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/></span></h2>
                         <ul class="mt-3">
-                            <li>Luna 10/12/2020</li>
-                            <li>Marte 25/07/2021</li>
-                            <li>Giove 30/11/2021</li>
+                            <?php foreach($data["user"]->getInterests() as $interest): ?>
+                            <li><?php echo $interest->getPlanet()->getName(); ?></li>
+                            <?php endforeach ?>
                         </ul>
                     </section>    
                 </div>

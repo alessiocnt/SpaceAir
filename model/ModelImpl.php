@@ -44,6 +44,10 @@ class ModelImpl implements Model, ModelHelper {
     public function getNotificationDispatcher() {
         return new NotificationDispatcher($this);
     }
+
+    public function getUserInfoHandler() {
+        return new UserInfoHandler($this);
+    }
 }
 
 ?>

@@ -2,10 +2,10 @@
 
 class Interest {
     private int $user;
-    private int $planet;
+    private $planet;
     private DateTime $date;
 
-    public function __construct(int $user, int $planet, DateTime $date) {
+    public function __construct(int $user, $planet, DateTime $date) {
         $this->user = $user;
         $this->planet = $planet;
         $this->date = $date;
@@ -15,12 +15,17 @@ class Interest {
         return $this->user;
     }
 
-    public function getPlanetId() : int {
+    public function getPlanet() {
         return $this->planet;
     }
 
     public function getDate() : DateTime {
         return $this->date;
+    }
+
+    //Setters 
+    public function setPlanet($planet) {
+        $this->planet = $planet;
     }
 
 }
