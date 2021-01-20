@@ -26,7 +26,6 @@ class CartHandler extends AbstractHandler {
             $packet["DateTimeArrival"] = DateTime::createFromFormat("Y-m-d H:i:s", $packet["DateTimeArrival"])->format('Y-m-j\TH:i');
             array_push($packets, array("packet"=>$builder->createFromAssoc($packet), "quantity"=>$packet["Quantity"], "planetName"=>$packet["Name"]));
         }
-        var_dump($packets);
         return $packets;
     }
 }
