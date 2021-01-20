@@ -32,12 +32,12 @@
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></a>
                         <div class="col-4">
-                            <button id="<?php echo $planet->getName(); ?>" class="btn_del btn float-right p-1" type="button">
+                            <button id="<?php echo $planet->getName(); ?>" class="btn_del btn float-right p-1" type="button" title="Elimina pianeta">
                                 <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
                             </button>
-                            <button id="<?php echo $planet->getName(); ?>" class="btn_edit btn float-right p-1" type="button">
+                            <a href="#" class="btn_edit btn float-right p-1" type="button" title="Modifica pianeta">
                                 <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
-                            </button>
+                            </a>
                         </div>
                     </li>
                 <?php endforeach; ?>
