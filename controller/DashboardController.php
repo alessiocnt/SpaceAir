@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class ProfileController extends UserLoggedController {
+class DashboardController extends AdminLoggedController {
     
     public function __construct($model) {
         parent::__construct($model);
@@ -14,20 +14,15 @@ class ProfileController extends UserLoggedController {
             Utils::logout();
             header("Location:login.php");
         } else {
-            //Get User data
-            $userInfoHandler = $this->getModel()->getUserInfoHandler();
-            $currentUser = $userInfoHandler->getUserInfo(new User(Utils::getUserId()));
-            $currentUser->setInterests($userInfoHandler->getUserInterest($currentUser));
-            
-            $data["data"]["user"] = $currentUser;
+            $data["data"] = [];
             //Set the title
-            $data["header"]["title"] = "Profilo";
+            $data["header"]["title"] = "Dashboard";
             //Set custom js
-            $data["header"]["js"] = [];
+            $data["header"]["js"] = ["https://canvasjs.com/assets/script/canvasjs.min.js", "/spaceair/view/js/dashboard.js"];
             //Set custom css
             $data["header"]["css"] = [];
             //Create the view
-            $view = new GenericView("profile");
+            $view = new GenericView("dashboardhome");
             //Render the view
             $view->render($data); 
         }

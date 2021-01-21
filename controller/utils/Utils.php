@@ -33,6 +33,10 @@ class Utils {
         session_destroy();
     }
 
+    public static function getUserId() {
+        return $_SESSION["user_id"];
+    }
+
     public static function uploadImage($path, $image){
         $imageName = basename($image["name"]);
         $fullPath = $path.$imageName;

@@ -3,8 +3,8 @@
 class Packet {
     private int $code;
     private $img;
-    private DateTime $departureDateHour;
-    private DateTime $arriveDateHour;
+    private ?DateTime $departureDateHour;
+    private ?DateTime $arriveDateHour;
     private float $price;
     private int $maxSeats;
     private int $aviableSeats;
@@ -12,14 +12,13 @@ class Packet {
     private int $destinationPlanet;
     private bool $visible;
 
-    public function __construct(int $code, DateTime $departureDateHour, DateTime $arriveDateHour, float $price, int $maxSeats, int $aviableSeats, string $description, int $destinationPlanet, bool $visible) {
+    public function __construct(int $code, $img, DateTime $departureDateHour = NULL, DateTime $arriveDateHour = NULL, float $price = 0, int $maxSeats = 0, int $aviableSeats = 0, string $description = "", int $destinationPlanet = 0, bool $visible = false) {
         $this->code = $code;
-        
+        $this->img = $img;
         $this->departureDateHour = $departureDateHour;
         $this->arriveDateHour = $arriveDateHour;
         $this->price = $price;
         $this->maxSeats = $maxSeats;
-        $this->aviableSeats = $aviableSeats;
         $this->description = $description;
         $this->destinationPlanet = $destinationPlanet;
         $this->visible = $visible;
@@ -63,6 +62,10 @@ class Packet {
 
     public function isVisible() : bool {
         return $this->visible;
+    }
+
+    public function setAviableSeats($aviableSeats) {
+        $this->aviableSeats = $aviableSeats;
     }
 }
 

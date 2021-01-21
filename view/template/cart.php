@@ -9,27 +9,27 @@
 </div>
 <div class="row">
     <div class="col-12 mb-3 mt-3">
-        <section>
+        <section id="cart">
+        <?php foreach ($data as $assoc) : ?>
             <article>
                 <div class="row ml-1 mr-1">
                     <div class="col-12 col-md-6 offset-md-3 p-0">
                         <div class="rounded my-2 col-back-white p-4 col-dark ">
                             <div class="row">
                                 <div class="col-4 col-md-3">
-                                    <img src="/spaceair/res/img/mars.png" class="card-img" alt="">
+                                    <img src="<?=$assoc["packet"]->getImg();?>" class="card-img" alt="">
                                 </div>
                                 <div class="col-8 col-md-9">
-                                    <a href="" title="Rimuovi dal carrello">
+                                    <a href="" id="<?=$assoc["packet"]->getCode();?>" title="Rimuovi dal carrello">
                                         <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right md-1" alt="Rimuovi dal carrello">
                                     </a>
-                                    <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Marte</p>
-                                    <p>20.11.2021 - 14:46</p>
-                                    <p class="text-uppercase my-0">Andrea Giulianelli</p>
-                                    <p class="font-weight-normal my-0">15.03.2021</p>
-                                    <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">Costo €9200</p>
-                                    <label for="inputQuantity1" class="invisible custom-file-label">Quantità prodotto</label>
+                                    <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso <?=$assoc["planetName"];?></p>
+                                    <p><?=$assoc["packet"]->getDepartureDateHour()->format("d-m-Y - H:m");?></p>
+                                    <p><?=$assoc["packet"]->getArriveDateHour()->format("d-m-Y - H:m");?></p>
+                                    <p id="p<?=$assoc["codOrder"];?>" class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4 totalPrice">Costo €<?=$assoc["quantity"] * $assoc["packet"]->getPrice();?></p>
+                                    <label for="<?=$assoc["packet"]->getCode();?>" class="invisible custom-file-label">Quantità prodotto</label>
                                     <div class="input-group col-4 col-md-2 pl-0">
-                                        <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity1" id="inputQuantity1" value="2" min="1" max="10" step="1" />
+                                        <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="<?=$assoc["codOrder"];?>" id="<?=$assoc["packet"]->getCode();?>" value="<?=$assoc["quantity"];?>" min="1" max="10" step="1" />
                                     </div>
                                 </div>
                             </div>
@@ -37,33 +37,7 @@
                     </div>
                 </div>
             </article>
-            <article>
-                <div class="row ml-1 mr-1">
-                    <div class="col-12 col-md-6 offset-md-3 p-0">
-                        <div class="rounded my-2 col-back-white p-4 col-dark ">
-                            <div class="row">
-                                <div class="col-4 col-md-3">
-                                    <img src="/spaceair/res/img/venus.png" class="card-img" alt="">
-                                </div>
-                                <div class="col-8 col-md-9">
-                                    <a href="" title="Rimuovi dal carrello">
-                                        <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Rimuovi dal carrello">
-                                    </a>
-                                    <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Venere</p>
-                                    <p>22.01.2021 - 19:12</p>
-                                    <p class="text-uppercase my-0">Andrea Giulianelli</p>
-                                    <p class="font-weight-normal my-0">11.02.2021</p>
-                                    <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-2">Costo €7500</p>
-                                    <label for="inputQuantity2" class="invisible custom-file-label">Quantità prodotto</label>
-                                    <div class="input-group col-4 col-md-2 pl-0">
-                                        <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="inputQuantity2" id="inputQuantity2" value="1" min="1" max="10" step="1" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
+            <?php endforeach; ?>
         </section>
     </div>
 </div>
@@ -71,7 +45,7 @@
     <div class="col-md-6 offset-md-3">
         <div class="row top-line">
             <div class="container">
-                <p class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale €16700</p>
+                <p id="Totale" class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale €16700</p>
             </div>
         </div>
         <div class="row">
