@@ -97,6 +97,10 @@ div.map-container {
     border: 0;
 }
 
+.btn-new-dest {
+    margin-top: 17px;
+}
+
 input {
     overflow: hidden;
 }
@@ -215,5 +219,9 @@ textarea {
 @media only screen and (min-width: 768px) {
     .top-add-btn {
         margin-bottom: 40px;
+    }
+
+    .btn-new-dest {
+        margin-top: 32px;
     }
 }
