@@ -127,7 +127,7 @@ create table PACKET_IN_ORDER (
 
 alter table PACKET_IN_ORDER add constraint QuantityCHK check(Quantity>=0);
 
-create table REWIEW (
+create table REVIEW (
      DateTime datetime not null,
      Title varchar(50) not null,
      Description varchar(1000) not null,
@@ -143,7 +143,7 @@ create table REWIEW (
         on update cascade
 );
 
-alter table REWIEW add constraint RatingCHK check(Rating between 1 and 5);
+alter table REVIEW add constraint RatingCHK check(Rating between 1 and 5);
 
 create table INTEREST (
      Date datetime not null,

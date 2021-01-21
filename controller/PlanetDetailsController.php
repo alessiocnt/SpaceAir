@@ -1,23 +1,28 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class PlanetModifyController extends UserLoggedController {
+class PlanetDetailsController extends AbstractController {
     
-    private $oldPlanet;
     public function __construct($model) {
         parent::__construct($model);
     }
 
-    public function executePage() {
+    public function execute() {
         $planetHandler = $this->getModel()->getPlanetHandler();
+        $packetHandler = $this->getModel()->getPacketHandler();
+        $reviewHandler = $this->getModel()->getReviewHandler();
+        
         if(isset($_GET["Destination"])) {
-            $this->oldPlanet = $_GET["Destination"];
-            if($planetHandler->searchPlanetByName($this->oldPlanet) != false) {
-                $data["data"]["planets"] = $planetHandler->searchPlanetByName($this->oldPlanet)[0];
-                $data["header"]["title"] = "Modifica destinazione";
+            if($planetHandler->searchPlanetByName($_GET["Destination"]) != false) {
+                $destinationName = $_GET["Destination"];
+                $planet = $planetHandler->searchPlanetByName($destination)[0];
+                $data["data"]["planets"] = $planet;
+                $data["data"]["packets"] = $packetHandler->getPacketsByDestination($planet);
+                $data["data"]["packet"] = $reviewHandler->getReviewByDestination($planet);
+                $data["header"]["title"] = "Dettagli Destinazione";
                 $data["header"]["js"] = [];
                 $data["header"]["css"] = [];
-                $view = new GenericView("planetmodify");
+                $view = new GenericView("planetdetails");
                 $view->render($data); 
             } else {
                 $data["data"]["error"] = "Errore, destinazione non trovata.";
@@ -26,9 +31,11 @@ class PlanetModifyController extends UserLoggedController {
                 $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("destinations");
-                $view->render($data); 
+                $view->render($data);
             }
         }
+
     }
 }
 ?>
+
