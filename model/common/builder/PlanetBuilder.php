@@ -22,7 +22,7 @@ class PlanetBuilder implements Builder{
                 $this->$method($value);
             }
         }
-        return new Planet($this->codPlanet, $this->name, $this->temperature, $this->mass, $this->surface, $this->sunDistance, $this->composition, $this->dayLength, $this->imgPlanet, $this->description, $this->visible);
+        return new Planet($this->codPlanet, $this->name, $this->imgPlanet, $this->temperature, $this->mass, $this->surface, $this->sunDistance, $this->composition, $this->dayLength, $this->description, $this->visible);
     }
 
     public function setCodPlanet(int $codPlanet) {

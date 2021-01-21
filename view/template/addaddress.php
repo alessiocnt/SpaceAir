@@ -13,7 +13,7 @@
     </header>
     <div class="row mt-2">
         <div class="offset-1 col-10 offset-md-4 col-md-4">
-            <form action="#" method="POST">
+            <form action="" method="POST">
                 <div class="form-row">                            
                     <div class="form-group col-7 mb-2">
                         <label for="address" class="col-text">Via</label>
