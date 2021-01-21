@@ -13,7 +13,9 @@
                 <article class="col-back-white rounded p-3 mb-3" id="<?php echo $address->getCodAddress();?>">
                     <div class="row" id = "oo">
                         <div class="col-12">
-                            <img class="float-right edit" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/>
+                            <a href="addaddress.php?cod=<?php echo $address->getCodAddress();?>" title="Modifica interesse">
+                                <img class="float-right edit" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/>
+                            </a>
                             <header>
                                 <h2 class="text-black font-weight-bold">#Indirizzo</h2>
                             </header>

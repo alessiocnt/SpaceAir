@@ -88,6 +88,25 @@ class UserInfoHandler extends AbstractHandler {
         return false;
     }
 
+    public function updateAddress(Address $address) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if($stmt = $db->prepare("UPDATE ADDRESS SET Via = ?, Civico = ?, Citta = ?, Provincia = ?, Cap = ? WHERE CodAddress = ?;")) {
+            $via = $address->getVia();
+            $civico = $address->getCivico();
+            $citta = $address->getCitta();
+            $provincia = $address->getProvincia();
+            $cap = $address->getCap();
+            $codAddress = $address->getCodAddress();
+
+            $stmt->bind_param('sssssi',$via, $civico, $citta, $provincia, $cap, $codAddress); 
+            $stmt->execute();
+
+            return true;
+        }
+
+        return false;
+    }
+
     public function deleteAddress(Address $address) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         if($stmt = $db->prepare("DELETE FROM `ADDRESS` WHERE `ADDRESS`.`CodAddress` = ?")) {
@@ -98,6 +117,23 @@ class UserInfoHandler extends AbstractHandler {
                 }
             }
         }
+        return false;
+    }
+
+    public function getAddressInfo(Address $address) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if($stmt = $db->prepare("SELECT * FROM ADDRESS WHERE CodAddress = ? LIMIT 1;")) {
+            $addressId = $address->getCodAddress();
+            $stmt->bind_param("i", $addressId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $result = $result->fetch_all(MYSQLI_ASSOC)[0];
+
+            $addressBuilder = new AddressBuilder();
+            return $addressBuilder->createFromAssoc($result);
+
+        }
+
         return false;
     }
 }
