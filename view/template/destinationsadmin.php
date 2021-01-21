@@ -35,7 +35,7 @@
                             <button id="<?php echo $planet->getName(); ?>" class="btn_del btn float-right p-1" type="button" title="Elimina pianeta">
                                 <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
                             </button>
-                            <a href="#" class="btn_edit btn float-right p-1" type="button" title="Modifica pianeta">
+                            <a href="/spaceair/planetmodify.php?Destination=<?php echo $planet->getName(); ?>" class="btn_edit btn float-right p-1" type="button" title="Modifica pianeta">
                                 <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
                             </a>
                         </div>

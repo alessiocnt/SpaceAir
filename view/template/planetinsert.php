@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-6 overflow-hidden">
                             <label for="img" class="">Immagine</label>
-                            <input type="file" class="rounded p-1 col-back-white" name="img" id="img"/>
+                            <input type="file" class="rounded p-1 col-back-white" name="img" id="img" required/>
                         <!-- <div class="custom-file overflow-auto">
                         </div> -->
                     </div>
@@ -82,7 +82,7 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="inputVisible">Visibile</label>
-                        <input type="checkbox" name="inputDescription" id="inputVisible">
+                        <input type="checkbox" name="inputVisible" id="inputVisible">
                     </div>
                     <div class="col-6">
                         <input type="submit" class="form-control" value="Inserisci"/>
