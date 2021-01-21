@@ -10,7 +10,7 @@ class PlanetBuilder implements Builder{
     private float $sunDistance = 0;
     private string $composition = "";
     private int $dayLength = 0;
-    private string $imgPlanet = "";
+    private $imgPlanet = "";
     private string $description = "";
     private bool $visible = true;
 
@@ -57,7 +57,7 @@ class PlanetBuilder implements Builder{
         $this->dayLength = $dayLength;
     }
 
-    public function setImg(string $imgPlanet) {
+    public function setImg($imgPlanet) {
         $this->imgPlanet = $imgPlanet;
     }
 

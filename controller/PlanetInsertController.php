@@ -11,7 +11,6 @@ class PlanetInsertController extends UserLoggedController {
         $planetHandler = $this->getModel()->getPlanetHandler();
         if(isset($_POST["inputName"])) {
             $data["Name"] = $_POST["inputName"];
-            /* $data["imgPlanet"] = $_POST["inputImage"]; */
             $data["Temperature"] = $_POST["inputTemperature"];
             $data["SunDistance"] = $_POST["inputSunDistance"];
             $data["Mass"] = $_POST["inputMass"];
@@ -20,6 +19,9 @@ class PlanetInsertController extends UserLoggedController {
             $data["DayLength"] = $_POST["inputDay"];
             $data["Description"] = $_POST["inputDescription"];
             $data["Visible"] = isset($_POST["inputVisible"]);
+            if(isset($_FILES["img"])) {
+                $data["Img"] = $_FILES["img"];
+            }
 
             $builder = new PlanetBuilder();
             $planet = $builder->createFromAssoc($data);
@@ -31,7 +33,7 @@ class PlanetInsertController extends UserLoggedController {
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";
                 $data["header"]["title"] = "Nuova destinazione";
-                $data["header"]["js"] = [];
+                $data["header"]["js"] = ["/spaceair/view/js/planetinsert.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("planetinsert");
                 $view->render($data); 
@@ -39,7 +41,7 @@ class PlanetInsertController extends UserLoggedController {
         } else {
             $data["data"] = "";
             $data["header"]["title"] = "Nuova destinazione";
-            $data["header"]["js"] = [];
+            $data["header"]["js"] = ["/spaceair/view/js/planetinsert.js"];
             $data["header"]["css"] = [];
             $view = new GenericView("planetinsert");
             $view->render($data); 
