@@ -35,6 +35,54 @@ class CartHandler extends AbstractHandler {
         $stmt->bind_param("iii", $quantity, $id, $order);
         $stmt->execute();
     }
+
+    private function findOrder($userId) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT CodOrder FROM orders WHERE IdUser = ? AND PurchaseDate IS NULL");
+        if (!$stmt->bind_param('i', $userId)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } else {
+            return $result[0];
+        }
+    }
+
+    public function getOrderId($userId) {
+        $orderId = $this->findOrder($userId);
+    var_dump($orderId);
+        if($orderId == false) {
+            $db = $this->getModelHelper()->getDbManager()->getDb();
+            $stmt = $db->prepare("INSERT INTO orders (IdUser, State) VALUES (?, ?);");  
+            $state = 1; 
+            if (!$stmt->bind_param('ii', $userId, $state)) {
+                return false;
+            }
+            if (!$stmt->execute()) {
+                return false;
+            }
+            $orderId = $db->insert_id;
+        }
+        return $orderId;
+    }
+
+    public function addToCart($pktId, $orderId, $qty){
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("INSERT INTO PACKET_IN_ORDER (CodPacket, CodOrder, Quantity) VALUES (?, ?, ?);");   
+        if (!$stmt->bind_param('iii', $pktId, $orderId, $qty)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        return true;
+    }
+
 }
 
 ?>

@@ -5,24 +5,20 @@ Utils::sec_session_start();
 $model = new ModelImpl();
 $cartHandler = $model->getCartHandler();
 
-if(isset($_POST["inputQuantity"])) {
-    $data["Name"] = $_POST["inputName"];
-    $data["Temperature"] = $_POST["inputTemperature"];
-    $data["SunDistance"] = $_POST["inputSunDistance"];
-    $data["Mass"] = $_POST["inputMass"];
-    $data["Surface"] = $_POST["inputSurface"];
-    $data["Composition"] = $_POST["inputComposition"];
-    $data["DayLength"] = $_POST["inputDay"];
-    $data["Description"] = $_POST["inputDescription"];
-    $data["Visible"] = isset($_POST["inputVisible"]);
-    if(isset($_FILES["img"])) {
-        $data["Img"] = $_FILES["img"];
-    }
-    $builder = new PlanetBuilder();
-    $planet = $builder->createFromAssoc($data);
-    $oldPlanet = $_POST["old-planet"];
+if(isset($_POST["inputQuantity"]) && isset($_POST["packet"])) {
+    $qty = $_POST["inputQuantity"];
+    $pktId = $_POST["packet"];
+    $userId = Utils::getUserId();
+var_dump($qty);
+var_dump($pktId);
+var_dump($userId);
 
-    $planetHandler->updatePlanet($planet, $oldPlanet);
-    header("location: /spaceair/destinations.php");
+    $orderId = $cartHandler->getOrderId($userId);
+var_dump($orderId);
+    if(!$orderId) { die(); }
+    $res = $cartHandler->addToCart($pktId, $orderId, $qty);
+var_dump($res);
+    if(!$res) { die(); }
+    header("location: /spaceair/cart.php");
 }
 ?>
