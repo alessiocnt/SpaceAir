@@ -12,7 +12,7 @@ class PacketBuilder implements Builder {
     private int $maxSeats = 0;
     private int $aviableSeats = 0;
     private string $description = "";
-    private int $destinationPlanet = 0;
+    private ?Planet $destinationPlanet = NULL;
     private bool $visible = false;
 
     public function createFromAssoc($assoc) {
@@ -30,16 +30,16 @@ class PacketBuilder implements Builder {
         $this->code = $codPacket;
     }
 
-    public function setImg($imgBrochure) {
+    public function setImgBrochure($imgBrochure) {
         $this->img = $imgBrochure;
     }
 
     public function setDateTimeDeparture($dateTimeDeparture) {
-        $this->departureDateHour = DateTime::createFromFormat("Y-m-j\TH:i", $dateTimeDeparture);
+        $this->departureDateHour = DateTime::createFromFormat("Y-m-d H:i:s", $dateTimeDeparture);
     }
 
     public function setDateTimeArrival($dateTimeArrival) {
-        $this->arriveDateHour = DateTime::createFromFormat("Y-m-j\TH:i", $dateTimeArrival);
+        $this->arriveDateHour = DateTime::createFromFormat("Y-m-d H:i:s", $dateTimeArrival);
     }
 
     public function setPrice($price) {
@@ -55,7 +55,7 @@ class PacketBuilder implements Builder {
     }
 
     public function setCodPlanet($codPlanet) {
-        $this->destinationPlanet = $codPlanet;
+        $this->destinationPlanet = new Planet($codPlanet);
     }
 
     public function setVisible($visible) {

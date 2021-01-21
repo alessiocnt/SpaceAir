@@ -98,6 +98,9 @@ class Order {
     public function setUser(User $user) {
         $this->user = $user;
     }
+    public function pushPacket(Packet $packet) {
+        array_push($this->packets, $packet);
+    }
 
 }
 
