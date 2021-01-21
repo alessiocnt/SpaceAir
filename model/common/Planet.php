@@ -12,14 +12,14 @@ class Planet {
     private float $sunDistance;
     private string $composition;
     private int $dayLength;
-    private string $imgPlanet;
+    private $imgPlanet;
     private string $description;
     private bool $visible;
     private $packets = array(); //Array to store packets
     private $reviews = array(); //Array to store reviews of this planet
 
     /* Base construct */
-    public function __construct(int $codPlanet, string $name = "", int $temperature = 0, float $mass = 0, float $surface = 0, float $sunDistance = 0, string $composition = "", int $dayLength = 0, string $imgPlanet = "", string $description = "", bool $visible = false) {
+    public function __construct(int $codPlanet, string $name = "", int $temperature, float $mass, float $surface, float $sunDistance, string $composition = "", int $dayLength, $imgPlanet = "", string $description = "", bool $visible) {
         $this->codPlanet = $codPlanet;
         $this->name = $name;
         $this->temperature = $temperature;
@@ -66,7 +66,7 @@ class Planet {
         return $this->dayLength;
     }
 
-    public function getImgPlanet() : string {
+    public function getImgPlanet() {
         return $this->imgPlanet;
     }
 

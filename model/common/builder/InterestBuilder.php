@@ -18,7 +18,7 @@ class InterestBuilder implements Builder {
         return new Interest($this->user, $this->planet, $this->date);
     }
 
-    public function setdatetime($dateTime) {
+    public function setDate($dateTime) {
         $this->date = DateTime::createFromFormat("Y-m-d H:i:s", $dateTime);
     }
 

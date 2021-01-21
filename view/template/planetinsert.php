@@ -8,18 +8,17 @@
     </header>
     <div class="row">
         <div class="col-md-6 offset-md-3 mb-3">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="inputName">Nome</label>
                         <input type="text" class="form-control" name="inputName" id="inputName" autocomplete="on" required/>
                     </div>
-                    <div class="col-6">
-                        <label for="inputImage">Immagine</label>
-                        <div class="custom-file" id="inputImage">
-                            <label for="img" class="custom-file-label">Clicca per inserire</label>
-                            <input type="file" class="form-control" name="img" id="img"/>
-                        </div>
+                    <div class="col-6 overflow-hidden">
+                            <label for="img" class="">Immagine</label>
+                            <input type="file" class="rounded p-1 col-back-white" name="img" id="img"/>
+                        <!-- <div class="custom-file overflow-auto">
+                        </div> -->
                     </div>
                 </div>
                 <div class="row mb-3">

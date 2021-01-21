@@ -32,7 +32,7 @@
           </button>
 
         <!--SpaceAir logo and name-->
-        <a class="navbar-brand mx-auto" href="#">
+        <a class="navbar-brand mx-auto" href="#" title = "Vai alla home">
             <img src="/spaceair/res/icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
             SPACEAIR
         </a>

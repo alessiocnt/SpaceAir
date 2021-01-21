@@ -59,11 +59,19 @@ class Address {
         return $this->user;
     }
 
+    public function toString() : string {
+        return "Via " . $this->via . " " . $this->civico;
+    }
+
+    public function toSecondaryInfo() : string {
+        return $this->citta . ", " . $this->provincia . ", " . $this->cap;
+    }
+
     /*
         Setter
     */
     public function setUser(User $user) {
-        $this->user = user;
+        $this->user = $user;
     }
     
 }

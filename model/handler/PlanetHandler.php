@@ -20,7 +20,13 @@ class PlanetHandler extends AbstractHandler {
         if(count($result) > 0) {
             return false;
         }
-        
+        if($planet->getImgPlanet() != "") {
+            list($uploadResult, $imageName) = Utils::uploadImage($_SERVER["DOCUMENT_ROOT"] . "/spaceair/res/upload/admin/", $planet->getImgPlanet());
+            if($uploadResult != Utils::$IMGUPLOADOK) {
+               return $uploadResult;
+            }
+         }
+
         $insert_stmt = $db->prepare("INSERT INTO PLANET (Name, Temperature, Mass, Surface, SunDistance, Composition, DayLength, Img, Description, Visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");   
         $visible = $planet->isVisible() ? 1 : 0;
         $name = $planet->getName();
@@ -30,7 +36,7 @@ class PlanetHandler extends AbstractHandler {
         $sunDistance = $planet->getSunDistance();
         $composition = $planet->getComposition();
         $dayLength = $planet->getDayLength();
-        $img = $planet->getImgPlanet();
+        $img = $imageName;
         $description = $planet->getDescription();
 
         if (!$insert_stmt->bind_param('sidddsissi', $name, $temperature, $mass, $surface, $sunDistance, $composition, $dayLength, $img, $description, $visible)) {
@@ -96,9 +102,7 @@ class PlanetHandler extends AbstractHandler {
     }
 
     public function hidePlanet($planet) {
-        //UPDATE PLANET SET Visible = 0 WHERE CodPlanet = 1;
         $db = $this->getModelHelper()->getDbManager()->getDb();
-
         $planetId = $planet->getCodPlanet();
         $visible = 0;
         $stmt = $db->prepare("UPDATE PLANET SET Visible = ? WHERE CodPlanet = ?");   

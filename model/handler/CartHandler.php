@@ -11,7 +11,7 @@ class CartHandler extends AbstractHandler {
     public function getCart() {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT PACKET.*, PACKET_IN_ORDER.Quantity, PACKET_IN_ORDER.CodOrder, PLANET.Img, PLANET.Name
-        FROM PACKET JOIN PACKET_IN_ORDER ON PACKET.CodPacket = PACKET_IN_ORDER.CodPacket JOIN ORDERS ON ORDERS.CodOrder = PACKET_IN_ORDER.CodOrder JOIN planet ON PLANET.CodPlanet = PACKET.CodPlanet
+        FROM PACKET JOIN PACKET_IN_ORDER ON PACKET.CodPacket = PACKET_IN_ORDER.CodPacket JOIN ORDERS ON ORDERS.CodOrder = PACKET_IN_ORDER.CodOrder JOIN PLANET ON PLANET.CodPlanet = PACKET.CodPlanet
         WHERE ORDERS.PurchaseDate IS NULL AND PACKET_IN_ORDER.Quantity > 0 AND ORDERS.IdUser = ?");
         $stmt->bind_param("i", $_SESSION["user_id"]);
         $stmt->execute();
