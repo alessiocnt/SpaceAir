@@ -30,7 +30,7 @@ class OrdersHandler extends AbstractHandler {
                 if($result["CodOrder"] != $currentOrderId) {
                     //New order
                     $currentOrder = $orderBuilder->createFromAssoc($result);
-                    $state = new OrderState($result["State"], $result["Description"]);
+                    $state = new OrderState($result["State"], $result["StateDescription"]);
                     $currentOrder->setState($state);
                     $currentOrderId = $result["CodOrder"];
                     array_push($array, $currentOrder);
@@ -48,7 +48,27 @@ class OrdersHandler extends AbstractHandler {
     }
 
     public function getOrderDetail(Order $order) {
-        
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $sql = "SELECT O.CodOrder, O.Total, PCKO.Quantity, PCK.DateTimeDeparture, PCK.DateTimeArrival, PCK.Price, PCK.MaxSeats, PCK.Description, P.Name AS PlanetName, P.Img FROM ORDERS O, PACKET_IN_ORDER PCKO, PACKET PCK, PLANET P WHERE PCKO.CodOrder = O.CodOrder AND PCKO.CodPacket = PCK.CodPacket AND PCK.CodPlanet = P.CodPlanet AND O.CodOrder = ? ORDER BY PCK.DateTimeDeparture";
+        if($stmt = $db->prepare($sql)) {
+            $orderId = $order->getCodOrder();
+            $stmt->bind_param("i", $orderId);
+            $stmt->execute();
+            $results = $stmt->get_result();
+            $results = $results->fetch_all(MYSQLI_ASSOC);
+
+            $packetBuilder = new PacketBuilder();
+            $orderDetailed = new Order($order->getCodOrder());
+            foreach($results as $result) {
+                $packet = $packetBuilder->createFromAssoc($result);
+                $packet->setDestinationPlanet(new Planet(0, $result["PlanetName"], $result["Img"]));
+                $orderDetailed->pushPacket($packet);
+            }
+
+            return $orderDetailed;
+        }
+
+        return false;
     }
     
 }

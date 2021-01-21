@@ -11,9 +11,13 @@
             <ul class="list-group mt-5">
                 <?php foreach($data["orders"] as $order): ?>
                 <li class="list-group-item rounded mb-3 col-back-white py-4">
-                    <a href="#">
+                    <a href="./packetinorder.php?id=<?php echo $order->getCodOrder();?>">
                         <section>
-                            <h2 class="col-dark font-weight-bold">Data ordine: <?php echo $order->getPurchaseDate()->format("d/m/Y"); ?></h2>
+                            <header>
+                                <h2 class="col-dark font-weight-bold mb-0">Data ordine: <?php echo $order->getPurchaseDate()->format("d/m/Y"); ?></h2>
+                                <p class="col-dark p-0 m-0"><span class="font-weight-bold">Stato:</span><?php echo $order->getState()->getDescription();?></p>
+                                <p class="col-dark p-0 mt-0"><span class="font-weight-bold">Prezzo:</span> €<?php echo $order->getTotal();?></p>
+                            </header>
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>

@@ -8,28 +8,27 @@ class PacketInOrderController extends UserLoggedController {
     }
 
     public function executePage() {
-        if(isset($_GET["logout"])) {
-            //Start secure session
-            Utils::sec_session_start();
-            Utils::logout();
-            header("Location:login.php");
-        } else {
+        if(isset($_GET["id"])) {
             //Get User data
             $userInfoHandler = $this->getModel()->getUserInfoHandler();
-            $currentUser = $userInfoHandler->getUserInfo(new User(Utils::getUserId()));
-            $currentUser->setInterests($userInfoHandler->getUserInterest($currentUser));
+            $ordersHandler = $this->getModel()->getOrdersHandler();
+
+            $packets = $ordersHandler->getOrderDetail(new Order($_GET["id"]));
             
-            $data["data"]["user"] = $currentUser;
+            $data["data"]["packets"] = $packets;
             //Set the title
-            $data["header"]["title"] = "Profilo";
+            $data["header"]["title"] = "Dettaglio Ordine";
             //Set custom js
             $data["header"]["js"] = [];
             //Set custom css
             $data["header"]["css"] = [];
             //Create the view
-            $view = new GenericView("profile");
+            $view = new GenericView("packetinorder");
             //Render the view
             $view->render($data); 
+
+        } else {
+            header("Location: myorders.php");
         }
     }
 
