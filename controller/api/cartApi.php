@@ -12,7 +12,6 @@ if(!isset($_POST["id"])) {
     echo("Errore non è possibile accedere alla pagina");
 }
 
-
 $model = new ModelImpl();
 $packetHandler = $model->getPacketHandler();
 $cartHandler = $model->getCartHandler();

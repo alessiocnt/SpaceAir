@@ -124,7 +124,7 @@ create table PACKET_IN_ORDER (
         on update cascade
 );
 
-alter table PACKET_IN_ORDER add constraint QuantityCHK check(Quantity>0);
+alter table PACKET_IN_ORDER add constraint QuantityCHK check(Quantity>=0);
 
 create table REWIEW (
      DateTime datetime not null,

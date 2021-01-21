@@ -12,7 +12,7 @@
     <div class="col-md-6 offset-md-3 mb-3">
         <form action="" method="POST">
             <div class="row mb-2">
-                <div class="col-11">
+                <div class="col-8 col-md-9">
                     <label for="inputDestination">Destinazione</label>
                     <select name="inputDestination" id="inputDestination" class="form-control" required>
                         <option value="" selected hidden>Seleziona...</option>
@@ -21,9 +21,9 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="col-1">
-                    <a href="planetinsert.php" class="btn rounded-circle col-back-white btn-md pmd-btn-raised mt-3" title="Aggiungi nuovo pianeta">
-                        <img src="/spaceair/res/icons/add-black-36dp.svg" class="pt-1 pb-1" />
+                <div class="col-4 col-md-3">
+                    <a href="planetinsert.php" class="btn col-back-white btn-new-dest" title="Crea nuova destinazione">
+                        Crea nuova destinazione
                     </a>
                 </div>
             </div>
