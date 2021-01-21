@@ -1,8 +1,9 @@
+<?php $planet = $data["planets"] ?>
 <section>
     <header class="col-10 offset-1 mb-3 col-md-6 offset-md-3">
         <div class="row">
             <div class="col-12 p-0">
-                <h1 class="text-left col-title font-weight-lighter">Luna</h1>
+                <h1 class="text-left col-title font-weight-lighter"><?php echo $planet->getName(); ?></h1>
             </div>
         </div>
     </header>
@@ -10,22 +11,20 @@
     <article class="mb-5 col-10 offset-1 col-md-6 offset-md-3">
         <div class="row mb-3 d-none d-md-flex">
             <ul class="col-text col-2 space-vertical">
-                <li class="w-100">Temperatura 25°C</li>
-                <li class="w-100">Massa 25°C</li>
-                <li class="w-100">Composizione 25°C</li>
+                <li class="w-100">Temperatura <?php echo $planet->getTemperature(); ?>°C</li>
+                <li class="w-100">Massa <?php echo $planet->getMass(); ?>Kg</li>
+                <li class="w-100">Composizione <?php echo $planet->getComposition(); ?></li>
             </ul>
-            <img alt="Luna" src="/spaceair/res/img/moon.png" class="col-8 img-fluid">
+            <img alt="<?php echo $planet->getName(); ?>" src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="col-8 img-fluid">
             <ul class="col-text col-2 space-vertical">
-                <li class="w-100">Distanza dal Sole 25°C</li>
-                <li class="w-100">Superficie 25°C</li>
-                <li class="w-100">Giornata 25°C</li>
+                <li class="w-100">Distanza dal Sole <?php echo $planet->getSunDistance(); ?>Km</li>
+                <li class="w-100">Superficie <?php echo $planet->getSurface(); ?>Km2</li>
+                <li class="w-100">Giornata <?php echo $planet->getDayLength(); ?> ore</li>
             </ul>
         </div>
         <!-- usata solo per il mobile -->
-        <img alt="Luna" src="/spaceair/res/img/moon.png" class="d-md-none col-8 offset-2 img-fluid">
-        <p class="col-text mb-0 mt-5 pb-3">
-            Troianas ut opes et lamentabile regnum eruerint Danai, quaeque ipse miserrima vidi et quorum pars magna fui. Quis talia fando Myrmidonum Dolopumve aut duri miles Ulixi temperet a lacrimis?
-        </p>
+        <img alt="<?php echo $planet->getName(); ?>" src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="d-md-none col-8 offset-2 img-fluid">
+        <p class="col-text mb-0 mt-5 pb-3"><?php echo $planet->getDescription(); ?></p>
         <section class="mt-3 d-md-none">
             <h3 class="mt-3 col-title font-weight-light">Informazioni pianeta</h3>
             <table class="col-12 table table-light table-striped">
@@ -38,66 +37,47 @@
                 <tbody>
                     <tr>
                         <td headers="desc">Temperatura</td>
-                        <td headers="value">25 °C</td>
+                        <td headers="value"><?php echo $planet->getTemperature(); ?>°C</td>
                     </tr>
                     <tr>
                         <td headers="desc">Distanza dal sole</td>
-                        <td headers="value">25 °C</td>
+                        <td headers="value"><?php echo $planet->getSunDistance(); ?>Km</td>
                     </tr>
                     <tr>
                         <td headers="desc">Massa</td>
-                        <td headers="value">25 °C</td>
+                        <td headers="value"><?php echo $planet->getMass(); ?>Kg</td>
                     </tr>
                     <tr>
                         <td headers="desc">Superficie</td>
-                        <td headers="value">25 °C</td>
+                        <td headers="value"><?php echo $planet->getSurface(); ?>Km2</td>
                     </tr>
                     <tr>
                         <td headers="desc">Composizione</td>
-                        <td headers="value">25 °C</td>
+                        <td headers="value"><?php echo $planet->getComposition(); ?></td>
                     </tr>
                     <tr>
                         <td headers="desc">Giornata</td>
-                        <td headers="value">25 °C</td>
+                        <td headers="value"><?php echo $planet->getDayLength(); ?> ore</td>
                     </tr>
                 </tbody>
             </table>
         </section>
-        <footer>
-            <button class="btn float-right col-dark col-back-white" type="button">
-                Espandi
-            </button>
-        </footer>
     </article>
     <!-- Voli disponibili -->
     <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3">
         <div class="col-12 p-0">
             <h2 class="mt-3 mb-3 col-text font-weight-light">Voli disponibili</h2>
             <ul class="list-group">
+                <?php foreach($data["packets"] as $packet): ?>
                 <li class="list-group-item rounded mb-3 col-back-white py-4">
-                    <button class="btn mt-2 mr-2 float-right" type="button">
-                        <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Preferiti">
+                    <button id="<?php echo $packet->getCode(); ?>" class="btn mt-2 mr-2 float-right" type="button">
+                        <img id="<?php echo $packet->getCode(); ?>" src="/spaceair/res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Preferiti">
                     </button>
-                    <img src="/spaceair/res/img/moon.png" class="planet-img mw-25 float-left mr-4" alt="">
-                    <p class="col-dark font-weight-bold list-impo-text my-0">15 febbraio 2021</p>
-                    <p class="col-dark font-weight-normal list-impo-text my-0">$ 7500</p>
+                    <img src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="">
+                    <p class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
+                    <p class="col-dark font-weight-normal list-impo-text my-0">€ <?php echo $packet->getPrice(); ?></p>
                 </li>
-                <li class="list-group-item rounded mb-3 col-back-white py-4">
-                    <button class="btn mt-2 mr-2 float-right" type="button">
-                        <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Preferiti">
-                    </button>
-                    <img src="/spaceair/res/img/moon.png" class="planet-img mw-25 float-left mr-4" alt="">
-                    <p class="col-dark font-weight-bold list-impo-text my-0">15 febbraio 2021</p>
-                    <p class="col-dark font-weight-normal list-impo-text my-0">$ 7500</p>
-                </li>
-                <li class="list-group-item rounded mb-3 col-back-white py-4">
-                    <button class="btn mt-2 mr-2 float-right" type="button">
-                        <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Preferiti">
-                    </button>
-                    <img src="/spaceair/res/img/moon.png" class="planet-img mw-25 float-left mr-4" alt="">
-                    <p class="col-dark font-weight-bold list-impo-text my-0">15 febbraio 2021</p>
-                    <p class="col-dark font-weight-normal list-impo-text my-0">$ 7500</p>
-                </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>

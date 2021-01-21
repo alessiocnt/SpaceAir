@@ -58,6 +58,23 @@ class PacketHandler extends AbstractHandler {
         }
         return $packets;
     }
+
+    public function getPacketsByDestination($destination) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM PACKET WHERE CodPlanet = ? AND Visible = true AND DATEDIFF(DateTimeDeparture, CURRENT_TIMESTAMP())");
+        $stmt->bind_param("i", $destination->getCodPlanet());
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+
+        $builder = new PacketBuilder();
+        $packets = array();
+        foreach ($result as $pkt) {
+            array_push($packets,$builder->createFromAssoc($pkt));
+        }
+        return $packets;
+    }
+
 }
 
 ?>
