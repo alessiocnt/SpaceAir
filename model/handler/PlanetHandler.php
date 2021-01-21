@@ -25,7 +25,7 @@ class PlanetHandler extends AbstractHandler {
             if($uploadResult != Utils::$IMGUPLOADOK) {
                return $uploadResult;
             }
-         }
+        }
 
         $insert_stmt = $db->prepare("INSERT INTO PLANET (Name, Temperature, Mass, Surface, SunDistance, Composition, DayLength, Img, Description, Visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");   
         $visible = $planet->isVisible() ? 1 : 0;
@@ -48,6 +48,35 @@ class PlanetHandler extends AbstractHandler {
             //"Solido", "Liquido", "Gassoso", "Lava"
             return false;
         }
+        return true;
+    }
+
+    public function updatePlanet($planet, $oldPlanet) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+
+        if($planet->getImgPlanet() != "") {
+            list($uploadResult, $imageName) = Utils::uploadImage($_SERVER["DOCUMENT_ROOT"] . "/spaceair/res/upload/admin/", $planet->getImgPlanet());
+            if($uploadResult != Utils::$IMGUPLOADOK) {
+               return $uploadResult;
+            }
+        }
+        $stmt = $db->prepare("UPDATE PLANET SET Name = ?, Temperature = ?, Mass = ?, Surface = ?, SunDistance = ?, Composition = ?, DayLength = ?, Img = ?, Description = ?, Visible = ? WHERE CodPlanet = ?");   
+        $visible = $planet->isVisible() ? 1 : 0;
+        $name = $planet->getName();
+        $temperature = $planet->getTemperature();
+        $mass = $planet->getMass();
+        $surface = $planet->getSurface();
+        $sunDistance = $planet->getSunDistance();
+        $composition = $planet->getComposition();
+        $dayLength = $planet->getDayLength();
+        $img = $imageName;
+        $description = $planet->getDescription();
+        if (!$stmt->bind_param('sidddsissii', $name, $temperature, $mass, $surface, $sunDistance, $composition, $dayLength, $img, $description, $visible, $oldPlanet)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        } 
         return true;
     }
 
