@@ -55,7 +55,6 @@ class CartHandler extends AbstractHandler {
 
     public function getOrderId($userId) {
         $orderId = $this->findOrder($userId);
-    var_dump($orderId);
         if($orderId == false) {
             $db = $this->getModelHelper()->getDbManager()->getDb();
             $stmt = $db->prepare("INSERT INTO orders (IdUser, State) VALUES (?, ?);");  
