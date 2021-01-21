@@ -21,8 +21,9 @@ class PlanetModifyController extends UserLoggedController {
                 $view->render($data); 
             } else {
                 $data["data"]["error"] = "Errore, destinazione non trovata.";
+                $data["data"]["planets"] = $planetHandler->getPlanets();
                 $data["header"]["title"] = "Destinazioni";
-                $data["header"]["js"] = [];
+                $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("destinations");
                 $view->render($data); 

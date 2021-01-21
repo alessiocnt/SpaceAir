@@ -50,3 +50,5 @@ Thumbs.db
 
 # DB-main temp files
 *.lun#
+
+res/upload/*
