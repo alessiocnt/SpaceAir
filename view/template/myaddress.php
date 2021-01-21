@@ -9,13 +9,13 @@
     <a class="btn col-btn-regular offset-md-3 pl-md-2" href="addaddress.php" role="button">Aggiungi</a>
     <div class="row mt-5">
         <div class="col-12 col-md-6 offset-md-3">
-            <?php $i=1; foreach($data["addresses"] as $address): ?>
+            <?php foreach($data["addresses"] as $address): ?>
                 <article class="col-back-white rounded p-3 mb-3" id="<?php echo $address->getCodAddress();?>">
                     <div class="row" id = "oo">
                         <div class="col-12">
                             <img class="float-right edit" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/>
                             <header>
-                                <h2 class="text-black font-weight-bold">#Indirizzo<?php echo $i; $i++?></h2>
+                                <h2 class="text-black font-weight-bold">#Indirizzo</h2>
                             </header>
                         </div>
                         <div class="col-12">
