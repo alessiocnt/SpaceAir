@@ -97,7 +97,8 @@ create table ORDERS (
         on update cascade
 );
 
-alter table ORDERS add constraint TotalCHK check(Total>0);
+/* Viene inserito solo al momento del pagamento, quindi è null finchè gli elementi stanno nel carrello. */
+/* alter table ORDERS add constraint TotalCHK check(Total>0); */ 
 
 create table TRACK (
      CodOrder int not null,

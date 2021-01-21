@@ -7,7 +7,7 @@ class Packet {
     private ?DateTime $arriveDateHour;
     private float $price;
     private int $maxSeats;
-    private int $aviableSeats;
+    private int $aviableSeats = 0;
     private string $description;
     private int $destinationPlanet;
     private bool $visible;
