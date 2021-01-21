@@ -196,6 +196,24 @@ class UserHandler extends AbstractHandler {
       return UserHandler::$SIGNUPNO;
    }
 
+   public function getUserById($userId){
+      $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM USERS WHERE IdUser = ?");
+        if (!$stmt->bind_param('i', $userId)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } else {
+            $builder = new UserBuilder();
+            $user = $builder->createFromAssoc($result[0]);
+            return $user;
+        }
+   }
 }
 
 ?>
