@@ -1,5 +1,7 @@
 $(document).ready(function() {
+    console.log($("input#totale"))
     total();
+
     if($('section#cart > article').length > 0) {
         $("h1").text("Carrello");
     } else {
@@ -25,11 +27,18 @@ $(document).ready(function() {
         $(this).parents("article").hide();
     });
 
+    $("input#totale").click(function(e) {
+        e.preventDefault();
+        $.post("/spaceair/controller/api/CartApi.php/", {"tot": total}, function(data) { 
+            location("header: payment.php");
+        });
+    });
+
     function total() {
         let tot = 0;
         $("p.totalPrice").each(function() {
             tot += Number($(this).text().split("€")[1]);
         })
-        $("p#Totale").text("Totale €" + tot);
+        $("input#Totale").val("Totale € " + tot);
     }
 }); 

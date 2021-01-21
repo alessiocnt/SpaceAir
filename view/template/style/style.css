@@ -101,6 +101,14 @@ div.map-container {
     margin-top: 17px;
 }
 
+.input-no-bg {
+    height: auto;
+    width: fit-content;
+    text-align: right;
+    background: 0;
+    border: 0;
+}
+
 input {
     overflow: hidden;
 }

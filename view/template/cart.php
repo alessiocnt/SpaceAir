@@ -43,17 +43,19 @@
 </div>
 <section>
     <div class="col-md-6 offset-md-3">
-        <div class="row top-line">
-            <div class="container">
-                <p id="Totale" class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale €16700</p>
+        <form action="payment.php" method="POST">
+            <div class="top-line">
+                <div class="row">
+                    <div class="col-7 offset-5 col-md-3 offset-md-9 mt-3">
+                        <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="Totale € 0" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7 offset-5 col-md-3 offset-md-9 mt-3">
+                        <input type="submit" class="form-control float-right mb-4" value="Procedi all'acquisto" />
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-7 offset-5 col-md-3 offset-md-9">
-                <form action="">
-                    <input type="submit" class="form-control float-right mb-4" value="Procedi all'acquisto" />
-                </form>
-            </div>
-        </div>
+        </form>
     </div>
 </section>
