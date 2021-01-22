@@ -20,7 +20,7 @@ class PlanetDetailsController extends AbstractController {
                 $data["data"]["packets"] = $packetHandler->getPacketsByDestination($planet);
                 $data["data"]["packet"] = $reviewHandler->getReviewByDestination($planet);
                 $data["header"]["title"] = "Dettagli Destinazione";
-                $data["header"]["js"] = [];
+                $data["header"]["js"] = ["/spaceair/view/js/planetdetails.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("planetdetails");
                 $view->render($data); 

@@ -25,6 +25,26 @@ class ReviewHandler extends AbstractHandler {
         return $reviews;
     }
 
+    public function addReview($review) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if($stmt = $db->prepare("INSERT INTO REVIEW (DateTime, Title, Description, Rating, IdUser, CodPlanet) VALUES(?,?,?,?,?,?)")) {
+            $date = $review->getDateTime()->format("Y-m-d H:i:s");
+            $title = $review->getTitle();
+            $description = $review->getDescription();
+            $stars = $review->getRating();
+            $idUser = $review->getIdUser();
+            $idPlanet = $review->getCodPlanet();
+            if(!$stmt->bind_param('sssiii',$date, $title, $description, $stars, $idUser, $idPlanet)){
+                return false;
+            }
+            if(!$stmt->execute()) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
 
 }
 

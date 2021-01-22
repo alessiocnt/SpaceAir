@@ -79,7 +79,6 @@ class CartHandler extends AbstractHandler {
         }
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         if(count($result) == 0) {
-            die("cazzo3");
             return false;
         } else {
             return true;
