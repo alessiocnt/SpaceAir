@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log($("input#totale"))
     total();
 
     if($('section#cart > article').length > 0) {

@@ -80,7 +80,9 @@ class UserInfoHandler extends AbstractHandler {
             $userId = $address->getUser()->getId();
 
             $stmt->bind_param('sssssi',$via, $civico, $citta, $provincia, $cap, $userId); 
-            $stmt->execute();
+            if(!$stmt->execute()) {
+                return false;
+            }
 
             return true;
         }
@@ -134,6 +136,29 @@ class UserInfoHandler extends AbstractHandler {
 
         }
 
+        return false;
+    }
+    
+    public function existsAddress($address, $userId) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM ADDRESS WHERE Via = ? AND Civico = ? AND Citta = ? AND Provincia = ? AND Cap = ? AND IdUser = ?");
+        $via = $address->getVia();
+        $civico = $address->getCivico();
+        $citta = $address->getCitta();
+        $provincia = $address->getProvincia();
+        $cap = $address->getCap();
+        if (!$stmt->bind_param('ssssii', $via, $civico, $citta, $provincia, $cap, $userId)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } else {
+            return true;
+        }
         return false;
     }
 }

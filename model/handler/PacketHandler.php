@@ -44,7 +44,7 @@ class PacketHandler extends AbstractHandler {
 
     public function getPackets() {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT * FROM PACKETS WHERE Visible = true");
+        $stmt = $db->prepare("SELECT * FROM PACKET WHERE Visible = true AND DateTimeDeparture > NOW()");
         $stmt->execute();
         $result = $stmt->get_result();
         $result->fetch_all(MYSQLI_ASSOC);
