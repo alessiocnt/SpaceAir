@@ -37,8 +37,6 @@ class PacketHandler extends AbstractHandler {
         
         $builder = new PacketBuilder();
         foreach ($result as $val) {
-            $val["DateTimeDeparture"] = DateTime::createFromFormat("Y-m-d H:i:s", $val["DateTimeDeparture"])->format('Y-m-j\TH:i');
-            $val["DateTimeArrival"] = DateTime::createFromFormat("Y-m-d H:i:s", $val["DateTimeArrival"])->format('Y-m-j\TH:i');
             return $builder->createFromAssoc($val);
         }
         //return $builder->createFromAssoc($result[0]);

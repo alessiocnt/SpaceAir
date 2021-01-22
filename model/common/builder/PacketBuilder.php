@@ -35,11 +35,11 @@ class PacketBuilder implements Builder {
     }
 
     public function setDateTimeDeparture($dateTimeDeparture) {
-        $this->departureDateHour = DateTime::createFromFormat("Y-m-j\TH:i", $dateTimeDeparture);
+        $this->departureDateHour = DateTime::createFromFormat("Y-m-d H:i:s", $dateTimeDeparture);
     }
 
     public function setDateTimeArrival($dateTimeArrival) {
-        $this->arriveDateHour = DateTime::createFromFormat("Y-m-j\TH:i", $dateTimeArrival);
+        $this->arriveDateHour = DateTime::createFromFormat("Y-m-d H:i:s", $dateTimeArrival);
     }
 
     public function setPrice($price) {

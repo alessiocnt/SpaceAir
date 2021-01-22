@@ -20,7 +20,7 @@ class ReviewBuilder implements Builder{
         return new Review($this->dateTime, $this->title, $this->description, $this->rating, $this->idUser, $this->codPlanet);
     }
 
-    public function setDateTime(DateTime $dateTime) {
+    public function setDateTime($dateTime) {
         $this->dateTime = DateTime::createFromFormat("Y-m-d H:i:s", $dateTime);
     }
 

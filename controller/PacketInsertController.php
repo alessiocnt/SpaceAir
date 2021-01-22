@@ -14,8 +14,10 @@ class PacketInsertController extends UserLoggedController {
             //var_dump($_POST);
             $data["CodPlanet"] = $_POST["inputDestination"];
             /* $data["imgPlanet"] = $_POST["inputImage"]; */
-            $data["DateTimeDeparture"] = $_POST["inputDepartureDateHour"];
-            $data["DateTimeArrival"] = $_POST["inputArriveDateHour"];
+
+            $data["DateTimeDeparture"] = DateTime::createFromFormat("Y-m-j\TH:i", $_POST["inputDepartureDateHour"])->format('Y-m-d H:i:s');
+            var_dump($data["DateTimeDeparture"]);
+            $data["DateTimeArrival"] = DateTime::createFromFormat("Y-m-j\TH:i", $_POST["inputArriveDateHour"])->format('Y-m-d H:i:s');
             $data["MaxSeats"] = $_POST["inputCapacity"];
             $data["AviableSeats"] = $data["MaxSeats"];
             $data["Price"] = $_POST["inputPrice"];
