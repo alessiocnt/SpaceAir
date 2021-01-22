@@ -26,11 +26,17 @@ $order = $orderHandler->getOrderById($cod);
 $user = $model->getUserHandler()->getUserById(Utils::getUserId());
 $user->setAddresses($model->getUserInfoHandler()->getAddresses($user));
 
-if($orderHandler->purchaseOrder($order, $user)) {
-    echo json_encode(array("msg"=>"ok"));
-    return;
+if($orderHandler->checkAvailable($order)) {
+    if($orderHandler->purchaseOrder($order, $user)) {
+        echo json_encode(array("msg"=>"Acquisto effettuato"));
+        return;
+    } else {
+        echo json_encode(array("msg"=>"Non è stato possibile acquistare l'elemento"));
+        return;
+    }
+
 } else {
-    echo json_encode(array("msg"=>"ko", "data" => "Non è stato possibile acquistare l'elemento"));
+    echo json_encode(array("msg"=>"Posti disponibili insufficienti"));
     return;
 }
 

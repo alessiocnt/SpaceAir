@@ -39,8 +39,11 @@ $(document).ready(function () {
         e.preventDefault();
         const cod = $('#CodOrder').val();
         
-        $.post("/spaceair/controller/api/PaymentApi.php/", { codOrder: cod });
-        $('#paymentResult').text('Complimenti hai acquistato con ' + metod);
+        $.post("/spaceair/controller/api/PaymentApi.php/", { codOrder: cod },
+        function(data) {
+            $('#paymentResult').text(data.msg);
+        }, 'json');
+        
         setTimeout(function(){ 
             window.location.replace("/spaceair/homepage.php");
         }, 1500);
