@@ -232,4 +232,8 @@ textarea {
     .btn-new-dest {
         margin-top: 32px;
     }
+
+    .interest-img {
+        width: 50%;
+    }
 }

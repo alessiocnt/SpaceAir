@@ -24,7 +24,7 @@ class UserInfoHandler extends AbstractHandler {
 
     public function getUserInterest(User $user) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        if($stmt = $db->prepare("SELECT * FROM INTEREST I, PLANET P WHERE P.CodPlanet = I.CodPlanet AND I.IdUser = ?;")) {
+        if($stmt = $db->prepare("SELECT * FROM INTEREST I, PLANET P WHERE I.Visible = true AND P.CodPlanet = I.CodPlanet AND I.IdUser = ?;")) {
             $userId = $user->getId();
             $stmt->bind_param("i", $userId);
             $stmt->execute();
@@ -45,6 +45,21 @@ class UserInfoHandler extends AbstractHandler {
         }
 
         return array();
+    }
+
+    public function removeUserInterest(User $user, $planet) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if(!$stmt = $db->prepare("UPDATE INTEREST SET Visible = 0 WHERE IdUser = ? AND CodPlanet = ?")) {
+            return false;
+        }
+        $userId = $user->getId();
+        if(!$stmt->bind_param("ii", $userId, $planet)) {
+            return false;
+        }
+        if(!$stmt->execute()) {
+            return false;
+        }
+        return true;
     }
 
     public function getAddresses(User $user) {

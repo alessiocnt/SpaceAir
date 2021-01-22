@@ -6,6 +6,7 @@ interface Model {
     public function getPacketHandler();
     public function getCartHandler();
     public function getAddressHandler();
+    public function getUserInfoHandler();
     //Test
     public function getTestHandler();
 }
