@@ -8,29 +8,33 @@
     </header>
 </div>
 <div class="row">
+    <div class="col-12 col-md-6 offset-md-3 col-error" id="removeResult"></div>
+</div>
+<div class="row">
     <div class="col-12 mb-3 mt-3">
         <section>
+        <?php foreach ($data["interests"] as $interest) :?>
             <article>
                 <div class="row ml-1 mr-1">
                     <div class="col-12 col-md-6 offset-md-3 p-0">
                         <div class="rounded my-2 col-back-white p-4 col-dark ">
                             <div class="row">
                                 <div class="col-4 col-md-3">
-                                    <img src="/spaceair/res/img/mars.png" style="width: 50%;" class="card-img mx-auto d-block" alt="">
+                                    <img src="/spaceair/res/upload/admin/<?=$interest->getPlanet()->getImgPlanet();?>"class="card-img mx-auto d-block interest-img" alt="">
                                 </div>
                                 <div class="col-8 col-md-9">
-                                    <a href="" title="Rimuovi dai preferiti">
+                                    <a href="#" class="btn-int" title="Rimuovi dai preferiti" id="<?=$interest->getPlanet()->getCodPlanet();?>">
                                         <img src="/spaceair/res/icons/remove_favourite.svg" class="mw-25 float-right mr-md-1" style="width: 18px;" alt="Rimuovi dal carrello">
                                     </a>
-                                    <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso Marte</p>
-                                    <p>20.03.2021 - 14:46</p>
+                                    <p class="my-0 text-uppercase font-weight-bold list-impo-text align-middle">Viaggi verso <?=$interest->getPlanet()->getName();?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </article>
-            <article>
+        <?php endforeach;?>
+            <!--<article>
                 <div class="row ml-1 mr-1">
                     <div class="col-12 col-md-6 offset-md-3 p-0">
                         <div class="rounded my-2 col-back-white p-4 col-dark ">
@@ -49,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-            </article>
+            </article>-->
         </section>
     </div>
 </div>

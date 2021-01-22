@@ -8,8 +8,7 @@ $(document).ready(function () {
     $('a#cred').click(function (e) {
         e.preventDefault();
         $('article#card').slideDown();
-        metod = 'cred';
-        $('input#acq').prop('disabled', false);
+        metod = 'carta di credito';
     });
 
     $('a#paypal').click(function (e) {
@@ -42,5 +41,12 @@ $(document).ready(function () {
         setTimeout(function(){ 
             window.location.replace("/spaceair/homepage.php");
         }, 1500);
+    });
+
+    $('#cardForm').submit(function (e) {
+        e.preventDefault();
+        $('article#card').slideUp();
+        $('#paymentResult').text('Carta accettata');
+        $('input#acq').prop('disabled', false);
     });
 });

@@ -118,7 +118,7 @@ class PlanetHandler extends AbstractHandler {
 
     public function addFavourite($userId, $planet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("INSERT INTO INTEREST (Date, IdUser, CodPlanet) VALUES (?, ?, ?);");   
+        $stmt = $db->prepare("INSERT INTO INTEREST (Date, IdUser, CodPlanet, Visible) VALUES (?, ?, ?, 1);");   
         $planetCode = $planet->getCodPlanet();
         $time = date('Y-m-d H:i:s');
         if (!$stmt->bind_param('sii', $time, $userId, $planetCode)) {

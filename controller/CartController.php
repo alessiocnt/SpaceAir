@@ -8,7 +8,6 @@ class CartController extends UserLoggedController {
     }
 
     public function executePage() {
-        $userHandler = $this->getModel()->getUserHandler();
         $data["header"]["title"] = "Carrello";
         $data["header"]["js"] = ["/spaceair/view/js/cart.js"];
         $data["header"]["css"] = [];
