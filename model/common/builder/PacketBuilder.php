@@ -23,7 +23,7 @@ class PacketBuilder implements Builder {
                 $this->$method($value);
             }
         }
-        return new Packet($this->code, /* $this->img,  */$this->departureDateHour, $this->arriveDateHour, $this->price, $this->maxSeats, $this->description, $this->destinationPlanet, $this->visible);
+        return new Packet($this->code, /* $this->img,  */ $this->departureDateHour, $this->arriveDateHour, $this->price, $this->maxSeats, $this->description, $this->destinationPlanet, $this->visible);
     }
 
     public function setCodPacket($codPacket) {
@@ -35,11 +35,11 @@ class PacketBuilder implements Builder {
     } */
 
     public function setDateTimeDeparture($dateTimeDeparture) {
-        $this->departureDateHour = DateTime::createFromFormat("Y-m-d H:i:s", $dateTimeDeparture);
+        $this->departureDateHour = DateTime::createFromFormat("Y-m-j\TH:i", $dateTimeDeparture);
     }
 
     public function setDateTimeArrival($dateTimeArrival) {
-        $this->arriveDateHour = DateTime::createFromFormat("Y-m-d H:i:s", $dateTimeArrival);
+        $this->arriveDateHour = DateTime::createFromFormat("Y-m-j\TH:i", $dateTimeArrival);
     }
 
     public function setPrice($price) {

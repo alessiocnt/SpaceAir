@@ -69,13 +69,17 @@
             <h2 class="mt-3 mb-3 col-text font-weight-light">Voli disponibili</h2>
             <ul class="list-group">
                 <?php foreach($data["packets"] as $packet): ?>
-                <li class="list-group-item rounded mb-3 col-back-white py-4">
-                    <button id="<?php echo $packet->getCode(); ?>" class="btn mt-2 mr-2 float-right" type="button">
-                        <img id="<?php echo $packet->getCode(); ?>" src="/spaceair/res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Preferiti">
-                    </button>
-                    <img src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="">
-                    <p class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
-                    <p class="col-dark font-weight-normal list-impo-text my-0">€ <?php echo $packet->getPrice(); ?></p>
+                <li class="">
+                    <form action="/spaceair/controller/api/FlightDetailsApi.php" method="POST" class="rounded my-2 col-back-white p-4 col-dark col-12">
+                        <input id="packet" name="packet" type="hidden" value="<?php echo $packet->getCode(); ?>"/>
+                        <input id="inputQuantity" name="inputQuantity" type="hidden" value="1"/>
+                        <button class="btn mt-2 mr-2 float-right" type="submit">
+                            <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Aggiungi al carrello">
+                        </button>
+                        <img src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="">
+                        <p class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
+                        <p class="col-dark font-weight-normal list-impo-text my-0">€ <?php echo $packet->getPrice(); ?></p>
+                    </form>
                 </li>
                 <?php endforeach; ?>
             </ul>
