@@ -3,41 +3,41 @@
     Class that represent a review
 */
 class Review {
-    private DateTime $dateTime;
-    private string $title;
+    private $dateTime;
+    private string $title = "";
     private string $description;
     private int $rating;
     private int $idUser;
     private int $codPlanet;
 
     /* Base construct */
-    public function __construct(DateTime $dateTime, string $title, string $description, int $rating, int $idUser, int $codPlanet) {
-        $this->date = $dateTime;
+    public function __construct($dateTime, $title, $description, $rating, $idUser, $codPlanet) {
+        $this->dateTime = $dateTime;
         $this->title = $title;
         $this->description = $description;
-        $this->stars = $rating;
+        $this->rating = $rating;
         $this->idUser = $idUser;
-        $this->idPlanet = $codPlanet;
+        $this->codPlanet = $codPlanet;
     }
 
     /* Getters */
-    public function getDateTime() : DateTime {
+    public function getDateTime() {
         return $this->dateTime;
     }
 
-    public function getTitle() : string {
+    public function getTitle() {
         return $this->title;
     }
 
-    public function getDescription() : string {
+    public function getDescription() {
         return $this->description;
     }
 
-    public function getRating() : int {
+    public function getRating() {
         return $this->rating;
     }
 
-    public function getIdUser() : int {
+    public function getIdUser() {
         return $this->idUser;
     }
 

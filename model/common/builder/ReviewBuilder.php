@@ -2,7 +2,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class ReviewBuilder implements Builder{
-    private DateTime $dateTime;
+    private $dateTime;
     private string $title = "";
     private string $description = "";
     private int $rating;

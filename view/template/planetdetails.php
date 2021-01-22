@@ -89,28 +89,15 @@
     <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
         <div class="col-12 p-0">
             <h2 class="mt-3 mb-3 col-text font-weight-light">Inserisci la tua recensione</h2>
-            <form action="">
+            <form action="" id="newReview">
                 <div class="row mb-3">
-                    <div class="col-6">
+                    <div class="col-8">
                         <label for="inputTitle">Titolo</label>
                         <input type="text" class="form-control" name="inputTitle" id="inputTitle" required/>
                     </div>
-                    <div class="col-6 py-0">
-                        <button class="btn float-right" type="button">
-                            <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="scale-x2 img-fluid" alt="star 1">
-                        </button>
-                        <button class="btn float-right" type="button">
-                            <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="scale-x2 img-fluid" alt="star 2">
-                        </button>
-                        <button class="btn float-right" type="button">
-                            <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="scale-x2 img-fluid" alt="star 3">
-                        </button>
-                        <button class="btn float-right" type="button">
-                            <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="scale-x2 img-fluid" alt="star 4">
-                        </button>
-                        <button class="btn float-right" type="button">
-                            <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="scale-x2 img-fluid" alt="star 5">
-                        </button>
+                    <div class="col-4">
+                        <label for="inputQuantity" class="">Valutazione</label>
+                        <input type="number" class="form-control" name="inputQuantity" id="inputQuantity" value="" min="1" max="5" step="1"/>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -119,9 +106,9 @@
                         <textarea class="form-control" name="inputReview" id="inputReview" rows="5"></textarea>
                     </div>
                 </div>
-                <button class="btn float-right col-dark col-back-white" type="submit">
-                    Pubblica
-                </button>
+                <input id="inputPlanet" name="inputPlanet" type="hidden" value="<?php echo $planet->getName(); ?>"/>
+                <button class="btn float-right col-dark col-back-white" type="submit">Pubblica</button>
+                <div class="col-8 col-md-10 col-error" id="reviewResult"></div>
             </form>
         </div>
     </div>
