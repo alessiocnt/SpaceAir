@@ -30,7 +30,7 @@ class PacketBuilder implements Builder {
         $this->code = $codPacket;
     }
 
-    public function setImgBrochure($imgBrochure) {
+    public function setImg($imgBrochure) {
         $this->img = $imgBrochure;
     }
 

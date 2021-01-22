@@ -127,7 +127,7 @@ class UserInfoHandler extends AbstractHandler {
 
     public function deleteAddress(Address $address) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        if($stmt = $db->prepare("DELETE FROM `ADDRESS` WHERE `ADDRESS`.`CodAddress` = ?")) {
+        if($stmt = $db->prepare("DELETE FROM ADDRESS WHERE CodAddress = ?")) {
             $addressId = $address->getCodAddress();
             if($stmt->bind_param("i", $addressId)) {
                 if($stmt->execute()) {

@@ -22,6 +22,15 @@ class CartHandler extends AbstractHandler {
         $packets = array();
         
         foreach ($result as $packet) {
+            /*
+            $planet = new Planet(0, $packet["Name"], $packet["Img"]);
+            $newPacket = $builder->createFromAssoc($packet);
+            $newPacket->setDestinationPlanet($planet);
+            $order = new Order(packet["CodOrder"]);
+            
+            ORDER->pushPacket($newPacket);
+            
+            */
             array_push($packets, array("packet"=>$builder->createFromAssoc($packet),"codOrder"=>$packet["CodOrder"], "quantity"=>$packet["Quantity"], "planetName"=>$packet["Name"]));
         }
         return $packets;

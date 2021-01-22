@@ -9,8 +9,20 @@ $(document).ready(function() {
             if(!dataJson["result"]) {
                 console.log(dataJson["errorMsg"]);
             } else {
-                //Request ok so fade out div
-                addressContainer.fadeOut();
+                switch(dataJson["result"]) {
+                    case 2:
+                        //IMPOSSIBLE REMOVE: Address used in an order
+                        $("p.col-error").removeClass("d-none");
+                    break;
+                    default:
+                        //Ok deleted
+                        //Request ok so fade out div
+                        addressContainer.slideUp(); 
+                        if(!$("p.col-error").hasClass("d-none")) {
+                            $("p.col-error").addClass("d-none");
+                        }
+                    break
+                }
             }
         });
     });

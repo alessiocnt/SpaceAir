@@ -97,7 +97,7 @@ class PlanetHandler extends AbstractHandler {
 
     public function searchPlanetByName($name) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT * FROM planet WHERE Name = ?");
+        $stmt = $db->prepare("SELECT * FROM PLANET WHERE Name = ?");
         if (!$stmt->bind_param('s', $name)) {
             //echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
             return false;
@@ -118,7 +118,7 @@ class PlanetHandler extends AbstractHandler {
 
     public function searchPlanetByCod($cod) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT * FROM planet WHERE CodPlanet = ?");
+        $stmt = $db->prepare("SELECT * FROM PLANET WHERE CodPlanet = ?");
         if (!$stmt->bind_param('s', $cod)) {
             //echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
             return false;

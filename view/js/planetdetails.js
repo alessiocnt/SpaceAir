@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#newReview').submit(function (e) {
         e.preventDefault();
-        
+        console.log($("input[name=inputQuantity]").val());
         let posting = $.post("/spaceair/controller/api/AddReviewApi.php/", {
             Titolo: $("#inputTitle").val(),
             Valutazione: $("#inputQuantity").val(),
