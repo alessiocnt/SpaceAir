@@ -52,7 +52,6 @@ alter table PLANET add constraint CompositionCHK check(Composition in ("Solido",
 
 create table PACKET (
      CodPacket int not null auto_increment primary key,
-     ImgBrochure varchar(100),
      DateTimeDeparture datetime not null,
      DateTimeArrival datetime not null,
      Price float not null,
@@ -149,6 +148,7 @@ create table INTEREST (
      Date datetime not null,
      IdUser int not null,
      CodPlanet int not null,
+     Visible tinyint not null,
      primary key (IdUser, CodPlanet),
      foreign key(IdUser) references USERS(IdUser)
         on delete restrict

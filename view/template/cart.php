@@ -17,7 +17,7 @@
                             <div class="rounded my-2 col-back-white p-4 col-dark ">
                                 <div class="row">
                                     <div class="col-4 col-md-3">
-                                        <img src="<?= $assoc["packet"]->getImg(); ?>" class="card-img" alt="">
+                                        <img src="/spaceair/res/upload/admin/<?= $assoc["packet"]->getImg(); ?>" class="card-img" alt="">
                                     </div>
                                     <div class="col-8 col-md-9">
                                         <a href="#" id="<?= $assoc["codOrder"]; ?>" class="<?= $assoc["packet"]->getCode(); ?>" title="Rimuovi dal carrello">
