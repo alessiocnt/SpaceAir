@@ -15,7 +15,7 @@ class PlanetDetailsController extends AbstractController {
         if(isset($_GET["Destination"])) {
             if($planetHandler->searchPlanetByName($_GET["Destination"]) != false) {
                 $destinationName = $_GET["Destination"];
-                $planet = $planetHandler->searchPlanetByName($destination)[0];
+                $planet = $planetHandler->searchPlanetByName($destinationName)[0];
                 $data["data"]["planets"] = $planet;
                 $data["data"]["packets"] = $packetHandler->getPacketsByDestination($planet);
                 $data["data"]["packet"] = $reviewHandler->getReviewByDestination($planet);

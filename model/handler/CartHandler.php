@@ -22,8 +22,6 @@ class CartHandler extends AbstractHandler {
         $packets = array();
         
         foreach ($result as $packet) {
-            $packet["DateTimeDeparture"] = DateTime::createFromFormat("Y-m-d H:i:s", $packet["DateTimeDeparture"])->format('Y-m-j\TH:i');
-            $packet["DateTimeArrival"] = DateTime::createFromFormat("Y-m-d H:i:s", $packet["DateTimeArrival"])->format('Y-m-j\TH:i');
             array_push($packets, array("packet"=>$builder->createFromAssoc($packet),"codOrder"=>$packet["CodOrder"], "quantity"=>$packet["Quantity"], "planetName"=>$packet["Name"]));
         }
         return $packets;
@@ -70,16 +68,50 @@ class CartHandler extends AbstractHandler {
         return $orderId;
     }
 
-    public function addToCart($pktId, $orderId, $qty){
+    private function existPacketinOrder($pktId, $orderId) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("INSERT INTO PACKET_IN_ORDER (CodPacket, CodOrder, Quantity) VALUES (?, ?, ?);");   
-        if (!$stmt->bind_param('iii', $pktId, $orderId, $qty)) {
+        $stmt = $db->prepare("SELECT * FROM PACKET_IN_ORDER WHERE CodPacket = ? AND CodOrder = ?");
+        if (!$stmt->bind_param('ii', $pktId, $orderId)) {
             return false;
         }
         if (!$stmt->execute()) {
             return false;
         }
-        return true;
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            die("cazzo3");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function addToCart($pktId, $orderId, $qty){
+        $res = $this->existPacketinOrder($pktId, $orderId);
+        /* var_dump($res); */
+        if($res == false) {
+            $db = $this->getModelHelper()->getDbManager()->getDb();
+            $stmt = $db->prepare("INSERT INTO PACKET_IN_ORDER (CodPacket, CodOrder, Quantity) VALUES (?, ?, ?);");   
+            if (!$stmt->bind_param('iii', $pktId, $orderId, $qty)) {
+                return false;
+            }
+            if (!$stmt->execute()) {
+                return false;
+            }
+            return true;
+        } else {
+            $db = $this->getModelHelper()->getDbManager()->getDb();
+            $stmt = $db->prepare("SELECT Quantity FROM PACKET_IN_ORDER WHERE CodPacket = ? AND CodOrder = ?");
+            $stmt->bind_param('ii', $pktId, $orderId);
+            $stmt->execute();
+            $actualQuantity = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]["Quantity"];
+            $newQuantity = intval($actualQuantity) + intval($qty);
+            $db = $this->getModelHelper()->getDbManager()->getDb();
+            $stmt = $db->prepare("UPDATE PACKET_IN_ORDER SET Quantity = ? WHERE CodPacket = ? AND CodOrder = ?");
+            $stmt->bind_param("iii", $newQuantity, $pktId, $orderId);
+            $stmt->execute();
+            return true;
+        }
     }
 
 }

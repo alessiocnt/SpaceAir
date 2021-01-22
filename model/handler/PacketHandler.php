@@ -37,8 +37,6 @@ class PacketHandler extends AbstractHandler {
         
         $builder = new PacketBuilder();
         foreach ($result as $val) {
-            $val["DateTimeDeparture"] = DateTime::createFromFormat("Y-m-d H:i:s", $val["DateTimeDeparture"])->format('Y-m-j\TH:i');
-            $val["DateTimeArrival"] = DateTime::createFromFormat("Y-m-d H:i:s", $val["DateTimeArrival"])->format('Y-m-j\TH:i');
             return $builder->createFromAssoc($val);
         }
         //return $builder->createFromAssoc($result[0]);
@@ -62,7 +60,8 @@ class PacketHandler extends AbstractHandler {
     public function getPacketsByDestination($destination) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PACKET WHERE CodPlanet = ? AND Visible = true AND DATEDIFF(DateTimeDeparture, CURRENT_TIMESTAMP())");
-        $stmt->bind_param("i", $destination->getCodPlanet());
+        $planetId = $destination->getCodPlanet();
+        $stmt->bind_param("i", $planetId);
         $stmt->execute();
         $result = $stmt->get_result();
         $result->fetch_all(MYSQLI_ASSOC);
