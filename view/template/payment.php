@@ -114,9 +114,10 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-6 col-md-9 col-error" id="paymentResult"></div>
-                    <div class="col-6 col-md-3">
+                <div class="col-6 col-md-8 col-error" id="paymentResult"></div>
+                    <div class="col-6 col-md-4">
                         <form action="#" id="formPayment">
+                            <input type="hidden" id="CodOrder" value="<?=$data["CodOrder"];?>" />
                             <input type="submit" id="acq" class="form-control float-right mb-4" value="Procedi all'acquisto" disabled/>
                         </form>
                     </div>

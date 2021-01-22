@@ -208,6 +208,8 @@ Trigger
 Quando metto dataacquisto, mi va lo stato automaticamente
 ad accettato
 */
+/*
+NOTA: NON FUNZIONA
 delimiter $$
 create trigger date_purchase_UPDATE after update on ORDERS
 for each row
@@ -216,4 +218,4 @@ begin
 	then
 		UPDATE ORDERS set State = 1 where CodOrder = new.CodOrder;
 	end if;
-end;$$
+end;$$*/

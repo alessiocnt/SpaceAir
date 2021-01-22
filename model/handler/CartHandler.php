@@ -36,7 +36,7 @@ class CartHandler extends AbstractHandler {
 
     private function findOrder($userId) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT CodOrder FROM orders WHERE IdUser = ? AND PurchaseDate IS NULL");
+        $stmt = $db->prepare("SELECT CodOrder FROM ORDERS WHERE IdUser = ? AND PurchaseDate IS NULL");
         if (!$stmt->bind_param('i', $userId)) {
             return false;
         }
@@ -55,7 +55,7 @@ class CartHandler extends AbstractHandler {
         $orderId = $this->findOrder($userId);
         if($orderId == false) {
             $db = $this->getModelHelper()->getDbManager()->getDb();
-            $stmt = $db->prepare("INSERT INTO orders (IdUser, State) VALUES (?, ?);");  
+            $stmt = $db->prepare("INSERT INTO ORDERS (IdUser, State) VALUES (?, ?);");  
             $state = 1; 
             if (!$stmt->bind_param('ii', $userId, $state)) {
                 return false;

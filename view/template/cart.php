@@ -48,6 +48,7 @@
                 <div class="row">
                     <div class="col-7 offset-5 col-md-3 offset-md-9 mt-3">
                         <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="Totale € 0" readonly>
+                        <input type="hidden" name="CodOrdine" id="CodOrdine" value="<?=$data[0]["codOrder"];?>" readonly>
                     </div>
                 </div>
                 <div class="row">
