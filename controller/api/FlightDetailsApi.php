@@ -9,10 +9,10 @@ if(isset($_POST["inputQuantity"]) && isset($_POST["packet"])) {
     $qty = $_POST["inputQuantity"];
     $pktId = $_POST["packet"];
     $userId = Utils::getUserId();
-    $orderId = $cartHandler->getOrderId($userId);
+    $orderId = $cartHandler->getOrderId($userId)["CodOrder"];
     if(!$orderId) { die(); }
     $res = $cartHandler->addToCart($pktId, $orderId, $qty);
-    if(!$res) { die(); }
+    if(!$res) { die("aa"); }
     header("location: /spaceair/cart.php");
 }
 ?>
