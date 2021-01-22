@@ -52,7 +52,6 @@ alter table PLANET add constraint CompositionCHK check(Composition in ("Solido",
 
 create table PACKET (
      CodPacket int not null auto_increment primary key,
-     ImgBrochure varchar(100),
      DateTimeDeparture datetime not null,
      DateTimeArrival datetime not null,
      Price float not null,
