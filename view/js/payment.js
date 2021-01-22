@@ -9,7 +9,6 @@ $(document).ready(function () {
         e.preventDefault();
         $('article#card').slideDown();
         metod = 'carta di credito';
-        $('input#acq').prop('disabled', false);
     });
 
     $('a#paypal').click(function (e) {
@@ -48,5 +47,6 @@ $(document).ready(function () {
         e.preventDefault();
         $('article#card').slideUp();
         $('#paymentResult').text('Carta accettata');
+        $('input#acq').prop('disabled', false);
     });
 });
