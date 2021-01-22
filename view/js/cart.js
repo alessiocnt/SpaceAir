@@ -23,7 +23,7 @@ $(document).ready(function() {
             $("p#p" + order).text("Costo €" + data);
             total();
         });
-        $(this).parents("article").hide();
+        $(this).parents("article").slideUp();
     });
 
     $("input#totale").click(function(e) {
