@@ -52,6 +52,10 @@ class ModelImpl implements Model, ModelHelper {
     public function getOrdersHandler() {
         return new OrdersHandler($this);
     }
+
+    public function getReviewHandler() {
+        return new ReviewHandler($this);
+    }
 }
 
 ?>

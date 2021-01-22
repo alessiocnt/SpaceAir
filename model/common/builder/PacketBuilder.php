@@ -5,7 +5,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader
 class PacketBuilder implements Builder {
 
     private int $code = 0;
-    private string $img = "";
+    /* private string $img = ""; */
     private DateTime $departureDateHour;
     private DateTime $arriveDateHour;
     private float $price = 0;
@@ -23,16 +23,16 @@ class PacketBuilder implements Builder {
                 $this->$method($value);
             }
         }
-        return new Packet($this->code, $this->img, $this->departureDateHour, $this->arriveDateHour, $this->price, $this->maxSeats, $this->description, $this->destinationPlanet, $this->visible);
+        return new Packet($this->code, /* $this->img,  */$this->departureDateHour, $this->arriveDateHour, $this->price, $this->maxSeats, $this->description, $this->destinationPlanet, $this->visible);
     }
 
     public function setCodPacket($codPacket) {
         $this->code = $codPacket;
     }
 
-    public function setImgBrochure($imgBrochure) {
+    /* public function setImgBrochure($imgBrochure) {
         $this->img = $imgBrochure;
-    }
+    } */
 
     public function setDateTimeDeparture($dateTimeDeparture) {
         $this->departureDateHour = DateTime::createFromFormat("Y-m-d H:i:s", $dateTimeDeparture);

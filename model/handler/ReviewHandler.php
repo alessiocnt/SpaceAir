@@ -11,7 +11,8 @@ class ReviewHandler extends AbstractHandler {
     public function getReviewByDestination($planet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM REVIEW WHERE CodPlanet = ?");
-        $stmt->bind_param("i", $planet->getCodPlanet());
+        $planetId = $planet->getCodPlanet();
+        $stmt->bind_param("i", $planetId);
         $stmt->execute();
         $result = $stmt->get_result();
         $result->fetch_all(MYSQLI_ASSOC);

@@ -2,7 +2,7 @@
 
 class Packet {
     private int $code;
-    private $img;
+    /* private $img; */
     private ?DateTime $departureDateHour;
     private ?DateTime $arriveDateHour;
     private float $price;
@@ -12,9 +12,9 @@ class Packet {
     private ?Planet $destinationPlanet;
     private bool $visible;
 
-    public function __construct(int $code, $img, DateTime $departureDateHour = NULL, DateTime $arriveDateHour = NULL, float $price = 0, int $maxSeats = 0, string $description = "", Planet $destinationPlanet = NULL, bool $visible = false) {
+    public function __construct(int $code, /* $img, */ DateTime $departureDateHour = NULL, DateTime $arriveDateHour = NULL, float $price = 0, int $maxSeats = 0, string $description = "", Planet $destinationPlanet = NULL, bool $visible = false) {
         $this->code = $code;
-        $this->img = $img;
+        /* $this->img = $img; */
         $this->departureDateHour = $departureDateHour;
         $this->arriveDateHour = $arriveDateHour;
         $this->price = $price;
@@ -28,9 +28,9 @@ class Packet {
         return $this->code;
     }
 
-    public function getImg() {
+    /* public function getImg() {
         return $this->img;
-    }
+    } */
 
     public function getDepartureDateHour() : DateTime {
         return $this->departureDateHour;

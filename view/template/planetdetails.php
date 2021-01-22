@@ -8,7 +8,7 @@
         </div>
     </header>
     <!-- Pianeta -->
-    <article class="mb-5 col-10 offset-1 col-md-6 offset-md-3">
+    <article class="mb-5 col-10 offset-1 col-md-6 offset-md-3 p-0">
         <div class="row mb-3 d-none d-md-flex">
             <ul class="col-text col-2 space-vertical">
                 <li class="w-100">Temperatura <?php echo $planet->getTemperature(); ?>°C</li>
@@ -64,7 +64,7 @@
         </section>
     </article>
     <!-- Voli disponibili -->
-    <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3">
+    <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
         <div class="col-12 p-0">
             <h2 class="mt-3 mb-3 col-text font-weight-light">Voli disponibili</h2>
             <ul class="list-group">
@@ -82,7 +82,7 @@
         </div>
     </div>
     <!-- Nuova recensione -->
-    <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3">
+    <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
         <div class="col-12 p-0">
             <h2 class="mt-3 mb-3 col-text font-weight-light">Inserisci la tua recensione</h2>
             <form action="">
@@ -122,7 +122,7 @@
         </div>
     </div>
     <!-- Recensione -->
-    <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3">
+    <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
         <div class="col-12 p-0">
             <div class="my-3 px-0 float-right">
                 <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="star 1">

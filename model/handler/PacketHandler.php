@@ -62,7 +62,8 @@ class PacketHandler extends AbstractHandler {
     public function getPacketsByDestination($destination) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PACKET WHERE CodPlanet = ? AND Visible = true AND DATEDIFF(DateTimeDeparture, CURRENT_TIMESTAMP())");
-        $stmt->bind_param("i", $destination->getCodPlanet());
+        $planetId = $destination->getCodPlanet();
+        $stmt->bind_param("i", $planetId);
         $stmt->execute();
         $result = $stmt->get_result();
         $result->fetch_all(MYSQLI_ASSOC);
