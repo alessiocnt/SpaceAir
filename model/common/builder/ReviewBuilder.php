@@ -21,7 +21,7 @@ class ReviewBuilder implements Builder{
     }
 
     public function setDateTime(DateTime $dateTime) {
-        $this->dateTime = $dateTime;
+        $this->dateTime = DateTime::createFromFormat("Y-m-d H:i:s", $dateTime);
     }
 
     public function setTitle(string $title) {

@@ -48,6 +48,10 @@ class ModelImpl implements Model, ModelHelper {
     public function getUserInfoHandler() {
         return new UserInfoHandler($this);
     }
+
+    public function getReviewHandler() {
+        return new ReviewHandler($this);
+    }
 }
 
 ?>

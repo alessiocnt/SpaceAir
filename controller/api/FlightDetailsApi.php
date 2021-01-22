@@ -12,7 +12,7 @@ if(isset($_POST["inputQuantity"]) && isset($_POST["packet"])) {
     $orderId = $cartHandler->getOrderId($userId)["CodOrder"];
     if(!$orderId) { die(); }
     $res = $cartHandler->addToCart($pktId, $orderId, $qty);
-    if(!$res) { die("aa"); }
+    if(!$res) { die(); }
     header("location: /spaceair/cart.php");
 }
 ?>

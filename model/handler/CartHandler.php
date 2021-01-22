@@ -71,8 +71,6 @@ class CartHandler extends AbstractHandler {
     }
 
     private function existPacketinOrder($pktId, $orderId) {
-/*         var_dump($pktId);
-        var_dump($orderId); */
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PACKET_IN_ORDER WHERE CodPacket = ? AND CodOrder = ?");
         if (!$stmt->bind_param('ii', $pktId, $orderId)) {
@@ -82,7 +80,6 @@ class CartHandler extends AbstractHandler {
             return false;
         }
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-        /* var_dump($result); */
         if(count($result) == 0) {
             die("cazzo3");
             return false;
