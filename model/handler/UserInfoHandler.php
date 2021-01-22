@@ -53,7 +53,8 @@ class UserInfoHandler extends AbstractHandler {
             return false;
         }
         $userId = $user->getId();
-        if(!$stmt->bind_param("ii", $userId, $planet)) {
+        $codPlanet = $planet->getCodPlanet();
+        if(!$stmt->bind_param("ii", $userId, $codPlanet)) {
             return false;
         }
         if(!$stmt->execute()) {

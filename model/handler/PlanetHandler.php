@@ -116,6 +116,27 @@ class PlanetHandler extends AbstractHandler {
         }
     }
 
+    public function searchPlanetByCod($cod) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM planet WHERE CodPlanet = ?");
+        if (!$stmt->bind_param('s', $cod)) {
+            //echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+            return false;
+        }
+        if (!$stmt->execute()) {
+            //echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } else {
+            $builder = new PlanetBuilder();
+            $planet = $builder->createFromAssoc($result[0]);
+            return array($planet);
+        }
+    }
+
     public function addFavourite($userId, $planet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("INSERT INTO INTEREST (Date, IdUser, CodPlanet, Visible) VALUES (?, ?, ?, 1);");   
@@ -128,6 +149,37 @@ class PlanetHandler extends AbstractHandler {
             return false;
         }
         return true;
+    }
+
+    public function updateFavourite($userId, $planet) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("UPDATE INTEREST SET Visible = 1 WHERE IdUser = ? AND CodPlanet = ?");   
+        $planetCode = $planet->getCodPlanet();
+        if (!$stmt->bind_param('ii', $userId, $planetCode)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        return true;
+    }
+
+    public function findFavourite($userId, $planet) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT CodPlanet FROM INTEREST WHERE IdUser = ? AND CodPlanet = ?");
+        $planetCode = $planet->getCodPlanet();
+        if (!$stmt->bind_param('ii', $userId, $planetCode)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } else {
+            return $result[0];
+        }
     }
 
     public function hidePlanet($planet) {

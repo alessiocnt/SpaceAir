@@ -3,7 +3,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader
 Utils::sec_session_start();
 
 $model = new ModelImpl();
-
+$planetHandler = $model->getPlanetHandler();
 
 
 if(!isset($_POST['planet'])) {
@@ -17,7 +17,7 @@ if(!$model->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER)) {
 }
 
 $user = Utils::getUserId();
-$planet = $_POST['planet'];
+$planet = $planetHandler->searchPlanetByCod($_POST["planet"])[0];
 $userInfoHandler = $model->getUserInfoHandler();
 $user = $model->getUserHandler()->getUserById(Utils::getUserId());
 
@@ -28,6 +28,5 @@ if($userInfoHandler->removeUserInterest($user, $planet)) {
     echo json_encode(array("data" => "Non è stato possibile rimuovere l'elemento"));
     return;
 }
-
 
 ?>
