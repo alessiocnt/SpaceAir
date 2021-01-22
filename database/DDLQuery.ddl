@@ -149,6 +149,7 @@ create table INTEREST (
      Date datetime not null,
      IdUser int not null,
      CodPlanet int not null,
+     Visible tinyint not null,
      primary key (IdUser, CodPlanet),
      foreign key(IdUser) references USERS(IdUser)
         on delete restrict
