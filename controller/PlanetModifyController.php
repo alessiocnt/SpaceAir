@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class PlanetModifyController extends UserLoggedController {
+class PlanetModifyController extends AdminLoggedController {
     
     private $oldPlanet;
     public function __construct($model) {

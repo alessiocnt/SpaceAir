@@ -12,13 +12,13 @@
         <div class="row mb-3 d-none d-md-flex">
             <ul class="col-text col-2 space-vertical">
                 <li class="w-100">Temperatura <?php echo $planet->getTemperature(); ?>°C</li>
-                <li class="w-100">Massa <?php echo $planet->getMass(); ?>Kg</li>
+                <li class="w-100">Massa <?php echo $planet->getMass(); ?>x10<sup>22</sup>Kg</li>
                 <li class="w-100">Composizione <?php echo $planet->getComposition(); ?></li>
             </ul>
             <img alt="<?php echo $planet->getName(); ?>" src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="col-8 img-fluid">
             <ul class="col-text col-2 space-vertical">
-                <li class="w-100">Distanza dal Sole <?php echo $planet->getSunDistance(); ?>Km</li>
-                <li class="w-100">Superficie <?php echo $planet->getSurface(); ?>Km2</li>
+                <li class="w-100">Distanza dal Sole <?php echo $planet->getSunDistance(); ?>x10<sup>6</sup>Km</li>
+                <li class="w-100">Superficie <?php echo $planet->getSurface(); ?>x10<sup>6</sup>Km<sup>2</sup></li>
                 <li class="w-100">Giornata <?php echo $planet->getDayLength(); ?> ore</li>
             </ul>
         </div>
@@ -41,15 +41,15 @@
                     </tr>
                     <tr>
                         <td headers="desc">Distanza dal sole</td>
-                        <td headers="value"><?php echo $planet->getSunDistance(); ?>Km</td>
+                        <td headers="value"><?php echo $planet->getSunDistance(); ?>x10<sup>6</sup>Km</td>
                     </tr>
                     <tr>
                         <td headers="desc">Massa</td>
-                        <td headers="value"><?php echo $planet->getMass(); ?>Kg</td>
+                        <td headers="value"><?php echo $planet->getMass(); ?>x10<sup>22</sup>Kg</td>
                     </tr>
                     <tr>
                         <td headers="desc">Superficie</td>
-                        <td headers="value"><?php echo $planet->getSurface(); ?>Km2</td>
+                        <td headers="value"><?php echo $planet->getSurface(); ?>x10<sup>6</sup>Km<sup>2</td>
                     </tr>
                     <tr>
                         <td headers="desc">Composizione</td>
