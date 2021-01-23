@@ -26,13 +26,13 @@ class OrderHandler extends AbstractHandler {
         }
     }
 
-    public function purchaseOrder($order, $user) {
+    public function purchaseOrder($order, $user, $total) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("UPDATE ORDERS SET PurchaseDate = NOW(), DestAddressCode = ?, State = 1 WHERE CodOrder = ? AND IdUser = ?");
+        $stmt = $db->prepare("UPDATE ORDERS SET PurchaseDate = NOW(), DestAddressCode = ?, State = 1, Total = ? WHERE CodOrder = ? AND IdUser = ?");
         $address = $user->getAddresses()[0]->getCodAddress();
         $userId = $user->getId();
         $codOrder = $order->getCodOrder();
-        if(!$stmt->bind_param("iii", $address, $codOrder, $userId)) {
+        if(!$stmt->bind_param("iiii", $address, $total,  $codOrder, $userId)) {
             return false;
         }
         if(!$stmt->execute()) {

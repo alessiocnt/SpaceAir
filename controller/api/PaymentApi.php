@@ -21,13 +21,14 @@ $cod = $_POST['codOrder'];
 
 
 $order = $orderHandler->getOrderById($cod);
+$total = $_POST["total"];
 
 
 $user = $model->getUserHandler()->getUserById(Utils::getUserId());
 $user->setAddresses($model->getUserInfoHandler()->getAddresses($user));
 
 if($orderHandler->checkAvailable($order)) {
-    if($orderHandler->purchaseOrder($order, $user)) {
+    if($orderHandler->purchaseOrder($order, $user, $total)) {
         echo json_encode(array("msg"=>"Acquisto effettuato"));
         return;
     } else {

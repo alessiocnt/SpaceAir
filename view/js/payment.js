@@ -39,7 +39,7 @@ $(document).ready(function () {
         e.preventDefault();
         const cod = $('#CodOrder').val();
         
-        $.post("/spaceair/controller/api/PaymentApi.php/", { codOrder: cod },
+        $.post("/spaceair/controller/api/PaymentApi.php/", { codOrder: cod, total: tot },
         function(data) {
             $('#paymentResult').text(data.msg);
         }, 'json');

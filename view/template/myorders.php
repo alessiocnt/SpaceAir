@@ -29,7 +29,7 @@
                                 <tbody>
                                     <?php foreach($order->getPackets() as $packet): ?>
                                     <tr>
-                                        <td headers="planet<?php echo $order->getCodOrder(); ?>" class="p-0 col-dark font-weight-light text-uppercase"><? echo $packet->getDestinationPlanet()->getName();?></td>
+                                        <td headers="planet<?php echo $order->getCodOrder(); ?>" class="p-0 col-dark font-weight-light text-uppercase"><?php echo $packet->getDestinationPlanet()->getName();?></td>
                                         <td headers="date<?php echo $order->getCodOrder(); ?>" class="p-0 col-dark font-weight-light"><?php echo $packet->getDepartureDateHour()->format("d/m/Y"); ?></td>
                                     </tr>
                                     <?php endforeach ?>
