@@ -8,12 +8,12 @@ $orderHandler = $model->getOrderHandler();
 $packetHandler = $model->getPacketHandler();
 
 if(!isset($_POST['codOrder'])) {
-    echo json_encode(array("msg"=>"ko", "data"=>"Errore nell'acquisto."));
+    echo 'Errore nell\'acquisto';
     return;
 }
 
 if(!$model->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER)) {
-    echo json_encode(array("msg"=>"ko", "data" => "Not logged"));
+    echo 'not logged';
     return;
 }
 
@@ -39,15 +39,15 @@ foreach ($packets as $packet) {
 
 if($orderHandler->checkAvailable($order)) {
     if($orderHandler->purchaseOrder($order, $user, $total)) {
-        echo json_encode(array("msg"=>"Acquisto effettuato"));
+        echo "Acquisto effettuato";
         return;
     } else {
-        echo json_encode(array("msg"=>"Non è stato possibile acquistare l'elemento"));
+        echo "Non è stato possibile acquistare l'elemento";
         return;
     }
 
 } else {
-    echo json_encode(array("msg"=>"Posti disponibili insufficienti"));
+    echo "Posti disponibili insufficienti";
     return;
 }
 

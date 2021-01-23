@@ -79,7 +79,7 @@ class CartHandler extends AbstractHandler {
 
     private function existPacketinOrder($pktId, $orderId) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT * FROM PACKET_IN_ORDER WHERE CodPacket = ? AND CodOrder = ?");
+        $stmt = $db->prepare("SELECT Quantity FROM PACKET_IN_ORDER WHERE CodPacket = ? AND CodOrder = ?");
         if (!$stmt->bind_param('ii', $pktId, $orderId)) {
             return false;
         }
@@ -96,7 +96,6 @@ class CartHandler extends AbstractHandler {
 
     public function addToCart($pktId, $orderId, $qty){
         $res = $this->existPacketinOrder($pktId, $orderId);
-        /* var_dump($res); */
         if($res == false) {
             $db = $this->getModelHelper()->getDbManager()->getDb();
             $stmt = $db->prepare("INSERT INTO PACKET_IN_ORDER (CodPacket, CodOrder, Quantity) VALUES (?, ?, ?);");   

@@ -92,7 +92,7 @@
                             <input type="number" minlength="3" step="1" min="0" max="999" class="form-control" name="inputCcv" id="inputCcv" required />
                         </div>
                         <div class="col-9">
-                            <label for="inputScadenza">Data di scadenza</label> <!-- TODO sistemare label per mobile -->
+                            <label for="inputScadenza">Data di scadenza</label>
                             <input type="month" class="form-control" name="inputScadenza" id="inputScadenza" required />
                         </div>
                     </div>
