@@ -63,7 +63,7 @@
             <div class="row mb-3">
                 <div class="col-4">
                     <label for="inputVisible">Visibile</label>
-                    <input type="checkbox" name="inputDescription" id="inputVisible" checked='<?= $data["packet"]->isVisible();?>'>
+                    <input type="checkbox" name="inputVisible" id="inputVisible" <?= $data["packet"]->isVisible() ? 'checked':'';?> />
                 </div>
                 <div class="col-4 offset-4 col-md-2 offset-md-6">
                     <input type="submit" class="form-control" value="Modifica" />

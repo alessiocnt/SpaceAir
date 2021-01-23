@@ -84,7 +84,7 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="inputVisible">Visibile</label>
-                        <input type="checkbox" name="inputVisible" id="inputVisible" <?php if($planet->isVisible()){print"checked";} ?>>
+                        <input type="checkbox" name="inputVisible" id="inputVisible" <?=$planet->isVisible()? "checked":'';?>>
                     </div>
                     <div class="col-6">
                         <input type="submit" class="form-control" value="Modifica"/>
