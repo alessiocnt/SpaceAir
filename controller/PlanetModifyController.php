@@ -21,11 +21,11 @@ class PlanetModifyController extends AdminLoggedController {
                 $view->render($data); 
             } else {
                 $data["data"]["error"] = "Errore, destinazione non trovata.";
-                $data["data"]["planets"] = $planetHandler->getPlanets();
+                $data["data"]["planets"] = $planetHandler->getAllPlanets();
                 $data["header"]["title"] = "Destinazioni";
                 $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
                 $data["header"]["css"] = [];
-                $view = new GenericView("destinations");
+                $view = new GenericView("destinationsadmin");
                 $view->render($data); 
             }
         }

@@ -12,7 +12,7 @@ class Planet {
     private float $sunDistance;
     private string $composition;
     private int $dayLength;
-    private $imgPlanet;
+    private $imgPlanet = "";
     private string $description;
     private bool $visible;
     private $packets = array(); //Array to store packets

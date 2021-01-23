@@ -1,4 +1,4 @@
-<section>      
+<section>    
     <header class="offset-1 mb-3 col-md-6 offset-md-3">
         <div class="row">
             <div class="col-12 pl-0">
@@ -6,7 +6,7 @@
             </div>
         </div>
     </header>
-    <?php $planet = $data["planets"] ?>
+    <?php $planet = $data["planets"] ?> 
     <div class="row">
         <div class="col-md-6 offset-md-3 mb-3">
             <form action="/spaceair/controller/api/PlanetModifyApi.php" method="POST" enctype="multipart/form-data">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-6 overflow-hidden">
                             <label for="img" class="">Immagine</label>
-                            <input type="file" class="rounded p-1 col-back-white" name="img" id="img" required/>
+                            <input type="file" class="rounded p-1 col-back-white" name="img" id="img" />
                         <!-- <div class="custom-file overflow-auto">
                         </div> -->
                     </div>
@@ -78,7 +78,7 @@
                 <div class="row mb-3">
                     <div class="container">
                         <label for="inputDescription">Descrizione pianeta</label>
-                        <textarea class="form-control" name="inputDescription" id="inputDescription" rows="5" value="<?php echo $planet->getDescription() ?>"></textarea>
+                        <textarea class="form-control" name="inputDescription" id="inputDescription" rows="5"><?php echo $planet->getDescription() ?></textarea>
                     </div>
                 </div>
                 <div class="row mb-3">

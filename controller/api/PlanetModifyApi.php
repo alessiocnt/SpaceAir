@@ -14,15 +14,15 @@ if(isset($_POST["inputName"])) {
     $data["Composition"] = $_POST["inputComposition"];
     $data["DayLength"] = $_POST["inputDay"];
     $data["Description"] = $_POST["inputDescription"];
-    $data["Visible"] = isset($_POST["inputVisible"]);
-    if(isset($_FILES["img"])) {
+    $data["Visible"] = isset($_POST["inputVisible"]) ? 1 : 0;
+    if($_FILES["img"]["name"] != "") {
         $data["Img"] = $_FILES["img"];
     }
+    $oldPlanet = $planetHandler->searchPlanetByCod($_POST["old-planet"])[0];
     $builder = new PlanetBuilder();
     $planet = $builder->createFromAssoc($data);
-    $oldPlanet = $_POST["old-planet"];
 
     $planetHandler->updatePlanet($planet, $oldPlanet);
-    header("location: /spaceair/destinations.php");
+    header("location: /spaceair/destinationsadmin.php");
 }
 ?>

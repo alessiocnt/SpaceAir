@@ -53,15 +53,16 @@ class PlanetHandler extends AbstractHandler {
 
     public function updatePlanet($planet, $oldPlanet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-
         if($planet->getImgPlanet() != "") {
             list($uploadResult, $imageName) = Utils::uploadImage($_SERVER["DOCUMENT_ROOT"] . "/spaceair/res/upload/admin/", $planet->getImgPlanet());
             if($uploadResult != Utils::$IMGUPLOADOK) {
                return $uploadResult;
             }
+        } else {
+            $imageName = $oldPlanet->getImgPlanet();
         }
         $stmt = $db->prepare("UPDATE PLANET SET Name = ?, Temperature = ?, Mass = ?, Surface = ?, SunDistance = ?, Composition = ?, DayLength = ?, Img = ?, Description = ?, Visible = ? WHERE CodPlanet = ?");   
-        $visible = $planet->isVisible() ? 1 : 0;
+        $visible = $planet->isVisible() ? "1" : "0";
         $name = $planet->getName();
         $temperature = $planet->getTemperature();
         $mass = $planet->getMass();
@@ -71,7 +72,8 @@ class PlanetHandler extends AbstractHandler {
         $dayLength = $planet->getDayLength();
         $img = $imageName;
         $description = $planet->getDescription();
-        if (!$stmt->bind_param('sidddsissii', $name, $temperature, $mass, $surface, $sunDistance, $composition, $dayLength, $img, $description, $visible, $oldPlanet)) {
+        $oldPlanetId = $oldPlanet->getCodPlanet();
+        if (!$stmt->bind_param('sidddsissii', $name, $temperature, $mass, $surface, $sunDistance, $composition, $dayLength, $img, $description, $visible, $oldPlanetId)) {
             return false;
         }
         if (!$stmt->execute()) {
@@ -83,6 +85,21 @@ class PlanetHandler extends AbstractHandler {
     public function getPlanets() {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PLANET WHERE Visible = true");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+
+        $builder = new PlanetBuilder();
+        $planets = array();
+        foreach ($result as $planet) {
+            array_push($planets,$builder->createFromAssoc($planet));
+        }
+        return $planets;
+    }
+
+    public function getAllPlanets() {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM PLANET");
         $stmt->execute();
         $result = $stmt->get_result();
         $result->fetch_all(MYSQLI_ASSOC);

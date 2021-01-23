@@ -12,7 +12,7 @@ class PlanetBuilder implements Builder{
     private int $dayLength = 0;
     private $imgPlanet = "";
     private string $description = "";
-    private bool $visible = true;
+    private bool $visible;
 
     public function createFromAssoc($assoc) {
         $pre = "set";
@@ -65,7 +65,7 @@ class PlanetBuilder implements Builder{
         $this->description = $description;
     }
 
-    public function setVisibile(bool $visible) {
+    public function setVisible($visible) {
         $this->visible = $visible;
     }
 }

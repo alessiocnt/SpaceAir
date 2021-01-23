@@ -8,7 +8,7 @@
     </header>
 
     <div class="col-10 offset-1 col-md-6 offset-md-3 mb-5">
-        <form action="">
+        <form action="" method="POST">
             <div class="row">
                 <label for="searchBar" class="d-none">Ricerca</label>
                 <input type="search" class="form-control col-11" name="searchBar" id="searchBar" autocomplete="on"/>
@@ -32,9 +32,9 @@
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></a>
                         <div class="col-4">
-                            <button id="<?php echo $planet->getName(); ?>" class="btn_del btn float-right p-1" type="button" title="Elimina pianeta">
-                                <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/delete-black-18dp.svg" alt="Elimina">
-                            </button>
+                            <!-- <button id="<?php echo $planet->getName(); ?>" class="btn_del btn float-right p-1" type="button" title="Elimina pianeta">
+                                <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/visibility_off-black-18dp.svg" alt="Elimina">
+                            </button> -->
                             <a href="/spaceair/planetmodify.php?Destination=<?php echo $planet->getName(); ?>" class="btn_edit btn float-right p-1" type="button" title="Modifica pianeta">
                                 <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
                             </a>
