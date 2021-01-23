@@ -26,10 +26,10 @@
                                         <p class="my-0 text-uppercase font-weight-bold list-impo-text mb-2">Viaggio verso <?= $assoc["planetName"]; ?></p>
                                         <p>Partenza: <?= $assoc["packet"]->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
                                         <p>Arrivo: <?= $assoc["packet"]->getArriveDateHour()->format("d-m-Y - H:m"); ?></p>
-                                        <p id="p<?= $assoc["codOrder"]; ?>" class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4 totalPrice">Costo €<?= $assoc["quantity"] * $assoc["packet"]->getPrice(); ?></p>
+                                        <p id="p<?= $assoc["packet"]->getCode(); ?>" class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4 totalPrice">Costo €<?= $assoc["quantity"] * $assoc["packet"]->getPrice(); ?></p>
                                         <label for="<?= $assoc["packet"]->getCode(); ?>" class="invisible custom-file-label">Quantità prodotto</label>
                                         <div class="input-group col-4 col-md-3 pl-0">
-                                            <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="<?= $assoc["codOrder"]; ?>" id="<?= $assoc["packet"]->getCode(); ?>" value="<?= $assoc["quantity"]; ?>" min="1" max="10" step="1" />
+                                            <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="<?= $assoc["packet"]->getCode(); ?>" id="<?= $assoc["packet"]->getCode(); ?>" value="<?= $assoc["quantity"]; ?>" min="1" max="10" step="1" />
                                         </div>
                                     </div>
                                 </div>
@@ -46,13 +46,13 @@
         <form action="payment.php" method="POST">
             <div class="top-line">
                 <div class="row">
-                    <div class="col-7 offset-5 col-md-3 offset-md-9 mt-3">
+                    <div class="col-12 mt-3 p-0">
                         <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="Totale € 0" readonly>
                         <input type="hidden" name="CodOrdine" id="CodOrdine" value="<?=$data[0]["codOrder"];?>" readonly>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-7 offset-5 col-md-3 offset-md-9 mt-3">
+                    <div class="col-7 offset-5 col-md-5 offset-md-7 mt-3">
                         <input type="submit" class="form-control float-right mb-4" value="Procedi all'acquisto" />
                     </div>
                 </div>
