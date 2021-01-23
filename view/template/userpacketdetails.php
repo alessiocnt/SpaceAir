@@ -1,3 +1,8 @@
+<?php 
+$packet = $data["packet"]; 
+$user = $data["user"];
+$codOrder = $data["codOrder"];
+?>
 <section>
     <header>
         <div class="row">
@@ -11,19 +16,18 @@
             <div class="col-12 col-md-6 offset-md-3">
                 <h2 class="mt-3 col-text font-weight-light">Informazioni generali</h2>
                 <div class="rounded my-2 col-back-white p-4 col-dark ">
-                    <img src="/spaceair/res/img/moon.png" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
-                    <p class="my-0 text-uppercase font-weight-bold list-impo-text">Venere</p>
-                    <p>20.11.2021 - 14:46</p>
-                    <p class="text-uppercase my-0">Andrea Giulianelli</p>
-                    <p class="font-weight-normal my-0">15.03.2021</p>
+                    <img src="/spaceair/res/img/<?php echo $packet->getPacket()->getDestinationPlanet()->getImgPlanet(); ?>" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
+                    <p class="my-0 text-uppercase font-weight-bold list-impo-text"><?php echo $packet->getPacket()->getDestinationPlanet()->getName();?></p>
+                    <p><?php echo $packet->getPacket()->getDepartureDateHour()->format("d/m/Y H:i")?></p>
+                    <p class="text-uppercase my-0"><? echo $user->getName() . " " . $user->getSurname();?></p>
                 </div>
             </div>
         </div>
         <div class="row mt-3">
             <div class="offset-1 col-10 col-md-6 offset-md-3">
-                <p class="font-weight-bold col-text my-0">Data partenza:<span class="float-right font-weight-normal">20/11/2021</span></p>
-                <p class="font-weight-bold col-text">Ora partenza:<span class="float-right font-weight-normal">14:46</span></p>
-                <p class="font-weight-bold col-text my-0">Data arrivo:<span class="float-right font-weight-normal">22/11/2022</span></p>
+                <p class="font-weight-bold col-text my-0">Data partenza:<span class="float-right font-weight-normal"><?php echo $packet->getPacket()->getDepartureDateHour()->format("d/m/Y")?></span></p>
+                <p class="font-weight-bold col-text">Ora partenza:<span class="float-right font-weight-normal"><?php echo $packet->getPacket()->getDepartureDateHour()->format("H:i")?></span></p>
+                <p class="font-weight-bold col-text my-0">Data arrivo:<span class="float-right font-weight-normal"><?php echo $packet->getPacket()->getArriveDateHour()->format("d/m/Y")?></span></p>
             </div>
         </div>
     </section>    
@@ -35,9 +39,8 @@
         </div>
         <div class="row my-3">
             <div class="col-12 col-md-6 offset-md-3 text-center">
-                <!-- GENERARE QR CODE -->
-                <!-- metto per ora un'immagine solo per prova -->
-                <img src="/spaceair/res/icons/test_qrcode.png" class="bg-light w-50" alt=""/>
+                <!-- Generate Qr Code with Google API -->
+                <img src="https://chart.googleapis.com/chart?cht=qr&chl=<?php echo $codOrder . "-" . $packet->getPacket()->getCode();?>&chs=250x250&chld=L|0" class="bg-light w-50" alt=""/>
             </div>
         </div>
     </section>
@@ -63,8 +66,8 @@
     <div class="row mt-4">
         <div class="col-12">
             <div class="fixed-bottom px-4 py-3 col-btn-regular col-blue">
-                <p class="float-right font-weight-bolder impo-text my-0">$7500</p>
-                <p class="font-weight-bolder list-impo-text my-0">Quantit&agrave;: 2</p>
+                <p class="float-right font-weight-bolder impo-text my-0">€<?php echo $packet->getPacket()->getPrice(); ?></p>
+                <p class="font-weight-bolder list-impo-text my-0">Quantit&agrave;: <?php echo $packet->getQuantity();?></p>
                 <p class="font-weight-lighter my-0">+ Biglietto personalizzato</p>
             </div>
         </div>

@@ -12,7 +12,7 @@ class Packet {
     private ?Planet $destinationPlanet;
     private bool $visible;
 
-    public function __construct(int $code, $img, DateTime $departureDateHour = NULL, DateTime $arriveDateHour = NULL, float $price = 0, int $maxSeats = 0, string $description = "", Planet $destinationPlanet = NULL, bool $visible = false) {
+    public function __construct(int $code, $img = "", DateTime $departureDateHour = NULL, DateTime $arriveDateHour = NULL, float $price = 0, int $maxSeats = 0, string $description = "", Planet $destinationPlanet = NULL, bool $visible = false) {
         $this->code = $code;
         $this->img = $img;
         $this->departureDateHour = $departureDateHour;
