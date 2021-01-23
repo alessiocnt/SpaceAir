@@ -27,6 +27,26 @@ class PacketHandler extends AbstractHandler {
         return false;
     }
 
+    public function updatePacket($packet) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("UPDATE PACKET SET DateTimeDeparture = ?, DateTimeArrival = ?, Price = ?, MaxSeats = ?, Description = ?, CodPlanet = ?, Visible = ?  WHERE CodPacket = ?");
+        $codPacket = $packet->getCode();
+        $codPlanet = $packet->getDestinationPlanet()->getCodPlanet();
+        $dateTimeDeparture = $packet->getDepartureDateHour()->format('Y-m-d H:i:s');
+        $dateTimeArrival = $packet->getArriveDateHour()->format('Y-m-d H:i:s');
+        $price = $packet->getPrice();
+        $maxSeats = $packet->getMaxSeats();
+        $description = $packet->getDescription();
+        $visible = $packet->isVisible();
+        if(!$stmt->bind_param("ssiisiii", $dateTimeDeparture, $dateTimeArrival, $price, $maxSeats, $description, $codPlanet, $visible, $codPacket)) {
+            return false;
+        }
+        if(!$stmt->execute()) {
+            return false;
+        }
+        return true;
+    }
+
     public function getPacketById($id) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PACKET WHERE Visible = true AND CodPacket = ?");
