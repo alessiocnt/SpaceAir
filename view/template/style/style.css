@@ -80,6 +80,10 @@ a.col-text:active {
     align-content:space-between;
 }
 
+.sr-only {
+    text-indent: -10000px;
+}
+
 .top-add-btn {
     margin-bottom: 75px;
 }

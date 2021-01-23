@@ -96,14 +96,14 @@
                         <input type="text" class="form-control" name="inputTitle" id="inputTitle" required/>
                     </div>
                     <div class="col-4">
-                        <label for="inputQuantity" class="">Valutazione</label>
-                        <input type="number" class="form-control" name="inputQuantity" id="inputQuantity" value="" min="1" max="5" step="1"/>
+                        <label for="inputStars" class="">Valutazione</label>
+                        <input type="number" class="form-control" name="inputStars" id="inputStars" value="" min="1" max="5" step="1" required />
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="container col-12">
                         <label for="inputReview">Recensione</label>
-                        <textarea class="form-control" name="inputReview" id="inputReview" rows="5"></textarea>
+                        <textarea class="form-control" name="inputReview" id="inputReview" rows="5" required></textarea>
                     </div>
                 </div>
                 <input id="inputPlanet" name="inputPlanet" type="hidden" value="<?php echo $planet->getName(); ?>"/>
@@ -116,47 +116,24 @@
     <div class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
         <div class="col-12 p-0">
             <div class="my-3 px-0 float-right">
-                <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="star 1">
-                <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="star 2">
-                <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="star 3">
-                <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="star 4">
-                <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="star 5">
+            <?php for($i=0 ; $i<5 ; $i++): ?>
+                <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="">
+            <?php endfor; ?>
             </div>
             <h2 class="my-3 col-text font-weight-light">Recensioni</h2>
             <ul class="list-group">
+                <?php foreach($data["reviews"] as $review): ?>
                 <li class="list-group-item rounded mb-3 col-back-white py-4">
+                    <p class="sr-only">Valutazione: <?php echo $review->getRating(); ?>/5</p>
                     <div class="mb-2 px-0 float-right">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 1">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 2">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 3">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 4">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 5">
+                    <?php for($i=0 ; $i<$review->getRating() ; $i++): ?>
+                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="">
+                    <?php endfor; ?>
                     </div>
-                    <h3 class="font-weight-bold list-impo-text mb-2">Titolo review</h3>
-                    <p class="col-dark my-0">Troianas ut opes et lamentabile regnum eruerint Danai, quaeque ipse miserrima vidi et quorum pars magna fui. Quis talia fando Myrmidonum Dolopumve aut duri miles Ulixi temperet a lacrimis?</p>
+                    <h3 class="font-weight-bold list-impo-text mb-2"><?php echo $review->getTitle(); ?></h3>
+                    <p class="col-dark my-0"><?php echo $review->getDescription(); ?></p>
                 </li>
-                <li class="list-group-item rounded mb-3 col-back-white py-4">
-                    <div class="mb-2 px-0 float-right">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 1">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 2">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 3">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 4">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 5">
-                    </div>
-                    <h3 class="font-weight-bold list-impo-text mb-2">Titolo review</h3>
-                    <p class="col-dark my-0">Troianas ut opes et lamentabile regnum eruerint Danai, quaeque ipse miserrima vidi et quorum pars magna fui. Quis talia fando Myrmidonum Dolopumve aut duri miles Ulixi temperet a lacrimis?</p>
-                </li>
-                <li class="list-group-item rounded mb-3 col-back-white py-4">
-                    <div class="mb-2 px-0 float-right">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 1">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 2">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 3">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 4">
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="star 5">
-                    </div>
-                    <h3 class="font-weight-bold list-impo-text mb-2">Titolo review</h3>
-                    <p class="col-dark my-0">Troianas ut opes et lamentabile regnum eruerint Danai, quaeque ipse miserrima vidi et quorum pars magna fui. Quis talia fando Myrmidonum Dolopumve aut duri miles Ulixi temperet a lacrimis?</p>
-                </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
