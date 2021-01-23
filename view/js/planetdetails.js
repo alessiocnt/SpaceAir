@@ -1,25 +1,19 @@
 $(document).ready(function () {
+    // Invio una nuova recensione
     $('#newReview').submit(function (e) {
         e.preventDefault();
-        console.log($("input[name=inputQuantity]").val());
         let posting = $.post("/spaceair/controller/api/AddReviewApi.php/", {
             Titolo: $("#inputTitle").val(),
-            Valutazione: $("#inputQuantity").val(),
+            Valutazione: $("#inputStars").val(),
             Descrizione: $("#inputReview").val(),
             Pianeta: $("#inputPlanet").val(),
         });
-        /* Alerts the results */
+        /* Descrive il risultato a schermo */
         posting.done(function (data) {
             $('#reviewResult').text(data);
         });
-        
+        $("#inputTitle").val("");
+        $("#inputStars").val("");
+        $("#inputReview").val("");
     });
-/* 
-    $('#formPayment').submit(function (e) {
-        e.preventDefault();
-        $('#paymentResult').text('Complimenti hai acquistato utilizzando ' + metod);
-        setTimeout(function(){ 
-            window.location.replace("/spaceair/homepage.php");
-        }, 1500);
-    }); */
 });

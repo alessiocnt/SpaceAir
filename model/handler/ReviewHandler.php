@@ -8,11 +8,11 @@ class ReviewHandler extends AbstractHandler {
         parent::__construct($model);
     }
 
-    public function getReviewByDestination($planet) {
+    public function getRandomReview($planet, $n) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT * FROM REVIEW WHERE CodPlanet = ?");
+        $stmt = $db->prepare("SELECT * FROM REVIEW WHERE CodPlanet = ? ORDER BY RAND() LIMIT ?");
         $planetId = $planet->getCodPlanet();
-        $stmt->bind_param("i", $planetId);
+        $stmt->bind_param("ii", $planetId, $n);
         $stmt->execute();
         $result = $stmt->get_result();
         $result->fetch_all(MYSQLI_ASSOC);
@@ -44,7 +44,6 @@ class ReviewHandler extends AbstractHandler {
         }
         return false;
     }
-
 
 }
 
