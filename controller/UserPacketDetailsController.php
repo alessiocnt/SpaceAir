@@ -1,31 +1,30 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class PacketInOrderController extends UserLoggedController {
+class UserPacketDetailsController extends UserLoggedController {
     
     public function __construct($model) {
         parent::__construct($model);
     }
 
     public function executePage() {
-        if(isset($_GET["id"])) {
+        if(isset($_GET["idpacket"]) && isset($_GET["idorder"])) {
             //Get User data
             $userInfoHandler = $this->getModel()->getUserInfoHandler();
             $ordersHandler = $this->getModel()->getOrdersHandler();
 
-            $codOrder = $_GET["id"];
-            $packets = $ordersHandler->getOrderDetail(new Order($codOrder));
+            //$codOrder = $_GET["id"];
+            //$packets = $ordersHandler->getOrderDetail(new Order($codOrder));
             
-            $data["data"]["packets"] = $packets;
-            $data["data"]["codOrder"] = $codOrder;
+            $data["data"]["data"] = "";
             //Set the title
-            $data["header"]["title"] = "Dettaglio Ordine";
+            $data["header"]["title"] = "Dettaglio pacchetto";
             //Set custom js
             $data["header"]["js"] = [];
             //Set custom css
             $data["header"]["css"] = [];
             //Create the view
-            $view = new GenericView("packetinorder");
+            $view = new GenericView("userpacketdetails");
             //Render the view
             $view->render($data); 
 
