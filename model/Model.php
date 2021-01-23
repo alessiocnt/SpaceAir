@@ -8,6 +8,7 @@ interface Model {
     public function getAddressHandler();
     public function getUserInfoHandler();
     public function getOrderHandler();
+    public function getReviewHandler();
     //Test
     public function getTestHandler();
 }

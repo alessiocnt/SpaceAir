@@ -5,6 +5,7 @@ Utils::sec_session_start();
 
 $model = new ModelImpl();
 $orderHandler = $model->getOrderHandler();
+$packetHandler = $model->getPacketHandler();
 
 if(!isset($_POST['codOrder'])) {
     echo json_encode(array("msg"=>"ko", "data"=>"Errore nell'acquisto."));
@@ -26,6 +27,15 @@ $total = $_POST["total"];
 
 $user = $model->getUserHandler()->getUserById(Utils::getUserId());
 $user->setAddresses($model->getUserInfoHandler()->getAddresses($user));
+
+$ok = true;
+$packets = $orderHandler->getPackets($order);
+foreach ($packets as $packet) {
+    $packet->setAviableSeats($packetHandler->getAviableSeats($packet));
+    $order->pushPacket($packet);
+}
+
+
 
 if($orderHandler->checkAvailable($order)) {
     if($orderHandler->purchaseOrder($order, $user, $total)) {
