@@ -20,7 +20,7 @@ $(document).ready(function() {
         const order = $(this).attr("id");
         const qnt = 0;
         $.post("/spaceair/controller/api/CartApi.php/", {"id": packet, "qnt": qnt, "cod": order}, function(data) { 
-            $("p#p" + order).text("Costo €" + data);
+            $("p#p" + packet).text("Costo €" + 0);
             total();
         });
         $(this).parents("article").slideUp();

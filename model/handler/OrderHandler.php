@@ -26,6 +26,26 @@ class OrderHandler extends AbstractHandler {
         }
     }
 
+    public function getPackets($order) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT CodPacket FROM PACKET_IN_ORDER WHERE CodOrder = ?");
+        $codOrder = $order->getCodOrder();
+        if(!$stmt->bind_param("i", $codOrder)) {
+            return false;
+        }
+        if(!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+        $handler = new PacketHandler($this->getModelHelper());
+        $packets = array();
+        foreach ($result as $val) {
+            array_push($packets, $handler->getPacketById($val["CodPacket"]));
+        }
+        return $packets;
+    }
+
     public function purchaseOrder($order, $user, $total) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("UPDATE ORDERS SET PurchaseDate = NOW(), DestAddressCode = ?, State = 1, Total = ? WHERE CodOrder = ? AND IdUser = ?");
@@ -43,34 +63,47 @@ class OrderHandler extends AbstractHandler {
 
     public function checkAvailable($order) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT COUNT(*) AS tot
-        FROM 
-        (SELECT P.CodPacket AS CodPacketOrd, P.MaxSeats AS MaxSeatsOrd, PIO.Quantity AS QuantityOrd
-        FROM PACKET P JOIN PACKET_IN_ORDER PIO ON P.CodPacket = PIO.CodPacket
-        WHERE PIO.CodOrder = ? ) PORD 
-        JOIN
-        (SELECT SUM(PIO.Quantity) AS Venduti, P.CodPacket as CodPacketVend
-        FROM PACKET_IN_ORDER PIO JOIN ORDERS O ON PIO.CodOrder = O.CodOrder JOIN PACKET P ON P.CodPacket = PIO.CodPacket
-        WHERE O.PurchaseDate IS NOT NULL
-        GROUP BY P.CodPacket) PVEND
-        ON PORD.CodPacketOrd = PVEND.CodPacketVend
-        WHERE PVEND.Venduti + PORD.QuantityOrd > PORD.MaxSeatsOrd");
+        foreach ($order->getPackets() as $packet) {
+            $stmt = $db->prepare("SELECT SUM(PIO.Quantity) AS Venduti
+            FROM PACKET_IN_ORDER PIO JOIN ORDERS O ON PIO.CodOrder = O.CodOrder JOIN PACKET P ON P.CodPacket = PIO.CodPacket
+            WHERE O.PurchaseDate IS NOT NULL AND P.CodPacket = ?");
+            $codPacket = $packet->getCode();
+            if(!$stmt->bind_param("i", $codPacket)) {
+                return false;
+            }
+            if(!$stmt->execute()) {
+                return false;
+            }
+            $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+            $venduti = $result[0]["Venduti"];
+            /*echo 'venduti';
+            var_dump($venduti);
+            echo 'aviable';
+            var_dump($packet->getAviableSeats());
+            echo 'quantita';*/
+            var_dump($this->getPacketQuantityInOrder($order, $packet));
+            if($this->getPacketQuantityInOrder($order, $packet) != null && $venduti + $this->getPacketQuantityInOrder($order, $packet) > $packet->getAviableSeats()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private function getPacketQuantityInOrder($order, $packet) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT Quantity
+        FROM PACKET_IN_ORDER
+        WHERE CodOrder = ? AND CodPacket = ?");
+        $codPacket = $packet->getCode();
         $codOrder = $order->getCodOrder();
-        if(!$stmt->bind_param("i", $codOrder)) {
+        if(!$stmt->bind_param("ii", $codOrder, $codPacket)) {
             return false;
         }
         if(!$stmt->execute()) {
             return false;
         }
-        $result = $stmt->get_result();
-        $result->fetch_all(MYSQLI_ASSOC);
-        foreach ($result as $res) {
-            if($res["tot"] == 0) {
-                return true;
-            }
-            return false;
-        }
-        
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["Quantity"];
     }
 
 }
