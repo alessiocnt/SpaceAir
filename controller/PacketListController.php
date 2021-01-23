@@ -10,7 +10,7 @@ class PacketListController extends AdminLoggedController {
     public function executePage() {
         $packetHandler = $this->getModel()->getPacketHandler();
         $planetHandler = $this->getModel()->getPlanetHandler();
-        $packets = $packetHandler->getPackets();
+        $packets = $packetHandler->getAllPackets();
         foreach ($packets as $packet) {
             $packet->setDestinationPlanet($planetHandler->searchPlanetByCod($packet->getDestinationPlanetId())[0]);
             $packet->setAviableSeats($packetHandler->getAviableSeats($packet));
@@ -20,7 +20,7 @@ class PacketListController extends AdminLoggedController {
         //Set the title
         $data["header"]["title"] = "Elenco Viaggi";
         //Set custom js
-        $data["header"]["js"] = ["/spaceair/view/js/packetlist.js"];
+        $data["header"]["js"] = [];
         //Set custom css
         $data["header"]["css"] = [];
         //Create the view

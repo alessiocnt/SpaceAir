@@ -48,9 +48,45 @@ class PacketHandler extends AbstractHandler {
         //return $builder->createFromAssoc($result[0]);
     }
 
+    public function getAllPacketsById($id) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM PACKET WHERE CodPacket = ?");
+        if(!$stmt->bind_param("i", $id)) {
+            return false;
+        }
+        if(!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(!count($result)) {
+            return false;
+        }
+        
+        $builder = new PacketBuilder();
+        foreach ($result as $val) {
+            return $builder->createFromAssoc($val);
+        }
+        //return $builder->createFromAssoc($result[0]);
+    }
+
     public function getPackets() {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PACKET WHERE Visible = true AND DateTimeDeparture > NOW()");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+        
+        $builder = new PacketBuilder();
+        $packets = array();
+        foreach ($result as $packet) {
+            array_push($packets,$builder->createFromAssoc($packet));
+        }
+        return $packets;
+    }
+
+    public function getAllPackets() {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM PACKET WHERE DateTimeDeparture > NOW()");
         $stmt->execute();
         $result = $stmt->get_result();
         $result->fetch_all(MYSQLI_ASSOC);
