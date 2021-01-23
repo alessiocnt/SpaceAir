@@ -1,13 +1,13 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class PlanetDetailsController extends AbstractController {
+class PlanetDetailsController extends UserLoggedController {
     
     public function __construct($model) {
         parent::__construct($model);
     }
 
-    public function execute() {
+    public function executePage() {
         $planetHandler = $this->getModel()->getPlanetHandler();
         $packetHandler = $this->getModel()->getPacketHandler();
         $reviewHandler = $this->getModel()->getReviewHandler();

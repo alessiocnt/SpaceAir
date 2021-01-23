@@ -1,16 +1,13 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class DestinationsAdminController extends AbstractController {
+class DestinationsAdminController extends AdminLoggedController {
     
     public function __construct($model) {
         parent::__construct($model);
-
-        //Start secure session
         Utils::sec_session_start();
     }
-// TODO controlli che sia loggato come admin
-    public function execute() {
+    public function executePage() {
         $planetHandler = $this->getModel()->getPlanetHandler();
         if(isset($_POST["searchBar"]) && $_POST["searchBar"]!=null) {
             $planetName = $_POST["searchBar"];
