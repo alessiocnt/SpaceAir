@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class PacketInsertController extends UserLoggedController {
+class PacketInsertController extends AdminLoggedController {
     
     public function __construct($model) {
         parent::__construct($model);

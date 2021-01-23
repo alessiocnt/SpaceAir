@@ -30,10 +30,16 @@ class PacketHandler extends AbstractHandler {
     public function getPacketById($id) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PACKET WHERE Visible = true AND CodPacket = ?");
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $result->fetch_all(MYSQLI_ASSOC);
+        if(!$stmt->bind_param("i", $id)) {
+            return false;
+        }
+        if(!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(!count($result)) {
+            return false;
+        }
         
         $builder = new PacketBuilder();
         foreach ($result as $val) {
@@ -55,6 +61,28 @@ class PacketHandler extends AbstractHandler {
             array_push($packets,$builder->createFromAssoc($packet));
         }
         return $packets;
+    }
+
+    public function getAviableSeats($packet) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT SUM(PIO.Quantity) AS Venduti
+        FROM PACKET_IN_ORDER PIO JOIN ORDERS O ON PIO.CodOrder = O.CodOrder JOIN PACKET P ON P.CodPacket = PIO.CodPacket
+        WHERE O.PurchaseDate IS NOT NULL AND P.CodPacket = ?");
+        $packetId = $packet->getCode();
+        if(!$stmt->bind_param("i", $packetId)) {
+            return false;
+        }
+        if(!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            $venduti = 0;
+        } else {
+            $venduti = $result[0]["Venduti"];
+        }
+        $disp = $packet->getMaxSeats() - $venduti;
+        return $disp < 0 ? 0 : $disp;
     }
 
     public function getPacketsByDestination($destination) {
