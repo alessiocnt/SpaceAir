@@ -45,6 +45,22 @@ class ReviewHandler extends AbstractHandler {
         return false;
     }
 
+    public function getRandomReviewAllPlanets($n) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM REVIEW ORDER BY RAND() LIMIT ?");
+        $stmt->bind_param("i", $n);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+
+        $builder = new ReviewBuilder();
+        $reviews = array();
+        foreach ($result as $rev) {
+            array_push($reviews,$builder->createFromAssoc($rev));
+        }
+        return $reviews;
+    }
+
 }
 
 ?>
