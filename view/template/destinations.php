@@ -32,9 +32,9 @@
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <a href="#" class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></a>
                         <div class="col-4">
-                            <button id="<?php echo $planet->getName(); ?>" class="btn_fav btn float-right" type="button" title="Aggiungi ai preferiti">
-                                <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
-                            </button>
+                            <a href="#" id="<?php echo $planet->getName(); ?>" class="btn_fav float-right" title="Aggiungi ai preferiti">
+                                <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                            </a>
                         </div>
                     </li>
                 <?php endforeach; ?>
