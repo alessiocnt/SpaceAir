@@ -8,7 +8,7 @@
     </header>
     <div class="row">
         <div class="col-md-6 offset-md-3 mb-3">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="inputName">Nome</label>

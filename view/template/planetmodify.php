@@ -57,12 +57,11 @@
                 <div class="row mb-3">
                     <div class="container col-6">
                         <label for="inputComposition">Composizione</label>
-                        <select name="inputComposition" id="inputComposition" class="form-control" required>
-                            <option value = "<?php echo $planet->getComposition() ?>" selected hidden><?php echo $planet->getComposition() ?></option>
-                            <option value="Solido">Solido</option>
-                            <option value="Liquido">Liquido</option>
-                            <option value="Gassoso">Gassoso</option>
-                            <option value="Lava">Lava</option>
+                        <select name="inputComposition" id="inputComposition" class="form-control">
+                            <option value="Solido" <?php echo $planet->getComposition() == "Solido" ? "selected" : "" ?>>Solido</option>
+                            <option value="Liquido" <?php echo $planet->getComposition() == "Liquido" ? "selected" : "" ?>>Liquido</option>
+                            <option value="Gassoso" <?php echo $planet->getComposition() == "Gassoso" ? "selected" : "" ?>>Gassoso</option>
+                            <option value="Lava" <?php echo $planet->getComposition() == "Lava" ? "selected" : "" ?>>Lava</option>
                         </select>
                     </div>
                     <div class="col-6">

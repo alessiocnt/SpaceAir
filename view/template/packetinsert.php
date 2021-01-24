@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-md-6 offset-md-3 mb-3">
-        <form action="" method="POST">
+        <form action="#" method="POST">
             <div class="row mb-2">
                 <div class="col-8 col-md-9">
                     <label for="inputDestination">Destinazione</label>

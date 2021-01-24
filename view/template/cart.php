@@ -47,7 +47,8 @@
             <div class="top-line">
                 <div class="row">
                     <div class="col-12 mt-3 p-0">
-                        <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="Totale € 0" disabled>
+                        <label for="Totale" class="invisible">Totale €</label>
+                        <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="0" disabled>
                         <input type="hidden" name="CodOrdine" id="CodOrdine" value="<?=$data[0]["codOrder"];?>">
                     </div>
                 </div>

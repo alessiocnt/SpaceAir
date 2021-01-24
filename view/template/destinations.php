@@ -8,7 +8,7 @@
     </header>
 
     <div class="col-10 offset-1 col-md-6 offset-md-3 mb-5">
-        <form action="" method="POST">
+        <form action="#" method="POST">
             <div class="row">
                 <label for="searchBar" class="d-none">Ricerca</label>
                 <input type="search" class="form-control col-11" name="searchBar" id="searchBar" autocomplete="on"/>
