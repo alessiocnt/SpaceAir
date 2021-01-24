@@ -22,7 +22,7 @@ class PacketHandler extends AbstractHandler {
             
             $insert_stmt->bind_param('ssdisii', $dateTimeDeparture, $dateTimeArrival, $price, $maxSeats, $description, $codPlanet, $visible);
             $insert_stmt->execute();
-            return true;
+            return $db->insert_id;
         }
         return false;
     }

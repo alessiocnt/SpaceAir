@@ -27,10 +27,14 @@ class PacketInsertController extends AdminLoggedController {
             $packet = $builder->createFromAssoc($pack);
             
             $result = $packetHandler->insertPacket($packet);
+            $planet = $this->getModel()->getPlanetHandler()->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0];
             
-            if($result == true) {
+            if($result) {
                 // TODO Notifica nuovo pacchetto a chi ha interest + chi ha newsletter
-                header("location:/spaceair/packetlist.php");
+                $userInfoHandler = $this->getModel()->getUserInfoHandler();
+                $users = $userInfoHandler->getInterestedUsers($planet);
+                $this->getModel()->getNotificationDispatcher()->createPacketRelated("Nuovo pacchetto disponibile","Gentile utente, è ora disponibile un nuovo pacchetto verso ".$planet->getName()."!", new Packet($result) , $users);
+                //header("location:/spaceair/packetlist.php");
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";
                 $data["header"]["title"] = "Nuovo pacchetto";
