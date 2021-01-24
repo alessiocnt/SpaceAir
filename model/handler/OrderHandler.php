@@ -64,6 +64,8 @@ class OrderHandler extends AbstractHandler {
     public function checkAvailable($order) {
         foreach ($order->getPackets() as $packet) {
             if($this->getPacketQuantityInOrder($order, $packet) != null && $this->getPacketQuantityInOrder($order, $packet) > $packet->getAviableSeats()) {
+                // TODO Nuova notifica admin Pochi posti rimanenti per pacchetto packet
+                // TODO Nuova notifica user che hanno packet nel carrello Pochi posti rimanenti per pacchetto packet
                 return false;
             }
         }

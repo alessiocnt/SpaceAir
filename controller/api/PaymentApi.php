@@ -40,6 +40,8 @@ foreach ($packets as $packet) {
 if($orderHandler->checkAvailable($order)) {
     if($orderHandler->purchaseOrder($order, $user, $total)) {
         echo "Acquisto effettuato";
+        // TODO Notifica utente acquisto effettuato + resoconto
+        // TODO Notifica admin resoconto ordine
         return;
     } else {
         echo "Non è stato possibile acquistare l'elemento";
@@ -48,6 +50,8 @@ if($orderHandler->checkAvailable($order)) {
 
 } else {
     echo "Posti disponibili insufficienti";
+    // TODO Notifica posti disponibili insufficienti
+    // TODO Notifica admin Disponibilità posti limitata
     return;
 }
 

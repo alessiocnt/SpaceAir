@@ -153,7 +153,9 @@ class PacketHandler extends AbstractHandler {
         $builder = new PacketBuilder();
         $packets = array();
         foreach ($result as $pkt) {
-            array_push($packets,$builder->createFromAssoc($pkt));
+            $pack = $builder->createFromAssoc($pkt);
+            $pack->setAviableSeats($this->getAviableSeats($pack));
+            array_push($packets, $pack);
         }
         return $packets;
     }

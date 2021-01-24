@@ -29,6 +29,7 @@ class PacketInsertController extends AdminLoggedController {
             $result = $packetHandler->insertPacket($packet);
             
             if($result == true) {
+                // TODO Notifica nuovo pacchetto a chi ha interest + chi ha newsletter
                 header("location:/spaceair/packetlist.php");
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";

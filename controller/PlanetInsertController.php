@@ -29,6 +29,7 @@ class PlanetInsertController extends AdminLoggedController {
             $result = $planetHandler->insertPlanet($planet);
             
             if($result == true) {
+                // TODO Notifica nuovo pianeta disponibile (Chi ha la newsletter attiva)
                 echo("Destinazione inserita correttamente.");
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";

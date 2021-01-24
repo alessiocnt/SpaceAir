@@ -73,9 +73,11 @@
                     <form action="/spaceair/controller/api/FlightDetailsApi.php" method="POST" class="rounded my-2 col-back-white p-4 col-dark col-12">
                         <input id="packet" name="packet" type="hidden" value="<?php echo $packet->getCode(); ?>"/>
                         <input id="inputQuantity" name="inputQuantity" type="hidden" value="1"/>
+                        <?php if($packet->getAviableSeats()): ?>
                         <button class="btn mt-2 mr-2 float-right" type="submit">
                             <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Aggiungi al carrello">
                         </button>
+                        <?php endif;?>
                         <img src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="">
                         <p class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
                         <p class="col-dark font-weight-normal list-impo-text my-0">€ <?php echo $packet->getPrice(); ?></p>
