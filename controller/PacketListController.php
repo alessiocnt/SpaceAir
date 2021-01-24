@@ -13,7 +13,7 @@ class PacketListController extends AdminLoggedController {
         $packets = $packetHandler->getAllPackets();
         foreach ($packets as $packet) {
             $packet->setDestinationPlanet($planetHandler->searchPlanetByCod($packet->getDestinationPlanetId())[0]);
-            $packet->setAviableSeats($packetHandler->getAviableSeats($packet));
+            $packet->setAvailableSeats($packetHandler->getAvailableSeats($packet));
         }
 
         $data["data"]["packets"] = $packets;

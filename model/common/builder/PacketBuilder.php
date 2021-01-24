@@ -10,7 +10,7 @@ class PacketBuilder implements Builder {
     private DateTime $arriveDateHour;
     private float $price = 0;
     private int $maxSeats = 0;
-    private int $aviableSeats = 0;
+    private int $AvailableSeats = 0;
     private string $description = "";
     private ?Planet $destinationPlanet = NULL;
     private bool $visible = false;

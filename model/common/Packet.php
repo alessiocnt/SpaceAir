@@ -7,7 +7,7 @@ class Packet {
     private ?DateTime $arriveDateHour;
     private float $price;
     private int $maxSeats;
-    private int $aviableSeats = 0;
+    private int $AvailableSeats = 0;
     private string $description;
     private ?Planet $destinationPlanet;
     private bool $visible;
@@ -48,8 +48,8 @@ class Packet {
         return $this->maxSeats;
     }
 
-    public function getAviableSeats() : int {
-        return $this->aviableSeats;
+    public function getAvailableSeats() : int {
+        return $this->AvailableSeats;
     }
 
     public function getDescription() : string {
@@ -69,8 +69,8 @@ class Packet {
         return $this->visible;
     }
 
-    public function setAviableSeats($aviableSeats) {
-        $this->aviableSeats = $aviableSeats;
+    public function setAvailableSeats($AvailableSeats) {
+        $this->AvailableSeats = $AvailableSeats;
     }
 
     public function setDestinationPlanet(Planet $platet) {

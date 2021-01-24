@@ -6,6 +6,8 @@ Utils::sec_session_start();
 $model = new ModelImpl();
 $orderHandler = $model->getOrderHandler();
 $packetHandler = $model->getPacketHandler();
+$userInfoHandler = $model->getUserInfoHandler();
+$planetHandler = $model->getPlanetHandler();
 
 if(!isset($_POST['codOrder'])) {
     echo 'Errore nell\'acquisto';
@@ -31,17 +33,27 @@ $user->setAddresses($model->getUserInfoHandler()->getAddresses($user));
 $ok = true;
 $packets = $orderHandler->getPackets($order);
 foreach ($packets as $packet) {
-    $packet->setAviableSeats($packetHandler->getAviableSeats($packet));
+    $packet->setAvailableSeats($packetHandler->getAvailableSeats($packet));
     $order->pushPacket($packet);
 }
 
 
+$admin = $userInfoHandler->getAdmin();
 
-if($orderHandler->checkAvailable($order)) {
+if($orderHandler->checkAvailable($order, $user, $admin)) {
     if($orderHandler->purchaseOrder($order, $user, $total)) {
         echo "Acquisto effettuato";
-        // TODO Notifica utente acquisto effettuato + resoconto
-        // TODO Notifica admin resoconto ordine
+        $descUser = "Hai acquistato i seguenti pacchetti ";
+        $descAdmin = "Sono stati acquistati i seguenti pacchetti ";
+        foreach ($order->getPackets() as $packet) {
+            $descUser = $descUser."Viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
+            $descAdmin = $descAdmin."Viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
+        }
+        $descUser.=" per un totale di ".$total;
+        $descAdmin.=" per un totale di ".$total;
+        $notificationDispatcher = new NotificationDispatcher(new ModelImpl());
+        $notificationDispatcher->createGeneral("Acqusto effettuato", $descUser, array($user));
+        $notificationDispatcher->createGeneral("Nuovo ordine evaso", $descAdmin, array($admin));
         return;
     } else {
         echo "Non è stato possibile acquistare l'elemento";
@@ -50,8 +62,6 @@ if($orderHandler->checkAvailable($order)) {
 
 } else {
     echo "Posti disponibili insufficienti";
-    // TODO Notifica posti disponibili insufficienti
-    // TODO Notifica admin Disponibilità posti limitata
     return;
 }
 

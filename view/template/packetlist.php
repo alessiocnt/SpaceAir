@@ -26,7 +26,7 @@
                                     <p class="my-0 text-uppercase font-weight-bold list-impo-text">Viaggio verso <?=$packet->getDestinationPlanet()->getName();?></p>
                                     <p><?=$packet->getDepartureDateHour()->format("d.m.Y H:m");?></p>
                                     <p><?=$packet->getArriveDateHour()->format("d.m.Y H:m");?></p>
-                                    <p class="font-weight-normal my-0"><?=$packet->getAviableSeats();?> posti disponibili</p>
+                                    <p class="font-weight-normal my-0"><?=$packet->getAvailableSeats();?> posti disponibili</p>
                                     <p class="font-weight-normal my-0 float-right bottom mr-1">Prezzo €<?=$packet->getPrice();?></p>
                                 </div>
                             </div>

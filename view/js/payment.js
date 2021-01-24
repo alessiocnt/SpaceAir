@@ -44,9 +44,9 @@ $(document).ready(function () {
             $('#paymentResult').text(data);
         });
         
-        setTimeout(function(){ 
+        /*setTimeout(function(){ 
             window.location.replace("/spaceair/homepage.php");
-        }, 1500);
+        }, 1500);*/
     });
 
     $('#cardForm').submit(function (e) {

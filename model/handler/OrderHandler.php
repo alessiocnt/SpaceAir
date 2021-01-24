@@ -61,11 +61,15 @@ class OrderHandler extends AbstractHandler {
         return true;
     }
 
-    public function checkAvailable($order) {
+    public function checkAvailable($order, $user, $admin) {
         foreach ($order->getPackets() as $packet) {
-            if($this->getPacketQuantityInOrder($order, $packet) != null && $this->getPacketQuantityInOrder($order, $packet) > $packet->getAviableSeats()) {
-                // TODO Nuova notifica admin Pochi posti rimanenti per pacchetto packet
-                // TODO Nuova notifica user che hanno packet nel carrello Pochi posti rimanenti per pacchetto packet
+            if($this->getPacketQuantityInOrder($order, $packet) != null && $this->getPacketQuantityInOrder($order, $packet) > $packet->getAvailableSeats()) {
+                $planetHandler = new PlanetHandler(new ModelImpl());
+                $descUser = "Posti disponibili insufficienti per il viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
+                $descAdmin = "Disponibilità posti limitata per il viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName()." in partenza il ".$packet->getDepartureDateHour()->format("d-m-Y");
+                $notificationDispatcher = new NotificationDispatcher(new ModelImpl());
+                $notificationDispatcher->createGeneral("Acqusto effettuato", $descUser, array($user));
+                $notificationDispatcher->createGeneral("Nuovo ordine evaso", $descAdmin, array($admin));
                 return false;
             }
         }
@@ -90,5 +94,3 @@ class OrderHandler extends AbstractHandler {
     }
 
 }
-
-?>

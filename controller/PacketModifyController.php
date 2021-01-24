@@ -39,7 +39,7 @@ class PacketModifyController extends AdminLoggedController {
             $pack["DateTimeDeparture"] = DateTime::createFromFormat("Y-m-j\TH:i", $_POST["inputDepartureDateHour"])->format('Y-m-d H:i:s');
             $pack["DateTimeArrival"] = DateTime::createFromFormat("Y-m-j\TH:i", $_POST["inputArriveDateHour"])->format('Y-m-d H:i:s');
             $pack["MaxSeats"] = $_POST["inputCapacity"];
-            $pack["AviableSeats"] = $pack["MaxSeats"];
+            $pack["AvailableSeats"] = $pack["MaxSeats"];
             $pack["Price"] = $_POST["inputPrice"];
             $pack["Description"] = $_POST["inputDescription"];
             $pack["Visible"] = isset($_POST["inputVisible"]) ? 1 : 0;

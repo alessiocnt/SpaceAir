@@ -224,6 +224,23 @@ class UserInfoHandler extends AbstractHandler {
         }
         return $users;
     }
+
+    public function getAdmin() {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * 
+        FROM USERS
+        WHERE Type = 1");
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if (count($result) == 0) {
+            return false;
+        } 
+
+        $builder = new UserBuilder();
+        return $builder->createFromAssoc($result[0]);
+    }
 }
 
 ?>

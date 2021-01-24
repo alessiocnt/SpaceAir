@@ -29,7 +29,7 @@
                                         <p id="p<?= $assoc["packet"]->getCode(); ?>" class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4 totalPrice">Costo €<?= $assoc["quantity"] * $assoc["packet"]->getPrice(); ?></p>
                                         <label for="<?= $assoc["packet"]->getCode(); ?>" class="invisible custom-file-label">Quantità prodotto</label>
                                         <div class="input-group col-4 col-md-3 pl-0">
-                                            <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="<?= $assoc["codOrder"]; ?>" id="<?= $assoc["packet"]->getCode(); ?>" value="<?= $assoc["quantity"]; ?>" min="1" max="10" step="1" />
+                                            <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="<?= $assoc["codOrder"]; ?>" id="<?= $assoc["packet"]->getCode(); ?>" value="<?= $assoc["quantity"]; ?>" min="1" max="<?=$assoc["packet"]->getAvailableSeats()?>" step="1" />
                                         </div>
                                     </div>
                                 </div>

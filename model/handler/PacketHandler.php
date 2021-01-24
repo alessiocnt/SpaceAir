@@ -119,7 +119,7 @@ class PacketHandler extends AbstractHandler {
         return $packets;
     }
 
-    public function getAviableSeats($packet) {
+    public function getAvailableSeats($packet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT SUM(PIO.Quantity) AS Venduti
         FROM PACKET_IN_ORDER PIO JOIN ORDERS O ON PIO.CodOrder = O.CodOrder JOIN PACKET P ON P.CodPacket = PIO.CodPacket
@@ -154,7 +154,7 @@ class PacketHandler extends AbstractHandler {
         $packets = array();
         foreach ($result as $pkt) {
             $pack = $builder->createFromAssoc($pkt);
-            $pack->setAviableSeats($this->getAviableSeats($pack));
+            $pack->setAvailableSeats($this->getAvailableSeats($pack));
             array_push($packets, $pack);
         }
         return $packets;

@@ -17,7 +17,7 @@ class FlightDetailsController extends UserLoggedController {
                 $data["data"]["planets"] = $planetHandler->searchPlanetByName($_GET["Destination"])[0];
                 $data["data"]["user"] = $userHandler->getUserById(Utils::getUserId());
                 $packet = $packetHandler->getPacketById($_GET["Packet"]);
-                $packet->setAviableSeats($packetHandler->getAviableSeats($packet));
+                $packet->setAvailableSeats($packetHandler->getAvailableSeats($packet));
                 $data["data"]["packet"] = $packet;
                 $data["header"]["title"] = "Dettagli Volo";
                 $data["header"]["js"] = [];
