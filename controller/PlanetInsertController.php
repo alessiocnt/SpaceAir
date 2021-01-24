@@ -27,10 +27,13 @@ class PlanetInsertController extends AdminLoggedController {
             $planet = $builder->createFromAssoc($data);
             
             $result = $planetHandler->insertPlanet($planet);
+            $planet = $planetHandler->searchPlanetByName($planet->getName())[0];
             
             if($result == true) {
-                // TODO Notifica nuovo pianeta disponibile (Chi ha la newsletter attiva)
-                echo("Destinazione inserita correttamente.");
+                $userInfoHandler = $this->getModel()->getUserInfoHandler();
+                $users = $userInfoHandler->getUsersWithNewsletter();
+                $this->getModel()->getNotificationDispatcher()->createPlanetRelated("Nuovo pianeta disponibile","Gentile utente, è ora possibile viaggiare verso ".$planet->getName()."!", $planet , $users);
+                header("location: /spaceair/destinationsadmin.php");
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";
                 $data["header"]["title"] = "Nuova destinazione";

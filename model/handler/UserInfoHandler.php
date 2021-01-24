@@ -177,6 +177,24 @@ class UserInfoHandler extends AbstractHandler {
         }
         return false;
     }
+
+    public function getUsersWithNewsletter() {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM USERS WHERE Newsletter = 1");
+        if (!$stmt->execute()) {
+            return array();
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $users = array();
+        if (count($result) == 0) {
+            return array();
+        } 
+        foreach ($result as $res) {
+            $builder = new UserBuilder();
+            array_push($users, $builder->createFromAssoc($res));
+        }
+        return $users;
+    }
 }
 
 ?>

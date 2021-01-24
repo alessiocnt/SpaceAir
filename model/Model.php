@@ -9,6 +9,7 @@ interface Model {
     public function getUserInfoHandler();
     public function getOrderHandler();
     public function getReviewHandler();
+    public function getNotificationDispatcher();
     //Test
     public function getTestHandler();
 }

@@ -22,8 +22,13 @@ class BaseNotificator implements NotificationSender {
             $codPacket = $notification->getPacket() != NULL ? $notification->getPacket()->getCode() : NULL;
 
             //Store template in the db
-            $insertStmt->bind_param("sssiii", $dateTime, $title, $description, $type, $codPlanet, $codPacket);
-            $insertStmt->execute();
+            if(!$insertStmt->bind_param("sssiii", $dateTime, $title, $description, $type, $codPlanet, $codPacket)) {
+                echo "Binding parameters failed: (" . $insertStmt->errno . ") " . $insertStmt->error;
+            }
+            if(!$insertStmt->execute()) {
+                echo "Execute failed: (" . $insertStmt->errno . ") " . $insertStmt->error;
+                die();
+            }
 
             $notificationId = $this->dbInstance->insert_id;
 

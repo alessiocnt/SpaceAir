@@ -11,9 +11,9 @@ class TestController extends AbstractController {
     public function execute() {
 
         //I dati in piú oltre la mail servono per la mail!
-        $this->getModel()->getNotificationDispatcher()->createGeneral("Titolo","Ciao belli", array(new User(1,"Andrea", "Giulianelli", "1999/07/17", "3434", "", "andrygiulio@gmail.com"), new User(28)));
+        //$this->getModel()->getNotificationDispatcher()->createGeneral("Titolo","Ciao belli", array(new User(1,"Andrea", "Giulianelli", "1999/07/17", "3434", "", "andrygiulio@gmail.com"), new User(28)));
         //$this->getModel()->getNotificationDispatcher()->createPacketRelated("Titolo","Ciao belli",new Packet(1) , array(new User(1), new User(28)));
-        //$this->getModel()->getNotificationDispatcher()->createPlanetRelated("Titolo","Ciao belli",new Planet(1) , array(new User(1), new User(28)));
+        $this->getModel()->getNotificationDispatcher()->createPlanetRelated("Titolo","Ciao belli",new Planet(1) , array(new User(1), new User(28)));
 
 
 
