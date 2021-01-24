@@ -20,7 +20,7 @@
                                         <img src="/spaceair/res/upload/admin/<?= $assoc["packet"]->getImg(); ?>" class="card-img" alt="">
                                     </div>
                                     <div class="col-8 col-md-9">
-                                        <a href="#" id="<?= $assoc["codOrder"]; ?>" class="<?= $assoc["packet"]->getCode(); ?>" title="Rimuovi dal carrello">
+                                        <a href="#" name="<?= $assoc["packet"]->getCode();?>" class=" <?= $assoc["codOrder"]; ?>" title="Rimuovi dal carrello">
                                             <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right md-1" alt="Rimuovi dal carrello">
                                         </a>
                                         <p class="my-0 text-uppercase font-weight-bold list-impo-text mb-2">Viaggio verso <?= $assoc["planetName"]; ?></p>
@@ -47,8 +47,8 @@
             <div class="top-line">
                 <div class="row">
                     <div class="col-12 mt-3 p-0">
-                        <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="Totale € 0" readonly>
-                        <input type="hidden" name="CodOrdine" id="CodOrdine" value="<?=$data[0]["codOrder"];?>" readonly>
+                        <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="Totale € 0" disabled>
+                        <input type="hidden" name="CodOrdine" id="CodOrdine" value="<?=$data[0]["codOrder"];?>">
                     </div>
                 </div>
                 <div class="row">

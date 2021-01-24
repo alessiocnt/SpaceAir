@@ -16,8 +16,8 @@ $(document).ready(function() {
 
     $("a").click(function(e) {
         e.preventDefault();
-        const packet = $(this).attr("class");
-        const order = $(this).attr("id");
+        const order = $(this).attr("class");
+        const packet = $(this).attr("name");
         const qnt = 0;
         $.post("/spaceair/controller/api/CartApi.php/", {"id": packet, "qnt": qnt, "cod": order}, function(data) { 
             $("p#p" + packet).text("Costo €" + 0);
@@ -26,11 +26,8 @@ $(document).ready(function() {
         $(this).parents("article").slideUp();
     });
 
-    $("input#totale").click(function(e) {
-        e.preventDefault();
-        $.post("/spaceair/controller/api/CartApi.php/", {"tot": total}, function(data) { 
-            location("header: payment.php");
-        });
+    $('form').submit(function (e) {
+        $("input#Totale").removeAttr("disabled");
     });
 
     function total() {
