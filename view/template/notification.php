@@ -9,22 +9,26 @@
 </div>
 <div class="row">
     <div class="col-12 mb-3 mt-3">
+    
         <section>
+        <?php foreach ($data["notifications"] as $notification) : ?>
             <article>
                 <div class="row ml-1 mr-1">
                     <div class="col-12 col-md-6 offset-md-3 p-0">
                         <div class="rounded my-2 col-back-white p-4 col-dark ">
                             <div class="row">
                                 <div class="col-12 ">
-                                    <p class="font-weight-normal my-0">Rimangono solo 5 posti disponibili per il Viaggio per Marte con partenza in data 25.12.2020. Affrettati!</p>
-                                    <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">22.12.2020</p>
+                                    <h2><?=$notification->getTitle();?></h2>
+                                    <p class="font-weight-normal my-0"><?=$notification->getDescription();?></p>
+                                    <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4"><?=$notification->getDateHour()->format("d.m.Y H:m")?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </article>
-            <article>
+            <?php endforeach;?>
+            <!-- <article>
                 <div class="row ml-1 mr-1">
                     <div class="col-12 col-md-6 offset-md-3 p-0">
                         <div class="rounded my-2 col-back-white p-4 col-dark ">
@@ -51,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-            </article>
+            </article> -->
         </section>
     </div>
 </div>
