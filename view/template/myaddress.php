@@ -9,7 +9,7 @@
     <a class="btn col-btn-regular offset-md-3 pl-md-2" href="addaddress.php" role="button">Aggiungi</a>
     <div class="row mt-5">
         <div class="col-12 col-md-6 offset-md-3">
-        <p class="col-error d-none"><span class="font-weight-bold">Impossibile cancellare:</span> indirizzo utilizzato in un ordine.</p>
+        <p class="col-error"></p>
             <?php foreach($data["addresses"] as $address): ?>
                 <article class="col-back-white rounded p-3 mb-3" id="<?php echo $address->getCodAddress();?>">
                     <div class="row" id = "oo">
