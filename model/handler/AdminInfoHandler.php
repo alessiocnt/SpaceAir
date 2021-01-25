@@ -49,7 +49,7 @@ class AdminInfoHandler extends AbstractHandler {
 
     public function getActualPassenger(Packet $packet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $sql = "SELECT U.CodUser, U.Name, U.Surname, PO.Quantity FROM PACKET P, PACKET_IN_ORDER PO, ORDERS O, USERS U WHERE P.CodPacket = PO.CodPacket AND PO.CodOrder = O.CodOrder AND O.IdUser = U.IdUser AND O.State != 1 AND P.CodPacket = ?";
+        $sql = "SELECT U.IdUser, U.Name, U.Surname, PO.Quantity FROM PACKET P, PACKET_IN_ORDER PO, ORDERS O, USERS U WHERE PO.Quantity>0 AND P.CodPacket = PO.CodPacket AND PO.CodOrder = O.CodOrder AND O.IdUser = U.IdUser AND O.State != 1 AND P.CodPacket = ?";
 
         $array = array();
         if($stmt = $db->prepare($sql)) {
