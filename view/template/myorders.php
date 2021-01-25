@@ -15,8 +15,8 @@
                         <section>
                             <header>
                                 <h2 class="col-dark font-weight-bold mb-0">Data ordine: <?php echo $order->getPurchaseDate()->format("d/m/Y"); ?></h2>
-                                <p class="col-dark p-0 m-0"><span class="font-weight-bold">Stato:</span><?php echo $order->getState()->getDescription();?></p>
-                                <p class="col-dark p-0 mt-0"><span class="font-weight-bold">Prezzo:</span> €<?php echo $order->getTotal();?></p>
+                                <p class="col-dark p-0 m-0"><span class="font-weight-bold">Stato: </span><?php echo $order->getState()->getDescription();?></p>
+                                <p class="col-dark p-0 mt-0"><span class="font-weight-bold">Prezzo: </span>€<?php echo $order->getTotal();?></p>
                             </header>
                             <table class="table table-borderless">
                                 <thead>
