@@ -40,7 +40,7 @@ $codOrder = $data["codOrder"];
         <div class="row my-3">
             <div class="col-12 col-md-6 offset-md-3 text-center">
                 <!-- Generate Qr Code with Google API -->
-                <img src="https://chart.googleapis.com/chart?cht=qr&chl=<?php echo $codOrder . "-" . $packet->getPacket()->getCode();?>&chs=250x250&chld=L|0" class="bg-light w-50" alt=""/>
+                <img src="https://chart.googleapis.com/chart?cht=qr&chl=<?php echo $codOrder . "-" . $packet->getPacket()->getCode();?>&chs=250x250&chld=L|0" class="bg-light w-50" alt="Qr Code"/>
             </div>
         </div>
     </section>
