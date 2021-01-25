@@ -3,6 +3,9 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 Utils::sec_session_start();
 
+if(!$model->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER) && !$model->getUserHandler()->checkLogin(UserHandler::$LOGINOKADMIN)) {
+    die("ko");
+}
 $model = new ModelImpl();
 $notificationHandler = $model->getNotificationDispatcher();
 

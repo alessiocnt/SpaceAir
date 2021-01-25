@@ -1,9 +1,7 @@
 <?php
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
-Utils::sec_session_start();
-
-$model = new ModelImpl();
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/UserLoggedApi.php");
 
 if(!isset($_POST["Titolo"])) {
     die("Errore. Non è possibile registrare la recensione.");
