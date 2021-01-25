@@ -14,11 +14,9 @@
                         <label for="inputName">Nome</label>
                         <input type="text" class="form-control" name="inputName" id="inputName" autocomplete="on" required/>
                     </div>
-                    <div class="col-6 overflow-hidden">
-                            <label for="img" class="">Immagine</label>
-                            <input type="file" class="rounded p-1 col-back-white" name="img" id="img" required/>
-                        <!-- <div class="custom-file overflow-auto">
-                        </div> -->
+                    <div class="col-6">
+                        <label for="img">Immagine</label>
+                        <input type="file" class="form-control rounded col-black-white p-0" name="img" id="img" />
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -32,7 +30,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <label for="inputSunDistance">Distanza dal Sole (x10<sup>6</sup>)</label>
+                        <label for="inputSunDistance">Distanza Sole (x10<sup>6</sup>)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Km</span>

@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <label for="inputSunDistance">Distanza dal Sole (x10<sup>6</sup>)</label>
+                        <label for="inputSunDistance">Distanza Sole (x10<sup>6</sup>)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Km</span>

@@ -11,8 +11,8 @@
         <form action="#" method="POST">
             <div class="row">
                 <label for="searchBar" class="d-none">Ricerca</label>
-                <input type="search" class="form-control col-11" name="searchBar" id="searchBar" autocomplete="on"/>
-                <button class="btn col-1" type="submit">
+                <input type="search" class="form-control col-10" name="searchBar" id="searchBar" autocomplete="on"/>
+                <button class="btn col-2" type="submit">
                     <span class="input-group-addon">
                         <img src="/spaceair/res/icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
                     </span>
