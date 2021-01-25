@@ -42,10 +42,10 @@
                         <tbody>
                             <?php foreach($data["packets"] as $packet): ?>
                             <tr>
-                                <td headers="packet"><?echo $packet->getDestinationPlanet()->getName() . " " . $packet->getDepartureDateHour()->format("d/m/Y");?></td>
-                                <td headers="seat"><?echo $packet->getAvailableSeats() . "/" . $packet->getMaxSeats();?></td>
+                                <td headers="packet"><?php echo $packet->getDestinationPlanet()->getName() . " " . $packet->getDepartureDateHour()->format("d/m/Y");?></td>
+                                <td headers="seat"><?php echo $packet->getAvailableSeats() . "/" . $packet->getMaxSeats();?></td>
                             </tr>
-                            <? endforeach ?>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                 </article>
