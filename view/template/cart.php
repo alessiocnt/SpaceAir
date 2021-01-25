@@ -20,7 +20,7 @@
                                         <img src="/spaceair/res/upload/admin/<?= $assoc["packet"]->getImg(); ?>" class="card-img" alt="">
                                     </div>
                                     <div class="col-8 col-md-9">
-                                        <a href="#" id="<?= $assoc["codOrder"]; ?>" class="<?= $assoc["packet"]->getCode(); ?>" title="Rimuovi dal carrello">
+                                        <a href="#" name="<?= $assoc["packet"]->getCode();?>" class=" <?= $assoc["codOrder"]; ?>" title="Rimuovi dal carrello">
                                             <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right md-1" alt="Rimuovi dal carrello">
                                         </a>
                                         <p class="my-0 text-uppercase font-weight-bold list-impo-text mb-2">Viaggio verso <?= $assoc["planetName"]; ?></p>
@@ -29,7 +29,7 @@
                                         <p id="p<?= $assoc["packet"]->getCode(); ?>" class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4 totalPrice">Costo €<?= $assoc["quantity"] * $assoc["packet"]->getPrice(); ?></p>
                                         <label for="<?= $assoc["packet"]->getCode(); ?>" class="invisible custom-file-label">Quantità prodotto</label>
                                         <div class="input-group col-4 col-md-3 pl-0">
-                                            <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="<?= $assoc["codOrder"]; ?>" id="<?= $assoc["packet"]->getCode(); ?>" value="<?= $assoc["quantity"]; ?>" min="1" max="10" step="1" />
+                                            <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="<?= $assoc["codOrder"]; ?>" id="<?= $assoc["packet"]->getCode(); ?>" value="<?= $assoc["quantity"]; ?>" min="1" max="<?=$assoc["packet"]->getAvailableSeats()?>" step="1" />
                                         </div>
                                     </div>
                                 </div>
@@ -47,8 +47,9 @@
             <div class="top-line">
                 <div class="row">
                     <div class="col-12 mt-3 p-0">
-                        <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="Totale € 0" readonly>
-                        <input type="hidden" name="CodOrdine" id="CodOrdine" value="<?=$data[0]["codOrder"];?>" readonly>
+                        <label for="Totale" class="invisible">Totale €</label>
+                        <input type="text" class="font-weight-normal col-2 col-text col-10 mt-1 input-no-bg float-right" name="Totale" id="Totale" value="0" disabled>
+                        <input type="hidden" name="CodOrdine" id="CodOrdine" value="<?=$data[0]["codOrder"];?>">
                     </div>
                 </div>
                 <div class="row">

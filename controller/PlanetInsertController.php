@@ -18,7 +18,7 @@ class PlanetInsertController extends AdminLoggedController {
             $data["Composition"] = $_POST["inputComposition"];
             $data["DayLength"] = $_POST["inputDay"];
             $data["Description"] = $_POST["inputDescription"];
-            $data["Visible"] = isset($_POST["inputVisible"]);
+            $data["Visible"] = isset($_POST["inputVisible"]) ? 1 : 0;
             if(isset($_FILES["img"])) {
                 $data["Img"] = $_FILES["img"];
             }
@@ -27,9 +27,13 @@ class PlanetInsertController extends AdminLoggedController {
             $planet = $builder->createFromAssoc($data);
             
             $result = $planetHandler->insertPlanet($planet);
+            $planet = $planetHandler->searchPlanetByName($planet->getName())[0];
             
             if($result == true) {
-                echo("Destinazione inserita correttamente.");
+                $userInfoHandler = $this->getModel()->getUserInfoHandler();
+                $users = $userInfoHandler->getUsersWithNewsletter();
+                $this->getModel()->getNotificationDispatcher()->createPlanetRelated("Nuovo pianeta disponibile","Gentile utente, è ora possibile viaggiare verso ".$planet->getName()."!", $planet , $users);
+                header("location: /spaceair/destinationsadmin.php");
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";
                 $data["header"]["title"] = "Nuova destinazione";

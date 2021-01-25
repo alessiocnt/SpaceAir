@@ -6,9 +6,9 @@ class TemplateNotificationBuilder implements Builder {
 
     private int $code = 0;
     private ?DateTime $dateHour = NULL;
-    private string $title;
-    private string $description;
-    private int $notificationType;
+    private string $title = "";
+    private string $description = "";
+    private int $notificationType = 0;
     private ?Planet $planet = NULL;
     private ?Packet $packet = NULL;
 

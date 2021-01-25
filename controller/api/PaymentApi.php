@@ -6,14 +6,16 @@ Utils::sec_session_start();
 $model = new ModelImpl();
 $orderHandler = $model->getOrderHandler();
 $packetHandler = $model->getPacketHandler();
+$userInfoHandler = $model->getUserInfoHandler();
+$planetHandler = $model->getPlanetHandler();
 
 if(!isset($_POST['codOrder'])) {
-    echo json_encode(array("msg"=>"ko", "data"=>"Errore nell'acquisto."));
+    echo 'Errore nell\'acquisto';
     return;
 }
 
 if(!$model->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER)) {
-    echo json_encode(array("msg"=>"ko", "data" => "Not logged"));
+    echo 'not logged';
     return;
 }
 
@@ -31,23 +33,35 @@ $user->setAddresses($model->getUserInfoHandler()->getAddresses($user));
 $ok = true;
 $packets = $orderHandler->getPackets($order);
 foreach ($packets as $packet) {
-    $packet->setAviableSeats($packetHandler->getAviableSeats($packet));
+    $packet->setAvailableSeats($packetHandler->getAvailableSeats($packet));
     $order->pushPacket($packet);
 }
 
 
+$admin = $userInfoHandler->getAdmin();
 
-if($orderHandler->checkAvailable($order)) {
+if($orderHandler->checkAvailable($order, $user, $admin)) {
     if($orderHandler->purchaseOrder($order, $user, $total)) {
-        echo json_encode(array("msg"=>"Acquisto effettuato"));
+        echo "Acquisto effettuato";
+        $descUser = "Hai acquistato i seguenti pacchetti ";
+        $descAdmin = "Sono stati acquistati i seguenti pacchetti ";
+        foreach ($order->getPackets() as $packet) {
+            $descUser = $descUser."Viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
+            $descAdmin = $descAdmin."Viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
+        }
+        $descUser.=" per un totale di ".$total;
+        $descAdmin.=" per un totale di ".$total;
+        $notificationDispatcher = new NotificationDispatcher(new ModelImpl());
+        $notificationDispatcher->createGeneral("Acqusto effettuato", $descUser, array($user));
+        $notificationDispatcher->createGeneral("Nuovo ordine evaso", $descAdmin, array($admin));
         return;
     } else {
-        echo json_encode(array("msg"=>"Non è stato possibile acquistare l'elemento"));
+        echo "Non è stato possibile acquistare l'elemento";
         return;
     }
 
 } else {
-    echo json_encode(array("msg"=>"Posti disponibili insufficienti"));
+    echo "Posti disponibili insufficienti";
     return;
 }
 

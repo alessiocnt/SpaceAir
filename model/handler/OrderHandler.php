@@ -61,28 +61,15 @@ class OrderHandler extends AbstractHandler {
         return true;
     }
 
-    public function checkAvailable($order) {
-        $db = $this->getModelHelper()->getDbManager()->getDb();
+    public function checkAvailable($order, $user, $admin) {
         foreach ($order->getPackets() as $packet) {
-            $stmt = $db->prepare("SELECT SUM(PIO.Quantity) AS Venduti
-            FROM PACKET_IN_ORDER PIO JOIN ORDERS O ON PIO.CodOrder = O.CodOrder JOIN PACKET P ON P.CodPacket = PIO.CodPacket
-            WHERE O.PurchaseDate IS NOT NULL AND P.CodPacket = ?");
-            $codPacket = $packet->getCode();
-            if(!$stmt->bind_param("i", $codPacket)) {
-                return false;
-            }
-            if(!$stmt->execute()) {
-                return false;
-            }
-            $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-            $venduti = $result[0]["Venduti"];
-            /*echo 'venduti';
-            var_dump($venduti);
-            echo 'aviable';
-            var_dump($packet->getAviableSeats());
-            echo 'quantita';*/
-            var_dump($this->getPacketQuantityInOrder($order, $packet));
-            if($this->getPacketQuantityInOrder($order, $packet) != null && $venduti + $this->getPacketQuantityInOrder($order, $packet) > $packet->getAviableSeats()) {
+            if($this->getPacketQuantityInOrder($order, $packet) != null && $this->getPacketQuantityInOrder($order, $packet) > $packet->getAvailableSeats()) {
+                $planetHandler = new PlanetHandler(new ModelImpl());
+                $descUser = "Posti disponibili insufficienti per il viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
+                $descAdmin = "Disponibilità posti limitata per il viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName()." in partenza il ".$packet->getDepartureDateHour()->format("d-m-Y");
+                $notificationDispatcher = new NotificationDispatcher(new ModelImpl());
+                $notificationDispatcher->createGeneral("Acquisto non effettuato", $descUser, array($user));
+                $notificationDispatcher->createGeneral("Posti in esaurimento ", $descAdmin, array($admin));
                 return false;
             }
         }
@@ -107,5 +94,3 @@ class OrderHandler extends AbstractHandler {
     }
 
 }
-
-?>

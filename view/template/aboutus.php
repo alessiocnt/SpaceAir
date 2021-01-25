@@ -50,7 +50,7 @@
     <section class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
         <div class="col-12 p-0">
             <h2 class="mt-3 mb-3 col-text font-weight-light p-0">Contattaci</h2>
-            <form action="">
+            <form action="#">
                 <div class="row mb-3">
                     <div class="col-12">
                         <label for="inputMail">E-Mail</label>

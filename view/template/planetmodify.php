@@ -19,8 +19,6 @@
                     <div class="col-6 overflow-hidden">
                             <label for="img" class="">Immagine</label>
                             <input type="file" class="rounded p-1 col-back-white" name="img" id="img" />
-                        <!-- <div class="custom-file overflow-auto">
-                        </div> -->
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -34,13 +32,18 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <label for="inputSunDistance">Distanza dal Sole</label>
-                        <input type="number" class="form-control" name="inputSunDistance" id="inputSunDistance" autocomplete="on" required value="<?php echo $planet->getSunDistance() ?>"/>
+                        <label for="inputSunDistance">Distanza dal Sole (x10<sup>6</sup>)</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Km</span>
+                            </div>
+                            <input type="number" class="form-control" name="inputSunDistance" id="inputSunDistance" autocomplete="on" required value="<?php echo $planet->getSunDistance() ?>"/>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-6">
-                        <label for="inputMass">Massa</label>
+                        <label for="inputMass">Massa (x10<sup>22</sup>)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Kg</span>
@@ -49,20 +52,24 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <label for="inputSurface">Superficie</label>
-                        <input type="number" class="form-control" name="inputSurface" id="inputSurface" autocomplete="on" required value="<?php echo $planet->getSurface() ?>"/>
+                        <label for="inputSurface">Superficie (x10<sup>6</sup>)</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Km<sup>2</sup></span>
+                            </div>
+                            <input type="number" class="form-control" name="inputSurface" id="inputSurface" autocomplete="on" required value="<?php echo $planet->getSurface() ?>"/>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="container col-6">
                         <label for="inputComposition">Composizione</label>
-                        <select name="inputComposition" id="inputComposition" class="form-control" required>
-                            <option value = "<?php echo $planet->getComposition() ?>" selected hidden><?php echo $planet->getComposition() ?></option>
-                            <option value="Solido">Solido</option>
-                            <option value="Liquido">Liquido</option>
-                            <option value="Gassoso">Gassoso</option>
-                            <option value="Lava">Lava</option>
+                        <select name="inputComposition" id="inputComposition" class="form-control">
+                            <option value="Solido" <?php echo $planet->getComposition() == "Solido" ? "selected" : "" ?>>Solido</option>
+                            <option value="Liquido" <?php echo $planet->getComposition() == "Liquido" ? "selected" : "" ?>>Liquido</option>
+                            <option value="Gassoso" <?php echo $planet->getComposition() == "Gassoso" ? "selected" : "" ?>>Gassoso</option>
+                            <option value="Lava" <?php echo $planet->getComposition() == "Lava" ? "selected" : "" ?>>Lava</option>
                         </select>
                     </div>
                     <div class="col-6">

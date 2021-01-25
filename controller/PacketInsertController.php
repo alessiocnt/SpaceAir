@@ -18,7 +18,7 @@ class PacketInsertController extends AdminLoggedController {
             $pack["DateTimeDeparture"] = DateTime::createFromFormat("Y-m-j\TH:i", $_POST["inputDepartureDateHour"])->format('Y-m-d H:i:s');
             $pack["DateTimeArrival"] = DateTime::createFromFormat("Y-m-j\TH:i", $_POST["inputArriveDateHour"])->format('Y-m-d H:i:s');
             $pack["MaxSeats"] = $_POST["inputCapacity"];
-            $pack["AviableSeats"] = $pack["MaxSeats"];
+            $pack["AvailableSeats"] = $pack["MaxSeats"];
             $pack["Price"] = $_POST["inputPrice"];
             $pack["Description"] = $_POST["inputDescription"];
             $pack["Visible"] = isset($_POST["inputVisible"]) ? 1 : 0;
@@ -27,8 +27,12 @@ class PacketInsertController extends AdminLoggedController {
             $packet = $builder->createFromAssoc($pack);
             
             $result = $packetHandler->insertPacket($packet);
+            $planet = $this->getModel()->getPlanetHandler()->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0];
             
-            if($result == true) {
+            if($result) {
+                $userInfoHandler = $this->getModel()->getUserInfoHandler();
+                $users = $userInfoHandler->getInterestedUsers($planet);
+                $this->getModel()->getNotificationDispatcher()->createPacketRelated("Nuovo pacchetto disponibile","Gentile utente, è ora disponibile un nuovo pacchetto verso ".$planet->getName()."!", new Packet($result) , $users);
                 header("location:/spaceair/packetlist.php");
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";

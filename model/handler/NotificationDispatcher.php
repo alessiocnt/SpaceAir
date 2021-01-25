@@ -52,6 +52,70 @@ class NotificationDispatcher extends AbstractHandler{
         $notificationData = array("DateTime" => $dateTime, "Title" => $title, "Description" => $description, "Type" => $type, "CodPlanet" => $planet->getCodPlanet());
         $this->send($notificationData, $users);
     }
+
+    public function getNotificationsOfUser($user) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT T.DateTime, T.Title, T.CodNotification
+        FROM USER_NOTIFICATION U JOIN TEMPLATE_NOTIFICATION T ON U.CodNotification = T.CodNotification
+        WHERE U.IdUser = ? AND View = 0
+        ORDER BY T.DateTime");
+        $userId = $user->getId();
+        if (!$stmt->bind_param('i', $userId)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } 
+        $notificationBuilder = new TemplateNotificationBuilder();
+        $notifications = array();
+        foreach ($result as $notification) {
+            array_push($notifications, $notificationBuilder->createFromAssoc($notification));
+        }
+        return $notifications;
+    }
+
+    public function getAllNotificationsOfUser($user) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT T.DateTime, T.Title, T.Description
+        FROM USER_NOTIFICATION U JOIN TEMPLATE_NOTIFICATION T ON U.CodNotification = T.CodNotification
+        WHERE U.IdUser = ?
+        ORDER BY T.DateTime DESC");
+        $userId = $user->getId();
+        if (!$stmt->bind_param('i', $userId)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } 
+        $notificationBuilder = new TemplateNotificationBuilder();
+        $notifications = array();
+        foreach ($result as $notification) {
+            array_push($notifications, $notificationBuilder->createFromAssoc($notification));
+        }
+        return $notifications;
+    }
+
+    public function seenNotification($user, $notification) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("UPDATE USER_NOTIFICATION SET View = 1 WHERE IdUser = ? AND CodNotification = ?");
+        $userId = $user->getId();
+        $codNotification = $notification->getCode();
+        if (!$stmt->bind_param('ii', $userId, $codNotification)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        return true;
+    }
 }
 
 ?>

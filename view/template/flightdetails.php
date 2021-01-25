@@ -34,11 +34,13 @@
                 <p class="font-weight-bold col-text my-0">Data arrivo:<span class="float-right font-weight-normal"><?php echo $packet->getArriveDateHour()->format("d-m-Y"); ?></span></p>
                 <p class="font-weight-bold col-text my-0">Orario arrivo:<span class="float-right font-weight-normal"><?php echo $packet->getArriveDateHour()->format("H:m"); ?></span></p>
                 <p class="font-weight-bold col-text my-0">Capienza volo:<span class="float-right font-weight-normal"><?php echo $packet->getMaxSeats(); ?></span></p>
+                <p class="font-weight-bold col-text my-0">Posti disponibili:<span class="float-right font-weight-normal"><?php echo $packet->getAvailableSeats(); ?></span></p>
                 <p class="font-weight-bold col-text my-0">Costo:<span class="float-right font-weight-normal">$ <?php echo $packet->getPrice(); ?></span></p>
             </div>
         </div>
     </section>  
     <section class="mb-3 p-0 col-10 offset-1 col-md-6 offset-md-3">
+    <?php if($packet->getAvailableSeats()) : ?>
         <form action="/spaceair/controller/api/FlightDetailsApi.php" method="POST" class="rounded my-2 col-back-white p-4 col-dark col-12">
             <input id="packet" name="packet" type="hidden" value="<?php echo $packet->getCode(); ?>"/>
             <div class="row">
@@ -46,7 +48,7 @@
                 <div class="col-4">
                     <label for="inputQuantity" class="invisible custom-file-label">Quantità prodotto</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="inputQuantity" id="inputQuantity" value="1" min="0" max="<? echo $packet->getMaxSeats(); ?>" step="1"/>
+                        <input type="number" class="form-control" name="inputQuantity" id="inputQuantity" value="1" min="0" max="<?=$packet->getAvailableSeats();?>" step="1"/>
                     </div>
                 </div>
                 <div class="col-4">
@@ -56,5 +58,6 @@
                 </div>
             </div>
         </form>
+        <?php endif;?>
     </section>                          
 </section>

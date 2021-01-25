@@ -177,6 +177,70 @@ class UserInfoHandler extends AbstractHandler {
         }
         return false;
     }
+
+    public function getUsersWithNewsletter() {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM USERS WHERE Newsletter = 1");
+        if (!$stmt->execute()) {
+            return array();
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $users = array();
+        if (count($result) == 0) {
+            return array();
+        } 
+        foreach ($result as $res) {
+            $builder = new UserBuilder();
+            array_push($users, $builder->createFromAssoc($res));
+        }
+        return $users;
+    }
+
+    public function getInterestedUsers($planet) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT IdUser 
+        FROM USERS
+        WHERE Newsletter = 1
+        UNION
+        SELECT IdUser
+        FROM INTEREST
+        WHERE CodPlanet = ?");
+        $codPlanet = $planet->getCodPlanet();
+        if (!$stmt->bind_param('i', $codPlanet)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return array();
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $users = array();
+        if (count($result) == 0) {
+            return array();
+        } 
+
+        $builder = new UserBuilder();
+        foreach ($result as $res) {
+            array_push($users, $builder->createFromAssoc($res));
+        }
+        return $users;
+    }
+
+    public function getAdmin() {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * 
+        FROM USERS
+        WHERE Type = 1");
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if (count($result) == 0) {
+            return false;
+        } 
+
+        $builder = new UserBuilder();
+        return $builder->createFromAssoc($result[0]);
+    }
 }
 
 ?>

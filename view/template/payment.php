@@ -77,7 +77,7 @@
                     <div class="row mb-3 mt-2">
                         <div class="col-12">
                             <label for="inputNumeroCarta">Numero carta</label>
-                            <input type="number" minlength="13" step="1" min="0" class="form-control" name="inputNumeroCarta" id="inputNumeroCarta" required />
+                            <input type="number" step="1" min="0" class="form-control" name="inputNumeroCarta" id="inputNumeroCarta" required />
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -89,10 +89,10 @@
                     <div class="row mb-3">
                         <div class="col-3">
                             <label for="inputCcv">CCV</label>
-                            <input type="number" minlength="3" step="1" min="0" max="999" class="form-control" name="inputCcv" id="inputCcv" required />
+                            <input type="number" step="1" min="0" max="999" class="form-control" name="inputCcv" id="inputCcv" required />
                         </div>
                         <div class="col-9">
-                            <label for="inputScadenza">Data di scadenza</label> <!-- TODO sistemare label per mobile -->
+                            <label for="inputScadenza">Data di scadenza</label>
                             <input type="month" class="form-control" name="inputScadenza" id="inputScadenza" required />
                         </div>
                     </div>

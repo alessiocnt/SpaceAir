@@ -8,7 +8,7 @@
     </header>
     <div class="row">
         <div class="col-md-6 offset-md-3 mb-3">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="inputName">Nome</label>
@@ -32,13 +32,18 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <label for="inputSunDistance">Distanza dal Sole</label>
-                        <input type="number" class="form-control" name="inputSunDistance" id="inputSunDistance" autocomplete="on" required/>
+                        <label for="inputSunDistance">Distanza dal Sole (x10<sup>6</sup>)</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Km</span>
+                            </div>
+                            <input type="number" class="form-control" name="inputSunDistance" id="inputSunDistance" autocomplete="on" required/>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-6">
-                        <label for="inputMass">Massa</label>
+                        <label for="inputMass">Massa (x10<sup>22</sup>)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Kg</span>
@@ -47,8 +52,13 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <label for="inputSurface">Superficie</label>
-                        <input type="number" class="form-control" name="inputSurface" id="inputSurface" autocomplete="on" required/>
+                        <label for="inputSurface">Superficie (x10<sup>6</sup>)</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Km<sup>2</sup></span>
+                            </div>
+                            <input type="number" class="form-control" name="inputSurface" id="inputSurface" autocomplete="on" required/>
+                        </div>
                     </div>
                 </div>
 

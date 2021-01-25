@@ -41,13 +41,12 @@ $(document).ready(function () {
         
         $.post("/spaceair/controller/api/PaymentApi.php/", { codOrder: cod, total: tot },
         function(data) {
-            console.log(data);
-            $('#paymentResult').text(data.msg);
+            $('#paymentResult').text(data);
         });
         
-        /*setTimeout(function(){ 
+        setTimeout(function(){ 
             window.location.replace("/spaceair/homepage.php");
-        }, 1500);*/
+        }, 1500);
     });
 
     $('#cardForm').submit(function (e) {

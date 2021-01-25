@@ -165,8 +165,8 @@ create table INTEREST (
 */create table TEMPLATE_NOTIFICATION (
      CodNotification int not null auto_increment primary key,
      DateTime datetime not null,
-     Title varchar(50) not null,
-     Description varchar(500) not null,
+     Title varchar(1000) not null,
+     Description varchar(1000) not null,
      Type tinyint not null,
      CodPlanet int,
      CodPacket int,

@@ -2,7 +2,7 @@
     <section class="mb-5 p-0">
         <img class="home-img img-fluid mb-3" src="/spaceair/res/icons/home-shuttle.jpg" alt="Shuttle utilizzato per i viaggi.">
         <p class="col-text text-center mb-3">Viaggia con noi, lasciati ispirare dal nostro universo.</p>
-        <a href="#" class="btn col-btn-regular col-10 offset-1 mb-3">Destinazioni</a>
+        <a href="/spaceair/destinations.php" class="btn col-btn-regular col-10 offset-1 mb-3">Destinazioni</a>
         <a href="#overview">
             <div class="text-center">
                 <img alt="Altro" src="/spaceair/res/icons/keyboard_arrow_down-white-18dp.svg" class="scale-x2">
