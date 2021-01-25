@@ -28,34 +28,6 @@
                 </div>
             </article>
             <?php endforeach;?>
-            <!-- <article>
-                <div class="row ml-1 mr-1">
-                    <div class="col-12 col-md-6 offset-md-3 p-0">
-                        <div class="rounded my-2 col-back-white p-4 col-dark ">
-                            <div class="row">
-                                <div class="col-12 ">
-                                    <p class="font-weight-normal my-0">Ecco il tuo biglietto per il Viaggio verso Venere che hai acquistato</p>
-                                    <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">30.11.2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <div class="row ml-1 mr-1">
-                    <div class="col-12 col-md-6 offset-md-3 p-0">
-                        <div class="rounded my-2 col-back-white p-4 col-dark ">
-                            <div class="row">
-                                <div class="col-12 ">
-                                    <p class="font-weight-normal my-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus risus libero, eleifend elit ullamcorper suscipit. Etiam sit amet finibus tortor, vitae venenatis justo. Vestibulum non nibh non ligula sodales aliquet. In justo, id tempus dui vulputate vitae. Aenean aliquet, nisi a auctor efficitur, odio lectus ultrices tortor, vel tincidunt est sapien urna. Nunc id nisl metus. Vivamus vehicula quis erat vel mattis. Ut ornare ultricies turpis, sed volutpat lacus semper eu. Sed mollis magna . Sed rutrum diam nibh. Donec at purus cursus, ornare libero ac, mollis justo. Curabitur vestibulum, eros eget sodales tincidunt, at sollicitudin leo orci vitae arcu.</p>
-                                    <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4">05.11.2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article> -->
         </section>
     </div>
 </div>
