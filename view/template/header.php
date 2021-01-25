@@ -41,24 +41,38 @@
         </a>
 
         <!--Navbar icons near logo for device screen-->
-        <div class="navbar-brand align-top ml-auto d-inline-block d-md-none">
-            <?php require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons.html"; ?>
+        <div class="navbar-brand align-top ml-auto d-inline-block d-md-none">   
+            <?php if(session_status() != PHP_SESSION_NONE && Utils::checkAdmin()) {  
+                require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons-admin.html";
+            } else {
+                require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons.html";
+            } ?>
         </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto p-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="/spaceair/destinations.php">Destinazioni</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/spaceair/packetlist.php">Pacchetti</a>
-                </li>
+                <?php if(session_status() != PHP_SESSION_NONE && Utils::checkAdmin()) :?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/spaceair/destinationsadmin.php">Destinazioni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/spaceair/packetlist.php">Pacchetti</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/spaceair/destinations.php">Destinazioni</a>
+                    </li>
+                <?php endif?>
             </ul>
-        </div>
+        </div> 
 
         <!--Navbar icons, need to repeat in order to move them on the extreme right after the nav-item when over md view-->
         <div class="navbar-brand align-top ml-auto d-none d-md-block">
-            <?php require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons.html"; ?>
+            <?php if(session_status() != PHP_SESSION_NONE && Utils::checkAdmin()) {  
+                require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons-admin.html";
+            } else {
+                require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons.html";
+            } ?>
         </div>
     </nav>
 

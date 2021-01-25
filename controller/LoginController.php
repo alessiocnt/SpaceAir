@@ -27,6 +27,7 @@ class LoginController extends AbstractController {
                // Login user, go to profile page
                header("Location:profile.php");
             } else if($result == UserHandler::$LOGINOKADMIN) {
+                $_SESSION["admin"] = "1";
                 //Login admin, go to dashboard
                 header("Location:dashboardhome.php");
             } else {
