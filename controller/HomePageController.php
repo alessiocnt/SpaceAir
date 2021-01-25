@@ -13,7 +13,7 @@ class HomePageController extends AbstractController {
         $data["data"]["planets"] = $planetHandler->getPlanets();
         
         $data["header"]["title"] = "SpaceAir - Home";
-        $data["header"]["js"] = [];
+        $data["header"]["js"] = ["/spaceair/view/js/homepage.js"];
         $data["header"]["css"] = [];
         $view = new GenericView("homepage");
         $view->render($data); 
