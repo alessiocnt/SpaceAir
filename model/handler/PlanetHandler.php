@@ -28,7 +28,7 @@ class PlanetHandler extends AbstractHandler {
         }
 
         $insert_stmt = $db->prepare("INSERT INTO PLANET (Name, Temperature, Mass, Surface, SunDistance, Composition, DayLength, Img, Description, Visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");   
-        $visible = $planet->isVisible() ? 1 : 0;
+        $visible = $planet->isVisible() ? "1" : "0";
         $name = $planet->getName();
         $temperature = $planet->getTemperature();
         $mass = $planet->getMass();
