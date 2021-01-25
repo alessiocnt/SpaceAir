@@ -14,6 +14,7 @@ class DashboardController extends AdminLoggedController {
             Utils::logout();
             header("Location:login.php");
         } else {
+            $adminInfoHandler = $this->getModel()->getAdminInfoHandler();
             $data["data"] = [];
             //Set the title
             $data["header"]["title"] = "Dashboard";

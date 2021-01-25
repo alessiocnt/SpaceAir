@@ -81,7 +81,7 @@ create table ORDER_STATE (
 create table ORDERS (
      CodOrder int not null auto_increment primary key,
      PurchaseDate datetime,
-     Total float not null,
+     Total float,
      DestAddressCode int,
      State int not null,
      IdUser int not null,
