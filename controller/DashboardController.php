@@ -14,8 +14,15 @@ class DashboardController extends AdminLoggedController {
             Utils::logout();
             header("Location:login.php");
         } else {
-            $adminInfoHandler = $this->getModel()->getAdminInfoHandler();
-            $data["data"] = [];
+            $packetHandler = $this->getModel()->getPacketHandler();
+            $planetHandler = $this->getModel()->getPlanetHandler();
+            $packets = $packetHandler->getAllPackets();
+            foreach ($packets as $packet) {
+                $packet->setDestinationPlanet($planetHandler->searchPlanetByCod($packet->getDestinationPlanetId())[0]);
+                $packet->setAvailableSeats($packetHandler->getAvailableSeats($packet));
+            }
+
+            $data["data"]["packets"] = $packets;
             //Set the title
             $data["header"]["title"] = "Dashboard";
             //Set custom js

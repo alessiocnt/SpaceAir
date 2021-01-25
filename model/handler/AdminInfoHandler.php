@@ -46,5 +46,4 @@ class AdminInfoHandler extends AbstractHandler {
         return $array;
     }
 
-
 }

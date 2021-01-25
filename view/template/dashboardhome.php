@@ -40,18 +40,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach($data["packets"] as $packet): ?>
                             <tr>
-                                <td headers="packet">Luna 15/03/2021</td>
-                                <td headers="seat">3/10</td>
+                                <td headers="packet"><?echo $packet->getDestinationPlanet()->getName() . " " . $packet->getDepartureDateHour()->format("d/m/Y");?></td>
+                                <td headers="seat"><?echo $packet->getAvailableSeats() . "/" . $packet->getMaxSeats();?></td>
                             </tr>
-                            <tr>
-                                <td headers="packet">Luna 15/03/2021</td>
-                                <td headers="seat">3/10</td>
-                            </tr>
-                            <tr>
-                                <td headers="packet">Luna 15/03/2021</td>
-                                <td headers="seat">3/10</td>
-                            </tr>
+                            <? endforeach ?>
                         </tbody>
                     </table>
                 </article>
