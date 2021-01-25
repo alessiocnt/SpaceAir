@@ -1,8 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
-Utils::sec_session_start();
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/AdminLoggedApi.php");
 
-$model = new ModelImpl();
 $planetHandler = $model->getPlanetHandler();
 
 if(isset($_POST["inputName"])) {

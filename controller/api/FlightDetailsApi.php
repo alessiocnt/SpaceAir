@@ -1,8 +1,13 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/UserLoggedApi.php");
+
+Utils::sec_session_start();
 
 $model = new ModelImpl();
+if(!$model->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER)) {
+    header("location: /spaceair/login.php");
+}
+
 $cartHandler = $model->getCartHandler();
 
 if(isset($_POST["inputQuantity"]) && isset($_POST["packet"])) {

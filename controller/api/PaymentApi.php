@@ -1,9 +1,8 @@
 <?php
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
-Utils::sec_session_start();
+require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/UserLoggedApi.php");
 
-$model = new ModelImpl();
 $orderHandler = $model->getOrderHandler();
 $packetHandler = $model->getPacketHandler();
 $userInfoHandler = $model->getUserInfoHandler();
