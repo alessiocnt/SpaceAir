@@ -65,13 +65,13 @@
                         <div class="offset-1 col-10">
                             <ul class="nav flex-column">
                                 <li class="nav-item mb-2">
-                                    <a class="col-back-white nav-link rounded col-dark" href="#">
+                                    <a class="col-back-white nav-link rounded col-dark" href="./packetlist.php">
                                         Pacchetti offerti
                                         <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="apri i miei ordini"/>
                                     </a>
                                 </li>
                                 <li class="nav-item my-1">
-                                    <a class="col-back-white nav-link rounded col-dark" href="#">
+                                    <a class="col-back-white nav-link rounded col-dark" href="./destinationsadmin.php">
                                         Elenco Pianeti
                                         <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="apri i miei indirizzi di consegna"/>
                                     </a>
