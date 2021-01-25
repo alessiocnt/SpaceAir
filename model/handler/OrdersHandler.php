@@ -13,7 +13,7 @@ class OrdersHandler extends AbstractHandler {
    */
     public function getOrders(User $user) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $sql = "SELECT O.CodOrder, O.PurchaseDate, O.Total, O.State, S.Description AS StateDescription, PCKO.Quantity, PCK.DateTimeDeparture, PCK.DateTimeArrival, PCK.Price, PCK.MaxSeats, PCK.Description, P.Name AS PlanetName, P.Img   FROM ORDERS O, PACKET_IN_ORDER PCKO, PACKET PCK, PLANET P, ORDER_STATE S WHERE PCKO.CodOrder = O.CodOrder AND PCKO.CodPacket = PCK.CodPacket AND PCK.CodPlanet = P.CodPlanet AND O.State = S.CodState AND O.PurchaseDate IS NOT NULL AND PCKO.Quantity > 0 AND O.IdUser = ? ORDER BY O.CodOrder, PCK.DateTimeDeparture";   
+        $sql = "SELECT O.CodOrder, O.PurchaseDate, O.Total, O.State, S.Description AS StateDescription, PCKO.Quantity, PCK.DateTimeDeparture, PCK.DateTimeArrival, PCK.Price, PCK.MaxSeats, PCK.Description, P.Name AS PlanetName, P.Img   FROM ORDERS O, PACKET_IN_ORDER PCKO, PACKET PCK, PLANET P, ORDER_STATE S WHERE O.State != 1 AND PCKO.CodOrder = O.CodOrder AND PCKO.CodPacket = PCK.CodPacket AND PCK.CodPlanet = P.CodPlanet AND O.State = S.CodState AND O.PurchaseDate IS NOT NULL AND PCKO.Quantity > 0 AND O.IdUser = ? ORDER BY O.CodOrder, PCK.DateTimeDeparture";   
         if($stmt = $db->prepare($sql)) {
             $userId = $user->getId();
             $stmt->bind_param("i", $userId);
@@ -49,7 +49,7 @@ class OrdersHandler extends AbstractHandler {
 
     public function getOrderDetail(Order $order) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $sql = "SELECT O.CodOrder, O.Total, PCKO.Quantity, PCK.DateTimeDeparture, PCK.CodPacket, PCK.DateTimeArrival, PCK.Price, PCK.MaxSeats, PCK.Description, P.Name AS PlanetName, P.Img FROM ORDERS O, PACKET_IN_ORDER PCKO, PACKET PCK, PLANET P WHERE PCKO.CodOrder = O.CodOrder AND PCKO.CodPacket = PCK.CodPacket AND PCK.CodPlanet = P.CodPlanet AND PCKO.Quantity > 0 AND O.CodOrder = ? ORDER BY PCK.DateTimeDeparture";
+        $sql = "SELECT O.CodOrder, O.Total, PCKO.Quantity, PCK.DateTimeDeparture, PCK.CodPacket, PCK.DateTimeArrival, PCK.Price, PCK.MaxSeats, PCK.Description, P.Name AS PlanetName, P.Img FROM ORDERS O, PACKET_IN_ORDER PCKO, PACKET PCK, PLANET P WHERE PCKO.CodOrder = O.CodOrder AND PCKO.CodPacket = PCK.CodPacket AND PCK.CodPlanet = P.CodPlanet AND O.State != 1 AND PCKO.Quantity > 0 AND O.CodOrder = ? ORDER BY PCK.DateTimeDeparture";
         if($stmt = $db->prepare($sql)) {
             $orderId = $order->getCodOrder();
             $stmt->bind_param("i", $orderId);
