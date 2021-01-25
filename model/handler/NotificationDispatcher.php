@@ -93,7 +93,7 @@ class NotificationDispatcher extends AbstractHandler{
         }
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         if(count($result) == 0) {
-            return false;
+            return array();
         } 
         $notificationBuilder = new TemplateNotificationBuilder();
         $notifications = array();
