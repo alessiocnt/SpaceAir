@@ -18,7 +18,7 @@ class CartHandler extends AbstractHandler {
                 FROM ORDERS O
                 WHERE O.PurchaseDate IS NULL && O.IdUser = ?
             ) C ON PIO.CodOrder = C.CodOrder
-        ) PIO ON P.CodPacket = PIO.CodPacket && PIO.Quantity > 0
+        ) PIO ON P.CodPacket = PIO.CodPacket && PIO.Quantity > 0 && P.Visible = 1
         ");
         $userId = $user->getId();
         $stmt->bind_param("i", $userId);
@@ -33,15 +33,6 @@ class CartHandler extends AbstractHandler {
         $orderHandler = new OrderHandler(new ModelImpl());
         $order = new Order($result[0]["CodOrder"]);
         foreach ($result as $packet) {
-            /*
-            $planet = new Planet(0, $packet["Name"], $packet["Img"]);
-            $newPacket = $builder->createFromAssoc($packet);
-            $newPacket->setDestinationPlanet($planet);
-            $order = new Order(packet["CodOrder"]);
-            
-            ORDER->pushPacket($newPacket);
-            
-            */
             $pck = $builder->createFromAssoc($packet);
             $planet = $planetHandler->searchPlanetByCod($pck->getDestinationPlanetId())[0];
             $pck->setDestinationPlanet($planet);

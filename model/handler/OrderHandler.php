@@ -28,13 +28,13 @@ class OrderHandler extends AbstractHandler {
 
     public function getPackets($order) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT CodPacket FROM PACKET_IN_ORDER WHERE CodOrder = ?");
+        $stmt = $db->prepare("SELECT CodPacket FROM PACKET_IN_ORDER WHERE CodOrder = ? && Quantity > 0");
         $codOrder = $order->getCodOrder();
         if(!$stmt->bind_param("i", $codOrder)) {
-            return false;
+            return array();
         }
         if(!$stmt->execute()) {
-            return false;
+            return array();
         }
         $result = $stmt->get_result();
         $result->fetch_all(MYSQLI_ASSOC);

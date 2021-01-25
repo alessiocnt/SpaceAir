@@ -29,7 +29,6 @@ $total = $orderHandler->getTotal($order);
 $user = $model->getUserHandler()->getUserById(Utils::getUserId());
 $user->setAddresses($model->getUserInfoHandler()->getAddresses($user));
 
-$ok = true;
 $packets = $orderHandler->getPackets($order);
 foreach ($packets as $packet) {
     $packet->setAvailableSeats($packetHandler->getAvailableSeats($packet));
