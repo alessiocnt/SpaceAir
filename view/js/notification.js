@@ -22,9 +22,9 @@ $(document).ready(function () {
         notificationQuantity = notificationQnt;
         $("span.notification-badge").text(notificationQnt);
         if (notificationQnt == 0) {
-            $("span.notification-badge").attr("class", "badge invisible");
+            $("span.notification-badge").attr("class", "badge invisible notification-badge");
         } else {
-            $("span.notification-badge").attr("class", "badge visible");
+            $("span.notification-badge").attr("class", "badge visible notification-badge");
         }
 
     }
