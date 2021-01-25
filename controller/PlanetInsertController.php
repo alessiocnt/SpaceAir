@@ -18,7 +18,7 @@ class PlanetInsertController extends AdminLoggedController {
             $data["Composition"] = $_POST["inputComposition"];
             $data["DayLength"] = $_POST["inputDay"];
             $data["Description"] = $_POST["inputDescription"];
-            $data["Visible"] = isset($_POST["inputVisible"]);
+            $data["Visible"] = isset($_POST["inputVisible"]) ? 1 : 0;
             if(isset($_FILES["img"])) {
                 $data["Img"] = $_FILES["img"];
             }
