@@ -68,8 +68,8 @@ class OrderHandler extends AbstractHandler {
                 $descUser = "Posti disponibili insufficienti per il viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
                 $descAdmin = "Disponibilità posti limitata per il viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName()." in partenza il ".$packet->getDepartureDateHour()->format("d-m-Y");
                 $notificationDispatcher = new NotificationDispatcher(new ModelImpl());
-                $notificationDispatcher->createGeneral("Acqusto effettuato", $descUser, array($user));
-                $notificationDispatcher->createGeneral("Nuovo ordine evaso", $descAdmin, array($admin));
+                $notificationDispatcher->createGeneral("Acquisto non effettuato", $descUser, array($user));
+                $notificationDispatcher->createGeneral("Posti in esaurimento ", $descAdmin, array($admin));
                 return false;
             }
         }
