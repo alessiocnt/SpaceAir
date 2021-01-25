@@ -19,7 +19,7 @@ $codOrder = $data["codOrder"];
                     <img src="/spaceair/res/img/<?php echo $packet->getPacket()->getDestinationPlanet()->getImgPlanet(); ?>" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
                     <p class="my-0 text-uppercase font-weight-bold list-impo-text"><?php echo $packet->getPacket()->getDestinationPlanet()->getName();?></p>
                     <p><?php echo $packet->getPacket()->getDepartureDateHour()->format("d/m/Y H:i")?></p>
-                    <p class="text-uppercase my-0"><? echo $user->getName() . " " . $user->getSurname();?></p>
+                    <p class="text-uppercase my-0"><?php echo $user->getName() . " " . $user->getSurname();?></p>
                 </div>
             </div>
         </div>
