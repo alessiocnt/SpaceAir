@@ -20,11 +20,11 @@ $(document).ready(function () {
 
     function updateBadge(notificationQnt) {
         notificationQuantity = notificationQnt;
-        $("span#notification-badge").text(notificationQnt);
+        $("span.notification-badge").text(notificationQnt);
         if (notificationQnt == 0) {
-            $("span#notification-badge").attr("class", "badge invisible");
+            $("span.notification-badge").attr("class", "badge invisible");
         } else {
-            $("span#notification-badge").attr("class", "badge visible");
+            $("span.notification-badge").attr("class", "badge visible");
         }
 
     }
