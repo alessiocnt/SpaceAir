@@ -8,19 +8,30 @@ class CartHandler extends AbstractHandler {
         parent::__construct($model);
     }
 
-    public function getCart() {
+    public function getCart($user) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT PACKET.*, PACKET_IN_ORDER.Quantity, PACKET_IN_ORDER.CodOrder, PLANET.Img, PLANET.Name
-        FROM PACKET JOIN PACKET_IN_ORDER ON PACKET.CodPacket = PACKET_IN_ORDER.CodPacket JOIN ORDERS ON ORDERS.CodOrder = PACKET_IN_ORDER.CodOrder JOIN PLANET ON PLANET.CodPlanet = PACKET.CodPlanet
-        WHERE ORDERS.PurchaseDate IS NULL AND PACKET_IN_ORDER.Quantity > 0 AND ORDERS.IdUser = ?");
-        $stmt->bind_param("i", $_SESSION["user_id"]);
+        $stmt = $db->prepare("SELECT P.*, PIO.Quantity, PIO.CodOrder
+        FROM PACKET P JOIN (
+            SELECT PIO.Quantity, PIO.CodPacket, PIO.CodOrder
+            FROM PACKET_IN_ORDER PIO JOIN (
+                SELECT O.CodOrder
+                FROM ORDERS O
+                WHERE O.PurchaseDate IS NULL && O.IdUser = ?
+            ) C ON PIO.CodOrder = C.CodOrder
+        ) PIO ON P.CodPacket = PIO.CodPacket && PIO.Quantity > 0
+        ");
+        $userId = $user->getId();
+        $stmt->bind_param("i", $userId);
         $stmt->execute();
-        $result = $stmt->get_result();
-        $result->fetch_all(MYSQLI_ASSOC);
-
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return new Order(0);
+        }
         $builder = new PacketBuilder();
-        $packets = array();
-        $packetHandler = new PacketHandler(new ModelImpl);
+        $packetHandler = new PacketHandler(new ModelImpl());
+        $planetHandler = new PlanetHandler(new ModelImpl());
+        $orderHandler = new OrderHandler(new ModelImpl());
+        $order = new Order($result[0]["CodOrder"]);
         foreach ($result as $packet) {
             /*
             $planet = new Planet(0, $packet["Name"], $packet["Img"]);
@@ -32,10 +43,14 @@ class CartHandler extends AbstractHandler {
             
             */
             $pck = $builder->createFromAssoc($packet);
+            $planet = $planetHandler->searchPlanetByCod($pck->getDestinationPlanetId())[0];
+            $pck->setDestinationPlanet($planet);
             $pck->setAvailableSeats($packetHandler->getAvailableSeats($pck));
-            array_push($packets, array("packet"=>$pck,"codOrder"=>$packet["CodOrder"], "quantity"=>$packet["Quantity"], "planetName"=>$packet["Name"]));
+            $order->pushPacket(array($pck, $packet["Quantity"]));
+            $order->setTotal($orderHandler->getTotal($order));
+            //array_push($packets, array("packet"=>$pck,"codOrder"=>$packet["CodOrder"], "quantity"=>$packet["Quantity"], "planetName"=>$packet["Name"]));
         }
-        return $packets;
+        return $order;
     }
 
     public function changeQuantity($id, $quantity, $order) {

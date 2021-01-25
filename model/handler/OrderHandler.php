@@ -46,10 +46,10 @@ class OrderHandler extends AbstractHandler {
         return $packets;
     }
 
-    public function purchaseOrder($order, $user, $total) {
+    public function purchaseOrder($order, $user, $total, $addr) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("UPDATE ORDERS SET PurchaseDate = NOW(), DestAddressCode = ?, State = 1, Total = ? WHERE CodOrder = ? AND IdUser = ?");
-        $address = $user->getAddresses()[0]->getCodAddress();
+        $address = $addr->getCodAddress();
         $userId = $user->getId();
         $codOrder = $order->getCodOrder();
         if(!$stmt->bind_param("iiii", $address, $total,  $codOrder, $userId)) {
@@ -91,6 +91,22 @@ class OrderHandler extends AbstractHandler {
         }
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         return $result[0]["Quantity"];
+    }
+
+    public function getTotal($order) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT SUM((Price * Quantity)) as Totale
+        FROM PACKET_IN_ORDER PIO JOIN PACKET P ON PIO.CodPacket = P.CodPacket
+        WHERE PIO.CodOrder = ?");
+        $codOrder = $order->getCodOrder();
+        if(!$stmt->bind_param("i", $codOrder)) {
+            return false;
+        }
+        if(!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["Totale"];
     }
 
 }

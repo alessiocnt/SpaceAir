@@ -27,7 +27,7 @@ $(document).ready(function() {
     });
 
     $('form').submit(function (e) {
-        $("input#Totale").removeAttr("disabled");
+        $("p#Totale").removeAttr("disabled");
     });
 
     function total() {
@@ -35,6 +35,6 @@ $(document).ready(function() {
         $("p.totalPrice").each(function() {
             tot += Number($(this).text().split("€")[1]);
         })
-        $("input#Totale").val("Totale € " + tot);
+        $("p#Totale").text("Totale € " + tot);
     }
 }); 

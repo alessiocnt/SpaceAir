@@ -22,9 +22,9 @@ if(!$model->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER)) {
 $user = Utils::getUserId();
 $cod = $_POST['codOrder'];
 
-
+$addr = new Address($_POST["addr"]);
 $order = $orderHandler->getOrderById($cod);
-$total = $_POST["total"];
+$total = $orderHandler->getTotal($order);
 
 
 $user = $model->getUserHandler()->getUserById(Utils::getUserId());
@@ -41,7 +41,7 @@ foreach ($packets as $packet) {
 $admin = $userInfoHandler->getAdmin();
 
 if($orderHandler->checkAvailable($order, $user, $admin)) {
-    if($orderHandler->purchaseOrder($order, $user, $total)) {
+    if($orderHandler->purchaseOrder($order, $user, $total, $addr)) {
         echo "Acquisto effettuato";
         $descUser = "Hai acquistato i seguenti pacchetti ";
         $descAdmin = "Sono stati acquistati i seguenti pacchetti ";

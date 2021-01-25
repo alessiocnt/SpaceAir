@@ -1,9 +1,6 @@
 $(document).ready(function () {
-    const tot = $('p#tot').text().split('€')[1];
     let metod = null;
     $('article#card').hide();
-    const cred = $('a#cred');
-    const paypal = $('a#paypal');
 
     $('a#cred').click(function (e) {
         e.preventDefault();
@@ -38,8 +35,12 @@ $(document).ready(function () {
     $('#formPayment').submit(function (e) {
         e.preventDefault();
         const cod = $('#CodOrder').val();
-        
-        $.post("/spaceair/controller/api/PaymentApi.php/", { codOrder: cod, total: tot },
+        const addr = $('#Addr').val();
+        if(addr == "") {
+            $('#paymentResult').text("Selezionare l'indirizzo di consegna");
+            return;
+        }
+        $.post("/spaceair/controller/api/PaymentApi.php/", { codOrder: cod, addr: addr },
         function(data) {
             $('#paymentResult').text(data);
         });

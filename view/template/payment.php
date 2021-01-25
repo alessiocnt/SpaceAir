@@ -12,43 +12,17 @@
         <div class="row">
             <div class="top-line col-md-6 offset-md-3 mb-6">
                 <h2 class="text-center col-title font-weight-lighter mt-12">Indirizzo di consegna</h2>
-                <form action="#" id="formAddr">
-                    <div class="row mb-3 mt-2">
-                        <div class="col-9">
-                            <label for="inputVia">Via</label>
-                            <input type="text" class="form-control" name="inputVia" id="inputVia" value="<?=$data["Address"]->getVia();?>" required />
-                        </div>
-                        <div class="col-3">
-                            <label for="inputCivico">Civico</label>
-                            <input type="text" class="form-control" name="inputCivico" id="inputCivico" value="<?=$data["Address"]->getCivico();?>" required />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-6">
-                            <label for="inputCitta">Città</label>
-                            <input type="text" class="form-control" name="inputCitta" id="inputCitta" value="<?=$data["Address"]->getCitta();?>" required />
-                        </div>
-                        <div class="col-3">
-                            <label for="inputProvincia">Provincia</label>
-                            <input type="text" class="form-control" name="inputProvincia" id="inputProvincia" value="<?=$data["Address"]->getProvincia();?>" required />
-                        </div>
-                        <div class="col-3">
-                            <label for="inputCap">Cap</label>
-                            <input type="number" min="10000" max="99999" step="1" class="form-control" name="inputCap" id="inputCap" value="<?=$data["Address"]->getCap();?>"required />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                    <div class="col-8 col-md-10 col-error" id="changeAddressResult"></div>
-                        <div class="col-4 offset-8 col-md-2 offset-md-10">
-                            <input type="submit" class="form-control" value="Conferma" />
-                        </div>
-                    </div>
-                </form>
+                <select name="Addr" id="Addr" class="form-control" required>
+                    <option value="">Seleziona...</option>
+                    <?php foreach ($data["addresses"] as $addr) : ?>
+                    <option value="<?= $addr->getCodAddress()?>">Via <?=$addr->getVia()." ".$addr->getCivico()." ".$addr->getCitta()?> (<?=$addr->getProvincia()?>)</option>
+                    <?php endforeach; ?>
+                </select>
             </div>
         </div>
     </article>
     <article>
-        <div class="row">
+        <div class="row mt-3">
             <div class="top-line col-md-6 offset-md-3 mb-6">
                 <h2 class="text-center col-title font-weight-lighter mt-12">Metodo di pagamento</h2>
                 <div class="row">
