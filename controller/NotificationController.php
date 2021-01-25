@@ -10,7 +10,7 @@ class NotificationController extends AbstractController {
 
     public function execute() {
         if(!$this->getModel()->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER) && !$this->getModel()->getUserHandler()->checkLogin(UserHandler::$LOGINOKADMIN)) {
-            die(json_encode(array("msg" => "ko")));
+            header("location: /spaceair/login.php");
         }
         $notificationHandler = $this->getModel()->getNotificationDispatcher();
         $data["data"]["notifications"] = $notificationHandler->getAllNotificationsOfUser(new User(Utils::getUserId()));
