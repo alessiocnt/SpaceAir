@@ -239,6 +239,7 @@ class UserInfoHandler extends AbstractHandler {
         $builder = new UserBuilder();
         return $builder->createFromAssoc($result[0]);
     }
+
 }
 
 ?>
