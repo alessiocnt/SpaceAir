@@ -13,7 +13,7 @@ class AdminInfoHandler extends AbstractHandler {
     */  
     public function getSalesPerPlanet() {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $sql = "SELECT P.CodPlanet, P.Name, SUM(PAO.Quantity) AS Quantity FROM ORDERS O, PACKET_IN_ORDER PAO, PACKET PA, PLANET P WHERE O.State != 1 AND PAO.CodOrder = O.CodOrder AND PAO.CodPacket = PA.CodPacket AND PA.CodPlanet = P.CodPlanet GROUP BY P.CodPlanet, P.Name";
+        $sql = "SELECT P.CodPlanet, P.Name, SUM(PAO.Quantity) AS Quantity FROM ORDERS O, PACKET_IN_ORDER PAO, PACKET PA, PLANET P WHERE O.State != 1 AND PAO.CodOrder = O.CodOrder AND PAO.CodPacket = PA.CodPacket AND PA.CodPlanet = P.CodPlanet GROUP BY P.CodPlanet, P.Name ORDER BY Quantity DESC";
         $array = array();
         if($stmt = $db->prepare($sql)) {
             $stmt->execute();
