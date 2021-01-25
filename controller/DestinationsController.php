@@ -5,9 +5,6 @@ class DestinationsController extends AbstractController {
     
     public function __construct($model) {
         parent::__construct($model);
-
-        //Start secure session
-        Utils::sec_session_start();
     }
 
     public function execute() {

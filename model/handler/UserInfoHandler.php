@@ -227,9 +227,7 @@ class UserInfoHandler extends AbstractHandler {
 
     public function getAdmin() {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT * 
-        FROM USERS
-        WHERE Type = 1");
+        $stmt = $db->prepare("SELECT * FROM USERS WHERE Type = 1");
         if (!$stmt->execute()) {
             return false;
         }

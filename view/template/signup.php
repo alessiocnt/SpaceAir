@@ -38,12 +38,12 @@
                 <div class="form-group">
                     <label for="password" class="col-text">Password</label>
                     <input type="password" class="col-back-white form-control" name="password" id="password" required/>
-                    <p class="col-error d-none">La password deve essere lunga almeno 8 caratteri</p>
+                    <p class="col-error"></p>
                 </div>
                 <div class="form-group">
                     <label for="confirmpassword" class="col-text">Conferma Password</label>
                     <input type="password" class="col-back-white form-control" name="confirmpassword" id="confirmpassword" required/>
-                    <p class="col-error d-none">Le due password non corrispondono</p>
+                    <p class="col-error"></p>
                 </div>
                 </fieldset>
 
@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col-12 mt-1 mb-4 align-center">
                             <div class="mx-auto avatar-container">
-                                <img src="/spaceair/res/icons/decorative/user.jpeg" id="previewimg" class="avatar-img rounded-circle" alt="Immagine selezionata"/>
+                                <img src="/spaceair/res/icons/decorative/noimg.png" id="previewimg" class="avatar-img rounded-circle" alt="Immagine selezionata"/>
                             </div>
                         </div>
                     </div>
