@@ -30,7 +30,7 @@ class AdminInfoHandler extends AbstractHandler {
 
     public function getPopularPackets() {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $sql = "SELECT PA.CodPacket, P.Name, PA.DateTimeDeparture, SUM(PAO.Quantity) AS Quantity FROM ORDERS O, PACKET_IN_ORDER PAO, PACKET PA, PLANET P WHERE O.State != 1 AND PAO.CodOrder = O.CodOrder AND PAO.CodPacket = PA.CodPacket AND PA.CodPlanet = P.CodPlanet GROUP BY PA.CodPacket, P.Name ORDER BY Quantity DESC LIMIT 10";
+        $sql = "SELECT PA.CodPacket, P.Name, PA.DateTimeDeparture, PA.MaxSeats, SUM(PAO.Quantity) AS Quantity FROM ORDERS O, PACKET_IN_ORDER PAO, PACKET PA, PLANET P WHERE O.State != 1 AND PAO.CodOrder = O.CodOrder AND PAO.CodPacket = PA.CodPacket AND PA.CodPlanet = P.CodPlanet GROUP BY PA.CodPacket, P.Name, PA.MaxSeats HAVING Quantity > 0 ORDER BY Quantity DESC LIMIT 10";
         
         $array = array();
         if($stmt = $db->prepare($sql)) {
@@ -39,7 +39,7 @@ class AdminInfoHandler extends AbstractHandler {
             $results = $results->fetch_all(MYSQLI_ASSOC);
 
             foreach($results as $result) {
-                array_push($array, array("planet" => $result["Name"], "date" => date("d/m/Y",strtotime($result["DateTimeDeparture"])), "quantity" => $result["Quantity"]));
+                array_push($array, array("planet" => $result["Name"], "date" => date("d/m/Y",strtotime($result["DateTimeDeparture"])), "perc" => ($result["Quantity"]/$result["MaxSeats"]) * 100));
             } 
         }
 

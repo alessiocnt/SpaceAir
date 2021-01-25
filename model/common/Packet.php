@@ -52,6 +52,10 @@ class Packet {
         return $this->AvailableSeats;
     }
 
+    public function getOccupiedSeats() : int {
+        return $this->maxSeats - $this->AvailableSeats;
+    }
+
     public function getDescription() : string {
         return $this->description;
     }
