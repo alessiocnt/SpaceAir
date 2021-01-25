@@ -57,7 +57,8 @@ class NotificationDispatcher extends AbstractHandler{
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT T.DateTime, T.Title, T.CodNotification
         FROM USER_NOTIFICATION U JOIN TEMPLATE_NOTIFICATION T ON U.CodNotification = T.CodNotification
-        WHERE U.IdUser = ? AND View = 0");
+        WHERE U.IdUser = ? AND View = 0
+        ORDER BY T.DateTime");
         $userId = $user->getId();
         if (!$stmt->bind_param('i', $userId)) {
             return false;
@@ -81,7 +82,8 @@ class NotificationDispatcher extends AbstractHandler{
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT T.DateTime, T.Title, T.Description
         FROM USER_NOTIFICATION U JOIN TEMPLATE_NOTIFICATION T ON U.CodNotification = T.CodNotification
-        WHERE U.IdUser = ?");
+        WHERE U.IdUser = ?
+        ORDER BY T.DateTime DESC");
         $userId = $user->getId();
         if (!$stmt->bind_param('i', $userId)) {
             return false;
