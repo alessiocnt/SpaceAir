@@ -18,7 +18,7 @@
                     <div id="shop">
                         <div id="shopchart" class="graph"></div>
                         <!-- Table with graph data for accessibility -->
-                        <div id="shoptable" class="graph-table"></div>
+                        <div id="shoptable" class="sr-only"></div>
                     </div>
                 </article>
                 <article class="mt-5">
@@ -27,7 +27,7 @@
                     <div id="popularticket">
                         <div id="popularticketchart" class="graph"></div>
                         <!-- Table with graph data for accessibility -->
-                        <div id="populartickettable" class="graph-table"></div>
+                        <div id="populartickettable" class="sr-only"></div>
                     </div>
                 </article>
                 <article class="mt-5">
@@ -81,7 +81,7 @@
                     </div>
                     <div class="row">
                             <div class="col-12">
-                                <a class="mt-5 btn col-btn-impo col-text offset-1 col-4 col-md-2" href="?logout=1" role="button">Logout</a>
+                                <a class="mt-5 btn col-btn-impo col-text offset-1 col-5" href="?logout=1" role="button">Logout</a>
                             </div>
                     </div>
             </section>

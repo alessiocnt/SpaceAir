@@ -147,8 +147,9 @@ class UserHandler extends AbstractHandler {
       $password = hash('sha512', $user->getPassword().$random_salt);
       
       echo exec('whoami');
+      $imageName = "";
       //First try to insert image
-      if($user->getImgProfile() != "") {
+      if($user->getImgProfile()["name"] != "") {
          list($uploadResult, $imageName) = Utils::uploadImage($_SERVER["DOCUMENT_ROOT"] . "/spaceair/res/upload/user/", $user->getImgProfile());
          if($uploadResult != Utils::$IMGUPLOADOK) {
             return $uploadResult;

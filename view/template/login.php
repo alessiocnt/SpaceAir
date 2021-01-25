@@ -28,7 +28,7 @@
 
                 <input type="submit" class="mt-2 py-2 col-12 btn col-btn-impo col-title font-weight-light" value="Login"/> 
             </form>
-            <p class="mt-1 col-text font-weight-light">Non hai un account? <a href="#" class="col-link">Registrati!</a></p>
+            <p class="mt-1 col-text font-weight-light">Non hai un account? <a href="./signup.php" class="col-link">Registrati!</a></p>
         </div>
     </div>
 </section>

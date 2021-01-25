@@ -2,6 +2,7 @@ $(document).ready(function() {
     $("img.delete").on("click", function() {
         const addressContainer = $(this).parent().parent().parent();
         const addressId = addressContainer.attr("id");
+        $("p.col-error").html("");
         
         //Send AJAX request to delete
         $.post("./controller/api/deleteAddressApi.php", {"addressId" : addressId}, function(data){ 
@@ -12,15 +13,12 @@ $(document).ready(function() {
                 switch(dataJson["result"]) {
                     case 2:
                         //IMPOSSIBLE REMOVE: Address used in an order
-                        $("p.col-error").removeClass("d-none");
+                        $("p.col-error").append(`<span class="font-weight-bold">Impossibile cancellare:</span> indirizzo utilizzato in un ordine.`);
                     break;
                     default:
                         //Ok deleted
                         //Request ok so fade out div
                         addressContainer.slideUp(); 
-                        if(!$("p.col-error").hasClass("d-none")) {
-                            $("p.col-error").addClass("d-none");
-                        }
                     break
                 }
             }

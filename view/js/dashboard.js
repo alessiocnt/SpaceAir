@@ -125,9 +125,9 @@ $(document).ready(function() {
 
 
     $("#shop").on("click",function() {
-        $("#shoptable").slideToggle();
+        $("#shoptable").toggleClass("sr-only");
     });
     $("#popularticket").on("click",function() {
-        $("#populartickettable").slideToggle();
+        $("#populartickettable").toggleClass("sr-only");
     });
 });

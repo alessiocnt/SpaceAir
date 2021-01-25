@@ -10,8 +10,8 @@ $(document).ready(function() {
         const pwdVal = pwd.val();
         const confPwdVal = confPwd.val();
 
-        pwd.next().addClass("d-none");    
-        confPwd.next().addClass("d-none");    
+        pwd.next().html("");    
+        confPwd.next().html("");    
         
         if(pwdVal === confPwdVal) {
             if(checkPwd(pwdVal)) {
@@ -22,16 +22,15 @@ $(document).ready(function() {
                 p.value = hex_sha512(pwdVal);
                 e.currentTarget.submit();
             } else {
-                pwd.next().removeClass("d-none");    
+                pwd.next().append("La password deve essere lunga almeno 8 caratteri");    
             }
         } else {
-            confPwd.next().removeClass("d-none");
+            confPwd.next().append("Le due password non corrispondono");
         }
     });
 
     $("body main form input[type=file]").change(function() {
         const file = $(this).get(0).files[0];
-        console.log("aaa");
         if(file){
             const reader = new FileReader();
  
