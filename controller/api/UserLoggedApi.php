@@ -13,7 +13,7 @@ Utils::sec_session_start();
 $model = new ModelImpl();
 if(!$model->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER)) {
     echo json_encode(array("Error" => "Not logged"));
-    /* header("location: /spaceair/login.php"); */
+    die();
 }
 
 ?>

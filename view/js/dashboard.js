@@ -105,24 +105,24 @@ function createTicketGraph(id, inputData) {
     });
 }
 
-$(document).ready(function() {
-    let data = [
-        { key: "Luna",  value: 18  },
-        { key: "Marte", value: 45  },
-        { key: "Venere", value: 31  }
-    ];
-    let data2 = [
-        { key: "Mercurio 15/04/2020",  value: 20  },
-        { key: "Luna 10/10/2019", value: 45  },
-        { key: "Venere 5/05/2015", value: 10  },
-        { key: "Luna 7/05/2015", value: 5  },
-        { key: "Venere 15/07/2020",  value: 20  }
-    ];
-    const chart = createPlanetGraph("shop",data);
-    const piechart = createTicketGraph("popularticket",data2);
-    chart.render();
-    piechart.render();
 
+$(document).ready(function() {
+
+    $.getJSON("./controller/api/StaticsApi.php", function(data){ 
+        let dataSales = [];
+        let dataPopularPacket = [];
+        data.sales.forEach((e) => {
+            dataSales.push({key: e.planet, value: parseInt(e.quantity)});
+        });
+        data.popularPacket.forEach((e) => {
+            dataPopularPacket.push({key: e.planet + " " + e.date, value: parseInt(e.quantity)});
+        });
+
+        const chart = createPlanetGraph("shop",dataSales);
+        const piechart = createTicketGraph("popularticket",dataPopularPacket);
+        chart.render();
+        piechart.render();
+    });
 
     $("#shop").on("click",function() {
         $("#shoptable").toggleClass("sr-only");

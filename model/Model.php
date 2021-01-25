@@ -11,6 +11,7 @@ interface Model {
     public function getReviewHandler();
     public function getNotificationDispatcher();
     public function getOrdersHandler();
+    public function getAdminInfoHandler();
     //Test
     public function getTestHandler();
 }
