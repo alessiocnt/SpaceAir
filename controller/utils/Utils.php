@@ -85,6 +85,10 @@ class Utils {
         }
         return array($result,$imageName);
     }
+
+    public function checkAdmin() {
+        return isset($_SESSION["admin"]);
+    }
 }
 
 ?>

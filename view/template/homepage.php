@@ -12,26 +12,34 @@
 
     <a name="overview"></a>
     <?php foreach($data["planets"] as $planet): ?>
-        <section class="mb-3">
-            <article class="mb-5 col-10 offset-1">
-                <header>
-                    <h2 class="text-center col-title"><?php echo $planet->getName(); ?></h2>
-                </header>
-                <div class="row">
-                    <ul class="col-text col-2 space-vertical">
-                        <li class="w-100">Temperatura <?php echo $planet->getTemperature(); ?>°C</li>
-                        <li class="w-100">Massa <?php echo $planet->getMass(); ?>x10<sup>22</sup>Kg</li>
-                        <li class="w-100">Composizione <?php echo $planet->getComposition(); ?></li>
-                    </ul>
-                    <img alt="<?php echo $planet->getName(); ?>" src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="col-8 img-fluid">
-                    <ul class="col-text col-2 space-vertical">
-                        <li class="w-100">Distanza dal Sole <?php echo $planet->getSunDistance(); ?>x10<sup>6</sup>Km</li>
-                        <li class="w-100">Superficie <?php echo $planet->getSurface(); ?>x10<sup>6</sup>Km<sup>2</sup></li>
-                        <li class="w-100">Giornata <?php echo $planet->getDayLength(); ?> ore</li>
-                    </ul>
-                </div>
-            </article>
-        </section>
+        <div class="row">
+            <div class="col-10 offset-1 col-md-6 offset-md-3 top-line"></div>
+            <div class="col-12">
+                
+                <section class="mb-3">
+                    <article class="mb-5 col-10 offset-1 col-md-6 offset-md-3">
+                        <header>
+                            <h2 class="text-center col-title"><?php echo $planet->getName(); ?></h2>
+                        </header>
+                        <div class="row">
+                            <ul class="col-text col-2 space-vertical">
+                                <li class="w-100">Temperatura <?php echo $planet->getTemperature(); ?>°C</li>
+                                <li class="w-100">Massa <?php echo $planet->getMass(); ?>x10<sup>22</sup>Kg</li>
+                                <li class="w-100">Composizione <?php echo $planet->getComposition(); ?></li>
+                            </ul>
+                            <div class="col-8 text-center">
+                                <img alt="<?php echo $planet->getName(); ?>" src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="img-fluid w-md-50  rounded-circle">
+                            </div>
+                            <ul class="col-text col-2 space-vertical">
+                                <li class="w-100">Distanza dal Sole <?php echo $planet->getSunDistance(); ?>x10<sup>6</sup>Km</li>
+                                <li class="w-100">Superficie <?php echo $planet->getSurface(); ?>x10<sup>6</sup>Km<sup>2</sup></li>
+                                <li class="w-100">Giornata <?php echo $planet->getDayLength(); ?> ore</li>
+                            </ul>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
     <?php endforeach; ?>
 
 </section>

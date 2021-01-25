@@ -94,7 +94,7 @@
                 </div>
                 <input type="submit" class="mt-2 py-2 col-12 btn col-btn-impo col-title font-weight-light" value="Registrati"/> 
             </form>
-            <p class="mt-1 col-text font-weight-light">Hai gi&agrave; un account? <a href="#" class="col-link">Login</a></p>
+            <p class="mt-1 col-text font-weight-light">Hai gi&agrave; un account? <a href="./login.php" class="col-link">Login</a></p>
         </div>
     </div>
 </section>

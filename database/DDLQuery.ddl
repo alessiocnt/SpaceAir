@@ -102,8 +102,7 @@ create table ORDERS (
 create table TRACK (
      CodOrder int not null,
      DateTime datetime not null,
-     Latitude Decimal(8,6) not null,
-     Longitude Decimal(9,6) not null,
+     Citta varchar(200) not null,
      Description varchar(200) not null,
      primary key(CodOrder, DateTime),
      foreign key(CodOrder) references ORDERS(CodOrder)

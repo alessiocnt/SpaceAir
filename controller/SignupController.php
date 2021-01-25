@@ -16,7 +16,9 @@ class SignupController extends AbstractController {
         if($userHandler->checkLogin(UserHandler::$LOGINOKUSER)) {
             //Go to profile page
             header("Location:profile.php");
-
+        } else if($userHandler->checkLogin(UserHandler::$LOGINOKADMIN)){
+            //Go to dashboard
+            header("Location:dashboardhome.php");
         } else if(isset($_POST["criptopassword"])) {
             $data["Name"] = $_POST["name"];
             $data["Surname"] = $_POST["surname"];

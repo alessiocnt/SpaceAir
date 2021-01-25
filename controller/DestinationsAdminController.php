@@ -15,14 +15,14 @@ class DestinationsAdminController extends AdminLoggedController {
             if($result == false) {
                 $data["data"]["error"] = "Nessun pianeta trovato.";
                 $data["header"]["title"] = "Elenco destinazioni";
-                $data["header"]["js"] = ["/spaceair/view/js/editDestination.js", "/spaceair/view/js/deleteDestination.js"];
+                $data["header"]["js"] = [];
                 $data["header"]["css"] = [];
                 $view = new GenericView("destinationsadmin");
                 $view->render($data);
             } else {
                 $data["data"]["planets"] = $result;
                 $data["header"]["title"] = "Elenco destinazioni";
-                $data["header"]["js"] = ["/spaceair/view/js/editDestination.js", "/spaceair/view/js/deleteDestination.js"];
+                $data["header"]["js"] = [];
                 $data["header"]["css"] = [];
                 $view = new GenericView("destinationsadmin");
                 $view->render($data); 
@@ -30,7 +30,7 @@ class DestinationsAdminController extends AdminLoggedController {
         } else {
             $data["data"]["planets"] = $planetHandler->getAllPlanets();
             $data["header"]["title"] = "Elenco destinazioni";
-            $data["header"]["js"] = ["/spaceair/view/js/editDestination.js", "/spaceair/view/js/deleteDestination.js"];
+            $data["header"]["js"] = [];
             $data["header"]["css"] = [];
             $view = new GenericView("destinationsadmin");
             $view->render($data); 

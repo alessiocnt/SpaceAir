@@ -1,14 +1,14 @@
 <section>    
-    <header class="offset-1 mb-3 col-md-6 offset-md-3">
+    <header class="">
         <div class="row">
-            <div class="col-12 pl-0">
+            <div class="col-12 mb-3 col-md-6 offset-md-3 pl-2">
                     <h1 class="text-left col-title font-weight-lighter">Modifica destinazione</h1>
             </div>
         </div>
     </header>
     <?php $planet = $data["planets"] ?> 
     <div class="row">
-        <div class="col-md-6 offset-md-3 mb-3">
+        <div class="col-12 col-md-6 offset-md-3 mb-3">
             <form action="/spaceair/controller/api/PlanetModifyApi.php" method="POST" enctype="multipart/form-data">
                 <input id="old-planet" name="old-planet" type="hidden" value="<?php echo $planet->getCodPlanet(); ?>"/>
                 <div class="row mb-3">
@@ -16,9 +16,9 @@
                         <label for="inputName">Nome</label>
                         <input type="text" class="form-control" name="inputName" id="inputName" autocomplete="on" required value="<?php echo $planet->getName()?>"/>
                     </div>
-                    <div class="col-6 overflow-hidden">
-                            <label for="img" class="">Immagine</label>
-                            <input type="file" class="rounded p-1 col-back-white" name="img" id="img" />
+                    <div class="col-6">
+                        <label for="img">Immagine</label>
+                        <input type="file" class="form-control rounded col-black-white p-0" name="img" id="img" />
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <label for="inputSunDistance">Distanza dal Sole (x10<sup>6</sup>)</label>
+                        <label for="inputSunDistance">Distanza Sole (x10<sup>6</sup>)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Km</span>

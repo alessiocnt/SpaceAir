@@ -11,8 +11,8 @@
         <form action="#" method="POST">
             <div class="row">
                 <label for="searchBar" class="d-none">Ricerca</label>
-                <input type="search" class="form-control col-11" name="searchBar" id="searchBar" autocomplete="on"/>
-                <button class="btn col-1" type="submit">
+                <input type="search" class="form-control col-10" name="searchBar" id="searchBar" autocomplete="on"/>
+                <button class="btn col-2" type="submit">
                     <span class="input-group-addon">
                         <img src="/spaceair/res/icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
                     </span>
@@ -45,8 +45,8 @@
         </ul>
     </div>
     <section>
-        <div class="row fixed-bottom">
-            <div class="col-md-6 offset-md-3 mr-1">
+        <div class="row fixed">
+            <div class="col-10 offset-1 col-md-6 offset-md-3 mr-1">
                 <!-- Light circle button with ripple effect -->
                 <a href="planetinsert.php" class="btn rounded-circle col-btn-impo btn-md pmd-btn-raised float-right top-add-btn" title="Aggiungi nuovo pianeta">
                     <img src="/spaceair/res/icons/add-black-36dp.svg" alt="Crea nuovo pianeta" class="pt-1 pb-1"/>

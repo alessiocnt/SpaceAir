@@ -1,7 +1,7 @@
 <section>
     <header>
         <div class="row">
-            <div class="col-12">
+            <div class="col-10 offset-1 px-0 offset-md-2">
                     <h1 class="text-left col-title font-weight-lighter">Profile</h1>
             </div>
         </div>

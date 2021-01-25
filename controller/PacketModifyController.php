@@ -35,7 +35,6 @@ class PacketModifyController extends AdminLoggedController {
 
             $pack["CodPacket"] = $_POST["packetId"];
             $pack["CodPlanet"] = $_POST["inputDestination"];
-            /* $pack["imgPlanet"] = $_POST["inputImage"]; */
             $pack["DateTimeDeparture"] = DateTime::createFromFormat("Y-m-j\TH:i", $_POST["inputDepartureDateHour"])->format('Y-m-d H:i:s');
             $pack["DateTimeArrival"] = DateTime::createFromFormat("Y-m-j\TH:i", $_POST["inputArriveDateHour"])->format('Y-m-d H:i:s');
             $pack["MaxSeats"] = $_POST["inputCapacity"];
