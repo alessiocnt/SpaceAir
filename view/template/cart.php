@@ -20,7 +20,7 @@
                                         <img src="/spaceair/res/upload/admin/<?= $assoc["packet"]->getImg(); ?>" class="card-img" alt="">
                                     </div>
                                     <div class="col-8 col-md-9">
-                                        <a href="#" name="<?= $assoc["packet"]->getCode();?>" class=" <?= $assoc["codOrder"]; ?>" title="Rimuovi dal carrello">
+                                        <a href="#" name="<?= $assoc["packet"]->getCode();?>" class=" <?= $assoc["codOrder"]; ?> cart-remove" title="Rimuovi dal carrello">
                                             <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right md-1" alt="Rimuovi dal carrello">
                                         </a>
                                         <p class="my-0 text-uppercase font-weight-bold list-impo-text mb-2">Viaggio verso <?= $assoc["planetName"]; ?></p>
@@ -28,7 +28,7 @@
                                         <p>Arrivo: <?= $assoc["packet"]->getArriveDateHour()->format("d-m-Y - H:m"); ?></p>
                                         <p id="p<?= $assoc["packet"]->getCode(); ?>" class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4 totalPrice">Costo €<?= $assoc["quantity"] * $assoc["packet"]->getPrice(); ?></p>
                                         <label for="<?= $assoc["packet"]->getCode(); ?>" class="invisible custom-file-label">Quantità prodotto</label>
-                                        <div class="input-group col-4 col-md-3 pl-0">
+                                        <div class="input-group col-4 pl-0">
                                             <input type="number" class="form-control font-weight-normal my-0 float-left bottom mr-1 mt-3" name="<?= $assoc["codOrder"]; ?>" id="<?= $assoc["packet"]->getCode(); ?>" value="<?= $assoc["quantity"]; ?>" min="1" max="<?=$assoc["packet"]->getAvailableSeats()?>" step="1" />
                                         </div>
                                     </div>

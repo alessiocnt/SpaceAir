@@ -14,7 +14,7 @@ $(document).ready(function() {
         });
     });
 
-    $("a").click(function(e) {
+    $("a.cart-remove").click(function(e) {
         e.preventDefault();
         const order = $(this).attr("class");
         const packet = $(this).attr("name");
