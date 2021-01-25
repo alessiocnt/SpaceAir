@@ -95,6 +95,40 @@ class OrdersHandler extends AbstractHandler {
 
         return false;
     }
+
+    public function getInProgressOrders() {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $sql = "SELECT O.CodOrder, O.PurchaseDate, O.Total, O.State, S.Description AS StateDescription, PCKO.Quantity, PCK.DateTimeDeparture, PCK.DateTimeArrival, PCK.Price, PCK.MaxSeats, PCK.Description, P.Name AS PlanetName, P.Img   FROM ORDERS O, PACKET_IN_ORDER PCKO, PACKET PCK, PLANET P, ORDER_STATE S WHERE O.State NOT IN(1,4) AND PCKO.CodOrder = O.CodOrder AND PCKO.CodPacket = PCK.CodPacket AND PCK.CodPlanet = P.CodPlanet AND O.State = S.CodState AND O.PurchaseDate IS NOT NULL AND PCKO.Quantity > 0 ORDER BY O.CodOrder, PCK.DateTimeDeparture";   
+        if($stmt = $db->prepare($sql)) {
+            $stmt->execute();
+            $results = $stmt->get_result();
+            $results = $results->fetch_all(MYSQLI_ASSOC);
+
+            $currentOrderId = 0;
+            $orderBuilder = new OrderBuilder();
+            $packetBuilder = new PacketBuilder();
+            $currentOrder;
+            $array = array();
+            foreach($results as $result) {
+                if($result["CodOrder"] != $currentOrderId) {
+                    //New order
+                    $currentOrder = $orderBuilder->createFromAssoc($result);
+                    $state = new OrderState($result["State"], $result["StateDescription"]);
+                    $currentOrder->setState($state);
+                    $currentOrderId = $result["CodOrder"];
+                    array_push($array, $currentOrder);
+                }
+
+                $packet = $packetBuilder->createFromAssoc($result);
+                $packet->setDestinationPlanet(new Planet(0, $result["PlanetName"]));
+                $currentOrder->pushPacket($packet);
+            }
+
+            return $array;
+        }
+
+        return false;
+    }
     
 }
 
