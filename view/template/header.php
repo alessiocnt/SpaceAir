@@ -41,7 +41,7 @@
         </a>
 
         <!--Navbar icons near logo for device screen-->
-        <div class="navbar-brand align-top ml-auto d-inline-block d-md-none">   
+        <div class="navbar-brand align-top mr-0 d-inline-block d-md-none">   
             <?php if(session_status() != PHP_SESSION_NONE && Utils::checkAdmin()) {  
                 require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons-admin.html";
             } else {
@@ -67,7 +67,7 @@
         </div> 
 
         <!--Navbar icons, need to repeat in order to move them on the extreme right after the nav-item when over md view-->
-        <div class="navbar-brand align-top ml-auto d-none d-md-block">
+        <div class="navbar-brand align-top mr-0 d-none d-md-block">
             <?php if(session_status() != PHP_SESSION_NONE && Utils::checkAdmin()) {  
                 require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons-admin.html";
             } else {
