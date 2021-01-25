@@ -14,7 +14,7 @@ create table USERS (
      Salt char(128) not null,
      Type tinyint not null,
      PartitaIva char(11),
-     Newsletter tinyint
+     Newsletter tinyint not null
 );
 
 alter table USERS add constraint UserTypeCHK check(Type in (1,2)); /*Controllo su tipo USERS 1-Admin 2-USERS Normale*/

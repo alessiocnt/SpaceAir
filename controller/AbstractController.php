@@ -7,6 +7,9 @@ abstract class AbstractController implements Controller {
 
     public function __construct(Model $model) {
         $this->model = $model;
+        
+        //Start secure session
+        Utils::sec_session_start();
     }
 
     public function getModel() {
