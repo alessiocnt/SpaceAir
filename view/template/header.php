@@ -35,7 +35,7 @@
         </button>
 
         <!--SpaceAir logo and name-->
-        <a class="navbar-brand mx-auto" href="#" title="Vai alla home">
+        <a class="navbar-brand mx-auto" href="/spaceair/homepage.php" title="Vai alla home">
             <img src="/spaceair/res/icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
             SPACEAIR
         </a>
@@ -48,10 +48,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto p-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Destinazioni</a>
+                    <a class="nav-link" href="/spaceair/destinations.php">Destinazioni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pacchetti</a>
+                    <a class="nav-link" href="/spaceair/packetlist.php">Pacchetti</a>
                 </li>
             </ul>
         </div>

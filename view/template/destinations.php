@@ -30,7 +30,7 @@
             <?php if(isset($data["planets"])):?>
                 <?php foreach($data["planets"] as $planet): ?>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
-                        <a href="#" class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></a>
+                        <a href="/spaceair/planetdetails.php?Destination=<?php echo $planet->getName(); ?>" class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></a>
                         <div class="col-4">
                             <a href="#" id="<?php echo $planet->getName(); ?>" class="btn_fav float-right" title="Aggiungi ai preferiti">
                                 <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
