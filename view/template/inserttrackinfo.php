@@ -12,9 +12,9 @@
                 <form action="" method="POST">
                 <div class="form-group">
                     <label for="selectorder">Seleziona Ordine</label>
-                    <select class="form-control" id="selectorder" name="order">
+                    <select class="form-control" id="selectorder" name="codOrder">
                         <?php foreach($data["orders"] as $order): ?>
-                            <option value=""><?php echo $order->getCodOrder();?></option>
+                            <option value="<?php echo $order->getCodOrder();?>"><?php echo $order->getCodOrder() . " - " . $order->getUser()->getName() . " " . $order->getUser()->getSurname();?></option>
                         <?php endforeach ?>
                     </select>
                 </div>
