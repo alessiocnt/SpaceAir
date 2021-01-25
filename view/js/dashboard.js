@@ -81,7 +81,7 @@ function createTicketGraph(id, inputData) {
         tableHtml += `
         <tr>
             <td headers="ticket">${entry["key"]}</td>
-            <td headers="percentuale">${entry["value"]}</td>
+            <td headers="percentuale">${entry["value"]}%</td>
         </tr>
         `;
     });
@@ -115,7 +115,7 @@ $(document).ready(function() {
             dataSales.push({key: e.planet, value: parseInt(e.quantity)});
         });
         data.popularPacket.forEach((e) => {
-            dataPopularPacket.push({key: e.planet + " " + e.date, value: parseInt(e.quantity)});
+            dataPopularPacket.push({key: e.planet + " " + e.date, value: parseInt(e.perc)});
         });
 
         const chart = createPlanetGraph("shop",dataSales);

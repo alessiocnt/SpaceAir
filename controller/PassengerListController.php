@@ -11,23 +11,22 @@ class PassengerListController extends AdminLoggedController {
         if(!isset($_GET["codPacket"])) {
             header("Location:packetlist.php");
         } else {
-            echo $_GET["codPacket"];
-            /*//Get User data
-            $userInfoHandler = $this->getModel()->getUserInfoHandler();
-            $currentUser = $userInfoHandler->getUserInfo(new User(Utils::getUserId()));
-            $currentUser->setInterests($userInfoHandler->getUserInterest($currentUser));
-            
-            $data["data"]["user"] = $currentUser;
+            $packet = new Packet($_GET["codPacket"]);
+
+            $adminInfoHandler = $this->getModel()->getAdminInfoHandler();
+            $passengers = $adminInfoHandler->getActualPassenger($packet);
+
+            $data["data"]["passengers"] = $passengers;
             //Set the title
-            $data["header"]["title"] = "Profilo";
+            $data["header"]["title"] = "Elenco passeggeri";
             //Set custom js
             $data["header"]["js"] = [];
             //Set custom css
             $data["header"]["css"] = [];
             //Create the view
-            $view = new GenericView("profile");
+            $view = new GenericView("passengerlist");
             //Render the view
-            $view->render($data); */
+            $view->render($data);
         }
     }
 

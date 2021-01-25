@@ -51,7 +51,7 @@
             <div class="row mt-4">
                 <div class="col-12 rounded col-dark bg-light p-4">
                     <section>
-                        <h2>I miei interessi<span class="float-right"><img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/></span></h2>
+                        <h2>I miei interessi<span class="float-right"><a href="./interest.php" title="Modifica Interessi"><img src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/></a></span></h2>
                         <ul class="mt-3">
                             <?php foreach($data["user"]->getInterests() as $interest): ?>
                             <li><?php echo $interest->getPlanet()->getName(); ?></li>

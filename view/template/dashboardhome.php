@@ -22,7 +22,7 @@
                     </div>
                 </article>
                 <article class="mt-5">
-                    <h3 class="col-title font-weight-bold mt-3">Viaggi pi&ugrave; popolari</h3>
+                    <h3 class="col-title font-weight-bold mt-3">Viaggi pi&ugrave; popolari (posti occupati/posti massimi)</h3>
                     <!-- Canvas graph -->
                     <div id="popularticket">
                         <div id="popularticketchart" class="graph"></div>
@@ -43,7 +43,7 @@
                             <?php foreach($data["packets"] as $packet): ?>
                             <tr>
                                 <td headers="packet"><?php echo $packet->getDestinationPlanet()->getName() . " " . $packet->getDepartureDateHour()->format("d/m/Y");?></td>
-                                <td headers="seat"><?php echo $packet->getAvailableSeats() . "/" . $packet->getMaxSeats();?></td>
+                                <td headers="seat"><?php echo $packet->getOccupiedSeats() . "/" . $packet->getMaxSeats();?></td>
                             </tr>
                             <?php endforeach ?>
                         </tbody>
