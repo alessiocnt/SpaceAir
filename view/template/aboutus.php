@@ -9,7 +9,7 @@
 
     <section class="row col-10 offset-1 mb-3 col-md-6 offset-md-3">
         <div class="row">
-            <p class="col-text">Viaggia con noi, lasciati ispirare dal nostro universo. Quis talia fando Myrmidonum Dolopumve aut duri miles Ulixi temperet a lacrimis?</p>
+            <p class="col-text">Viaggia con noi, lasciati ispirare dal nostro universo.<br/>Spaceair nasce nel 2010 da un ambizioso progetto di un'azienda leader nel settore dei trasporti che si propone di rendere lo spazio e il mondo extra-terrestre accessibile ad una platea sempre maggiore di consumatori.</p>
         </div>
     </section>
     <section class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
