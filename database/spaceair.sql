@@ -52,10 +52,10 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `address`
+-- Struttura della tabella `ADDRESS`
 --
 
-CREATE TABLE `address` (
+CREATE TABLE `ADDRESS` (
   `CodAddress` int(11) NOT NULL,
   `Via` varchar(40) NOT NULL,
   `Civico` varchar(6) NOT NULL,
@@ -66,10 +66,10 @@ CREATE TABLE `address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `address`
+-- Dump dei dati per la tabella `ADDRESS`
 --
 
-INSERT INTO `address` (`CodAddress`, `Via`, `Civico`, `Citta`, `Provincia`, `Cap`, `IdUser`) VALUES
+INSERT INTO `ADDRESS` (`CodAddress`, `Via`, `Civico`, `Citta`, `Provincia`, `Cap`, `IdUser`) VALUES
 (1, 'Puglie', '14', 'Cervia', 'Ravenna', '48015', 2),
 (2, 'Caduti', '150', 'Cervia', 'Ravenna', '48015', 3),
 (3, 'Roma', '1', 'Morciano', 'Misano', '47843', 4);
@@ -77,10 +77,10 @@ INSERT INTO `address` (`CodAddress`, `Via`, `Civico`, `Citta`, `Provincia`, `Cap
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `interest`
+-- Struttura della tabella `INTEREST`
 --
 
-CREATE TABLE `interest` (
+CREATE TABLE `INTEREST` (
   `Date` datetime NOT NULL,
   `IdUser` int(11) NOT NULL,
   `CodPlanet` int(11) NOT NULL,
@@ -88,19 +88,19 @@ CREATE TABLE `interest` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `interest`
+-- Dump dei dati per la tabella `INTEREST`
 --
 
-INSERT INTO `interest` (`Date`, `IdUser`, `CodPlanet`, `Visible`) VALUES
+INSERT INTO `INTEREST` (`Date`, `IdUser`, `CodPlanet`, `Visible`) VALUES
 ('2021-01-25 22:18:53', 2, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `orders`
+-- Struttura della tabella `ORDERS`
 --
 
-CREATE TABLE `orders` (
+CREATE TABLE `ORDERS` (
   `CodOrder` int(11) NOT NULL,
   `PurchaseDate` datetime DEFAULT NULL,
   `Total` float NOT NULL,
@@ -110,29 +110,29 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `orders`
+-- Dump dei dati per la tabella `ORDERS`
 --
 
-INSERT INTO `orders` (`CodOrder`, `PurchaseDate`, `Total`, `DestAddressCode`, `State`, `IdUser`) VALUES
+INSERT INTO `ORDERS` (`CodOrder`, `PurchaseDate`, `Total`, `DestAddressCode`, `State`, `IdUser`) VALUES
 (29, '2021-01-25 22:16:52', 2000, 1, 2, 2),
 (30, NULL, 0, NULL, 1, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `order_state`
+-- Struttura della tabella `ORDER_STATE`
 --
 
-CREATE TABLE `order_state` (
+CREATE TABLE `ORDER_STATE` (
   `CodState` int(11) NOT NULL,
   `Description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `order_state`
+-- Dump dei dati per la tabella `ORDER_STATE`
 --
 
-INSERT INTO `order_state` (`CodState`, `Description`) VALUES
+INSERT INTO `ORDER_STATE` (`CodState`, `Description`) VALUES
 (1, 'Carrello'),
 (2, 'Preparazione'),
 (3, 'Consegna'),
@@ -141,10 +141,10 @@ INSERT INTO `order_state` (`CodState`, `Description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `packet`
+-- Struttura della tabella `PACKET`
 --
 
-CREATE TABLE `packet` (
+CREATE TABLE `PACKET` (
   `CodPacket` int(11) NOT NULL,
   `DateTimeDeparture` datetime NOT NULL,
   `DateTimeArrival` datetime NOT NULL,
@@ -156,10 +156,10 @@ CREATE TABLE `packet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `packet`
+-- Dump dei dati per la tabella `PACKET`
 --
 
-INSERT INTO `packet` (`CodPacket`, `DateTimeDeparture`, `DateTimeArrival`, `Price`, `MaxSeats`, `Description`, `CodPlanet`, `Visible`) VALUES
+INSERT INTO `PACKET` (`CodPacket`, `DateTimeDeparture`, `DateTimeArrival`, `Price`, `MaxSeats`, `Description`, `CodPlanet`, `Visible`) VALUES
 (17, '2021-02-08 21:40:00', '2021-02-14 21:40:00', 1000, 10, 'Un\'esperienza unica ti aspetta! Un viaggio dalla Terra alla Luna con viste mozzafiato. All\'arrivo ti aspetta un rinfresco su uno dei crateri più suggestivo di tutto il suolo lunare. Durante la permanenza saranno possibili anche escursioni nel \"lato buio\" del satellite!', 1, 1),
 (18, '2021-04-01 10:30:00', '2021-01-25 21:45:00', 1500, 15, 'Un viaggio dalla Terra alla Luna con viste mozzafiato. All\'arrivo ti aspetta un rinfresco su uno dei crateri più suggestivo di tutto il suolo lunare. Durante la permanenza saranno possibili anche escursioni nel \"lato buio\" del satellite! ', 1, 1),
 (19, '2021-03-10 03:45:00', '2021-04-08 21:45:00', 3500, 10, 'Un\'esperienza unica ti aspetta! Un viaggio dalla Terra a Marte, il pianeta rosso. All\'arrivo ti aspetta un rinfresco su uno dei crateri più suggestivo di tutto il suolo marziano. Durante la permanenza saranno possibili anche escursioni per visitare i resti dei Rover non più in funzione!', 2, 1),
@@ -169,20 +169,20 @@ INSERT INTO `packet` (`CodPacket`, `DateTimeDeparture`, `DateTimeArrival`, `Pric
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `packet_in_order`
+-- Struttura della tabella `PACKET_IN_ORDER`
 --
 
-CREATE TABLE `packet_in_order` (
+CREATE TABLE `PACKET_IN_ORDER` (
   `CodPacket` int(11) NOT NULL,
   `CodOrder` int(11) NOT NULL,
   `Quantity` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `packet_in_order`
+-- Dump dei dati per la tabella `PACKET_IN_ORDER`
 --
 
-INSERT INTO `packet_in_order` (`CodPacket`, `CodOrder`, `Quantity`) VALUES
+INSERT INTO `PACKET_IN_ORDER` (`CodPacket`, `CodOrder`, `Quantity`) VALUES
 (17, 29, 2),
 (19, 30, 0),
 (20, 30, 4),
@@ -191,10 +191,10 @@ INSERT INTO `packet_in_order` (`CodPacket`, `CodOrder`, `Quantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `planet`
+-- Struttura della tabella `PLANET`
 --
 
-CREATE TABLE `planet` (
+CREATE TABLE `PLANET` (
   `CodPlanet` int(11) NOT NULL,
   `Name` varchar(20) NOT NULL,
   `Temperature` int(11) NOT NULL,
@@ -209,10 +209,10 @@ CREATE TABLE `planet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `planet`
+-- Dump dei dati per la tabella `PLANET`
 --
 
-INSERT INTO `planet` (`CodPlanet`, `Name`, `Temperature`, `Mass`, `Surface`, `SunDistance`, `Composition`, `DayLength`, `Img`, `Description`, `Visible`) VALUES
+INSERT INTO `PLANET` (`CodPlanet`, `Name`, `Temperature`, `Mass`, `Surface`, `SunDistance`, `Composition`, `DayLength`, `Img`, `Description`, `Visible`) VALUES
 (1, 'Luna', -23, 7, 38, 149.6, 'Solido', 648, 'moon.png', 'La Luna è un satellite naturale, l\'unico della Terra. Il suo nome proprio viene talvolta utilizzato, per antonomasia e con l\'iniziale minuscola («una luna»), come sinonimo di satellite anche per i corpi celesti che orbitano attorno ad altri pianeti.\r\nOrbita a una distanza media di circa 384400 km dalla Terra, sufficientemente vicina da essere osservabile a occhio nudo, così che sulla sua superficie è possibile distinguere delle macchie scure e delle macchie chiare. Le prime, dette mari, sono regioni quasi piatte coperte da rocce basaltiche e detriti di colore scuro. Le regioni lunari chiare, chiamate terre alte o altopiani, sono elevate di vari kilometri rispetto ai mari e presentano rilievi alti anche 8000-9000 metri. Essendo in rotazione sincrona rivolge sempre la stessa faccia verso la Terra e il suo lato nascosto è rimasto sconosciuto fino al periodo delle esplorazioni spaziali.', 1),
 (2, 'Marte', -63, 63.9, 144.8, 228, 'Solido', 25, 'mars.png', 'Marte è il quarto pianeta del sistema solare in ordine di distanza dal Sole; è visibile a occhio nudo ed è l\'ultimo dei pianeti di tipo terrestre dopo Mercurio, Venere e la Terra. Chiamato pianeta rosso per via del suo colore caratteristico causato dalla grande quantità di ossido di ferro che lo ricopre, Marte prende il nome dall\'omonima divinità della mitologia romana e il suo simbolo astronomico è la rappresentazione stilizzata dello scudo e della lancia del dio.\r\nPur presentando temperature medie superficiali piuttosto basse (tra −120 e +20 °C) e un\'atmosfera molto rarefatta, è il pianeta più simile alla Terra tra quelli del sistema solare. Le sue dimensioni sono intermedie tra quelle del nostro pianeta e quelle della Luna, e ha l\'inclinazione dell\'asse di rotazione e la durata del giorno simili a quelle terrestri.', 1),
 (3, 'Venere', 464, 486.7, 460, 108.7, 'Solido', 2802, 'venus.png', 'Venere è il secondo pianeta del Sistema solare in ordine di distanza dal Sole con un\'orbita quasi circolare che lo porta a compiere una rivoluzione in 224,7 giorni terrestri. Prende il nome dalla dea romana dell\'amore e della bellezza e il suo simbolo astronomico è la rappresentazione stilizzata della mano di Venere che sorregge uno specchio.\r\nCon una magnitudine massima di −4.6, è l\'oggetto naturale più luminoso nel cielo notturno dopo la Luna e per questo motivo è conosciuto fin dall\'antichità. Venere è visibile soltanto poco dopo il tramonto e poco prima dell\'alba e per questa ragione è spesso stato chiamato dagli antichi Greci (e poi dai Romani) stella della sera o stella del mattino. La scoperta che si tratta dello stesso oggetto sarebbe stata introdotta in occidente da Pitagora, ma sarebbe dovuta agli astronomi della Mesopotamia. Nella Tavoletta di Venere di Ammi-Saduqa, infatti, sono riportate osservazioni risalenti al 1550 a.C. o antecedenti, in cui non si fa distinzione fra l\'', 1);
@@ -220,10 +220,10 @@ INSERT INTO `planet` (`CodPlanet`, `Name`, `Temperature`, `Mass`, `Surface`, `Su
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `review`
+-- Struttura della tabella `REVIEW`
 --
 
-CREATE TABLE `review` (
+CREATE TABLE `REVIEW` (
   `DateTime` datetime NOT NULL,
   `Title` varchar(50) NOT NULL,
   `Description` varchar(1000) NOT NULL,
@@ -233,10 +233,10 @@ CREATE TABLE `review` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `review`
+-- Dump dei dati per la tabella `REVIEW`
 --
 
-INSERT INTO `review` (`DateTime`, `Title`, `Description`, `Rating`, `IdUser`, `CodPlanet`) VALUES
+INSERT INTO `REVIEW` (`DateTime`, `Title`, `Description`, `Rating`, `IdUser`, `CodPlanet`) VALUES
 ('2021-01-25 21:52:39', 'Esperienza eccezionale', 'L\'esperienze più sensazionali della mia vita! Esplorare lo spazio è sempre stato il mio sogno e mettere piede sulla Luna non ha prezzo.', 5, 2, 1),
 ('2021-01-25 21:55:09', 'Un regalo fantastico', 'Sembrava di essere in un sogno, ed invece era realtà! Il viaggio che segna la vita!', 5, 2, 2),
 ('2021-01-25 21:56:16', 'Orribile, soffro di vertigini', 'Abbandonate l\'idea di questi viaggi se soffrite di vertigini. Lato positivo: le noccioline erano gratis.', 2, 3, 1),
@@ -248,10 +248,10 @@ INSERT INTO `review` (`DateTime`, `Title`, `Description`, `Rating`, `IdUser`, `C
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `template_notification`
+-- Struttura della tabella `TEMPLATE_NOTIFICATION`
 --
 
-CREATE TABLE `template_notification` (
+CREATE TABLE `TEMPLATE_NOTIFICATION` (
   `CodNotification` int(11) NOT NULL,
   `DateTime` datetime NOT NULL,
   `Title` varchar(1000) NOT NULL,
@@ -262,10 +262,10 @@ CREATE TABLE `template_notification` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `template_notification`
+-- Dump dei dati per la tabella `TEMPLATE_NOTIFICATION`
 --
 
-INSERT INTO `template_notification` (`CodNotification`, `DateTime`, `Title`, `Description`, `Type`, `CodPlanet`, `CodPacket`) VALUES
+INSERT INTO `TEMPLATE_NOTIFICATION` (`CodNotification`, `DateTime`, `Title`, `Description`, `Type`, `CodPlanet`, `CodPacket`) VALUES
 (41, '2021-01-25 21:41:56', 'Nuovo pacchetto disponibile', 'Gentile utente, è ora disponibile un nuovo pacchetto verso Luna!', 1, NULL, 17),
 (42, '2021-01-25 21:43:18', 'Nuovo pacchetto disponibile', 'Gentile utente, è ora disponibile un nuovo pacchetto verso Luna!', 1, NULL, 18),
 (43, '2021-01-25 21:44:44', 'Nuovo pacchetto disponibile', 'Gentile utente, è ora disponibile un nuovo pacchetto verso Marte!', 1, NULL, 19),
@@ -277,10 +277,10 @@ INSERT INTO `template_notification` (`CodNotification`, `DateTime`, `Title`, `De
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `track`
+-- Struttura della tabella `TRACK`
 --
 
-CREATE TABLE `track` (
+CREATE TABLE `TRACK` (
   `CodOrder` int(11) NOT NULL,
   `DateTime` datetime NOT NULL,
   `City` varchar(100) NOT NULL,
@@ -290,10 +290,10 @@ CREATE TABLE `track` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `users`
+-- Struttura della tabella `USERS`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `USERS` (
   `IdUser` int(11) NOT NULL,
   `Name` varchar(20) NOT NULL,
   `Surname` varchar(20) NOT NULL,
@@ -309,10 +309,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `users`
+-- Dump dei dati per la tabella `USERS`
 --
 
-INSERT INTO `users` (`IdUser`, `Name`, `Surname`, `Borndate`, `Phone`, `ProfileImg`, `Mail`, `Password`, `Salt`, `Type`, `PartitaIva`, `Newsletter`) VALUES
+INSERT INTO `USERS` (`IdUser`, `Name`, `Surname`, `Borndate`, `Phone`, `ProfileImg`, `Mail`, `Password`, `Salt`, `Type`, `PartitaIva`, `Newsletter`) VALUES
 (1, 'Admin', 'Admin', '1999-07-17', '3334456789', 'user.png', 'admin@spaceair.it', 'aa38e64b61fdfb3d0d587621aa8211368cb9ba2819feb6c65a55c41f05eaf4322699bc703125be0dff18ad24befe3293d7ecff31407bb5c90a7a4f5a946e153d', '5ce2d31eb270c670abacfba645024daca300f5ca5d35390a20e07cd27a802081f4219c7041ff8e8f77cccae74fad8a6472ffa76e55a54f03c4c581551559d257', 1, '0764352056C', 0),
 (2, 'Alessio', 'Conti', '1999-02-03', '', '', 'alessio@spaceair.it', '9422b3f58eb8c52d51e34e61cc03dc014670c8a7b1a6f9cdc6e372790462e4a99ee620296abc60930f54493de76a86a7ddb9a049f9d98f18f2770fb7a7246375', '84e0c975b53c8ad994ccd11bf029ca4e144149d55b838e3de918e33b2723d6df2d803ce50346603e493216a33903c5374e90aab70937fea6329175f8e1b6e379', 2, NULL, 1),
 (3, 'Simone', 'Ceredi', '1999-01-12', '', '', 'simone@spaceair.it', '9294e06b19e062abecf9bec105d3d0789bf2a944dfd0ad6be601727bd6b0a5bc7d2fd27941613fb45ac085fa3b39e40c2fd898c24749f739e34bc62f996f8053', '9da661118944317f550b2b6e3fcdd4802069aab3bd612b7febfe8412ef54e3318dc9b1c7c869705e2bbbb4eaae75655b0d7089b28d2df8d9ccdcf0568d1a5c80', 2, NULL, 1),
@@ -321,20 +321,20 @@ INSERT INTO `users` (`IdUser`, `Name`, `Surname`, `Borndate`, `Phone`, `ProfileI
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `user_notification`
+-- Struttura della tabella `USER_NOTIFICATION`
 --
 
-CREATE TABLE `user_notification` (
+CREATE TABLE `USER_NOTIFICATION` (
   `IdUser` int(11) NOT NULL,
   `View` tinyint(4) NOT NULL,
   `CodNotification` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `user_notification`
+-- Dump dei dati per la tabella `USER_NOTIFICATION`
 --
 
-INSERT INTO `user_notification` (`IdUser`, `View`, `CodNotification`) VALUES
+INSERT INTO `USER_NOTIFICATION` (`IdUser`, `View`, `CodNotification`) VALUES
 (1, 0, 47),
 (2, 1, 41),
 (2, 1, 42),
@@ -358,86 +358,86 @@ INSERT INTO `user_notification` (`IdUser`, `View`, `CodNotification`) VALUES
 --
 
 --
--- Indici per le tabelle `address`
+-- Indici per le tabelle `ADDRESS`
 --
-ALTER TABLE `address`
+ALTER TABLE `ADDRESS`
   ADD PRIMARY KEY (`CodAddress`),
   ADD KEY `IdUser` (`IdUser`);
 
 --
--- Indici per le tabelle `interest`
+-- Indici per le tabelle `INTEREST`
 --
-ALTER TABLE `interest`
+ALTER TABLE `INTEREST`
   ADD PRIMARY KEY (`IdUser`,`CodPlanet`),
   ADD KEY `CodPlanet` (`CodPlanet`);
 
 --
--- Indici per le tabelle `orders`
+-- Indici per le tabelle `ORDERS`
 --
-ALTER TABLE `orders`
+ALTER TABLE `ORDERS`
   ADD PRIMARY KEY (`CodOrder`),
   ADD KEY `DestAddressCode` (`DestAddressCode`),
   ADD KEY `State` (`State`),
   ADD KEY `IdUser` (`IdUser`);
 
 --
--- Indici per le tabelle `order_state`
+-- Indici per le tabelle `ORDER_STATE`
 --
-ALTER TABLE `order_state`
+ALTER TABLE `ORDER_STATE`
   ADD PRIMARY KEY (`CodState`);
 
 --
--- Indici per le tabelle `packet`
+-- Indici per le tabelle `PACKET`
 --
-ALTER TABLE `packet`
+ALTER TABLE `PACKET`
   ADD PRIMARY KEY (`CodPacket`),
   ADD KEY `CodPlanet` (`CodPlanet`);
 
 --
--- Indici per le tabelle `packet_in_order`
+-- Indici per le tabelle `PACKET_IN_ORDER`
 --
-ALTER TABLE `packet_in_order`
+ALTER TABLE `PACKET_IN_ORDER`
   ADD PRIMARY KEY (`CodOrder`,`CodPacket`),
   ADD KEY `CodPacket` (`CodPacket`);
 
 --
--- Indici per le tabelle `planet`
+-- Indici per le tabelle `PLANET`
 --
-ALTER TABLE `planet`
+ALTER TABLE `PLANET`
   ADD PRIMARY KEY (`CodPlanet`);
 
 --
--- Indici per le tabelle `review`
+-- Indici per le tabelle `REVIEW`
 --
-ALTER TABLE `review`
+ALTER TABLE `REVIEW`
   ADD PRIMARY KEY (`IdUser`,`CodPlanet`),
   ADD KEY `CodPlanet` (`CodPlanet`);
 
 --
--- Indici per le tabelle `template_notification`
+-- Indici per le tabelle `TEMPLATE_NOTIFICATION`
 --
-ALTER TABLE `template_notification`
+ALTER TABLE `TEMPLATE_NOTIFICATION`
   ADD PRIMARY KEY (`CodNotification`),
   ADD KEY `CodPacket` (`CodPacket`),
   ADD KEY `CodPlanet` (`CodPlanet`);
 
 --
--- Indici per le tabelle `track`
+-- Indici per le tabelle `TRACK`
 --
-ALTER TABLE `track`
+ALTER TABLE `TRACK`
   ADD PRIMARY KEY (`CodOrder`,`DateTime`);
 
 --
--- Indici per le tabelle `users`
+-- Indici per le tabelle `USERS`
 --
-ALTER TABLE `users`
+ALTER TABLE `USERS`
   ADD PRIMARY KEY (`IdUser`),
   ADD UNIQUE KEY `Mail` (`Mail`);
 
 --
--- Indici per le tabelle `user_notification`
+-- Indici per le tabelle `USER_NOTIFICATION`
 --
-ALTER TABLE `user_notification`
+ALTER TABLE `USER_NOTIFICATION`
   ADD PRIMARY KEY (`IdUser`,`CodNotification`),
   ADD KEY `CodNotification` (`CodNotification`);
 
@@ -446,45 +446,45 @@ ALTER TABLE `user_notification`
 --
 
 --
--- AUTO_INCREMENT per la tabella `address`
+-- AUTO_INCREMENT per la tabella `ADDRESS`
 --
-ALTER TABLE `address`
+ALTER TABLE `ADDRESS`
   MODIFY `CodAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT per la tabella `orders`
+-- AUTO_INCREMENT per la tabella `ORDERS`
 --
-ALTER TABLE `orders`
+ALTER TABLE `ORDERS`
   MODIFY `CodOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT per la tabella `order_state`
+-- AUTO_INCREMENT per la tabella `ORDER_STATE`
 --
-ALTER TABLE `order_state`
+ALTER TABLE `ORDER_STATE`
   MODIFY `CodState` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT per la tabella `packet`
+-- AUTO_INCREMENT per la tabella `PACKET`
 --
-ALTER TABLE `packet`
+ALTER TABLE `PACKET`
   MODIFY `CodPacket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT per la tabella `planet`
+-- AUTO_INCREMENT per la tabella `PLANET`
 --
-ALTER TABLE `planet`
+ALTER TABLE `PLANET`
   MODIFY `CodPlanet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT per la tabella `template_notification`
+-- AUTO_INCREMENT per la tabella `TEMPLATE_NOTIFICATION`
 --
-ALTER TABLE `template_notification`
+ALTER TABLE `TEMPLATE_NOTIFICATION`
   MODIFY `CodNotification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT per la tabella `users`
+-- AUTO_INCREMENT per la tabella `USERS`
 --
-ALTER TABLE `users`
+ALTER TABLE `USERS`
   MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
@@ -492,65 +492,65 @@ ALTER TABLE `users`
 --
 
 --
--- Limiti per la tabella `address`
+-- Limiti per la tabella `ADDRESS`
 --
-ALTER TABLE `address`
-  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`IdUser`) ON UPDATE CASCADE;
+ALTER TABLE `ADDRESS`
+  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `USERS` (`IdUser`) ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `interest`
+-- Limiti per la tabella `INTEREST`
 --
-ALTER TABLE `interest`
-  ADD CONSTRAINT `interest_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`IdUser`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `interest_ibfk_2` FOREIGN KEY (`CodPlanet`) REFERENCES `planet` (`CodPlanet`) ON UPDATE CASCADE;
+ALTER TABLE `INTEREST`
+  ADD CONSTRAINT `interest_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `USERS` (`IdUser`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `interest_ibfk_2` FOREIGN KEY (`CodPlanet`) REFERENCES `PLANET` (`CodPlanet`) ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `orders`
+-- Limiti per la tabella `ORDERS`
 --
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`DestAddressCode`) REFERENCES `address` (`CodAddress`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`State`) REFERENCES `order_state` (`CodState`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`IdUser`) REFERENCES `users` (`IdUser`) ON UPDATE CASCADE;
+ALTER TABLE `ORDERS`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`DestAddressCode`) REFERENCES `ADDRESS` (`CodAddress`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`State`) REFERENCES `ORDER_STATE` (`CodState`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`IdUser`) REFERENCES `USERS` (`IdUser`) ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `packet`
+-- Limiti per la tabella `PACKET`
 --
-ALTER TABLE `packet`
-  ADD CONSTRAINT `packet_ibfk_1` FOREIGN KEY (`CodPlanet`) REFERENCES `planet` (`CodPlanet`) ON UPDATE CASCADE;
+ALTER TABLE `PACKET`
+  ADD CONSTRAINT `packet_ibfk_1` FOREIGN KEY (`CodPlanet`) REFERENCES `PLANET` (`CodPlanet`) ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `packet_in_order`
+-- Limiti per la tabella `PACKET_IN_ORDER`
 --
-ALTER TABLE `packet_in_order`
-  ADD CONSTRAINT `packet_in_order_ibfk_1` FOREIGN KEY (`CodOrder`) REFERENCES `orders` (`CodOrder`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `packet_in_order_ibfk_2` FOREIGN KEY (`CodPacket`) REFERENCES `packet` (`CodPacket`) ON UPDATE CASCADE;
+ALTER TABLE `PACKET_IN_ORDER`
+  ADD CONSTRAINT `packet_in_order_ibfk_1` FOREIGN KEY (`CodOrder`) REFERENCES `ORDERS` (`CodOrder`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `packet_in_order_ibfk_2` FOREIGN KEY (`CodPacket`) REFERENCES `PACKET` (`CodPacket`) ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `review`
+-- Limiti per la tabella `REVIEW`
 --
-ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`IdUser`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`CodPlanet`) REFERENCES `planet` (`CodPlanet`) ON UPDATE CASCADE;
+ALTER TABLE `REVIEW`
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `USERS` (`IdUser`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`CodPlanet`) REFERENCES `PLANET` (`CodPlanet`) ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `template_notification`
+-- Limiti per la tabella `TEMPLATE_NOTIFICATION`
 --
-ALTER TABLE `template_notification`
-  ADD CONSTRAINT `template_notification_ibfk_1` FOREIGN KEY (`CodPacket`) REFERENCES `packet` (`CodPacket`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `template_notification_ibfk_2` FOREIGN KEY (`CodPlanet`) REFERENCES `planet` (`CodPlanet`) ON UPDATE CASCADE;
+ALTER TABLE `TEMPLATE_NOTIFICATION`
+  ADD CONSTRAINT `template_notification_ibfk_1` FOREIGN KEY (`CodPacket`) REFERENCES `PACKET` (`CodPacket`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `template_notification_ibfk_2` FOREIGN KEY (`CodPlanet`) REFERENCES `PLANET` (`CodPlanet`) ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `track`
+-- Limiti per la tabella `TRACK`
 --
-ALTER TABLE `track`
-  ADD CONSTRAINT `track_ibfk_1` FOREIGN KEY (`CodOrder`) REFERENCES `orders` (`CodOrder`) ON UPDATE CASCADE;
+ALTER TABLE `TRACK`
+  ADD CONSTRAINT `track_ibfk_1` FOREIGN KEY (`CodOrder`) REFERENCES `ORDERS` (`CodOrder`) ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `user_notification`
+-- Limiti per la tabella `USER_NOTIFICATION`
 --
-ALTER TABLE `user_notification`
-  ADD CONSTRAINT `user_notification_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`IdUser`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_notification_ibfk_2` FOREIGN KEY (`CodNotification`) REFERENCES `template_notification` (`CodNotification`) ON UPDATE CASCADE;
+ALTER TABLE `USER_NOTIFICATION`
+  ADD CONSTRAINT `user_notification_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `USERS` (`IdUser`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_notification_ibfk_2` FOREIGN KEY (`CodNotification`) REFERENCES `TEMPLATE_NOTIFICATION` (`CodNotification`) ON UPDATE CASCADE;
 
 DELIMITER $$
 --
