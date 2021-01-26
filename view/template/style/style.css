@@ -98,6 +98,11 @@ a.col-text:active {
     margin-bottom: 75px;
 }
 
+input#acq:disabled {
+    background-color: #CF6679;
+    color: #E4E4E4;
+}
+
 div.map-container {
     height: 500px;
 }

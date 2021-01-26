@@ -11,25 +11,10 @@ $(document).ready(function () {
     $('a#paypal').click(function (e) {
         e.preventDefault();
         $('article#card').slideUp();
+        $('div#my-paypal').attr('class', 'col-btn-impo col-text rounded my-2 p-1');
+        $('div#my-credit-card').attr('class', 'col-back-white col-dark rounded my-2 p-1');
         metod = 'paypal';
         $('input#acq').prop('disabled', false);
-    });
-
-    $('#formAddr').submit(function (e) {
-        e.preventDefault();
-        
-        let posting = $.post("/spaceair/controller/api/AddAddressApi.php/", {
-            Via: $("#inputVia").val(),
-            Civico: $("#inputCivico").val(),
-            Citta: $("#inputCitta").val(),
-            Provincia: $("#inputProvincia").val(),
-            Cap: $("#inputCap").val()
-        });
-        /* Alerts the results */
-        posting.done(function (data) {
-            $('#changeAddressResult').text(data);
-        });
-        
     });
 
     $('#formPayment').submit(function (e) {
@@ -54,6 +39,8 @@ $(document).ready(function () {
         e.preventDefault();
         $('article#card').slideUp();
         $('#paymentResult').text('Carta accettata');
+        $('div#my-credit-card').attr('class', 'col-btn-impo col-text rounded my-2 p-1');
+        $('div#my-paypal').attr('class', 'col-back-white col-dark rounded my-2 p-1');
         $('input#acq').prop('disabled', false);
     });
 });

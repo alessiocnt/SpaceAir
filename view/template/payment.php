@@ -15,7 +15,7 @@
                 <select name="Addr" id="Addr" class="form-control" required>
                     <option value="">Seleziona...</option>
                     <?php foreach ($data["addresses"] as $addr) : ?>
-                    <option value="<?= $addr->getCodAddress()?>">Via <?=$addr->getVia()." ".$addr->getCivico()." ".$addr->getCitta()?> (<?=$addr->getProvincia()?>)</option>
+                        <option value="<?= $addr->getCodAddress() ?>">Via <?= $addr->getVia() . " " . $addr->getCivico() . " " . $addr->getCitta() ?> (<?= $addr->getProvincia() ?>)</option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -26,15 +26,15 @@
             <div class="top-line col-md-6 offset-md-3 mb-6">
                 <h2 class="text-center col-title font-weight-lighter mt-12">Metodo di pagamento</h2>
                 <div class="row">
-                    <div class="col-3 offset-2 col-md-1 offset-md-4">
-                        <div class="rounded my-2 col-back-white p-1 col-dark">
+                    <div class="col-3 offset-2 col-md-2 offset-md-3">
+                        <div id="my-credit-card" class="col-back-white col-dark rounded my-2 p-1">
                             <a href="" id="cred" title="Paga con carta di credito">
                                 <img src="/spaceair/res/icons/credit_card-black-18dp.svg" alt="Paga tramite carta di credito" class="rounded mx-auto d-block pt-2 pb-2" />
                             </a>
                         </div>
                     </div>
-                    <div class="col-3 offset-2 col-md-1 offset-md-2">
-                        <div class="rounded my-2 col-back-white p-1 col-dark">
+                    <div class="col-3 offset-2 col-md-2 offset-md-2">
+                        <div id="my-paypal" class="col-back-white col-dark rounded my-2 p-1">
                             <a href="" id="paypal" title="Paga con PayPal">
                                 <img src="/spaceair/res/icons/paypal.svg" alt="Paga tramite PayPal" class="rounded mx-auto d-block pt-2 pb-2" />
                             </a>
@@ -84,15 +84,15 @@
             <div class="col-md-6 offset-md-3">
                 <div class="row top-line">
                     <div class="container">
-                        <p id="tot" class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale €<?=$data["Totale"];?></p>
+                        <p id="tot" class="font-weight-normal col-text my-0 float-right mr-md-1 mt-2 mb-2">Totale €<?= $data["Totale"]; ?></p>
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-6 col-md-8 col-error" id="paymentResult"></div>
+                    <div class="col-6 col-md-8 col-error" id="paymentResult"></div>
                     <div class="col-6 col-md-4">
                         <form action="#" id="formPayment">
-                            <input type="hidden" id="CodOrder" value="<?=$data["CodOrder"];?>" />
-                            <input type="submit" id="acq" class="form-control float-right mb-4" value="Procedi all'acquisto" disabled/>
+                            <input type="hidden" id="CodOrder" value="<?= $data["CodOrder"]; ?>" />
+                            <input type="submit" id="acq" class="form-control float-right mb-4" value="Acquista" disabled />
                         </form>
                     </div>
                 </div>
