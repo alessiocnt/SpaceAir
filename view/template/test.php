@@ -1,1 +1,0 @@
-<p class="col-text"><?php echo "Ciao " . $data["name"]; ?></p>
