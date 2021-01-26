@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-6 col-md-3 offset-md-3">
-                    <a class="col-btn-impo nav-link rounded col-text mt-2" href="">
+                    <a class="col-btn-impo nav-link rounded col-text mt-2" href="./trackinginfo.php?id=<?php echo $data["codOrder"];?>">
                         Tracking
                         <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="Apri informazioni di tracking"/>
                     </a>

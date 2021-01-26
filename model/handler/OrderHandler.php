@@ -140,4 +140,21 @@ class OrderHandler extends AbstractHandler {
         return false;
     }
 
+    public function getOrderState(Order $order) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if($stmt = $db->prepare("SELECT O.State FROM ORDERS O WHERE O.CodOrder = ? LIMIT 1;")) {            
+            $codOrder = $order->getCodOrder();
+            $stmt->bind_param("i", $codOrder);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $result = $result->fetch_all(MYSQLI_ASSOC);
+            if(count($result)>0) {
+                return new OrderState($result[0]["State"]);
+            }
+        }
+
+        return false;
+    }
+
 }

@@ -26,4 +26,24 @@ class TrackInfoHandler extends AbstractHandler {
       return false;
    }
 
+   public function getTrackInfo(Order $order) {
+      $db = $this->getModelHelper()->getDbManager()->getDb();
+      $array = array();
+      if($stmt = $db->prepare("SELECT * FROM TRACK WHERE CodOrder = ?;")) {
+         $codOrder = $order->getCodOrder();
+         $stmt->bind_param("i", $codOrder);
+         $stmt->execute();
+         $results = $stmt->get_result();
+         $results = $results->fetch_all(MYSQLI_ASSOC);
+         
+         $trackInfoBuilder = new TrackInfoBuilder();
+         foreach($results as $result) {
+            $trackInfo = $trackInfoBuilder->createFromAssoc($result);
+            array_push($array, $trackInfo);
+         }
+      }
+
+      return $array;
+   }
+
 }
