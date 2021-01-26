@@ -39,10 +39,10 @@
     </div>
 </div>
 <section>
-    <div class="row fixed-bottom">
+    <div class="row fixed-bottom top-add-btn">
         <div class="col-md-6 offset-md-3 mr-1">
             <!-- Light circle button with ripple effect -->
-            <a href="/spaceair/packetinsert.php" class="btn rounded-circle col-btn-impo btn-md pmd-btn-raised float-right top-add-btn" title="Aggiungi nuovo viaggio">
+            <a href="/spaceair/packetinsert.php" class="btn rounded-circle col-btn-impo btn-md pmd-btn-raised float-right" title="Aggiungi nuovo viaggio">
                 <img src="/spaceair/res/icons/add-black-36dp.svg" alt="Aggiungi nuovo viaggio" class="pt-1 pb-1" />
             </a>
         </div>
