@@ -20,7 +20,7 @@
                                 <div class="col-12 ">
                                     <h2><?=$notification->getTitle();?></h2>
                                     <p class="font-weight-normal my-0"><?=$notification->getDescription();?></p>
-                                    <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4"><?=$notification->getDateHour()->format("d.m.Y H:m")?></p>
+                                    <p class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4"><?=$notification->getDateHour()->format("d.m.Y H:i")?></p>
                                 </div>
                             </div>
                         </div>
