@@ -133,6 +133,26 @@ class PlanetHandler extends AbstractHandler {
         }
     }
 
+    public function getPlanetsByPrefix($name) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        $stmt = $db->prepare("SELECT * FROM PLANET WHERE Name LIKE ?");
+        $name.='%';
+        if (!$stmt->bind_param('s', $name)) {
+            return false;
+        }
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(count($result) == 0) {
+            return false;
+        } else {
+            $builder = new PlanetBuilder();
+            $planet = $builder->createFromAssoc($result[0]);
+            return array($planet);
+        }
+    }
+
     public function searchPlanetByCod($cod) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         $stmt = $db->prepare("SELECT * FROM PLANET WHERE CodPlanet = ?");

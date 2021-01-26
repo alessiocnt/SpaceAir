@@ -14,7 +14,7 @@ class DestinationsController extends AbstractController {
             /* $builder = new PlanetBuilder();
             $planet = $builder->createFromAssoc($data); */
             
-            $result = $planetHandler->searchPlanetByName($planetName);
+            $result = $planetHandler->getPlanetsByPrefix($planetName);
             
             if($result == false) {
                 $data["data"]["error"] = "Nessun pianeta trovato.";
