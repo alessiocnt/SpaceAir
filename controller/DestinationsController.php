@@ -10,10 +10,7 @@ class DestinationsController extends AbstractController {
     public function execute() {
         $planetHandler = $this->getModel()->getPlanetHandler();
         if(isset($_POST["searchBar"]) && $_POST["searchBar"]!=null) {
-            $planetName = $_POST["searchBar"];
-            /* $builder = new PlanetBuilder();
-            $planet = $builder->createFromAssoc($data); */
-            
+            $planetName = $_POST["searchBar"];         
             $result = $planetHandler->getPlanetsByPrefix($planetName);
             
             if($result == false) {
