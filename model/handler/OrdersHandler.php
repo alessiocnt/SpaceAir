@@ -49,7 +49,7 @@ class OrdersHandler extends AbstractHandler {
 
     public function getOrderDetail(Order $order) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $sql = "SELECT O.CodOrder, O.Total, PCKO.Quantity, PCK.DateTimeDeparture, PCK.CodPacket, PCK.DateTimeArrival, PCK.Price, PCK.MaxSeats, PCK.Description, P.Name AS PlanetName, P.Img FROM ORDERS O, PACKET_IN_ORDER PCKO, PACKET PCK, PLANET P WHERE PCKO.CodOrder = O.CodOrder AND PCKO.CodPacket = PCK.CodPacket AND PCK.CodPlanet = P.CodPlanet AND O.State != 1 AND PCKO.Quantity > 0 AND O.CodOrder = ? ORDER BY PCK.DateTimeDeparture";
+        $sql = "SELECT O.CodOrder, O.IdUser, O.Total, PCKO.Quantity, PCK.DateTimeDeparture, PCK.CodPacket, PCK.DateTimeArrival, PCK.Price, PCK.MaxSeats, PCK.Description, P.Name AS PlanetName, P.Img FROM ORDERS O, PACKET_IN_ORDER PCKO, PACKET PCK, PLANET P WHERE PCKO.CodOrder = O.CodOrder AND PCKO.CodPacket = PCK.CodPacket AND PCK.CodPlanet = P.CodPlanet AND O.State != 1 AND PCKO.Quantity > 0 AND O.CodOrder = ? ORDER BY PCK.DateTimeDeparture";
         if($stmt = $db->prepare($sql)) {
             $orderId = $order->getCodOrder();
             $stmt->bind_param("i", $orderId);
@@ -59,6 +59,10 @@ class OrdersHandler extends AbstractHandler {
 
             $packetBuilder = new PacketBuilder();
             $orderDetailed = new Order($order->getCodOrder());
+            if(count($results) > 0) {
+                $orderDetailed->setUser(new User($results[0]["IdUser"]));
+            }
+
             foreach($results as $result) {
                 $packet = $packetBuilder->createFromAssoc($result);
                 $packet->setDestinationPlanet(new Planet(0, $result["PlanetName"], $result["Img"]));

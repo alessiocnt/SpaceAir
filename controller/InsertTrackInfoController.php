@@ -1,13 +1,13 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class InsertTrackInfoController extends AbstractController {
+class InsertTrackInfoController extends NoLoggedController {
     
     public function __construct($model) {
         parent::__construct($model);
     }
 
-    public function execute() {
+    public function executePage() {
         $orderHandler = $this->getModel()->getOrderHandler();
         $ordersHandler = $this->getModel()->getOrdersHandler();
         $trackInfoHandler = $this->getModel()->getTrackInfoHandler();
@@ -41,7 +41,7 @@ class InsertTrackInfoController extends AbstractController {
                             $notificationText .= $packet->getPacket()->getDestinationPlanet()->getName() . " del " . $packet->getPacket()->getDepartureDateHour()->format("d/m/Y") . ", ";
                         }
                         $notificationText .= " è stato consegnato! Goditi il viaggio!";
-                        $notificationDispatcher->createGeneral("Aggiornamento Tracking",$notificationText, array(new User(Utils::getUserId())));
+                        $notificationDispatcher->createGeneral("Aggiornamento Tracking",$notificationText, array(new User($orderInfo->getUser()->getId())));
                     } else {
                         $data["data"]["text"] = "Errore nell'aggiornamento";
                     }
@@ -77,7 +77,7 @@ class InsertTrackInfoController extends AbstractController {
                                 $notificationText .= $packet->getPacket()->getDestinationPlanet()->getName() . " del " . $packet->getPacket()->getDepartureDateHour()->format("d/m/Y") . ", ";
                             }
                             $notificationText .= " è partito!";
-                            $notificationDispatcher->createGeneral("Aggiornamento Tracking",$notificationText, array(new User(Utils::getUserId())));
+                            $notificationDispatcher->createGeneral("Aggiornamento Tracking",$notificationText, array(new User($orderInfo->getUser()->getId())));
                         }
                     } else {
                         $data["data"]["text"] = "Errore nell'aggiornamento";
