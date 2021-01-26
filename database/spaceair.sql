@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 25, 2021 alle 22:21
+-- Creato il: Gen 26, 2021 alle 08:58
 -- Versione del server: 10.4.14-MariaDB
 -- Versione PHP: 7.4.10
 
@@ -283,8 +283,7 @@ INSERT INTO `template_notification` (`CodNotification`, `DateTime`, `Title`, `De
 CREATE TABLE `track` (
   `CodOrder` int(11) NOT NULL,
   `DateTime` datetime NOT NULL,
-  `Latitude` decimal(8,6) NOT NULL,
-  `Longitude` decimal(9,6) NOT NULL,
+  `City` varchar(100) NOT NULL,
   `Description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
