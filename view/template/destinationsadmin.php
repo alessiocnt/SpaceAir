@@ -1,5 +1,5 @@
 <section>
-    <header class="offset-1 mb-3 col-md-6 offset-md-3">
+    <header class="col-10 offset-1 mb-3 col-md-6 offset-md-3">
         <div class="row">
             <div class="col-12 pl-0">
                 <h1 class="text-left col-title font-weight-lighter">Elenco destinazioni</h1>
