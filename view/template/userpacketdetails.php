@@ -3,7 +3,7 @@ $packet = $data["packet"];
 $user = $data["user"];
 $codOrder = $data["codOrder"];
 ?>
-<section>
+<section class="mb-5">
     <header>
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
@@ -41,25 +41,6 @@ $codOrder = $data["codOrder"];
             <div class="col-12 col-md-6 offset-md-3 text-center">
                 <!-- Generate Qr Code with Google API -->
                 <img src="https://chart.googleapis.com/chart?cht=qr&chl=<?php echo $codOrder . "-" . $packet->getPacket()->getCode();?>&chs=250x250&chld=L|0" class="bg-light w-50" alt="Qr Code"/>
-            </div>
-        </div>
-    </section>
-    <section class="mt-5">
-        <div class="row">
-            <div class="col-12 col-md-6 offset-md-3">
-                <h2 class="col-text font-weight-light">Utilit&agrave;</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 offset-md-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2">
-                        <a class="col-btn-impo nav-link rounded col-text" href="#">
-                            Tracking
-                            <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="apri i miei ordini"/>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
     </section>

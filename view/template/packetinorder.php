@@ -5,6 +5,14 @@
                     <h1 class="text-left col-title font-weight-lighter">Dettaglio Ordine</h1>
             </div>
         </div>
+        <div class="row">
+            <div class="col-6 col-md-3 offset-md-3">
+                    <a class="col-btn-impo nav-link rounded col-text mt-2" href="">
+                        Tracking
+                        <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="Apri informazioni di tracking"/>
+                    </a>
+            </div>
+        </div>
     </header>
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
