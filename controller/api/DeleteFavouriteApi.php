@@ -1,12 +1,8 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/UserLoggedApi.php");
-Utils::sec_session_start();
 
-$model = new ModelImpl();
 $planetHandler = $model->getPlanetHandler();
-
-
 if(!isset($_POST['planet'])) {
     echo json_encode(array("data"=>"Errore nella rimozione."));
     return;
