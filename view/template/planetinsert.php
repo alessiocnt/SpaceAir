@@ -1,5 +1,5 @@
 <section>      
-    <header class="offset-1 mb-3 col-md-6 offset-md-3">
+    <header class="col-12 pl-3 mb-3 col-md-6 offset-md-3">
         <div class="row">
             <div class="col-12 pl-0">
                     <h1 class="text-left col-title font-weight-lighter">Nuova destinazione</h1>
@@ -7,7 +7,7 @@
         </div>
     </header>
     <div class="row">
-        <div class="col-md-6 offset-md-3 mb-3">
+        <div class="col-12 col-md-6 offset-md-3 mb-3">
             <form action="#" method="POST" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-6">
