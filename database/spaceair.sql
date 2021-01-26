@@ -1,11 +1,14 @@
+create database spaceair;
+use spaceair;
+
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Creato il: Gen 26, 2021 alle 08:58
--- Versione del server: 10.4.14-MariaDB
--- Versione PHP: 7.4.10
+-- Host: localhost
+-- Creato il: Gen 26, 2021 alle 18:39
+-- Versione del server: 10.4.16-MariaDB
+-- Versione PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -70,9 +73,10 @@ CREATE TABLE `ADDRESS` (
 --
 
 INSERT INTO `ADDRESS` (`CodAddress`, `Via`, `Civico`, `Citta`, `Provincia`, `Cap`, `IdUser`) VALUES
-(1, 'Puglie', '14', 'Cervia', 'Ravenna', '48015', 2),
-(2, 'Caduti', '150', 'Cervia', 'Ravenna', '48015', 3),
-(3, 'Roma', '1', 'Morciano', 'Misano', '47843', 4);
+(1, 'Puglie', '14', 'Cervia', 'RA', '48015', 2),
+(2, 'Caduti', '150', 'Cervia', 'RA', '48015', 3),
+(3, 'Tavolato', '1', 'Misano Adriatico', 'RN', '47843', 4),
+(5, 'Monte Capone', '106/a', 'Carpegna', 'PU', '65898', 4);
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,10 @@ CREATE TABLE `INTEREST` (
 --
 
 INSERT INTO `INTEREST` (`Date`, `IdUser`, `CodPlanet`, `Visible`) VALUES
-('2021-01-25 22:18:53', 2, 1, 1);
+('2021-01-25 22:18:53', 2, 1, 1),
+('2021-01-26 18:14:32', 2, 3, 1),
+('2021-01-26 18:15:31', 3, 2, 1),
+('2021-01-26 18:34:36', 4, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -103,7 +110,7 @@ INSERT INTO `INTEREST` (`Date`, `IdUser`, `CodPlanet`, `Visible`) VALUES
 CREATE TABLE `ORDERS` (
   `CodOrder` int(11) NOT NULL,
   `PurchaseDate` datetime DEFAULT NULL,
-  `Total` float NOT NULL,
+  `Total` float DEFAULT NULL,
   `DestAddressCode` int(11) DEFAULT NULL,
   `State` int(11) NOT NULL,
   `IdUser` int(11) NOT NULL
@@ -114,8 +121,14 @@ CREATE TABLE `ORDERS` (
 --
 
 INSERT INTO `ORDERS` (`CodOrder`, `PurchaseDate`, `Total`, `DestAddressCode`, `State`, `IdUser`) VALUES
-(29, '2021-01-25 22:16:52', 2000, 1, 2, 2),
-(30, NULL, 0, NULL, 1, 2);
+(29, '2021-01-25 22:16:52', 2000, 1, 4, 2),
+(30, '2021-01-26 17:59:53', 4500, 1, 3, 2),
+(31, NULL, NULL, NULL, 1, 2),
+(32, '2021-01-26 18:16:17', 12000, 2, 2, 3),
+(33, '2021-01-26 18:17:16', 7500, 2, 3, 3),
+(34, '2021-01-26 18:24:03', 14500, 5, 4, 4),
+(35, '2021-01-26 18:32:46', 30000, 3, 2, 4),
+(36, NULL, NULL, NULL, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -135,7 +148,7 @@ CREATE TABLE `ORDER_STATE` (
 INSERT INTO `ORDER_STATE` (`CodState`, `Description`) VALUES
 (1, 'Carrello'),
 (2, 'Preparazione'),
-(3, 'Consegna'),
+(3, 'In consegna'),
 (4, 'Consegnato');
 
 -- --------------------------------------------------------
@@ -185,8 +198,16 @@ CREATE TABLE `PACKET_IN_ORDER` (
 INSERT INTO `PACKET_IN_ORDER` (`CodPacket`, `CodOrder`, `Quantity`) VALUES
 (17, 29, 2),
 (19, 30, 0),
-(20, 30, 4),
-(21, 30, 2);
+(20, 30, 3),
+(21, 30, 0),
+(21, 31, 1),
+(18, 32, 1),
+(19, 32, 3),
+(18, 33, 5),
+(18, 34, 5),
+(19, 34, 2),
+(21, 35, 4),
+(19, 36, 1);
 
 -- --------------------------------------------------------
 
@@ -271,8 +292,24 @@ INSERT INTO `TEMPLATE_NOTIFICATION` (`CodNotification`, `DateTime`, `Title`, `De
 (43, '2021-01-25 21:44:44', 'Nuovo pacchetto disponibile', 'Gentile utente, è ora disponibile un nuovo pacchetto verso Marte!', 1, NULL, 19),
 (44, '2021-01-25 21:46:07', 'Nuovo pacchetto disponibile', 'Gentile utente, è ora disponibile un nuovo pacchetto verso Marte!', 1, NULL, 20),
 (45, '2021-01-25 21:49:20', 'Nuovo pacchetto disponibile', 'Gentile utente, è ora disponibile un nuovo pacchetto verso Venere!', 1, NULL, 21),
-(46, '2021-01-25 22:16:52', 'Acqusto effettuato', 'Hai acquistato i seguenti pacchetti Viaggio verso Luna per un totale di 2000', 0, NULL, NULL),
-(47, '2021-01-25 22:16:52', 'Nuovo ordine evaso', 'Sono stati acquistati i seguenti pacchetti Viaggio verso Luna per un totale di 2000', 0, NULL, NULL);
+(46, '2021-01-25 22:16:52', 'Acqusto effettuato', 'Hai acquistato i seguenti pacchetti Viaggio verso Luna per un totale di €2000', 0, NULL, NULL),
+(47, '2021-01-25 22:16:52', 'Nuovo ordine evaso', 'Sono stati acquistati i seguenti pacchetti Viaggio verso Luna per un totale di €2000', 0, NULL, NULL),
+(48, '2021-01-26 17:55:19', 'Aggiornamento Tracking', 'Il tuo ordine contenente Luna del 08/02/2021,  è partito!', 0, NULL, NULL),
+(49, '2021-01-26 17:58:40', 'Aggiornamento Tracking', 'Il tuo ordine contenente Luna del 08/02/2021,  è stato consegnato! Goditi il viaggio!', 0, NULL, NULL),
+(50, '2021-01-26 17:59:53', 'Acqusto effettuato', 'Hai acquistato i seguenti pacchetti Viaggio verso Marte per un totale di €4500', 0, NULL, NULL),
+(51, '2021-01-26 17:59:53', 'Nuovo ordine evaso', 'Sono stati acquistati i seguenti pacchetti Viaggio verso Marte per un totale di €4500', 0, NULL, NULL),
+(52, '2021-01-26 18:06:01', 'Aggiornamento Tracking', 'Il tuo ordine contenente Marte del 01/05/2021,  è partito!', 0, NULL, NULL),
+(53, '2021-01-26 18:16:17', 'Acqusto effettuato', 'Hai acquistato i seguenti pacchetti Viaggio verso LunaViaggio verso Marte per un totale di €12000', 0, NULL, NULL),
+(54, '2021-01-26 18:16:17', 'Nuovo ordine evaso', 'Sono stati acquistati i seguenti pacchetti Viaggio verso LunaViaggio verso Marte per un totale di €12000', 0, NULL, NULL),
+(55, '2021-01-26 18:17:16', 'Acqusto effettuato', 'Hai acquistato i seguenti pacchetti Viaggio verso Luna per un totale di €7500', 0, NULL, NULL),
+(56, '2021-01-26 18:17:16', 'Nuovo ordine evaso', 'Sono stati acquistati i seguenti pacchetti Viaggio verso Luna per un totale di €7500', 0, NULL, NULL),
+(57, '2021-01-26 18:20:14', 'Aggiornamento Tracking', 'Il tuo ordine contenente Luna del 01/04/2021,  è partito!', 0, NULL, NULL),
+(58, '2021-01-26 18:24:03', 'Acqusto effettuato', 'Hai acquistato i seguenti pacchetti Viaggio verso LunaViaggio verso Marte per un totale di €14500', 0, NULL, NULL),
+(59, '2021-01-26 18:24:03', 'Nuovo ordine evaso', 'Sono stati acquistati i seguenti pacchetti Viaggio verso LunaViaggio verso Marte per un totale di €14500', 0, NULL, NULL),
+(60, '2021-01-26 18:24:57', 'Aggiornamento Tracking', 'Il tuo ordine contenente Marte del 10/03/2021, Luna del 01/04/2021,  è partito!', 0, NULL, NULL),
+(62, '2021-01-26 18:31:14', 'Aggiornamento Tracking', 'Il tuo ordine contenente Marte del 10/03/2021, Luna del 01/04/2021,  è stato consegnato! Goditi il viaggio!', 0, NULL, NULL),
+(63, '2021-01-26 18:32:46', 'Acqusto effettuato', 'Hai acquistato i seguenti pacchetti Viaggio verso Venere per un totale di €30000', 0, NULL, NULL),
+(64, '2021-01-26 18:32:46', 'Nuovo ordine evaso', 'Sono stati acquistati i seguenti pacchetti Viaggio verso Venere per un totale di €30000', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -286,6 +323,21 @@ CREATE TABLE `TRACK` (
   `City` varchar(100) NOT NULL,
   `Description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `TRACK`
+--
+
+INSERT INTO `TRACK` (`CodOrder`, `DateTime`, `City`, `Description`) VALUES
+(29, '2021-01-26 17:55:19', 'Milano', 'Il pacco ha lasciato la sede e arriverà a destinazione nel minor tempo possibile'),
+(29, '2021-01-26 17:56:20', 'Bologna', 'Il pacco è nella stazione di Bologna'),
+(29, '2021-01-26 17:57:44', 'Ravenna', 'In elaborazione presso lo stabilimento ACME S.r.l.'),
+(29, '2021-01-26 17:58:40', 'Cervia', 'Il pacco è stato consegnato sul pianerottolo'),
+(30, '2021-01-26 18:06:01', 'Milano', 'Il pacco ha lasciato la sede e arriverà a destinazione nel minor tempo possibile'),
+(33, '2021-01-26 18:20:14', 'Bologna', 'Il pacco è nella stazione di Bologna'),
+(34, '2021-01-26 18:24:56', 'Milano', 'Il pacco ha lasciato la sede e arriverà a destinazione nel minor tempo possibile'),
+(34, '2021-01-26 18:30:58', 'Bologna', 'Il pacco è nella stazione di Bologna'),
+(34, '2021-01-26 18:31:14', 'Carpegna', 'Il pacco è stato consegnato sul pianerottolo');
 
 -- --------------------------------------------------------
 
@@ -314,9 +366,9 @@ CREATE TABLE `USERS` (
 
 INSERT INTO `USERS` (`IdUser`, `Name`, `Surname`, `Borndate`, `Phone`, `ProfileImg`, `Mail`, `Password`, `Salt`, `Type`, `PartitaIva`, `Newsletter`) VALUES
 (1, 'Admin', 'Admin', '1999-07-17', '3334456789', 'user.png', 'admin@spaceair.it', 'aa38e64b61fdfb3d0d587621aa8211368cb9ba2819feb6c65a55c41f05eaf4322699bc703125be0dff18ad24befe3293d7ecff31407bb5c90a7a4f5a946e153d', '5ce2d31eb270c670abacfba645024daca300f5ca5d35390a20e07cd27a802081f4219c7041ff8e8f77cccae74fad8a6472ffa76e55a54f03c4c581551559d257', 1, '0764352056C', 0),
-(2, 'Alessio', 'Conti', '1999-02-03', '', '', 'alessio@spaceair.it', '9422b3f58eb8c52d51e34e61cc03dc014670c8a7b1a6f9cdc6e372790462e4a99ee620296abc60930f54493de76a86a7ddb9a049f9d98f18f2770fb7a7246375', '84e0c975b53c8ad994ccd11bf029ca4e144149d55b838e3de918e33b2723d6df2d803ce50346603e493216a33903c5374e90aab70937fea6329175f8e1b6e379', 2, NULL, 1),
-(3, 'Simone', 'Ceredi', '1999-01-12', '', '', 'simone@spaceair.it', '9294e06b19e062abecf9bec105d3d0789bf2a944dfd0ad6be601727bd6b0a5bc7d2fd27941613fb45ac085fa3b39e40c2fd898c24749f739e34bc62f996f8053', '9da661118944317f550b2b6e3fcdd4802069aab3bd612b7febfe8412ef54e3318dc9b1c7c869705e2bbbb4eaae75655b0d7089b28d2df8d9ccdcf0568d1a5c80', 2, NULL, 1),
-(4, 'Andrea', 'Giulianelli', '1999-01-01', '', '', 'andrea@spaceair.it', '423c8eda289a47527a306b28b76e44112f3f77c3b2ef874fec5057a9fb59a43d4544379a648b7510a4239b2393d71fbd6bdc3666b16dcf676100103983d9dcc7', 'c71c3948bdefd1a7d091c129160a123e57ce965ee4291693770990eb86bd3fdbe02843a9046adef38094faa7d09a015312f680e85b4c7f8982fc3a83394fd3c9', 2, NULL, 1);
+(2, 'Alessio', 'Conti', '1999-02-03', '', 'alessio.jpeg', 'alessio@spaceair.it', '9422b3f58eb8c52d51e34e61cc03dc014670c8a7b1a6f9cdc6e372790462e4a99ee620296abc60930f54493de76a86a7ddb9a049f9d98f18f2770fb7a7246375', '84e0c975b53c8ad994ccd11bf029ca4e144149d55b838e3de918e33b2723d6df2d803ce50346603e493216a33903c5374e90aab70937fea6329175f8e1b6e379', 2, NULL, 1),
+(3, 'Simone', 'Ceredi', '1999-01-12', '', 'simone.jpeg', 'simone@spaceair.it', '9294e06b19e062abecf9bec105d3d0789bf2a944dfd0ad6be601727bd6b0a5bc7d2fd27941613fb45ac085fa3b39e40c2fd898c24749f739e34bc62f996f8053', '9da661118944317f550b2b6e3fcdd4802069aab3bd612b7febfe8412ef54e3318dc9b1c7c869705e2bbbb4eaae75655b0d7089b28d2df8d9ccdcf0568d1a5c80', 2, NULL, 1),
+(4, 'Andrea', 'Giulianelli', '1999-01-01', '', 'andrea.jpeg', 'andrea@spaceair.it', '423c8eda289a47527a306b28b76e44112f3f77c3b2ef874fec5057a9fb59a43d4544379a648b7510a4239b2393d71fbd6bdc3666b16dcf676100103983d9dcc7', 'c71c3948bdefd1a7d091c129160a123e57ce965ee4291693770990eb86bd3fdbe02843a9046adef38094faa7d09a015312f680e85b4c7f8982fc3a83394fd3c9', 2, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -335,23 +387,39 @@ CREATE TABLE `USER_NOTIFICATION` (
 --
 
 INSERT INTO `USER_NOTIFICATION` (`IdUser`, `View`, `CodNotification`) VALUES
-(1, 0, 47),
+(1, 1, 47),
+(1, 0, 51),
+(1, 0, 54),
+(1, 0, 56),
+(1, 0, 59),
+(1, 1, 64),
 (2, 1, 41),
 (2, 1, 42),
 (2, 1, 43),
 (2, 1, 44),
 (2, 1, 45),
-(2, 0, 46),
+(2, 1, 46),
+(2, 1, 48),
+(2, 1, 49),
+(2, 1, 50),
+(2, 0, 52),
 (3, 0, 41),
-(3, 0, 42),
-(3, 0, 43),
-(3, 0, 44),
-(3, 0, 45),
-(4, 0, 41),
-(4, 0, 42),
-(4, 0, 43),
-(4, 0, 44),
-(4, 0, 45);
+(3, 1, 42),
+(3, 1, 43),
+(3, 1, 44),
+(3, 1, 45),
+(3, 1, 53),
+(3, 0, 55),
+(3, 0, 57),
+(4, 1, 41),
+(4, 1, 42),
+(4, 1, 43),
+(4, 1, 44),
+(4, 1, 45),
+(4, 1, 58),
+(4, 1, 60),
+(4, 0, 62),
+(4, 0, 63);
 
 --
 -- Indici per le tabelle scaricate
@@ -449,13 +517,13 @@ ALTER TABLE `USER_NOTIFICATION`
 -- AUTO_INCREMENT per la tabella `ADDRESS`
 --
 ALTER TABLE `ADDRESS`
-  MODIFY `CodAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `CodAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `ORDERS`
 --
 ALTER TABLE `ORDERS`
-  MODIFY `CodOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `CodOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT per la tabella `ORDER_STATE`
@@ -479,7 +547,7 @@ ALTER TABLE `PLANET`
 -- AUTO_INCREMENT per la tabella `TEMPLATE_NOTIFICATION`
 --
 ALTER TABLE `TEMPLATE_NOTIFICATION`
-  MODIFY `CodNotification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `CodNotification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT per la tabella `USERS`
