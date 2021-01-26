@@ -54,7 +54,7 @@
         <div class="col-12 col-md-4">
             <section>
                 <!-- Options-->
-                <h2 class="col-title font-weight-lighter mt-3">Opzioni</h2>
+                <h2 class="col-title px-0 col-12 offset-1 font-weight-lighter mt-3">Opzioni</h2>
                 <div class="row mt-4">
                         <div class="offset-1 col-10">
                             <ul class="nav flex-column">
