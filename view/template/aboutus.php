@@ -30,7 +30,7 @@
         </div>  
     </section>
     <!--Contatti-->
-    <section class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
+    <section class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0" id="contatti">
         <div class="col-12 p-0">
             <div class="row col-12">
                 <h2 class="col-6 mt-3 mb-3 col-text font-weight-light p-0">Contattaci</h2>
