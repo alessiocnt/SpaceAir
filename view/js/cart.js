@@ -9,9 +9,9 @@ $(document).ready(function() {
 
     $("input").change(function(e) {
         $.post("/spaceair/controller/api/CartApi.php/", {id: e.target.id, qnt: $(this).val(), cod: e.target.name}, function(data) { 
-            $("p#p" + e.target.id).text("Costo €" + data);
+            $("p#p" + e.target.id).text("Costo €" + data.price);
             total();
-        });
+        },"json");
     });
 
     $("a.cart-remove").click(function(e) {
