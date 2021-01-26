@@ -145,8 +145,8 @@ class UserInfoHandler extends AbstractHandler {
             $stmt->bind_param("i", $addressId);
             $stmt->execute();
             $result = $stmt->get_result();
+            $result = $result->fetch_all(MYSQLI_ASSOC)[0];
             if(count($result)>0) {
-                $result = $result->fetch_all(MYSQLI_ASSOC)[0];
                 $addressBuilder = new AddressBuilder();
                 return $addressBuilder->createFromAssoc($result);
             }
