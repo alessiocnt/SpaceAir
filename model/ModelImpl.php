@@ -1,10 +1,6 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-
-//Test
-include_once $_SERVER["DOCUMENT_ROOT"] . "/spaceair/model/handler/TestHandler.php";
-
 class ModelImpl implements Model, ModelHelper {
     private DbManager $dbManager;
 
@@ -18,11 +14,6 @@ class ModelImpl implements Model, ModelHelper {
      */
     public function getDbManager() : DbManager {
         return $this->dbManager;
-    }
-
-    //Test
-    public function getTestHandler() {
-        return new TestHandler($this);
     }
 
     public function getUserHandler() {
@@ -53,11 +44,10 @@ class ModelImpl implements Model, ModelHelper {
         return new UserInfoHandler($this);
     }
 
-    //CHECK
     public function getOrderHandler() {
         return new OrderHandler($this);
     }
-    //CHECK
+
     public function getOrdersHandler() {
         return new OrdersHandler($this);
     }

@@ -11,7 +11,6 @@ class PacketInsertController extends AdminLoggedController {
         $packetHandler = $this->getModel()->getPacketHandler();
         
         if(isset($_POST["inputDepartureDateHour"])) {
-            //var_dump($_POST);
             $pack["CodPlanet"] = $_POST["inputDestination"];
             /* $pack["imgPlanet"] = $_POST["inputImage"]; */
 

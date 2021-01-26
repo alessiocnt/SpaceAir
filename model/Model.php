@@ -13,8 +13,6 @@ interface Model {
     public function getOrdersHandler();
     public function getAdminInfoHandler();
     public function getTrackInfoHandler();
-    //Test
-    public function getTestHandler();
 }
 
 ?>

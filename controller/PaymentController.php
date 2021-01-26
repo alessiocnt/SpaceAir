@@ -16,7 +16,6 @@ class PaymentController extends UserLoggedController {
     public function executePage() {
         $userInfoHandler = $this->getModel()->getUserInfoHandler();
         $address = $userInfoHandler->getAddresses(new User(Utils::getUserId()));
-        //var_dump($address);
         $data["header"]["title"] = "Pagamento";
         $data["header"]["js"] = ["/spaceair/view/js/payment.js"];
         $data["header"]["css"] = [];

@@ -24,7 +24,6 @@ class SignupController extends AbstractController {
             $data["Password"] = $_POST["criptopassword"];
             $data["Newsletter"] = isset($_POST["newsletter"]);
             
-            var_dump($_FILES);
             if(isset($_FILES["img"])) {
                 $data["ProfileImg"] = $_FILES["img"];
             }
