@@ -17,7 +17,7 @@
                 <p class="col-error"><?php echo $data["error"]?></p>
             <?php endif ?>
             <p>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data">
                 <fieldset class="form-group"><legend class="col-title">Dati Utente</legend>
                 <div class="form-group">
                     <label for="name" class="col-text">Nome</label>
