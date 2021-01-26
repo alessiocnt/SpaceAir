@@ -52,7 +52,7 @@
             </section>
         </div>
         <div class="col-12 col-md-4">
-            <section class="mt-5">
+            <section>
                 <!-- Options-->
                 <h2 class="col-title font-weight-lighter mt-3">Opzioni</h2>
                 <div class="row mt-4">
