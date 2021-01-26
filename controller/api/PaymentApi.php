@@ -46,8 +46,8 @@ if($orderHandler->checkAvailable($order, $user, $admin)) {
             $descUser = $descUser."Viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
             $descAdmin = $descAdmin."Viaggio verso ".$planetHandler->searchPlanetByCod($packet->getDestinationPlanet()->getCodPlanet())[0]->getName();
         }
-        $descUser.=" per un totale di ".$total;
-        $descAdmin.=" per un totale di ".$total;
+        $descUser.=" per un totale di €".$total;
+        $descAdmin.=" per un totale di €".$total;
         $notificationDispatcher = new NotificationDispatcher(new ModelImpl());
         $notificationDispatcher->createGeneral("Acqusto effettuato", $descUser, array($user));
         $notificationDispatcher->createGeneral("Nuovo ordine evaso", $descAdmin, array($admin));
