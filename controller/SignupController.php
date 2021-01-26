@@ -51,6 +51,9 @@ class SignupController extends AbstractController {
             if($result == UserHandler::$SIGNUPOK) {
                 //Log User and go to the profile page (because login will see the user already logged)
                 $userHandler->login($user->getMail(), $user->getPassword());
+                //Send notification
+                $notificationDispatcher = $this->getModel()->getNotificationDispatcher();
+                $notificationDispatcher->createGeneral("Benvenuto","Registrazione avvenuta con successo, benvenuto in spaceair! Non vediamo l'ora di volare con te!", array(new User(Utils::getUserId())));
                 header("Location:login.php");
             } else {
                 switch($result) {
