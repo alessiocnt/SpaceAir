@@ -11,6 +11,7 @@ class InsertTrackInfoController extends AbstractController {
         $orderHandler = $this->getModel()->getOrderHandler();
         $ordersHandler = $this->getModel()->getOrdersHandler();
         $trackInfoHandler = $this->getModel()->getTrackInfoHandler();
+        $notificationDispatcher = $this->getModel()->getNotificationDispatcher();
 
         if(isset($_POST["delivery"])) {
             //Deliver packet to user address (delivered)
@@ -21,8 +22,8 @@ class InsertTrackInfoController extends AbstractController {
             $order = new Order($codOrder);
 
             //Check not already delivered
-            $orderState = $orderHandler->getOrderState($order);
-            if($orderState->getCodState() != 4) {
+            $prevorderState = $orderHandler->getOrderState($order);
+            if($prevorderState->getCodState() != 4) {
                 //Ok let's deliver this order
                 //Get Deliver City
                 $city = $orderHandler->getDeliverCityOfOrder($order);
@@ -33,6 +34,14 @@ class InsertTrackInfoController extends AbstractController {
                     //Set OrderState "consegnato"
                     if($orderHandler->setOrderState($order, new OrderState(4,"Spedito"))) {
                         $data["data"]["text"] = "Aggiornato correttamente";
+                        //Notify
+                        $orderInfo = $ordersHandler->getOrderDetail($order);
+                        $notificationText = "Il tuo ordine contenente ";
+                        foreach($orderInfo->getPackets() as $packet) {
+                            $notificationText .= $packet->getPacket()->getDestinationPlanet()->getName() . " del " . $packet->getPacket()->getDepartureDateHour()->format("d/m/Y") . ", ";
+                        }
+                        $notificationText .= " è stato consegnato! Goditi il viaggio!";
+                        $notificationDispatcher->createGeneral("Aggiornamento Tracking",$notificationText, array(new User(Utils::getUserId())));
                     } else {
                         $data["data"]["text"] = "Errore nell'aggiornamento";
                     }
@@ -52,14 +61,24 @@ class InsertTrackInfoController extends AbstractController {
 
             $order = new Order($codOrder);
             //Check not already delivered
-            $orderState = $orderHandler->getOrderState($order);
-            if($orderState->getCodState() != 4) {
+            $prevorderState = $orderHandler->getOrderState($order);
+            if($prevorderState->getCodState() != 4) {
                 $trackInfo = $trackInfoBuilder->createFromAssoc(array("CodOrder"=>$codOrder, "City"=>$city, "Description"=>$description, "DateTime"=>date("Y-m-d H:i:s")));
                 //Add TrackInfo
                 if($trackInfoHandler->addTrackInfo($trackInfo)) {
                     //Set OrderState "in consegna"
                     if($orderHandler->setOrderState($order, new OrderState(3,"In Consegna"))) {
                         $data["data"]["text"] = "Aggiornato correttamente";
+                        if($prevorderState->getCodState() == 2) {
+                            //If it's the first info notify user
+                            $orderInfo = $ordersHandler->getOrderDetail($order);
+                            $notificationText = "Il tuo ordine contenente ";
+                            foreach($orderInfo->getPackets() as $packet) {
+                                $notificationText .= $packet->getPacket()->getDestinationPlanet()->getName() . " del " . $packet->getPacket()->getDepartureDateHour()->format("d/m/Y") . ", ";
+                            }
+                            $notificationText .= " è partito!";
+                            $notificationDispatcher->createGeneral("Aggiornamento Tracking",$notificationText, array(new User(Utils::getUserId())));
+                        }
                     } else {
                         $data["data"]["text"] = "Errore nell'aggiornamento";
                     }

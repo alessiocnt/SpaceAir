@@ -2,7 +2,11 @@
     <header>
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3 pl-md-2">
-                    <h1 class="text-left col-title font-weight-lighter">Tracking gadget</h1>
+                    <?php if(count($data["trackInfo"]) == 0) : ?>
+                        <h1 class="text-left col-title font-weight-lighter">Ancora il tuo pacco deve lasciare la sede</h1>
+                    <?php else: ?>
+                        <h1 class="text-left col-title font-weight-lighter">Tracking gadget</h1>
+                    <?php endif ?>
             </div>
         </div>
     </header>
