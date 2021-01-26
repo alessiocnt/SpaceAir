@@ -28,7 +28,7 @@
         <div id="map-google" class="z-depth-1-half map-container">
             <iframe src="https://maps.google.com/maps?q=Campus+di+Cesena+-+Università+di+Bologna+-+Alma+Mater+Studiorum&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
         </div>  
-    </section>    
+    </section>
     <!--Contatti-->
     <section class="row col-10 offset-1 mb-3 col-md-6 offset-md-3 p-0">
         <div class="col-12 p-0">

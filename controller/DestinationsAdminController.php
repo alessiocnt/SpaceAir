@@ -10,7 +10,7 @@ class DestinationsAdminController extends AdminLoggedController {
         $planetHandler = $this->getModel()->getPlanetHandler();
         if(isset($_POST["searchBar"]) && $_POST["searchBar"]!=null) {
             $planetName = $_POST["searchBar"];
-            $result = $planetHandler->searchPlanetByName($planetName);
+            $result = $planetHandler->getPlanetsByPrefix($planetName);
             if($result == false) {
                 $data["data"]["error"] = "Nessun pianeta trovato.";
                 $data["header"]["title"] = "Elenco destinazioni";
