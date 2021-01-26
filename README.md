@@ -5,13 +5,12 @@
 1. Importare il db tramite il file database/spaceair.sql
 2. Collegarsi tramite browser al sito
 
-### Documentazione
-La documentazione si trova all'interno della directory doc/
-1. Relazione del progetto dentro (RelazioneSpaceAir.pdf)
+### Documentazione (all'interno della directory doc/)
+1. Relazione del progetto (RelazioneSpaceAir.pdf)
 2. Schema uml architetturale di base (uml_mvc.pdf)
-3. Link ai mockup (testabili come mockup interattivi tramite il tasto play in alto a destra):
-    - [Versione mobile](https://www.figma.com/file/b9crbo1EFowk5OcXSpkjPH/Color?node-id=239%3A2222) 
-    - [Versione desktop](https://www.figma.com/file/b9crbo1EFowk5OcXSpkjPH/?node-id=239%3A2221)
+3. Link ai mockup (testabili come mockup interattivi tramite il tasto play in alto a destra)
+     - [Versione mobile](https://www.figma.com/file/b9crbo1EFowk5OcXSpkjPH/Color?node-id=239%3A2222) 
+     - [Versione desktop](https://www.figma.com/file/b9crbo1EFowk5OcXSpkjPH/?node-id=239%3A2221)
 
 
 ### Account già esistenti predisposti all'utilizzo
