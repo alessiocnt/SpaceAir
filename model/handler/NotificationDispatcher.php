@@ -80,7 +80,7 @@ class NotificationDispatcher extends AbstractHandler{
 
     public function getAllNotificationsOfUser($user) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT T.DateTime, T.Title, T.Description
+        $stmt = $db->prepare("SELECT T.CodNotification, T.DateTime, T.Title, T.Description
         FROM USER_NOTIFICATION U JOIN TEMPLATE_NOTIFICATION T ON U.CodNotification = T.CodNotification
         WHERE U.IdUser = ?
         ORDER BY T.DateTime DESC");

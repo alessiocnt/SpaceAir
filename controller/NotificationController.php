@@ -12,7 +12,12 @@ class NotificationController extends AbstractController {
             header("location: /spaceair/login.php");
         }
         $notificationHandler = $this->getModel()->getNotificationDispatcher();
-        $data["data"]["notifications"] = $notificationHandler->getAllNotificationsOfUser(new User(Utils::getUserId()));
+        $user = new User(Utils::getUserId());
+        $notifications = $notificationHandler->getAllNotificationsOfUser($user);
+        foreach ($notifications as $notification) {
+            $notificationHandler->seenNotification($user, $notification);
+        }
+        $data["data"]["notifications"] = $notifications;
         $data["header"]["title"] = "Notifiche";
         $data["header"]["js"] = [];
         $data["header"]["css"] = [];
