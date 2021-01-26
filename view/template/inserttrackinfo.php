@@ -1,7 +1,7 @@
 <section>
     <header>
         <div class="row">
-            <div class="col-10 offset-1 px-0 offset-md-2">
+            <div class="col-10 pl-3 pl-md-2 col-md-8 offset-md-3">
                     <h1 class="text-left col-title font-weight-lighter">Inserisci info di tracking</h1>
             </div>
         </div>
