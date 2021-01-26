@@ -1,10 +1,10 @@
 <?php 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
-class UserBuilder implements Builder{
+class TrackInfoBuilder implements Builder{
     private Order $order;
     private DateTime $date;
-    private string $citta;
+    private string $city = "";
     private string $description;
 
     public function createFromAssoc($assoc) {
@@ -15,7 +15,7 @@ class UserBuilder implements Builder{
                 $this->$method($value);
             }
         }
-        return new TrackInfo($this->order, $this->date, $this->citta, $this->description);
+        return new TrackInfo($this->order, $this->date, $this->city, $this->description);
     }
 
     public function setCodOrder($codOrder) {
@@ -23,11 +23,11 @@ class UserBuilder implements Builder{
     }
 
     public function setDateTime($dateTime) {
-        $this->order = DateTime::createFromFormat("Y-m-d H:i:s", $dateTime);
+        $this->date = DateTime::createFromFormat("Y-m-d H:i:s", $dateTime);
     }
 
-    public function setCitta($citta) {
-        $this->citta = $citta;
+    public function setCity($city) {
+        $this->city = $city;
     }
 
     public function setDescription($description) {

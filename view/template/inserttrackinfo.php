@@ -9,6 +9,7 @@
     <section>
         <div class="mt-5 row">
             <div class="col-12 col-md-6 offset-md-3">
+                <p class="col-error"><?php echo isset($data["text"]) ? $data["text"] : ""; ?></p>
                 <form action="" method="POST">
                 <div class="form-group">
                     <label for="selectorder">Seleziona Ordine</label>

@@ -6,13 +6,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader
 class TrackInfo {
     private Order $order;
     private DateTime $date;
-    private string $citta;
+    private string $city;
     private string $description;
 
-    public function __construct(Order $order, DateTime $date, string $citta, string $description) {
+    public function __construct(Order $order, DateTime $date, string $city = "", string $description) {
         $this->order = $order;
         $this->date = $date;
-        $this->citta = $citta;
+        $this->city = $city;
         $this->description = $description;
     }
 
@@ -24,8 +24,8 @@ class TrackInfo {
         return $this->date;
     }
 
-    public function getCitta() : string {
-        return $this->citta;
+    public function getCity() : string {
+        return $this->city;
     }
 
     public function getDescription() : string {

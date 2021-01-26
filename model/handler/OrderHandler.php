@@ -109,4 +109,35 @@ class OrderHandler extends AbstractHandler {
         return $result[0]["Totale"];
     }
 
+    public function setOrderState(Order $order, OrderState $state) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if($stmt = $db->prepare("UPDATE ORDERS SET State = ? WHERE CodOrder = ?;")) {
+            $codOrder = $order->getCodOrder();
+            $codState = $state->getCodState();
+            $stmt->bind_param('ii', $codState, $codOrder);
+            if($stmt->execute()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function getDeliverCityOfOrder(Order $order) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if($stmt = $db->prepare("SELECT A.Citta FROM ORDERS O, ADDRESS A WHERE O.DestAddressCode = A.CodAddress AND O.CodOrder = ? LIMIT 1;")) {            
+            $codOrder = $order->getCodOrder();
+            $stmt->bind_param("i", $codOrder);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $result = $result->fetch_all(MYSQLI_ASSOC);
+            if(count($result)>0) {
+                return $result[0]["Citta"];
+            }
+        }
+
+        return false;
+    }
+
 }

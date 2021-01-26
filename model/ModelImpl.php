@@ -69,6 +69,10 @@ class ModelImpl implements Model, ModelHelper {
     public function getAdminInfoHandler() {
         return new AdminInfoHandler($this);
     }
+
+    public function getTrackInfoHandler() {
+        return new TrackInfoHandler($this);
+    }
 }
 
 ?>
