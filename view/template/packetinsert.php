@@ -22,8 +22,8 @@
                     </select>
                 </div>
                 <div class="col-4 col-md-3">
-                    <a href="planetinsert.php" class="btn col-back-white btn-new-dest" title="Crea nuova destinazione">
-                        Crea nuova destinazione
+                    <a href="planetinsert.php" class="btn col-back-white btn-new-dest" title="Crea pianeta">
+                        Crea pianeta
                     </a>
                 </div>
             </div>
