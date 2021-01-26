@@ -26,7 +26,7 @@
                                 <p class="col-dark list-impo-text text-lowercase font-weight-light my-0"><?php echo "x" . $packet->getQuantity() . " ";?></p>
                             </div>
                             <p class="col-dark font-weight-bold list-impo-text text-uppercase my-0"><?php echo $packet->getPacket()->getDestinationPlanet()->getName(); ?></p>
-                            <p class="col-dark font-weight-normal list-impo-text my-0"><?php echo $packet->getPacket()->getDepartureDateHour()->format("d/m/Y H:i:s"); ?></p>
+                            <p class="col-dark font-weight-normal list-impo-text my-0"><?php echo $packet->getPacket()->getDepartureDateHour()->format("d/m/Y H:i"); ?></p>
                         </a>
                     </li>
                 <?php endforeach ?>
