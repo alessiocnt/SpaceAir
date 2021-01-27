@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class LoginController extends AbstractController {
     
@@ -42,7 +41,7 @@ class LoginController extends AbstractController {
                 //Set the title
                 $data["header"]["title"] = "Login";
                 //Set custom js
-                $data["header"]["js"] = ["/spaceair/view/js/sha512.js","/spaceair/view/js/login.js"];
+                $data["header"]["js"] = ["./view/js/sha512.js","./view/js/login.js"];
                 //Set custom css
                 $data["header"]["css"] = [];
                 //Create the view
@@ -55,7 +54,7 @@ class LoginController extends AbstractController {
             //Set the title
             $data["header"]["title"] = "Login";
             //Set custom js
-            $data["header"]["js"] = ["/spaceair/view/js/sha512.js","/spaceair/view/js/login.js"];
+            $data["header"]["js"] = ["./view/js/sha512.js","./view/js/login.js"];
             //Set custom css
             $data["header"]["css"] = [];
             //Create the view

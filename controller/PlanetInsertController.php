@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class PlanetInsertController extends AdminLoggedController {
     
@@ -33,11 +32,11 @@ class PlanetInsertController extends AdminLoggedController {
                 $userInfoHandler = $this->getModel()->getUserInfoHandler();
                 $users = $userInfoHandler->getUsersWithNewsletter();
                 $this->getModel()->getNotificationDispatcher()->createPlanetRelated("Nuovo pianeta disponibile","Gentile utente, è ora possibile viaggiare verso ".$planet->getName()."!", $planet , $users);
-                header("location: /spaceair/destinationsadmin.php");
+                header("location: ./destinationsadmin.php");
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";
                 $data["header"]["title"] = "Nuova destinazione";
-                $data["header"]["js"] = ["/spaceair/view/js/planetinsert.js"];
+                $data["header"]["js"] = ["./view/js/planetinsert.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("planetinsert");
                 $view->render($data); 
@@ -45,7 +44,7 @@ class PlanetInsertController extends AdminLoggedController {
         } else {
             $data["data"] = "";
             $data["header"]["title"] = "Nuova destinazione";
-            $data["header"]["js"] = ["/spaceair/view/js/planetinsert.js"];
+            $data["header"]["js"] = ["./view/js/planetinsert.js"];
             $data["header"]["css"] = [];
             $view = new GenericView("planetinsert");
             $view->render($data); 

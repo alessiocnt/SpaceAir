@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+require_once("./autoloaders/commonAutoloader.php");
 
 $controller = new PlanetModifyController(new ModelImpl());
 $controller->execute();

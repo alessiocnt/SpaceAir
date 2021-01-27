@@ -1,5 +1,5 @@
 <?php 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 class PlanetBuilder implements Builder{
     private int $codPlanet = 0;

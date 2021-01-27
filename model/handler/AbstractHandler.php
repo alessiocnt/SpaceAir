@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 abstract class AbstractHandler {
     private ModelHelper $model;

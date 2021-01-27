@@ -31,10 +31,10 @@
                 <?php foreach($data["planets"] as $planet): ?>
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <div class="col-9 p-0">
-                        <a href="/spaceair/planetdetails.php?Destination=<?php echo $planet->getName(); ?>" class="p-0">
+                        <a href="./planetdetails.php?Destination=<?php echo $planet->getName(); ?>" class="p-0">
                             <img src="./res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="Vai a: <?php echo $planet->getName(); ?>" />
                         </a>
-                        <a href="/spaceair/planetdetails.php?Destination=<?php echo $planet->getName(); ?>" class="col-dark list-impo-text p-0 my-0"><?php echo $planet->getName(); ?></a>
+                        <a href="./planetdetails.php?Destination=<?php echo $planet->getName(); ?>" class="col-dark list-impo-text p-0 my-0"><?php echo $planet->getName(); ?></a>
                         </div>
                         <div class="col-3 p-0">
                             <a href="#" id="<?php echo $planet->getName(); ?>" class="btn btn_fav float-right" title="Aggiungi ai preferiti">

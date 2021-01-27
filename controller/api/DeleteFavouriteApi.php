@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/UserLoggedApi.php");
+require_once("./UserLoggedApi.php");
 
 $planetHandler = $model->getPlanetHandler();
 if(!isset($_POST['planet'])) {

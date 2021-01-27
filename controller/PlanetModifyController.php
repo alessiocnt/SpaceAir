@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class PlanetModifyController extends AdminLoggedController {
     
@@ -23,7 +22,7 @@ class PlanetModifyController extends AdminLoggedController {
                 $data["data"]["error"] = "Errore, destinazione non trovata.";
                 $data["data"]["planets"] = $planetHandler->getAllPlanets();
                 $data["header"]["title"] = "Destinazioni";
-                $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
+                $data["header"]["js"] = ["./view/js/destinations.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("destinationsadmin");
                 $view->render($data); 

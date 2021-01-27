@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class DestinationsController extends AbstractController {
     
@@ -16,14 +15,14 @@ class DestinationsController extends AbstractController {
             if($result == false) {
                 $data["data"]["error"] = "Nessun pianeta trovato.";
                 $data["header"]["title"] = "Destinazioni";
-                $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
+                $data["header"]["js"] = ["./view/js/destinations.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("destinations");
                 $view->render($data);
             } else {
                 $data["data"]["planets"] = $result;
                 $data["header"]["title"] = "Destinazioni";
-                $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
+                $data["header"]["js"] = ["./view/js/destinations.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("destinations");
                 $view->render($data); 
@@ -31,7 +30,7 @@ class DestinationsController extends AbstractController {
         } else {
             $data["data"]["planets"] = $planetHandler->getPlanets();
             $data["header"]["title"] = "Destinazioni";
-            $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
+            $data["header"]["js"] = ["./view/js/destinations.js"];
             $data["header"]["css"] = [];
             $view = new GenericView("destinations");
             $view->render($data); 

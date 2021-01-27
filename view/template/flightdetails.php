@@ -41,7 +41,7 @@
     </section>  
     <section class="mb-3 p-0 col-10 offset-1 col-md-6 offset-md-3">
     <?php if($packet->getAvailableSeats()) : ?>
-        <form action="/spaceair/controller/api/FlightDetailsApi.php" method="POST" class="rounded my-2 col-back-white p-4 col-dark col-12">
+        <form action="./controller/api/FlightDetailsApi.php" method="POST" class="rounded my-2 col-back-white p-4 col-dark col-12">
             <input id="packet" name="packet" type="hidden" value="<?php echo $packet->getCode(); ?>"/>
             <div class="row">
                 <p class="col-4 col-dark font-weight-bold list-impo-text">Quantità</p>

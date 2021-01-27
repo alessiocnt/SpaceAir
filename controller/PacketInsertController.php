@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class PacketInsertController extends AdminLoggedController {
     
@@ -32,7 +31,7 @@ class PacketInsertController extends AdminLoggedController {
                 $userInfoHandler = $this->getModel()->getUserInfoHandler();
                 $users = $userInfoHandler->getInterestedUsers($planet);
                 $this->getModel()->getNotificationDispatcher()->createPacketRelated("Nuovo pacchetto disponibile","Gentile utente, è ora disponibile un nuovo pacchetto verso ".$planet->getName()."!", new Packet($result) , $users);
-                header("location:/spaceair/packetlist.php");
+                header("location:./packetlist.php");
             } else {
                 $data["data"]["error"] = "Errore di inserimento.";
                 $data["header"]["title"] = "Nuovo pacchetto";

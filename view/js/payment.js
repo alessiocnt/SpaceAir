@@ -25,13 +25,13 @@ $(document).ready(function () {
             $('#paymentResult').text("Selezionare l'indirizzo di consegna");
             return;
         }
-        $.post("/spaceair/controller/api/PaymentApi.php/", { codOrder: cod, addr: addr },
+        $.post("./controller/api/PaymentApi.php/", { codOrder: cod, addr: addr },
         function(data) {
             $('#paymentResult').text(data);
         });
         
         setTimeout(function(){ 
-            window.location.replace("/spaceair/homepage.php");
+            window.location.replace("./homepage.php");
         }, 1500);
     });
 

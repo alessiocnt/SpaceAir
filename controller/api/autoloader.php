@@ -11,7 +11,7 @@
         $searchPath = array("/model/", "/model/handler/", "/model/common/", "/model/common/builder/", "/model/db/" , "/model/utils/", "/model/handler/utils/", 
     "/controller/", "/controller/utils/", "/controller/api/", "/view/", "/view/test/");
         foreach($searchPath as $path) {
-            $fullPath = "." . $path . $className .".php"; 
+            $fullPath = "../.." . $path . $className .".php"; 
             if(file_exists($fullPath)) {
                 include_once $fullPath;
                 return true;

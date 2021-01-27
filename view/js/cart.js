@@ -8,7 +8,7 @@ $(document).ready(function() {
     }
 
     $("input").change(function(e) {
-        $.post("/spaceair/controller/api/CartApi.php/", {id: e.target.id, qnt: $(this).val(), cod: e.target.name}, function(data) { 
+        $.post("./controller/api/CartApi.php/", {id: e.target.id, qnt: $(this).val(), cod: e.target.name}, function(data) { 
             $("p#p" + e.target.id).text("Costo €" + data.price);
             total();
         },"json");
@@ -19,7 +19,7 @@ $(document).ready(function() {
         const order = $(this).attr("class");
         const packet = $(this).attr("name");
         const qnt = 0;
-        $.post("/spaceair/controller/api/CartApi.php/", {"id": packet, "qnt": qnt, "cod": order}, function(data) { 
+        $.post("./controller/api/CartApi.php/", {"id": packet, "qnt": qnt, "cod": order}, function(data) { 
             $("p#p" + packet).text("Costo €" + 0);
             total();
         });

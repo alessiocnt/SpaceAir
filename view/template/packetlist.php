@@ -20,7 +20,7 @@
                                     <img src="./res/upload/admin/<?=$packet->getDestinationPlanet()->getImgPlanet()?>" class="card-img" alt="">
                                 </div>
                                 <div class="col-8 col-md-10">
-                                    <a href="/spaceair/packetmodify.php?Packet=<?=$packet->getCode();?>" title="Modifica viaggio">
+                                    <a href="./packetmodify.php?Packet=<?=$packet->getCode();?>" title="Modifica viaggio">
                                         <img src="./res/icons/edit-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Modifica viaggio">
                                     </a>
                                     <a href="./passengerlist.php?codPacket=<?php echo $packet->getCode();?>" class="my-0 text-uppercase col-dark font-weight-bold list-impo-text">Viaggio verso <?=$packet->getDestinationPlanet()->getName();?></a>
@@ -42,7 +42,7 @@
     <div class="row fixed-bottom top-add-btn">
         <div class="col-md-6 offset-md-3 mr-1">
             <!-- Light circle button with ripple effect -->
-            <a href="/spaceair/packetinsert.php" class="btn rounded-circle col-btn-impo btn-md pmd-btn-raised float-right" title="Aggiungi nuovo viaggio">
+            <a href="./packetinsert.php" class="btn rounded-circle col-btn-impo btn-md pmd-btn-raised float-right" title="Aggiungi nuovo viaggio">
                 <img src="./res/icons/add-black-36dp.svg" alt="Aggiungi nuovo viaggio" class="pt-1 pb-1" />
             </a>
         </div>

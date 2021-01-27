@@ -1,5 +1,5 @@
 <?php 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 class UserBuilder implements Builder{
     private int $id = 0;

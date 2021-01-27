@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class PacketModifyController extends AdminLoggedController {
     
@@ -49,7 +48,7 @@ class PacketModifyController extends AdminLoggedController {
             $result = $packetHandler->updatePacket($packet);
 
             if($result) {
-                header("location:/spaceair/packetlist.php");
+                header("location:./packetlist.php");
             } else {
                 $data["data"] = [];
                 $data["data"]["error"] = "Pacchetto non modificato";

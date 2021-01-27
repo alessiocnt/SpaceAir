@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     function notificating() {
         let notifications;
-        $.post('/spaceair/controller/api/NotificationsApi.php', function (data) {
+        $.post('./controller/api/NotificationsApi.php', function (data) {
             if (data.msg != "ko") {
                 notifications = data.msg;
                 const l = Object.keys(notifications).length;
@@ -50,6 +50,6 @@ $(document).ready(function () {
         const id = $(this).attr('id');
         notificationQuantity--;
         updateBadge(notificationQuantity);
-        $.post('/spaceair/controller/api/DeleteNotificationApi.php', { id: id });
+        $.post('./controller/api/DeleteNotificationApi.php', { id: id });
     });
 });

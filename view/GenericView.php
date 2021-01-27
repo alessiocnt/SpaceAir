@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 class GenericView extends ViewBaseImpl {
     private string $templateName;
@@ -9,7 +9,7 @@ class GenericView extends ViewBaseImpl {
     }
 
     protected function renderMain($data) {
-        require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/" . $this->templateName . ".php";
+        require "./view/template/" . $this->templateName . ".php";
     }
 }
 ?>

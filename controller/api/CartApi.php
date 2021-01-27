@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/UserLoggedApi.php");
+require_once("./UserLoggedApi.php");
 
 if(!isset($_POST["id"])) {
     echo("Errore non è possibile accedere alla pagina");

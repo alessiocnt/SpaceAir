@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class PaymentController extends UserLoggedController {
     
@@ -17,7 +16,7 @@ class PaymentController extends UserLoggedController {
         $userInfoHandler = $this->getModel()->getUserInfoHandler();
         $address = $userInfoHandler->getAddresses(new User(Utils::getUserId()));
         $data["header"]["title"] = "Pagamento";
-        $data["header"]["js"] = ["/spaceair/view/js/payment.js"];
+        $data["header"]["js"] = ["./view/js/payment.js"];
         $data["header"]["css"] = [];
         $data["data"]["Totale"] = $this->totalPrice;
         $data["data"]["addresses"] = $address;

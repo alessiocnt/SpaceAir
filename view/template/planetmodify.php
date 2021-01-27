@@ -9,7 +9,7 @@
     <?php $planet = $data["planets"] ?> 
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3 mb-3">
-            <form action="/spaceair/controller/api/PlanetModifyApi.php" method="POST" enctype="multipart/form-data">
+            <form action="./controller/api/PlanetModifyApi.php" method="POST" enctype="multipart/form-data">
                 <input id="old-planet" name="old-planet" type="hidden" value="<?php echo $planet->getCodPlanet(); ?>"/>
                 <div class="row mb-3">
                     <div class="col-6">

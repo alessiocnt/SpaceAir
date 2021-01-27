@@ -3,10 +3,10 @@
 
 <footer class="mt-auto bg-sec justify-content-center ">
 <nav class="nav col-12 text-monospace">
-    <a href="/spaceair/aboutus.php" class="px-1 py-2  col-text nav-link col-4 col-md-3 text-center">ABOUT US</a>    
-    <a href="/spaceair/aboutus.php#contatti" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center">CONTACTS</a>
-    <a href="/spaceair/cookiepolicy.php" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center">COOKIE POLICY</a>
-    <a href="/spaceair/privacypolicy.php" class="px-1 py-2 col-text nav-link col-12 col-md-3 text-center">PRIVACY POLICY</a>
+    <a href="./aboutus.php" class="px-1 py-2  col-text nav-link col-4 col-md-3 text-center">ABOUT US</a>    
+    <a href="./aboutus.php#contatti" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center">CONTACTS</a>
+    <a href="./cookiepolicy.php" class="px-1 py-2 col-text nav-link col-4 col-md-3 text-center">COOKIE POLICY</a>
+    <a href="./privacypolicy.php" class="px-1 py-2 col-text nav-link col-12 col-md-3 text-center">PRIVACY POLICY</a>
 </nav>
 </footer>
 

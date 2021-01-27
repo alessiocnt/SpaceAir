@@ -1,6 +1,6 @@
 <?php
 //Api to get all the statics for admin
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/AdminLoggedApi.php");
+require_once("./AdminLoggedApi.php");
 
 $array["sales"] = $model->getAdminInfoHandler()->getSalesPerPlanet();
 $array["popularPacket"] = $model->getAdminInfoHandler()->getPopularPackets();

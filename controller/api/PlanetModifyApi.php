@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/controller/api/AdminLoggedApi.php");
+require_once("./AdminLoggedApi.php");
 
 $planetHandler = $model->getPlanetHandler();
 
@@ -22,6 +22,6 @@ if(isset($_POST["inputName"])) {
     $planet = $builder->createFromAssoc($data);
 
     $planetHandler->updatePlanet($planet, $oldPlanet);
-    header("location: /spaceair/destinationsadmin.php");
+    header("location: ../../destinationsadmin.php");
 }
 ?>

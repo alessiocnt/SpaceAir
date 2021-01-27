@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class HomePageController extends AbstractController {
     
@@ -13,7 +12,7 @@ class HomePageController extends AbstractController {
         $data["data"]["planets"] = $planetHandler->getPlanets();
         
         $data["header"]["title"] = "SpaceAir - Home";
-        $data["header"]["js"] = ["/spaceair/view/js/homepage.js"];
+        $data["header"]["js"] = ["./view/js/homepage.js"];
         $data["header"]["css"] = [];
         $view = new GenericView("homepage");
         $view->render($data); 

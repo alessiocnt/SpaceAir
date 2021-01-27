@@ -1,3 +1,3 @@
 <?php
-header("location: /spaceair/homepage.php");
+header("location: ./homepage.php");
 ?>

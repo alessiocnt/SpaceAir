@@ -5,7 +5,7 @@
     WARNING: there is yet the model object, so you don't have to create one
 */
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+require_once("./autoloader.php");
 
 //Start secure session
 Utils::sec_session_start();

@@ -71,7 +71,7 @@
                 <ul class="list-group">
                     <?php foreach ($data["packets"] as $packet) : ?>
                         <li class="">
-                            <form action="/spaceair/controller/api/FlightDetailsApi.php" method="POST" class="rounded my-2 col-back-white p-4 col-dark col-12">
+                            <form action="./controller/api/FlightDetailsApi.php" method="POST" class="rounded my-2 col-back-white p-4 col-dark col-12">
                                 <input id="packet" name="packet" type="hidden" value="<?php echo $packet->getCode(); ?>" />
                                 <input id="inputQuantity" name="inputQuantity" type="hidden" value="1" />
                                 <?php if ($packet->getAvailableSeats()) : ?>
@@ -79,11 +79,8 @@
                                         <img src="./res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Aggiungi al carrello">
                                     </button>
                                 <?php endif; ?>
-                                <!-- <a href="/spaceair/flightdetails.php?Destination=<?php echo $planet->getName() ?>&Packet=<?php echo $packet->getCode(); ?>">
-                                    <img src="./res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="Vai al volo del <?php echo $packet->getDepartureDateHour()->format("d-m-Y H:m"); ?>" />
-                                </a> -->
                                 <img src="./res/icons/logo.svg" class="planet-img mw-25 d-none d-md-flex float-left mr-4" alt="" />
-                                <a href="/spaceair/flightdetails.php?Destination=<?php echo $planet->getName() ?>&Packet=<?php echo $packet->getCode(); ?>" class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></a>
+                                <a href="./flightdetails.php?Destination=<?php echo $planet->getName() ?>&Packet=<?php echo $packet->getCode(); ?>" class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></a>
                                 <p class="col-dark font-weight-normal list-impo-text my-0">€ <?php echo $packet->getPrice(); ?></p>
                             </form>
                         </li>

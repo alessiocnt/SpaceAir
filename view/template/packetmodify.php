@@ -14,7 +14,7 @@
                                     else :
                                  ?>
         </div>
-        <form action="/spaceair/packetmodify.php" method="POST">
+        <form action="./packetmodify.php" method="POST">
             <input type="hidden" name="packetId" id="packetId" value="<?=$data["packet"]->getCode();?>">
             <div class="row mb-3">
                 <div class="container">

@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class PlanetDetailsController extends UserLoggedController {
     
@@ -20,7 +19,7 @@ class PlanetDetailsController extends UserLoggedController {
                 $data["data"]["packets"] = $packetHandler->getPacketsByDestination($planet);
                 $data["data"]["reviews"] = $reviewHandler->getRandomReview($planet, 3);
                 $data["header"]["title"] = "Dettagli Destinazione";
-                $data["header"]["js"] = ["/spaceair/view/js/planetdetails.js"];
+                $data["header"]["js"] = ["./view/js/planetdetails.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("planetdetails");
                 $view->render($data); 
@@ -28,7 +27,7 @@ class PlanetDetailsController extends UserLoggedController {
                 $data["data"]["error"] = "Errore, destinazione non trovata.";
                 $data["data"]["planets"] = $planetHandler->getPlanets();
                 $data["header"]["title"] = "Destinazioni";
-                $data["header"]["js"] = ["/spaceair/view/js/destinations.js"];
+                $data["header"]["js"] = ["./view/js/destinations.js"];
                 $data["header"]["css"] = [];
                 $view = new GenericView("destinations");
                 $view->render($data);

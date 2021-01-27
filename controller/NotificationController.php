@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class NotificationController extends AbstractController {
     
@@ -9,7 +8,7 @@ class NotificationController extends AbstractController {
 
     public function execute() {
         if(!$this->getModel()->getUserHandler()->checkLogin(UserHandler::$LOGINOKUSER) && !$this->getModel()->getUserHandler()->checkLogin(UserHandler::$LOGINOKADMIN)) {
-            header("location: /spaceair/login.php");
+            header("location: ./login.php");
         }
         $notificationHandler = $this->getModel()->getNotificationDispatcher();
         $user = new User(Utils::getUserId());

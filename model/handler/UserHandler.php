@@ -1,5 +1,5 @@
 <?php 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 
 class UserHandler extends AbstractHandler {
@@ -150,7 +150,7 @@ class UserHandler extends AbstractHandler {
       $imageName = "";
       //First try to insert image
       if($user->getImgProfile()["name"] != "") {
-         list($uploadResult, $imageName) = Utils::uploadImage($_SERVER["DOCUMENT_ROOT"] . "/spaceair/res/upload/user/", $user->getImgProfile());
+         list($uploadResult, $imageName) = Utils::uploadImage("./res/upload/user/", $user->getImgProfile());
          if($uploadResult != Utils::$IMGUPLOADOK) {
             return $uploadResult;
          }

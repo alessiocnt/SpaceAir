@@ -2,7 +2,7 @@ $(document).ready(function () {
     // Invio una nuova recensione
     $('#newReview').submit(function (e) {
         e.preventDefault();
-        let posting = $.post("/spaceair/controller/api/AddReviewApi.php/", {
+        let posting = $.post("./controller/api/AddReviewApi.php/", {
             Titolo: $("#inputTitle").val(),
             Valutazione: $("#inputStars").val(),
             Descrizione: $("#inputReview").val(),

@@ -32,7 +32,7 @@
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <span class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></span>
                         <div class="col-4">
-                            <a href="/spaceair/planetmodify.php?Destination=<?php echo $planet->getName(); ?>" class="btn_edit btn float-right p-1" title="Modifica pianeta">
+                            <a href="./planetmodify.php?Destination=<?php echo $planet->getName(); ?>" class="btn_edit btn float-right p-1" title="Modifica pianeta">
                                 <img id="<?php echo $planet->getName(); ?>" src="./res/icons/edit-black-18dp.svg" alt="Modifica">
                             </a>
                         </div>

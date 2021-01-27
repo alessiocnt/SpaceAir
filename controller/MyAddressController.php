@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
 
 class MyAddressController extends UserLoggedController {
     
@@ -16,7 +15,7 @@ class MyAddressController extends UserLoggedController {
         //Set the title
         $data["header"]["title"] = "I miei indirizzi";
         //Set custom js
-        $data["header"]["js"] = ["/spaceair/view/js/myaddress.js"];
+        $data["header"]["js"] = ["./view/js/myaddress.js"];
         //Set custom css
         $data["header"]["css"] = [];
         //Create the view

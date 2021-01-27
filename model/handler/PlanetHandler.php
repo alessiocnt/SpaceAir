@@ -1,5 +1,5 @@
 <?php 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/spaceair/autoloaders/commonAutoloader.php");
+
 
 
 class PlanetHandler extends AbstractHandler {
@@ -21,7 +21,7 @@ class PlanetHandler extends AbstractHandler {
             return false;
         }
         if($planet->getImgPlanet() != "") {
-            list($uploadResult, $imageName) = Utils::uploadImage($_SERVER["DOCUMENT_ROOT"] . "/spaceair/res/upload/admin/", $planet->getImgPlanet());
+            list($uploadResult, $imageName) = Utils::uploadImage("./res/upload/admin/", $planet->getImgPlanet());
             if($uploadResult != Utils::$IMGUPLOADOK) {
                return $uploadResult;
             }
@@ -54,7 +54,7 @@ class PlanetHandler extends AbstractHandler {
     public function updatePlanet($planet, $oldPlanet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
         if($planet->getImgPlanet() != "") {
-            list($uploadResult, $imageName) = Utils::uploadImage($_SERVER["DOCUMENT_ROOT"] . "/spaceair/res/upload/admin/", $planet->getImgPlanet());
+            list($uploadResult, $imageName) = Utils::uploadImage("./res/upload/admin/", $planet->getImgPlanet());
             if($uploadResult != Utils::$IMGUPLOADOK) {
                return $uploadResult;
             }

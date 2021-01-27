@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!--Custom CSS-->
-    <link rel="stylesheet" href="/spaceair/view/template/style/style.css">
+    <link rel="stylesheet" href="./view/template/style/style.css">
     <!-- Custom CSS -->
     <?php foreach ($headerInfo["css"] as $cssFile) : ?>
         <link rel="stylesheet" href="<?php echo $cssFile ?>" />
@@ -35,7 +35,7 @@
         </button>
 
         <!--SpaceAir logo and name-->
-        <a class="navbar-brand mx-auto" href="/spaceair/homepage.php" title="Vai alla home">
+        <a class="navbar-brand mx-auto" href="./homepage.php" title="Vai alla home">
             <img src="./res/icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
             SPACEAIR
         </a>
@@ -43,9 +43,9 @@
         <!--Navbar icons near logo for device screen-->
         <div class="navbar-brand align-top mr-0 d-inline-block d-md-none">   
             <?php if(session_status() != PHP_SESSION_NONE && Utils::checkAdmin()) {  
-                require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons-admin.html";
+                require "./view/template/nav-icons-admin.html";
             } else {
-                require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons.html";
+                require "./view/template/nav-icons.html";
             } ?>
         </div>
 
@@ -53,14 +53,14 @@
             <ul class="navbar-nav mx-auto p-2">
                 <?php if(session_status() != PHP_SESSION_NONE && Utils::checkAdmin()) :?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/spaceair/destinationsadmin.php">Destinazioni</a>
+                        <a class="nav-link" href="./destinationsadmin.php">Destinazioni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/spaceair/packetlist.php">Pacchetti</a>
+                        <a class="nav-link" href="./packetlist.php">Pacchetti</a>
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/spaceair/destinations.php">Destinazioni</a>
+                        <a class="nav-link" href="./destinations.php">Destinazioni</a>
                     </li>
                 <?php endif?>
             </ul>
@@ -69,9 +69,9 @@
         <!--Navbar icons, need to repeat in order to move them on the extreme right after the nav-item when over md view-->
         <div class="navbar-brand align-top mr-0 d-none d-md-block">
             <?php if(session_status() != PHP_SESSION_NONE && Utils::checkAdmin()) {  
-                require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons-admin.html";
+                require "./view/template/nav-icons-admin.html";
             } else {
-                require $_SERVER["DOCUMENT_ROOT"] . "/spaceair/view/template/nav-icons.html";
+                require "./view/template/nav-icons.html";
             } ?>
         </div>
     </nav>
