@@ -29,11 +29,11 @@
             <div class="row mb-3">
                 <div class="col-6">
                     <label for="inputDepartureDateHour">Data e ora partenza</label>
-                    <input type="datetime-local" class="form-control" name="inputDepartureDateHour" id="inputDepartureDateHour" value="<?= $data["packet"]->getDepartureDateHour()->format('Y-m-d\TH:i') ;?>" required />
+                    <input type="datetime-local" class="form-control" name="inputDepartureDateHour" min="<?php echo date("Y-m-j\TH:i");?>" id="inputDepartureDateHour" value="<?= $data["packet"]->getDepartureDateHour()->format('Y-m-d\TH:i') ;?>" required />
                 </div>
                 <div class="col-6">
                     <label for="inputArriveDateHour">Data e ora arrivo</label>
-                    <input type="datetime-local" class="form-control" name="inputArriveDateHour" id="inputArriveDateHour" value="<?= $data["packet"]->getArriveDateHour()->format('Y-m-d\TH:i') ;?>" required />
+                    <input type="datetime-local" class="form-control" name="inputArriveDateHour" min="<?php echo date("Y-m-j\TH:i");?>" id="inputArriveDateHour" value="<?= $data["packet"]->getArriveDateHour()->format('Y-m-d\TH:i') ;?>" required />
                 </div>
             </div>
             <div class="row mb-3">
