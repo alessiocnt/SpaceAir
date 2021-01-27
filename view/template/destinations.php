@@ -14,7 +14,7 @@
                 <input type="search" class="form-control col-10" name="searchBar" id="searchBar" autocomplete="on"/>
                 <button class="btn col-2" type="submit">
                     <span class="input-group-addon">
-                        <img src="/spaceair/res/icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
+                        <img src="./res/icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
                     </span>
                 </button>
             </div>
@@ -32,13 +32,13 @@
                     <li class="col-12 list-group-item rounded mb-3 col-back-white space-vertical">
                         <div class="col-9 p-0">
                         <a href="/spaceair/planetdetails.php?Destination=<?php echo $planet->getName(); ?>" class="p-0">
-                            <img src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="Vai a: <?php echo $planet->getName(); ?>" />
+                            <img src="./res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="Vai a: <?php echo $planet->getName(); ?>" />
                         </a>
                         <a href="/spaceair/planetdetails.php?Destination=<?php echo $planet->getName(); ?>" class="col-dark list-impo-text p-0 my-0"><?php echo $planet->getName(); ?></a>
                         </div>
                         <div class="col-3 p-0">
                             <a href="#" id="<?php echo $planet->getName(); ?>" class="btn btn_fav float-right" title="Aggiungi ai preferiti">
-                                <img src="/spaceair/res/icons/favorite-24px.svg" alt="Preferiti">
+                                <img src="./res/icons/favorite-24px.svg" alt="Preferiti">
                             </a>
                         </div>
 

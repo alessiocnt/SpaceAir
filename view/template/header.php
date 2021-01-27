@@ -19,7 +19,7 @@
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="/spaceair/view/js/notification.js"></script>
+    <script src="./view/js/notification.js"></script>
     <!-- Custom Js -->
     <?php foreach ($headerInfo["js"] as $jsFile) : ?>
         <script src="<?php echo $jsFile ?>"></script>
@@ -36,7 +36,7 @@
 
         <!--SpaceAir logo and name-->
         <a class="navbar-brand mx-auto" href="/spaceair/homepage.php" title="Vai alla home">
-            <img src="/spaceair/res/icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
+            <img src="./res/icons/logo.svg" class="d-inline-block align-top logo-header" alt="logo" loading="lazy">
             SPACEAIR
         </a>
 

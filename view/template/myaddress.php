@@ -15,7 +15,7 @@
                     <div class="row" id = "oo">
                         <div class="col-12">
                             <a href="addaddress.php?cod=<?php echo $address->getCodAddress();?>" title="Modifica interesse">
-                                <img class="float-right edit" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/>
+                                <img class="float-right edit" src="./res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/>
                             </a>
                             <header>
                                 <h2 class="text-black font-weight-bold">#Indirizzo</h2>
@@ -29,7 +29,7 @@
                             </section>
                         </div>
                         <div class="col-12 text-right" id = "oo1">
-                            <img class="float-right delete" src="/spaceair/res/icons/delete-black-18dp.svg" alt="Cancella Interesse"/>
+                            <img class="float-right delete" src="./res/icons/delete-black-18dp.svg" alt="Cancella Interesse"/>
                         </div>
                     </div>
                 </article>

@@ -14,7 +14,7 @@
                 <input type="search" class="form-control col-10" name="searchBar" id="searchBar" autocomplete="on"/>
                 <button class="btn col-2" type="submit">
                     <span class="input-group-addon">
-                        <img src="/spaceair/res/icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
+                        <img src="./res/icons/search-white-18dp.svg" alt="Cerca" class="scale-x2">
                     </span>
                 </button>
             </div>
@@ -33,7 +33,7 @@
                         <span class="col-dark list-impo-text col-8"><?php echo $planet->getName(); ?></span>
                         <div class="col-4">
                             <a href="/spaceair/planetmodify.php?Destination=<?php echo $planet->getName(); ?>" class="btn_edit btn float-right p-1" title="Modifica pianeta">
-                                <img id="<?php echo $planet->getName(); ?>" src="/spaceair/res/icons/edit-black-18dp.svg" alt="Modifica">
+                                <img id="<?php echo $planet->getName(); ?>" src="./res/icons/edit-black-18dp.svg" alt="Modifica">
                             </a>
                         </div>
                     </li>
@@ -46,7 +46,7 @@
             <div class="col-10 offset-1 col-md-6 offset-md-3 mr-1">
                 <!-- Light circle button with ripple effect -->
                 <a href="planetinsert.php" class="btn rounded-circle col-btn-impo btn-md pmd-btn-raised float-right top-add-btn" title="Aggiungi nuovo pianeta">
-                    <img src="/spaceair/res/icons/add-black-36dp.svg" alt="Crea nuovo pianeta" class="pt-1 pb-1"/>
+                    <img src="./res/icons/add-black-36dp.svg" alt="Crea nuovo pianeta" class="pt-1 pb-1"/>
                 </a>
             </div>
         </div>

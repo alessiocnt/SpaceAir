@@ -15,7 +15,7 @@
                 <li class="w-100">Massa <?php echo $planet->getMass(); ?>x10<sup>22</sup>Kg</li>
                 <li class="w-100">Composizione <?php echo $planet->getComposition(); ?></li>
             </ul>
-            <img alt="<?php echo $planet->getName(); ?>" src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="col-8 img-fluid">
+            <img alt="<?php echo $planet->getName(); ?>" src="./res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="col-8 img-fluid">
             <ul class="col-text col-2 space-vertical">
                 <li class="w-100">Distanza dal Sole <?php echo $planet->getSunDistance(); ?>x10<sup>6</sup>Km</li>
                 <li class="w-100">Superficie <?php echo $planet->getSurface(); ?>x10<sup>6</sup>Km<sup>2</sup></li>
@@ -23,7 +23,7 @@
             </ul>
         </div>
         <!-- usata solo per il mobile -->
-        <img alt="<?php echo $planet->getName(); ?>" src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="d-md-none col-8 offset-2 img-fluid">
+        <img alt="<?php echo $planet->getName(); ?>" src="./res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="d-md-none col-8 offset-2 img-fluid">
         <p class="col-text mb-0 mt-5 pb-3"><?php echo $planet->getDescription(); ?></p>
         <section class="mt-3 d-md-none">
             <h2 class="mt-3 col-title font-weight-light">Informazioni pianeta</h2>
@@ -76,13 +76,13 @@
                                 <input id="inputQuantity" name="inputQuantity" type="hidden" value="1" />
                                 <?php if ($packet->getAvailableSeats()) : ?>
                                     <button class="btn mt-2 mr-2 float-right" type="submit">
-                                        <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Aggiungi al carrello">
+                                        <img src="./res/icons/shopping_cart-24px.svg" class="scale-x2" alt="Aggiungi al carrello">
                                     </button>
                                 <?php endif; ?>
                                 <!-- <a href="/spaceair/flightdetails.php?Destination=<?php echo $planet->getName() ?>&Packet=<?php echo $packet->getCode(); ?>">
-                                    <img src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="Vai al volo del <?php echo $packet->getDepartureDateHour()->format("d-m-Y H:m"); ?>" />
+                                    <img src="./res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-left mr-4" alt="Vai al volo del <?php echo $packet->getDepartureDateHour()->format("d-m-Y H:m"); ?>" />
                                 </a> -->
-                                <img src="/spaceair/res/icons/logo.svg" class="planet-img mw-25 d-none d-md-flex float-left mr-4" alt="" />
+                                <img src="./res/icons/logo.svg" class="planet-img mw-25 d-none d-md-flex float-left mr-4" alt="" />
                                 <a href="/spaceair/flightdetails.php?Destination=<?php echo $planet->getName() ?>&Packet=<?php echo $packet->getCode(); ?>" class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></a>
                                 <p class="col-dark font-weight-normal list-impo-text my-0">€ <?php echo $packet->getPrice(); ?></p>
                             </form>
@@ -127,7 +127,7 @@
             <div class="col-12 p-0">
                 <div class="my-3 px-0 float-right">
                     <?php for ($i = 0; $i < 5; $i++) : ?>
-                        <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="">
+                        <img src="./res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="">
                     <?php endfor; ?>
                 </div>
                 <h2 class="my-3 col-text font-weight-light">Recensioni</h2>
@@ -137,7 +137,7 @@
                             <p class="sr-only">Valutazione: <?php echo $review->getRating(); ?>/5</p>
                             <div class="mb-2 px-0 float-right">
                                 <?php for ($i = 0; $i < $review->getRating(); $i++) : ?>
-                                    <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="">
+                                    <img src="./res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="">
                                 <?php endfor; ?>
                             </div>
                             <h3 class="font-weight-bold list-impo-text mb-2"><?php echo $review->getTitle(); ?></h3>

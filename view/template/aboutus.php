@@ -37,17 +37,17 @@
                 <div class="col-6 p-0 mt-3 float-right">
                     <a href="#" class="float-right px-1">
                         <div class="text-center">
-                            <img alt="Vai al profilo Instagram" src="/spaceair/res/icons/ig-w.svg" class="img-fluid">
+                            <img alt="Vai al profilo Instagram" src="./res/icons/ig-w.svg" class="img-fluid">
                         </div>
                     </a>
                     <a href="#" class="float-right px-1">
                         <div class="text-center">
-                            <img alt="Vai al profilo Facebook" src="/spaceair/res/icons/fb-w.svg" class="img-fluid">
+                            <img alt="Vai al profilo Facebook" src="./res/icons/fb-w.svg" class="img-fluid">
                         </div>
                     </a>
                     <a href="#" class="float-right px-1">
                         <div class="text-center">
-                            <img alt="Vai al profilo YouTube" src="/spaceair/res/icons/yt-w.svg" class="img-fluid">
+                            <img alt="Vai al profilo YouTube" src="./res/icons/yt-w.svg" class="img-fluid">
                         </div>
                     </a>
                 </div>
@@ -70,7 +70,7 @@
         <div class="col-12 p-0">
             <div class="my-3 px-0 float-right">
             <?php for($i=0 ; $i<5 ; $i++): ?>
-                <img src="/spaceair/res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="">
+                <img src="./res/icons/star_rate-white-18dp.svg" class="img-fluid" alt="">
             <?php endfor; ?>
             </div>
             <h2 class="my-3 col-text font-weight-light">Recensioni</h2>
@@ -80,7 +80,7 @@
                     <p class="sr-only">Valutazione: <?php echo $review->getRating(); ?>/5</p>
                     <div class="mb-2 px-0 float-right">
                     <?php for($i=0 ; $i<$review->getRating() ; $i++): ?>
-                        <img src="/spaceair/res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="">
+                        <img src="./res/icons/star_rate-24px.svg" class="scale-x075 img-fluid" alt="">
                     <?php endfor; ?>
                     </div>
                     <h3 class="font-weight-bold list-impo-text mb-2"><?php echo $review->getTitle(); ?></h3>

@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-12 text-center p-4">
-                <img src="/spaceair/res/icons/decorative/undraw_Outer_space_drqu.svg" alt="" class="decorative-img mw-50"/>
+                <img src="./res/icons/decorative/undraw_Outer_space_drqu.svg" alt="" class="decorative-img mw-50"/>
             </div>
         </div>
     </header>
@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col-12 mt-1 mb-4 align-center">
                             <div class="mx-auto avatar-container">
-                                <img src="/spaceair/res/icons/decorative/noimg.png" id="previewimg" class="avatar-img rounded-circle" alt="Immagine selezionata"/>
+                                <img src="./res/icons/decorative/noimg.png" id="previewimg" class="avatar-img rounded-circle" alt="Immagine selezionata"/>
                             </div>
                         </div>
                     </div>

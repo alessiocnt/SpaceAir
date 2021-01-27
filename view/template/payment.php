@@ -29,14 +29,14 @@
                     <div class="col-3 offset-2 col-md-2 offset-md-3">
                         <div id="my-credit-card" class="col-back-white col-dark rounded my-2 p-1">
                             <a href="" id="cred" title="Paga con carta di credito">
-                                <img src="/spaceair/res/icons/credit_card-black-18dp.svg" alt="Paga tramite carta di credito" class="rounded mx-auto d-block pt-2 pb-2" />
+                                <img src="./res/icons/credit_card-black-18dp.svg" alt="Paga tramite carta di credito" class="rounded mx-auto d-block pt-2 pb-2" />
                             </a>
                         </div>
                     </div>
                     <div class="col-3 offset-2 col-md-2 offset-md-2">
                         <div id="my-paypal" class="col-back-white col-dark rounded my-2 p-1">
                             <a href="" id="paypal" title="Paga con PayPal">
-                                <img src="/spaceair/res/icons/paypal.svg" alt="Paga tramite PayPal" class="rounded mx-auto d-block pt-2 pb-2" />
+                                <img src="./res/icons/paypal.svg" alt="Paga tramite PayPal" class="rounded mx-auto d-block pt-2 pb-2" />
                             </a>
                         </div>
                     </div>

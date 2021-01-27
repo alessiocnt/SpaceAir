@@ -12,7 +12,7 @@
     <section class="mb-3 col-10 offset-1 col-md-6 offset-md-3">
         <div class="row mb-3">
             <div class="rounded my-2 col-back-white p-4 col-dark col-12">
-                <img src="/spaceair/res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
+                <img src="./res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
                 <p class="my-0 text-uppercase font-weight-bold list-impo-text"><?php echo $planet->getName(); ?></p>
                 <p><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
                 <p class="text-uppercase my-0"><?php echo $user->getName(); ?> <?php echo $user->getSurname(); ?></p>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-4">
                     <button class="btn float-right" type="submit">
-                        <img src="/spaceair/res/icons/shopping_cart-24px.svg" class="float-right" alt="Aggiungi al carrello">
+                        <img src="./res/icons/shopping_cart-24px.svg" class="float-right" alt="Aggiungi al carrello">
                     </button>
                 </div>
             </div>

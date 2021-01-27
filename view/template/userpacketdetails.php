@@ -16,7 +16,7 @@ $codOrder = $data["codOrder"];
             <div class="col-12 col-md-6 offset-md-3">
                 <h2 class="mt-3 col-text font-weight-light">Informazioni generali</h2>
                 <div class="rounded my-2 col-back-white p-4 col-dark ">
-                    <img src="/spaceair/res/upload/admin/<?php echo $packet->getPacket()->getDestinationPlanet()->getImgPlanet(); ?>" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
+                    <img src="./res/upload/admin/<?php echo $packet->getPacket()->getDestinationPlanet()->getImgPlanet(); ?>" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
                     <p class="my-0 text-uppercase font-weight-bold list-impo-text"><?php echo $packet->getPacket()->getDestinationPlanet()->getName();?></p>
                     <p><?php echo $packet->getPacket()->getDepartureDateHour()->format("d/m/Y H:i")?></p>
                     <p class="text-uppercase my-0"><?php echo $user->getName() . " " . $user->getSurname();?></p>

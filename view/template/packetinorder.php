@@ -9,7 +9,7 @@
             <div class="col-6 col-md-3 offset-md-3">
                     <a class="col-btn-impo nav-link rounded col-text mt-2" href="./trackinginfo.php?id=<?php echo $data["codOrder"];?>">
                         Tracking
-                        <img class="mt-1 float-right" src="/spaceair/res/icons/navigate_next-black-18dp.svg" alt="Apri informazioni di tracking"/>
+                        <img class="mt-1 float-right" src="./res/icons/navigate_next-black-18dp.svg" alt="Apri informazioni di tracking"/>
                     </a>
             </div>
         </div>
@@ -20,7 +20,7 @@
                 <?php foreach($data["packets"]->getPackets() as $packet): ?>
                     <li class="list-group-item rounded mb-3 col-back-white py-4">
                         <a href="./userpacketdetails.php?idpacket=<?php echo $packet->getPacket()->getCode();?>&idorder=<?php echo $data["codOrder"]; ?>">
-                            <img src="/spaceair/res/upload/admin/<?php echo $packet->getPacket()->getDestinationPlanet()->getImgPlanet();?>" class="planet-img mw-25 float-left mr-4 p-2" alt=""/>
+                            <img src="./res/upload/admin/<?php echo $packet->getPacket()->getDestinationPlanet()->getImgPlanet();?>" class="planet-img mw-25 float-left mr-4 p-2" alt=""/>
                             <div class="float-right">
                             <p class="col-dark text-lowercase font-weight-light my-0"><?php echo "€" . $packet->getPacket()->getPrice() . " ";?></p>
                                 <p class="col-dark list-impo-text text-lowercase font-weight-light my-0"><?php echo "x" . $packet->getQuantity() . " ";?></p>

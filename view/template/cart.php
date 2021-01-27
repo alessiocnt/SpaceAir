@@ -20,11 +20,11 @@
                             <div class="rounded my-2 col-back-white p-4 col-dark ">
                                 <div class="row">
                                     <div class="col-4 col-md-3">
-                                        <img src="/spaceair/res/upload/admin/<?= $packet[0]->getDestinationPlanet()->getImgPlanet(); ?>" class="card-img" alt="">
+                                        <img src="./res/upload/admin/<?= $packet[0]->getDestinationPlanet()->getImgPlanet(); ?>" class="card-img" alt="">
                                     </div>
                                     <div class="col-8 col-md-9">
                                         <a href="#" name="<?= $packet[0]->getCode();?>" class=" <?= $order->getCodOrder(); ?> cart-remove" title="Rimuovi dal carrello">
-                                            <img src="/spaceair/res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right md-1" alt="Rimuovi dal carrello">
+                                            <img src="./res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right md-1" alt="Rimuovi dal carrello">
                                         </a>
                                         <p class="my-0 text-uppercase font-weight-bold list-impo-text mb-2">Viaggio verso <?= $packet[0]->getDestinationPlanet()->getName(); ?></p>
                                         <p>Partenza: <?= $packet[0]->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
