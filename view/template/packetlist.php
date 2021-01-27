@@ -24,8 +24,8 @@
                                         <img src="./res/icons/edit-black-18dp.svg" class="mw-25 float-right mr-md-1" alt="Modifica viaggio">
                                     </a>
                                     <a href="./passengerlist.php?codPacket=<?php echo $packet->getCode();?>" class="my-0 text-uppercase col-dark font-weight-bold list-impo-text">Viaggio verso <?=$packet->getDestinationPlanet()->getName();?></a>
-                                    <p><?=$packet->getDepartureDateHour()->format("d.m.Y H:m");?></p>
-                                    <p><?=$packet->getArriveDateHour()->format("d.m.Y H:m");?></p>
+                                    <p><?=$packet->getDepartureDateHour()->format("d.m.Y H:i");?></p>
+                                    <p><?=$packet->getArriveDateHour()->format("d.m.Y H:i");?></p>
                                     <p class="font-weight-normal my-0"><?=$packet->getAvailableSeats();?> posti disponibili</p>
                                     <p class="font-weight-normal my-0 float-right bottom mr-1">Prezzo €<?=$packet->getPrice();?></p>
                                 </div>

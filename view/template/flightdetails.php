@@ -14,7 +14,7 @@
             <div class="rounded my-2 col-back-white p-4 col-dark col-12">
                 <img src="./res/upload/admin/<?php echo $planet->getImgPlanet() ?>" class="planet-img mw-25 float-right mr-4 p-2" alt=""/>
                 <p class="my-0 text-uppercase font-weight-bold list-impo-text"><?php echo $planet->getName(); ?></p>
-                <p><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
+                <p><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:i"); ?></p>
                 <p class="text-uppercase my-0"><?php echo $user->getName(); ?> <?php echo $user->getSurname(); ?></p>
                 <p class="text-uppercase my-0">Posto - 12</p>
             </div>
@@ -30,9 +30,9 @@
             </div>
             <div class="col-12 px-0">
                 <p class="font-weight-bold col-text my-0">Data partenza:<span class="float-right font-weight-normal"><?php echo $packet->getDepartureDateHour()->format("d-m-Y"); ?></span></p>
-                <p class="font-weight-bold col-text my-0">Orario partenza:<span class="float-right font-weight-normal"><?php echo $packet->getDepartureDateHour()->format("H:m"); ?></span></p>    
+                <p class="font-weight-bold col-text my-0">Orario partenza:<span class="float-right font-weight-normal"><?php echo $packet->getDepartureDateHour()->format("H:i"); ?></span></p>    
                 <p class="font-weight-bold col-text my-0">Data arrivo:<span class="float-right font-weight-normal"><?php echo $packet->getArriveDateHour()->format("d-m-Y"); ?></span></p>
-                <p class="font-weight-bold col-text my-0">Orario arrivo:<span class="float-right font-weight-normal"><?php echo $packet->getArriveDateHour()->format("H:m"); ?></span></p>
+                <p class="font-weight-bold col-text my-0">Orario arrivo:<span class="float-right font-weight-normal"><?php echo $packet->getArriveDateHour()->format("H:i"); ?></span></p>
                 <p class="font-weight-bold col-text my-0">Capienza volo:<span class="float-right font-weight-normal"><?php echo $packet->getMaxSeats(); ?></span></p>
                 <p class="font-weight-bold col-text my-0">Posti disponibili:<span class="float-right font-weight-normal"><?php echo $packet->getAvailableSeats(); ?></span></p>
                 <p class="font-weight-bold col-text my-0">Costo:<span class="float-right font-weight-normal">$ <?php echo $packet->getPrice(); ?></span></p>

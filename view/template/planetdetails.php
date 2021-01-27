@@ -80,7 +80,7 @@
                                     </button>
                                 <?php endif; ?>
                                 <img src="./res/icons/logo.svg" class="planet-img mw-25 d-none d-md-flex float-left mr-4" alt="" />
-                                <a href="./flightdetails.php?Destination=<?php echo $planet->getName() ?>&Packet=<?php echo $packet->getCode(); ?>" class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:m"); ?></a>
+                                <a href="./flightdetails.php?Destination=<?php echo $planet->getName() ?>&Packet=<?php echo $packet->getCode(); ?>" class="col-dark font-weight-bold list-impo-text my-0"><?php echo $packet->getDepartureDateHour()->format("d-m-Y - H:i"); ?></a>
                                 <p class="col-dark font-weight-normal list-impo-text my-0">€ <?php echo $packet->getPrice(); ?></p>
                             </form>
                         </li>

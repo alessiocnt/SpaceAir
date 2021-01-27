@@ -357,7 +357,7 @@ CREATE TABLE `USERS` (
   `Borndate` date NOT NULL,
   `Phone` char(10) NOT NULL,
   `ProfileImg` varchar(100) NOT NULL,
-  `Mail` varchar(50) NOT NULL UNIQUE,
+  `Mail` varchar(50) NOT NULL,
   `Password` char(128) NOT NULL,
   `Salt` char(128) NOT NULL,
   `Type` tinyint(4) NOT NULL,
@@ -375,15 +375,6 @@ INSERT INTO `USERS` (`IdUser`, `Name`, `Surname`, `Borndate`, `Phone`, `ProfileI
 (3, 'Simone', 'Ceredi', '1999-01-12', '', 'simone.jpeg', 'simone@spaceair.it', '9294e06b19e062abecf9bec105d3d0789bf2a944dfd0ad6be601727bd6b0a5bc7d2fd27941613fb45ac085fa3b39e40c2fd898c24749f739e34bc62f996f8053', '9da661118944317f550b2b6e3fcdd4802069aab3bd612b7febfe8412ef54e3318dc9b1c7c869705e2bbbb4eaae75655b0d7089b28d2df8d9ccdcf0568d1a5c80', 2, NULL, 1),
 (4, 'Andrea', 'Giulianelli', '1999-01-01', '', 'andrea.jpeg', 'andrea@spaceair.it', '423c8eda289a47527a306b28b76e44112f3f77c3b2ef874fec5057a9fb59a43d4544379a648b7510a4239b2393d71fbd6bdc3666b16dcf676100103983d9dcc7', 'c71c3948bdefd1a7d091c129160a123e57ce965ee4291693770990eb86bd3fdbe02843a9046adef38094faa7d09a015312f680e85b4c7f8982fc3a83394fd3c9', 2, NULL, 1);
 
-
-
-CREATE TABLE `spaceair`.`LOGIN_ATTEMPTS` (
-   `IdUser` INT(11) NOT NULL,
-   `Time` VARCHAR(30) NOT NULL,
-   foreign key(IdUser) references USERS(IdUser)
-         on delete restrict
-         on update cascade
-);
 
 -- --------------------------------------------------------
 
@@ -649,3 +640,12 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+CREATE TABLE `LOGIN_ATTEMPTS` (
+   `IdUser` INT(11) NOT NULL,
+   `Time` VARCHAR(30) NOT NULL,
+   foreign key(IdUser) references USERS(IdUser)
+         on delete restrict
+         on update cascade
+);

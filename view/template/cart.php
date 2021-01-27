@@ -27,8 +27,8 @@
                                             <img src="./res/icons/remove_shopping_cart-black-18dp.svg" class="mw-25 float-right md-1" alt="Rimuovi dal carrello">
                                         </a>
                                         <p class="my-0 text-uppercase font-weight-bold list-impo-text mb-2">Viaggio verso <?= $packet[0]->getDestinationPlanet()->getName(); ?></p>
-                                        <p>Partenza: <?= $packet[0]->getDepartureDateHour()->format("d-m-Y - H:m"); ?></p>
-                                        <p>Arrivo: <?= $packet[0]->getArriveDateHour()->format("d-m-Y - H:m"); ?></p>
+                                        <p>Partenza: <?= $packet[0]->getDepartureDateHour()->format("d-m-Y - H:i"); ?></p>
+                                        <p>Arrivo: <?= $packet[0]->getArriveDateHour()->format("d-m-Y - H:i"); ?></p>
                                         <p id="p<?= $packet[0]->getCode(); ?>" class="font-weight-normal my-0 float-right bottom mr-md-1 mt-4 totalPrice">Costo € <?= $packet[1] * $packet[0]->getPrice(); ?></p>
                                         <label for="<?= $packet[0]->getCode(); ?>" class="invisible custom-file-label">Quantità prodotto</label>
                                         <div class="input-group col-4 pl-0">
