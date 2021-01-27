@@ -37,7 +37,7 @@
                             <li>ottenere la rettifica e la cancellazione dei dati;</li>
                             <li>ottenere la limitazione del trattamento;</li>
                             <li>ottenere la portabilità dei dati, ossia riceverli da un titolare del trattamento, in un formato strutturato, di uso comune e leggibile da dispositivo automatico, e trasmetterli ad un altro titolare del trattamento senza impedimenti;</li>
-                            <li>opporsi al trattamento in qualsiasi momento ed anche nel caso di trattamento per finalità di marketing diretto; g) opporsi ad un processo decisionale automatizzato relativo alle persone siche, compresa la profilazione.</li>
+                            <li>opporsi al trattamento in qualsiasi momento ed anche nel caso di trattamento per finalità di marketing diretto; g) opporsi ad un processo decisionale automatizzato relativo alle persone fisiche, compresa la profilazione.</li>
                             <li>chiedere al titolare del trattamento l’accesso ai dati personali e la rettifica o la cancellazione degli stessi o la limitazione del trattamento che lo riguardano o di opporsi al loro trattamento, oltre al diritto alla portabilità dei dati;</li>
                             <li>revocare il consenso in qualsiasi momento senza pregiudicare la liceità del trattamento basata sul consenso prestato prima della revoca;</li>
                             <li>proporre reclamo a un’autorità di controllo.</li>

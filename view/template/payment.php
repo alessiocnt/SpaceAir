@@ -12,6 +12,7 @@
         <div class="row">
             <div class="top-line col-md-6 offset-md-3 mb-6">
                 <h2 class="text-center col-title font-weight-lighter mt-12">Indirizzo di consegna</h2>
+                <label for="Addr" class="sr-only">Seleziona indirizzo</label>
                 <select name="Addr" id="Addr" class="form-control" required>
                     <option value="">Seleziona...</option>
                     <?php foreach ($data["addresses"] as $addr) : ?>

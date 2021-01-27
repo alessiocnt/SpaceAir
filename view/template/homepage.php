@@ -10,7 +10,7 @@
         </a>
     </section>
 
-    <a name="overview"></a>
+    <a id="overview"></a>
     <?php foreach($data["planets"] as $planet): ?>
         <div class="row">
             <div class="my-3 col-10 offset-1 col-md-6 offset-md-3 top-line"></div>
@@ -38,34 +38,34 @@
                     <table id="table-<?php echo $planet->getName(); ?>" class="table-info-pl col-12 table table-light table-striped">
                         <thead class="col-btn-impo">
                             <tr>
-                                <th id="desc">Descrizione</th>
-                                <th id="value">Valore</th>
+                                <th id="desc<?php echo $planet->getName(); ?>">Descrizione</th>
+                                <th id="value<?php echo $planet->getName(); ?>">Valore</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td headers="desc">Temperatura</td>
-                                <td headers="value"><?php echo $planet->getTemperature(); ?>°C</td>
+                                <td headers="desc<?php echo $planet->getName(); ?>">Temperatura</td>
+                                <td headers="value<?php echo $planet->getName(); ?>"><?php echo $planet->getTemperature(); ?>°C</td>
                             </tr>
                             <tr>
-                                <td headers="desc">Distanza dal sole</td>
-                                <td headers="value"><?php echo $planet->getSunDistance(); ?>x10<sup>6</sup>Km</td>
+                                <td headers="desc<?php echo $planet->getName(); ?>">Distanza dal sole</td>
+                                <td headers="value<?php echo $planet->getName(); ?>"><?php echo $planet->getSunDistance(); ?>x10<sup>6</sup>Km</td>
                             </tr>
                             <tr>
-                                <td headers="desc">Massa</td>
-                                <td headers="value"><?php echo $planet->getMass(); ?>x10<sup>22</sup>Kg</td>
+                                <td headers="desc<?php echo $planet->getName(); ?>">Massa</td>
+                                <td headers="value<?php echo $planet->getName(); ?>"><?php echo $planet->getMass(); ?>x10<sup>22</sup>Kg</td>
                             </tr>
                             <tr>
-                                <td headers="desc">Superficie</td>
-                                <td headers="value"><?php echo $planet->getSurface(); ?>x10<sup>6</sup>Km<sup>2</sup></td>
+                                <td headers="desc<?php echo $planet->getName(); ?>">Superficie</td>
+                                <td headers="value<?php echo $planet->getName(); ?>"><?php echo $planet->getSurface(); ?>x10<sup>6</sup>Km<sup>2</sup></td>
                             </tr>
                             <tr>
-                                <td headers="desc">Composizione</td>
-                                <td headers="value"><?php echo $planet->getComposition(); ?></td>
+                                <td headers="desc<?php echo $planet->getName(); ?>">Composizione</td>
+                                <td headers="value<?php echo $planet->getName(); ?>"><?php echo $planet->getComposition(); ?></td>
                             </tr>
                             <tr>
-                                <td headers="desc">Giornata</td>
-                                <td headers="value"><?php echo $planet->getDayLength(); ?> ore</td>
+                                <td headers="desc<?php echo $planet->getName(); ?>">Giornata</td>
+                                <td headers="value<?php echo $planet->getName(); ?>"><?php echo $planet->getDayLength(); ?> ore</td>
                             </tr>
                         </tbody>
                     </table>

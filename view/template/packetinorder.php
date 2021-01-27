@@ -20,7 +20,7 @@
                 <?php foreach($data["packets"]->getPackets() as $packet): ?>
                     <li class="list-group-item rounded mb-3 col-back-white py-4">
                         <a href="./userpacketdetails.php?idpacket=<?php echo $packet->getPacket()->getCode();?>&idorder=<?php echo $data["codOrder"]; ?>">
-                            <img src="./res/upload/admin/<?php echo $packet->getPacket()->getDestinationPlanet()->getImgPlanet();?>" class="planet-img mw-25 float-left mr-4 p-2" alt=""/>
+                            <img src="./res/upload/admin/<?php echo $packet->getPacket()->getDestinationPlanet()->getImgPlanet();?>" class="planet-img mw-25 float-left mr-4 p-2" alt="Vai a <?php echo $packet->getPacket()->getDestinationPlanet()->getName() . " del " . $packet->getPacket()->getDepartureDateHour()->format("d/m/Y H:i");?>"/>
                             <div class="float-right">
                             <p class="col-dark text-lowercase font-weight-light my-0"><?php echo "€" . $packet->getPacket()->getPrice() . " ";?></p>
                                 <p class="col-dark list-impo-text text-lowercase font-weight-light my-0"><?php echo "x" . $packet->getQuantity() . " ";?></p>

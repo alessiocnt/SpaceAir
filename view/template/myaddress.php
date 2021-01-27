@@ -12,7 +12,7 @@
         <p class="col-error"></p>
             <?php foreach($data["addresses"] as $address): ?>
                 <article class="col-back-white rounded p-3 mb-3" id="<?php echo $address->getCodAddress();?>">
-                    <div class="row" id = "oo">
+                    <div class="row">
                         <div class="col-12">
                             <a href="addaddress.php?cod=<?php echo $address->getCodAddress();?>" title="Modifica interesse">
                                 <img class="float-right edit" src="./res/icons/edit-black-18dp.svg" alt="Modifica Interessi"/>
@@ -28,7 +28,7 @@
                                 <p class="m-0 text-dark font-weight-light"><?php echo $address->toSecondaryInfo()?></p>
                             </section>
                         </div>
-                        <div class="col-12 text-right" id = "oo1">
+                        <div class="col-12 text-right">
                             <img class="float-right delete" src="./res/icons/delete-black-18dp.svg" alt="Cancella Interesse"/>
                         </div>
                     </div>
