@@ -66,7 +66,7 @@
                     <label for="inputVisible">Visibile</label>
                     <input type="checkbox" name="inputVisible" id="inputVisible">
                 </div>
-                <div class="col-4 offset-4 col-md-2 offset-md-6">
+                <div class="col-4 offset-4 col-md-4 offset-md-4">
                     <input type="submit" class="form-control" value="Inserisci" />
                 </div>
             </div>

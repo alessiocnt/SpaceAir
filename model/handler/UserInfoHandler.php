@@ -65,7 +65,7 @@ class UserInfoHandler extends AbstractHandler {
 
     public function getAddresses(User $user) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        if($stmt = $db->prepare("SELECT * FROM ADDRESS WHERE IdUser = ?;")) {
+        if($stmt = $db->prepare("SELECT * FROM ADDRESS WHERE IdUser = ? AND Visible = 1;")) {
             $userId = $user->getId();
             $stmt->bind_param("i", $userId);
             $stmt->execute();
@@ -87,7 +87,7 @@ class UserInfoHandler extends AbstractHandler {
 
     public function addAddress(Address $address) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        if($stmt = $db->prepare("INSERT INTO ADDRESS (Via, Civico, Citta, Provincia, Cap, IdUser) VALUES(?,?,?,?,?,?)")) {
+        if($stmt = $db->prepare("INSERT INTO ADDRESS (Via, Civico, Citta, Provincia, Cap, IdUser, Visible) VALUES(?,?,?,?,?,?,1)")) {
             $via = $address->getVia();
             $civico = $address->getCivico();
             $citta = $address->getCitta();
@@ -125,13 +125,32 @@ class UserInfoHandler extends AbstractHandler {
         return false;
     }
 
-    public function deleteAddress(Address $address) {
+    private function isAddressUsed(Address $address) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        if($stmt = $db->prepare("DELETE FROM ADDRESS WHERE CodAddress = ?")) {
+        if($stmt = $db->prepare("SELECT COUNT(*) AS Conteggio FROM ORDERS WHERE DestAddressCode = ?")) {
             $addressId = $address->getCodAddress();
             if($stmt->bind_param("i", $addressId)) {
                 if($stmt->execute()) {
-                    return true;
+                    $result = $stmt->get_result();
+                    $result = $result->fetch_all(MYSQLI_ASSOC)[0];
+                    if($result["Conteggio"] == 0) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public function deleteAddress(Address $address) {
+        $db = $this->getModelHelper()->getDbManager()->getDb();
+        if(!$this->isAddressUsed($address)) {
+            if($stmt = $db->prepare("UPDATE ADDRESS SET Visible = 0 WHERE CodAddress = ?")) {
+                $addressId = $address->getCodAddress();
+                if($stmt->bind_param("i", $addressId)) {
+                    if($stmt->execute()) {
+                        return true;
+                    }
                 }
             }
         }
@@ -140,7 +159,7 @@ class UserInfoHandler extends AbstractHandler {
 
     public function getAddressInfo(Address $address) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        if($stmt = $db->prepare("SELECT * FROM ADDRESS WHERE CodAddress = ? LIMIT 1;")) {
+        if($stmt = $db->prepare("SELECT * FROM ADDRESS WHERE CodAddress = ? AND Visible = 1 LIMIT 1;")) {
             $addressId = $address->getCodAddress();
             $stmt->bind_param("i", $addressId);
             $stmt->execute();
@@ -157,7 +176,7 @@ class UserInfoHandler extends AbstractHandler {
     
     public function existsAddress($address, $userId) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT * FROM ADDRESS WHERE Via = ? AND Civico = ? AND Citta = ? AND Provincia = ? AND Cap = ? AND IdUser = ?");
+        $stmt = $db->prepare("SELECT * FROM ADDRESS WHERE Via = ? AND Civico = ? AND Citta = ? AND Provincia = ? AND Cap = ? AND IdUser = ? AND Visible = 1");
         $via = $address->getVia();
         $civico = $address->getCivico();
         $citta = $address->getCitta();

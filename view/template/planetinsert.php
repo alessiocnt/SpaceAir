@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-6">
                         <label for="img">Immagine</label>
-                        <input type="file" class="form-control rounded col-black-white p-0" name="img" id="img" />
+                        <input type="file" class="form-control rounded col-black-white p-0" name="img" id="img" required/>
                     </div>
                 </div>
                 <div class="row mb-3">

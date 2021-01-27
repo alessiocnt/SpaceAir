@@ -1,4 +1,8 @@
 create database spaceair;
+
+CREATE USER 'sc_space_user'@'localhost' IDENTIFIED BY 'HjdWASFE6cAwJ4nu';
+GRANT SELECT, INSERT, UPDATE ON `spaceair`.* TO 'sc_space_user'@'localhost';
+
 use spaceair;
 
 -- phpMyAdmin SQL Dump
@@ -65,7 +69,8 @@ CREATE TABLE `ADDRESS` (
   `Citta` varchar(20) NOT NULL,
   `Provincia` varchar(20) NOT NULL,
   `Cap` varchar(10) NOT NULL,
-  `IdUser` int(11) NOT NULL
+  `IdUser` int(11) NOT NULL,
+  `Visible` tinyint(1) DEFAULT 1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -352,7 +357,7 @@ CREATE TABLE `USERS` (
   `Borndate` date NOT NULL,
   `Phone` char(10) NOT NULL,
   `ProfileImg` varchar(100) NOT NULL,
-  `Mail` varchar(50) NOT NULL,
+  `Mail` varchar(50) NOT NULL UNIQUE,
   `Password` char(128) NOT NULL,
   `Salt` char(128) NOT NULL,
   `Type` tinyint(4) NOT NULL,
@@ -369,6 +374,16 @@ INSERT INTO `USERS` (`IdUser`, `Name`, `Surname`, `Borndate`, `Phone`, `ProfileI
 (2, 'Alessio', 'Conti', '1999-02-03', '', 'alessio.jpeg', 'alessio@spaceair.it', '9422b3f58eb8c52d51e34e61cc03dc014670c8a7b1a6f9cdc6e372790462e4a99ee620296abc60930f54493de76a86a7ddb9a049f9d98f18f2770fb7a7246375', '84e0c975b53c8ad994ccd11bf029ca4e144149d55b838e3de918e33b2723d6df2d803ce50346603e493216a33903c5374e90aab70937fea6329175f8e1b6e379', 2, NULL, 1),
 (3, 'Simone', 'Ceredi', '1999-01-12', '', 'simone.jpeg', 'simone@spaceair.it', '9294e06b19e062abecf9bec105d3d0789bf2a944dfd0ad6be601727bd6b0a5bc7d2fd27941613fb45ac085fa3b39e40c2fd898c24749f739e34bc62f996f8053', '9da661118944317f550b2b6e3fcdd4802069aab3bd612b7febfe8412ef54e3318dc9b1c7c869705e2bbbb4eaae75655b0d7089b28d2df8d9ccdcf0568d1a5c80', 2, NULL, 1),
 (4, 'Andrea', 'Giulianelli', '1999-01-01', '', 'andrea.jpeg', 'andrea@spaceair.it', '423c8eda289a47527a306b28b76e44112f3f77c3b2ef874fec5057a9fb59a43d4544379a648b7510a4239b2393d71fbd6bdc3666b16dcf676100103983d9dcc7', 'c71c3948bdefd1a7d091c129160a123e57ce965ee4291693770990eb86bd3fdbe02843a9046adef38094faa7d09a015312f680e85b4c7f8982fc3a83394fd3c9', 2, NULL, 1);
+
+
+
+CREATE TABLE `spaceair`.`LOGIN_ATTEMPTS` (
+   `IdUser` INT(11) NOT NULL,
+   `Time` VARCHAR(30) NOT NULL,
+   foreign key(IdUser) references USERS(IdUser)
+         on delete restrict
+         on update cascade
+);
 
 -- --------------------------------------------------------
 

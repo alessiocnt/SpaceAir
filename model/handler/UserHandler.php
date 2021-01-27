@@ -81,6 +81,8 @@ class UserHandler extends AbstractHandler {
            } else {
               return false;
            }
+        } else {
+           die("ERROR!");
         }
     }
 
@@ -177,7 +179,7 @@ class UserHandler extends AbstractHandler {
          $address = $user->getAddresses()[0];
 
          //Add the address
-         if ($insert_stmt = $db->prepare("INSERT INTO ADDRESS (Via, Civico, Citta, Provincia, Cap, IdUser) VALUES(?,?,?,?,?,?)")) {    
+         if ($insert_stmt = $db->prepare("INSERT INTO ADDRESS (Via, Civico, Citta, Provincia, Cap, IdUser, Visible) VALUES(?,?,?,?,?,?,1)")) {    
                $via = $address->getVia();
                $civico = $address->getCivico();
                $citta = $address->getCitta();

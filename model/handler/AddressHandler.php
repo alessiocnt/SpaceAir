@@ -10,7 +10,7 @@ class AddressHandler extends AbstractHandler {
 
     public function getAddress($idUser) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        $stmt = $db->prepare("SELECT * FROM ADDRESS WHERE IdUser = ?");
+        $stmt = $db->prepare("SELECT * FROM ADDRESS WHERE IdUser = ? AND Visible = 1");
         $stmt->bind_param('i', $idUser);
         $stmt->execute();
         $result = $stmt->get_result();

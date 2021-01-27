@@ -5,8 +5,8 @@ class ModelImpl implements Model, ModelHelper {
     private DbManager $dbManager;
 
     public function __construct(){
-        //$this->dbManager = new DbManagerImpl("localhost", "sec_space_user", "HjdWASFE6cAwJ4nu", "spaceair", 3306);       
-        $this->dbManager = new DbManagerImpl("localhost", "root", "", "spaceair", 3306);       
+        $this->dbManager = new DbManagerImpl("localhost", "sc_space_user", "HjdWASFE6cAwJ4nu", "spaceair", 3306);       
+        //$this->dbManager = new DbManagerImpl("localhost", "root", "", "spaceair", 3306);       
     }
     
     /**
