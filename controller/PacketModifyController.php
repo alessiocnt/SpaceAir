@@ -10,7 +10,9 @@ class PacketModifyController extends AdminLoggedController {
         $packetHandler = $this->getModel()->getPacketHandler();
         $planetHandler = $this->getModel()->getPlanetHandler();
         if(isset($_GET["Packet"])) {
-            if($packet = $packetHandler->getAllPacketsById($_GET["Packet"])) {
+            $packet = $packetHandler->getAllPacketsById($_GET["Packet"]);
+            if($packet) {
+                $packet->setAvailableSeats($packetHandler->getAvailableSeats($packet));
                 $packet->setDestinationPlanet($planetHandler->searchPlanetByCod($packet->getDestinationPlanetId())[0]);
                 $data["data"]["packet"] = $packet;
                 $data["data"]["planets"] = $planetHandler->getPlanets();

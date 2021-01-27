@@ -39,7 +39,7 @@
             <div class="row mb-3">
                 <div class="col-6">
                     <label for="inputCapacity">Capienza</label>
-                    <input type="number" min="0" max="10000" step="1" class="form-control" name="inputCapacity" id="inputCapacity" value="<?= $data["packet"]->getMaxSeats();?>" required />
+                    <input type="number" min="<?= $data["packet"]->getMaxSeats() - $data["packet"]->getAvailableSeats(); ?>" step="1" class="form-control" name="inputCapacity" id="inputCapacity" value="<?= $data["packet"]->getMaxSeats();?>" required />
                 </div>
                 <div class="col-6">
                     <label for="inputPrice">Prezzo</label>
