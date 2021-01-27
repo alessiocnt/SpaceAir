@@ -1,5 +1,6 @@
 create database spaceair;
 
+DROP USER IF EXISTS 'sc_space_user'@'localhost' ;
 CREATE USER 'sc_space_user'@'localhost' IDENTIFIED BY 'HjdWASFE6cAwJ4nu';
 GRANT SELECT, INSERT, UPDATE ON `spaceair`.* TO 'sc_space_user'@'localhost';
 
