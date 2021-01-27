@@ -53,8 +53,8 @@ class PlanetHandler extends AbstractHandler {
 
     public function updatePlanet($planet, $oldPlanet) {
         $db = $this->getModelHelper()->getDbManager()->getDb();
-        if($planet->getImgPlanet() != "") {
-            list($uploadResult, $imageName) = Utils::uploadImage("./res/upload/admin/", $planet->getImgPlanet());
+        if($planet->getImgPlanet()["name"] != "") {        
+            list($uploadResult, $imageName) = Utils::uploadImage("../../res/upload/admin/", $planet->getImgPlanet());
             if($uploadResult != Utils::$IMGUPLOADOK) {
                return $uploadResult;
             }
